@@ -1,12 +1,17 @@
-import Alert from "./components/Alert";
+import RootLayout from "./layout";
+import HomePage from "./page";
 
 function App() {
   return (
-    <div>
-      <Alert>
-        Hello <span>World</span>
-      </Alert>
-    </div>
+    <>
+      <HomePage />
+      <RootLayout>
+        <div>
+          {/* Alles wat in de layout moet verschijnen */}
+          <h1>Welkom bij JuiceBar!</h1>
+        </div>
+      </RootLayout>
+    </>
   );
 }
 
