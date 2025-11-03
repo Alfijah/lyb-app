@@ -1,18 +1,21 @@
 import type React from "react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer"; //function is nog leeg
-// import "./globals.css"; //moet dit nog toegevoegd worden???
+import HomePage from "./page";
 
-function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html lang="nl">
-      <body className="flex flex-col min-h-screen">
-        <Navbar />
-        <main className="flex-grow">{children}</main>
-        {/* <Footer/> */}
-      </body>
-    </html>
+    <div className="flex flex-col min-h-screen ">
+      <Navbar />
+      <main className="flex-grow">
+        {children}
+        <HomePage />
+      </main>
+      {/* <Footer/> */}
+    </div>
   );
 }
-
-export default RootLayout;
