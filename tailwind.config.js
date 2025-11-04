@@ -4,6 +4,7 @@ export default {
   theme: {
     extend: {
       colors: {
+        bioGreen: "#80cc28",
         tealBrand: "#02888d",
         darkYellow: "#ffc331",
         tealHover: "#027579",

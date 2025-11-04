@@ -8,8 +8,8 @@ function HomePage() {
   return (
     <>
       <HeroSection />
-      {/*<FeaturedSmoothies />
-        <BenefitsSection />
+      <FeaturedSmoothies />
+      {/*<BenefitsSection />
         <ReviewsSection />
         <ContactSection /> */}
     </>

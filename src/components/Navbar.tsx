@@ -35,7 +35,7 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/50 backdrop-blur-sm shadow-md transition-colors duration-300">
-      <div className="flex justify-between items-center px-6 md:px-16 py-4">
+      <div className="flex justify-between items-center px-6 md:px-16 py-3">
         {/* Logo + Slogan */}
         <div className="flex items-center gap-3">
           {/* Logo afbeelding */}
@@ -79,7 +79,7 @@ export default function Navbar() {
                 onClick={() => setActiveSection(id)}
                 className={`pb-1 transition-colors hover:text-tealHover ${
                   activeSection === id
-                    ? "border-b-2 border-green-600 text-tealBrand"
+                    ? "border-b-2 border-green-600 text-bioGreen"
                     : ""
                 }`}
               >
@@ -90,7 +90,7 @@ export default function Navbar() {
           <li>
             <a
               href="#contact"
-              className="bg-tealBrand text-white px-4 py-2 rounded-lg hover:bg-tealHover transition-colors"
+              className="bg-bioGreen text-white px-4 py-2 rounded-lg hover:bg-tealHover transition-colors"
             >
               Bestellen
             </a>
@@ -149,7 +149,7 @@ export default function Navbar() {
               <a
                 href={`#${id}`}
                 onClick={() => setMenuOpen(false)}
-                className={`block pb-1 transition-colors hover:text-tealBrand ${
+                className={`block pb-1 transition-colors hover:text-bioGreen ${
                   activeSection === id
                     ? "border-b-2 border-green-600 text-tealHover"
                     : ""
@@ -163,7 +163,7 @@ export default function Navbar() {
             <a
               href="#contact"
               onClick={() => setMenuOpen(false)}
-              className="bg-tealBrand text-white px-4 py-2 rounded-lg hover:bg-tealHover transition-colors"
+              className="bg-bioGreen text-white px-4 py-2 rounded-lg hover:bg-tealHover transition-colors"
             >
               Bestellen
             </a>
