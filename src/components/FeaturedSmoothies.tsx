@@ -2,10 +2,10 @@
 
 import { motion } from "framer-motion";
 
-import podosiri from "../assets/podosiri.png";
-import chiaZuurzak from "../assets/chiaZuurzak2.png";
-import cleanseHeal from "../assets/cleansHeal.png";
-import gember from "../assets/gember.png";
+import podosiri from "../assets/featuredSmoothies/podosiri.png";
+import chiaZuurzak from "../assets/featuredSmoothies/chiaZuurzak2.png";
+import cleanseHeal from "../assets/featuredSmoothies/cleansHeal.png";
+import gember from "../assets/featuredSmoothies/gember.png";
 
 export default function FeaturedSmoothies() {
   const smoothies = [
@@ -22,14 +22,14 @@ export default function FeaturedSmoothies() {
       name: "Chia-Zuurzak",
       description:
         "Ons Zuurzak-sap, verrijkt met chiazaadjes, combineert een verfrissende, tropische smaak met natuurlijke voedingskracht.",
-      tags: ["Immuun", "Antioxidant", "Energie"],
+      tags: ["Weerstand", "Antioxidant", "Energie"],
       image: chiaZuurzak,
     },
     {
       id: 3,
       name: "Cleanse & Heal",
       description:
-        "Onze 3-daagse set ondersteunt je lichaam bij zuivering en herstel, met een zorgvuldig samengestelde combinatie van gember, aloe en kurkuma",
+        "Onze 3-daagse combo ondersteunt je lichaam bij zuivering en herstel, met een zorgvuldig samengestelde combinatie van gember, aloë en kurkuma.",
       tags: ["Detox", "Herstel", "Energie", "Superfood"],
       image: cleanseHeal,
     },
@@ -47,11 +47,11 @@ export default function FeaturedSmoothies() {
     <section id="menu" className="bg-white px-6 md:px-20 py-20 text-center">
       {/* Titel */}
       <div className="mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold text-tealBrand mb-4">
+        <h2 className="mt-4 md:mt-5 text-xl md:text-2xl text-tealBrand mb-4">
           Onze Signature Blends
         </h2>
         <p className="text-gray-600 text-sm max-w-2xl mx-auto">
-          Ontdek je favoriet in ons menu of probeer ze allemaal!
+          Onze best verkochte smoothies en combos!
         </p>
       </div>
 
@@ -77,7 +77,7 @@ export default function FeaturedSmoothies() {
 
             {/* Tekst onder afbeelding */}
             <div className="p-4 md:p-6 space-y-2 text-left">
-              <h3 className="text-lg md:text-xl text-gray-600">
+              <h3 className="text-md md:text-md text-gray-600">
                 {smoothie.name}
               </h3>
               <p className="text-gray-700 text-sm md:text-sm">

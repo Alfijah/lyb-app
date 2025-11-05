@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import heroPic from "../assets/heropic2.png"; // pas aan naar jouw bestand
+import heroPic from "../assets/heroSection/heropic2.png"; // pas aan naar jouw bestand
 import fruitPng from "../assets/lemon_no_bg.png";
 
 export default function HeroSection() {
@@ -19,19 +19,20 @@ export default function HeroSection() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
         >
-          <h3 className="md:mt-14 text-green-600 font-semibold text-md tracking-wide uppercase">
-            100% Natuurlijk
+          <h3 className="md:mt-14 text-green-600 font-semibold text-md tracking-wide">
+            🌱 100% Natuurlijk | 0% Conserveermiddelen
           </h3>
 
-          <h1 className="text-3xl md:text-4xl font-bold text-tealBrand leading-snug">
+          <h1 className="text-xl md:text-2xl text-tealBrand leading-snug">
+            {/* font-bold is hier verwijderd */}
             Verzorg je lichaam, <br />
             <span className="text-orange-400">één slok tegelijk</span>
           </h1>
 
           <p className="text-gray-700 text-sm sm:text-sm md:text-md">
             Ontdek onze collectie verse, ambachtelijke sappen en smoothies,
-            bereid met de beste biologische ingrediënten. Boordevol vitaminen,
-            voedingsstoffen en pure goedheid voor een gezonde levensstijl.
+            bereid met pure ingrediënten. Boordevol vitaminen, voedingsstoffen
+            en pure goedheid voor een gezonde levensstijl.
           </p>
 
           {/* CTA Knop */}

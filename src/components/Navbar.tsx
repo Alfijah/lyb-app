@@ -34,7 +34,7 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/50 backdrop-blur-sm shadow-md transition-colors duration-300">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/50 backdrop-blur-md shadow-md transition-colors duration-300">
       <div className="flex justify-between items-center px-6 md:px-16 py-3">
         {/* Logo + Slogan */}
         <div className="flex items-center gap-3">
