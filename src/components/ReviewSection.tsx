@@ -72,14 +72,14 @@ export default function ReviewSection() {
         {/* Pijlen */}
         <button
           onClick={handlePrev}
-          className="absolute left-0 top-1/2 -translate-y-1/2 bg-green-600/30 text-white w-10 h-10 rounded-full flex items-center justify-center z-10 hover:bg-green-700/60"
+          className="absolute left-5 md:left-20 top-1/2 -translate-y-1/2 bg-green-600/30 text-white w-10 h-10 rounded-full flex items-center justify-center z-10 hover:bg-green-700/60"
         >
           &lt;
         </button>
 
         <button
           onClick={handleNext}
-          className="absolute right-0 top-1/2 -translate-y-1/2 bg-green-600/30 text-white w-10 h-10 rounded-full flex items-center justify-center z-10 hover:bg-green-700/60"
+          className="absolute right-5 md:right-20 top-1/2 -translate-y-1/2 bg-green-600/30 text-white w-10 h-10 rounded-full flex items-center justify-center z-10 hover:bg-green-700/60"
         >
           &gt;
         </button>
@@ -111,7 +111,7 @@ export default function ReviewSection() {
       </div>
 
       {/* Pagination */}
-      <div className="flex justify-center mt-5 space-x-2">
+      <div className="flex justify-center mt-2 space-x-2">
         {reviews.map((_, i) => (
           <button
             key={i}
