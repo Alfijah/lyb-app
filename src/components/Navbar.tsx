@@ -198,12 +198,16 @@ export default function Navbar() {
 
           {/* Bestellen (link to contact page) */}
           <li>
-            <Link
-              to="/contact"
+            <a
+              onClick={() => setMenuOpen(false)}
               className="bg-bioGreen text-white px-4 py-2 rounded-lg hover:bg-tealHover transition-colors"
+              href="https://wa.me/31648610436"
+              target="_blank"
+              rel="noopener
+              noreferrer"
             >
               Bestellen
-            </Link>
+            </a>
           </li>
         </ul>
 
@@ -253,7 +257,7 @@ export default function Navbar() {
           menuOpen ? "max-h-96" : "max-h-0"
         }`}
       >
-        <ul className="flex flex-col items-center gap-4 py-4 text-gray-700 font-medium">
+        <ul className="flex flex-col items-center gap-4 py-4 text-gray-700 text-xs md:text-sm">
           {/* Home */}
           <li>
             <button
@@ -315,13 +319,16 @@ export default function Navbar() {
 
           {/* Bestellen */}
           <li>
-            <Link
-              to="/contact"
+            <a
               onClick={() => setMenuOpen(false)}
               className="bg-bioGreen text-white px-4 py-2 rounded-lg hover:bg-tealHover transition-colors"
+              href="https://wa.me/31648610436"
+              target="_blank"
+              rel="noopener
+              noreferrer"
             >
               Bestellen
-            </Link>
+            </a>
           </li>
         </ul>
       </div>

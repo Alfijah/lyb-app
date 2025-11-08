@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import heroPic from "../assets/heroSection/heropic2.png"; // pas aan naar jouw bestand
 import fruitPng from "../assets/lemon_no_bg.png";
+import { Link } from "react-router-dom";
 
 export default function HeroSection() {
   return (
@@ -19,17 +20,17 @@ export default function HeroSection() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
         >
-          <h3 className="md:mt-14 text-green-600 font-semibold text-md tracking-wide">
+          <h3 className="md:mt-14 text-green-600 font-semibold text-xs md:text-sm tracking-wide">
             🌱 100% Natuurlijk | 0% Conserveermiddelen
           </h3>
 
-          <h1 className="text-xl md:text-2xl text-tealBrand leading-snug">
+          <h1 className="text-md text-tealBrand leading-snug">
             {/* font-bold is hier verwijderd */}
             Verzorg je lichaam, <br />
             <span className="text-orange-400">één slok tegelijk</span>
           </h1>
 
-          <p className="text-gray-700 text-sm sm:text-sm md:text-md">
+          <p className="text-gray-700 text-xs md:text-sm">
             Ontdek onze collectie verse, ambachtelijke sappen en smoothies,
             bereid met pure ingrediënten. Boordevol vitaminen, voedingsstoffen
             en pure goedheid voor een gezonde levensstijl.
@@ -40,29 +41,30 @@ export default function HeroSection() {
             href="#menu"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.97 }}
-            className="mt-4 inline-block bg-bioGreen text-white px-8 py-3 rounded-lg hover:bg-green-700 transition-colors duration-300 text-sm font-medium"
+            className="mt-4 inline-block bg-bioGreen text-white px-8 py-3 rounded-lg hover:bg-green-700 transition-colors duration-300 text-xs"
           >
-            Ontdek ons menu
+            <Link to="/menu" className="hover:text-white transition">
+              Ontdek ons menu
+            </Link>
           </motion.a>
 
           {/* Scheidingslijn + cijfers */}
           <motion.div
-            className="mt-4 md:mt-6 border-t border-green-200 pt-4 md:pt-10 flex flex-col md:flex-row justify-center md:justify-start items-center gap-3 md:gap-6 text-gray-700 font-medium text-sm"
+            className="mt-4 md:mt-6 border-t border-green-200 pt-4 md:pt-10 flex flex-col md:flex-row justify-center md:justify-start items-center gap-3 md:gap-6 text-gray-700 font-medium text-xs md:text-sm"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.5 }}
           >
             <span>
-              <strong className="text-green-700 text-sm">500+</strong> Tevreden
-              klanten
+              <strong className="text-green-700">500+</strong> Tevreden klanten
             </span>
             <span className="hidden md:block text-green-300"></span>
             <span>
-              <strong className="text-green-700 text-sm">100%</strong> Organisch
+              <strong className="text-green-700">100%</strong> Organisch
             </span>
             <span className="hidden md:block text-green-300"></span>
             <span>
-              <strong className="text-green-700 text-sm">Dagelijks</strong> vers
+              <strong className="text-green-700">Dagelijks</strong> vers
             </span>
           </motion.div>
         </motion.div>

@@ -59,11 +59,9 @@ export default function ReviewSection() {
         transition={{ duration: 0.6 }}
         className="text-center mb-10"
       >
-        <h2 className="text-xl md:text-2xl text-tealBrand mb-4">
-          Wat onze klanten zeggen
-        </h2>
-        <p className="text-gray-600 text-sm px-[15%] md:px-0">
-          Echte meningen van mensen die genieten van onze juices en smoothies.
+        <h2 className="text-md text-tealBrand mb-4">Wat onze klanten zeggen</h2>
+        <p className="text-gray-600 text-xs md:text-sm px-[15%] md:px-0">
+          Ervaringen van onze klanten die genieten van onze juices en smoothies.
         </p>
       </motion.div>
 

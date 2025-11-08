@@ -55,7 +55,7 @@ export default function BenefitsSection() {
     >
       {/* Titel */}
       <div className="mb-12">
-        <h2 className="text-xl md:text-2xl text-tealBrand mb-4 px-[10%] md:px-0">
+        <h2 className="text-md text-tealBrand mb-4 px-[10%] md:px-0">
           Wat is bijzonder aan onze juices en smoothies?
         </h2>
       </div>
@@ -72,10 +72,10 @@ export default function BenefitsSection() {
             transition={{ duration: 0.6, delay: index * 0.2 }}
           >
             {benefit.icon}
-            <h3 className="text-md md:text-md text-gray-600 mb-2">
+            <h3 className="text-sm md:text-md text-gray-600 mb-2">
               {benefit.title}
             </h3>
-            <p className="text-gray-600 text-sm md:text-sm leading-relaxed">
+            <p className="text-gray-600 text-xs md:text-sm leading-relaxed">
               {benefit.description}
             </p>
           </motion.div>

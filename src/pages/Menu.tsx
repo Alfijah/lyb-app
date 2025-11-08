@@ -5,22 +5,23 @@ export default function MenuPage() {
   return (
     <section
       id="menu"
-      className="bg-gradient-to-b from-green-100 via-orange-400 to-white min-h-screen bg-white px-6 md:px-20 py-16 text-center"
+      className="text-xs md:text-sm pt-28 md:pt-36 bg-gradient-to-b from-green-200 via-orange-300 to-orange-500/80 min-h-screen bg-white px-6 md:px-[30%]"
     >
-      <p className="text-gray-600 mb-3">
-        Ontdek onze heerlijke selectie van biologische juices en smoothies.
-      </p>
-
-      <div className="space-y-1">
+      <p className="text-gray-600 mb-3 text-center md:text-left"></p>
+      Uit ons menu kunt u kiezen voor een losse juice of smoothie, of een
+      combinatie hiervan. <br></br>
+      <br></br>Wilt u een plan dat perfect aansluit bij uw levensstijl? Neem
+      gerust contact met ons op via WhatsApp.
+      <div className="space-y-1 pt-5 md:pt-10">
         <img
           src={menu1}
           alt="Menu pagina 1"
-          className="w-full md:w-[80%] max-w-2xl mx-auto shadow-md"
+          className="w-full md:w-[100%] max-w-2xl mx-auto shadow-md"
         />
         <img
           src={menu2}
           alt="Menu pagina 2"
-          className="w-full md:w-[80%] max-w-2xl mx-auto shadow-md"
+          className="w-full md:w-[100%] max-w-2xl mx-auto shadow-md pb-20"
         />
       </div>
     </section>

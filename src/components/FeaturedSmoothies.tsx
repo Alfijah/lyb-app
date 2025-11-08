@@ -47,10 +47,10 @@ export default function FeaturedSmoothies() {
     <section id="menu" className="bg-white px-6 md:px-20 py-20 text-center">
       {/* Titel */}
       <div className="mb-12">
-        <h2 className="mt-4 md:mt-5 text-xl md:text-2xl text-tealBrand mb-4">
+        <h2 className="mt-4 md:mt-5 text-md text-tealBrand mb-4">
           Onze Signature Blends
         </h2>
-        <p className="text-gray-600 text-sm max-w-2xl mx-auto">
+        <p className="text-gray-600 text-xs md:text-sm max-w-2xl mx-auto">
           Onze best verkochte smoothies en combos!
         </p>
       </div>
@@ -77,10 +77,10 @@ export default function FeaturedSmoothies() {
 
             {/* Tekst onder afbeelding */}
             <div className="p-4 md:p-6 space-y-2 text-left">
-              <h3 className="text-md md:text-md text-gray-600">
+              <h3 className="text-sm md:text-md text-gray-600">
                 {smoothie.name}
               </h3>
-              <p className="text-gray-700 text-sm md:text-sm">
+              <p className="text-gray-700 text-xs md:text-sm">
                 {smoothie.description}
               </p>
 
@@ -89,7 +89,7 @@ export default function FeaturedSmoothies() {
                 {smoothie.tags.map((tag, i) => (
                   <span
                     key={i}
-                    className="px-3 py-1 text-green-600 text-xs rounded-full bg-green-100 font-medium"
+                    className="px-3 py-1 text-green-600 text-xs md:text-xs rounded-full bg-green-100"
                   >
                     {tag}
                   </span>

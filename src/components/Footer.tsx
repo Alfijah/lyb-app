@@ -3,6 +3,8 @@
 import logo from "../assets/logo2.png";
 import fbIcon from "../assets/contactSection/fbIcon.png";
 import iGIcon from "../assets/contactSection/igIcon.png";
+import { Link } from "react-router-dom";
+
 // import inIcon from "../assets/contactSection/inIcon.png";
 
 export default function FooterSection() {
@@ -33,50 +35,50 @@ export default function FooterSection() {
             </div>
 
             <p className="text-gray-200 max-w-sm text-sm">
-              Verse, gezonde juices en smoothies, dagelijks met liefde bereid
-              met de beste biologische ingrediënten.
+              {/* Verse, gezonde juices en smoothies, dagelijks met liefde bereid
+              met de beste biologische ingrediënten. */}
             </p>
 
-            <p className="text-sm text-gray-200">
+            <p className="text-xs md:text-sm text-gray-200">
               ⚠️ Bestellen is momenteel alleen mogelijk via WhatsApp.
             </p>
           </div>
 
           {/* --- MIDDENKOLOM: Quick Links --- */}
           <div className="space-y-4 flex flex-col items-center md:items-center md:text-start">
-            <h3 className="text-md underline">Quick Links</h3>
-            <ul className="space-y-2 text-gray-200 text-sm">
+            <h3 className="text-sm underline">Quick Links</h3>
+            <ul className="space-y-1 text-gray-200 text-xs md:text-sm">
               <li>
-                <a href="#menu" className="hover:text-white transition">
-                  Menu
-                </a>
+                <Link to="/" className="hover:text-white transition">
+                  Home
+                </Link>
               </li>
               <li>
-                <a href="#about" className="hover:text-white transition">
+                <Link to="/menu" className="hover:text-white transition">
+                  Menu
+                </Link>
+              </li>
+              <li>
+                <Link to="/about" className="hover:text-white transition">
                   Over ons
-                </a>
+                </Link>
               </li>
               <li>
                 <a href="#faq" className="hover:text-white transition">
                   FAQ
                 </a>
               </li>
-              <li>
+              {/* <li>
                 <a href="#delivery" className="hover:text-white transition">
                   Bezorging
                 </a>
-              </li>
-              <li>
-                <a href="#contact" className="hover:text-white transition">
-                  Contact
-                </a>
-              </li>
+              </li> */}
             </ul>
           </div>
 
           {/* --- RECHTERKOLOM: Social media icons --- */}
           <div className="flex flex-col items-center md:items-center md:text-start space-y-4">
-            <h3 className="text-md underline">Volg ons</h3>
+            <h3 className="text-sm underline">Volg ons</h3>
             <div className="flex space-x-4">
               <a
                 href="https://www.facebook.com/lybjuicesandsmoothies/"
@@ -105,7 +107,7 @@ export default function FooterSection() {
         </div>
 
         {/* Onderlijn */}
-        <div className="border-t border-white/30 pt-4 text-center text-sm text-gray-300 mt-8">
+        <div className="border-t border-white/30 pt-4 text-center text-xs md:text-sm text-gray-300 mt-8">
           <p>
             © {new Date().getFullYear()} LYB Juices & Smoothies. Alle rechten
             voorbehouden. Website gebouwd met 💚 door{" "}
