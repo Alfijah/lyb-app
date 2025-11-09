@@ -201,7 +201,7 @@ export default function Navbar() {
             <a
               onClick={() => setMenuOpen(false)}
               className="bg-bioGreen text-white px-4 py-2 rounded-lg hover:bg-tealHover transition-colors"
-              href="https://wa.me/31648610436"
+              href="https://wa.me/5978715108"
               target="_blank"
               rel="noopener
               noreferrer"
