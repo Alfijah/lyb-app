@@ -13,13 +13,13 @@ export default function App() {
       <ScrollToTop />
       <Navbar />
 
-      <main className="flex-grow">
-        <Routes>
-          <Route path="/home" element={<HomePage />} />
-          <Route path="/menu" element={<Menu />} />
-          <Route path="/about" element={<About />} />
-        </Routes>
-      </main>
+      {/* <main className="flex-grow"> */}
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/menu" element={<Menu />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+      {/* </main> */}
 
       <WhatsApp />
       <Footer />
