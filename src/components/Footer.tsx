@@ -30,7 +30,9 @@ export default function FooterSection() {
               <img src={logo} alt="LYB Logo" className="h-12 w-auto" />
               <div className="leading-tight">
                 <p className="text-lg">LOVE YOUR BODY</p>
-                <p className="text-sm font-[Atma]">juices & smoothies</p>
+                <p className="text-sm font-[Atma] text-center">
+                  juices & smoothies
+                </p>
               </div>
             </div>
 
@@ -46,7 +48,7 @@ export default function FooterSection() {
 
           {/* --- MIDDENKOLOM: Quick Links --- */}
           <div className="space-y-4 flex flex-col items-center md:items-center md:text-start">
-            <h3 className="text-sm underline">Quick Links</h3>
+            <h3 className="text-sm font-medium">Quick Links</h3>
             <ul className="space-y-1 text-gray-200 text-xs md:text-sm">
               <li>
                 <Link to="/" className="hover:text-white transition">
@@ -78,7 +80,7 @@ export default function FooterSection() {
 
           {/* --- RECHTERKOLOM: Social media icons --- */}
           <div className="flex flex-col items-center md:items-center md:text-start space-y-4">
-            <h3 className="text-sm underline">Volg ons</h3>
+            <h3 className="text-sm font-medium">Volg ons</h3>
             <div className="flex space-x-4">
               <a
                 href="https://www.facebook.com/lybjuicesandsmoothies/"
