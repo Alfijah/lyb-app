@@ -3,7 +3,7 @@ import FeaturedSmoothies from "./components/FeaturedSmoothies";
 import BenefitsSection from "./components/BenefitsSection";
 import ReviewsSection from "./components/ReviewSection";
 
-function HomePage() {
+export default function HomePage() {
   return (
     <>
       <HeroSection />
@@ -13,5 +13,3 @@ function HomePage() {
     </>
   );
 }
-
-export default HomePage;

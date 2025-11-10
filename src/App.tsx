@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
 import Navbar from "./components/Navbar";
 import HomePage from "./page";
@@ -13,13 +13,13 @@ export default function App() {
       <ScrollToTop />
       <Navbar />
 
-      {/* <main className="flex-grow"> */}
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/menu" element={<Menu />} />
-        <Route path="/about" element={<About />} />
-      </Routes>
-      {/* </main> */}
+      <main className="flex-grow">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/menu" element={<Menu />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </main>
 
       <WhatsApp />
       <Footer />
