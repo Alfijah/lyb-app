@@ -9,7 +9,7 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="relative w-full lg:min-h-[144vh] h-full bg-gradient-to-b from-green-50 via-green-100 to-white flex flex-col justify-normal lg:justify-center overflow-hidden">
+      className="relative w-full lg:min-h-[94vh] xl:min-h-[134vh] bg-gradient-to-b from-green-50 via-green-100 to-white flex flex-col justify-normal lg:justify-center overflow-hidden">
       <div className="relative lg:absolute w-full inset-y-28 lg:inset-0 pr-24 lg:pr-0">
         <img
           src={hero}
@@ -17,8 +17,8 @@ export default function HeroSection() {
           className="w-full h-auto object-cover lg:object-center scale-150 md:scale-125 lg:scale-100" />
       </div>
 
-      <div className="relative z-10 w-full max-w-screen-2xl mx-auto px-8 lg:px-12 pt-44 sm:pt-56 lg:pt-0 lg:pb-52 lg:-mt-96 xl:-mt-52">
-        <div className="w-full lg:w-[40%] xl:w-[50%] flex flex-col items-center lg:items-start text-center sm:pr-8 md:pr-0 lg:pr-20">
+      <div className="relative z-10 w-full max-w-screen-2xl mx-auto px-8 lg:px-12 pt-44 sm:pt-56 lg:pt-10 xl:pt-0 lg:pb-52 lg:mt-16 ">
+        <div className="w-full lg:w-[40%] xl:w-[50%] flex flex-col items-center lg:items-start text-center sm:pr-8 md:pr-0 lg:pr-0">
           <h1 className="lg:text-left">Blended for your body</h1>
           <p className="body-text lg:text-left mt-4 lg:pr-20 xl:pr-0">Dagelijks vers geblend met fruit, kruiden & superfoods</p>
           <motion.a

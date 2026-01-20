@@ -1,17 +1,15 @@
 "use client";
 
 import { motion } from "framer-motion";
-
-import podosiri from "../assets/featuredSmoothies/podosiri.png";
-import chiaZuurzak from "../assets/featuredSmoothies/chiaZuurzak2.png";
-import cleanseHeal from "../assets/featuredSmoothies/cleansHeal.png";
-import gember from "../assets/featuredSmoothies/gember.png";
+import podosiri from "../assets/featuredSmoothies/acai.png";
+import chiaZuurzak from "../assets/featuredSmoothies/soursoop.png";
+import cleanseHeal from "../assets/featuredSmoothies/greenReset.png";
 
 export default function FeaturedSmoothies() {
   const smoothies = [
     {
       id: 1,
-      name: "Podosiri",
+      name: "Açaí Royale",
       description:
         "Onze suikervrije podosiri-smoothie wordt gemaakt van verse podosiri, bacove en kers, afkomstig van lokale leveranciers.",
       tags: ["Weerstand", "Energie", "Spijsvertering", "Antioxidanten"],
@@ -19,7 +17,7 @@ export default function FeaturedSmoothies() {
     },
     {
       id: 2,
-      name: "Chia-Zuurzak",
+      name: "Soursop Breeze",
       description:
         "Ons Zuurzak-sap, verrijkt met chiazaadjes, combineert een verfrissende, tropische smaak met natuurlijke voedingskracht.",
       tags: ["Weerstand", "Antioxidant", "Energie"],
@@ -27,69 +25,64 @@ export default function FeaturedSmoothies() {
     },
     {
       id: 3,
-      name: "Cleanse & Heal",
+      name: "Green Reset",
       description:
-        "Onze 3-daagse combo ondersteunt je lichaam bij zuivering en herstel, met een zorgvuldig samengestelde combinatie van gember, aloë en kurkuma.",
-      tags: ["Detox", "Herstel", "Energie", "Superfood"],
+        "Green Reset combineert sopropo, zuurzak en moringa tot een krachtige groene blend die je lichaam ondersteunt bij natuurlijke reiniging en herstel.",
+      tags: ["Reiniging", "Weerstand", "Energie", "Balans"],
       image: cleanseHeal,
-    },
-    {
-      id: 4,
-      name: "Gember shots",
-      description:
-        "Onze gembershots combineren gember, kurkuma en limoen voor een krachtige, natuurlijke ondersteuning van je lichaam.",
-      tags: ["Ontstekingsremmend", "Detox", "Weerstand", "Energie"],
-      image: gember,
     },
   ];
 
   return (
-    <section id="menu" className="bg-white px-6 md:px-20 py-20 text-center">
+    <section id="menu" className="bg-white px-8 md:px-12 py-14 text-center">
       {/* Titel */}
-      <div className="mb-12">
-        <h2 className="mt-4 md:mt-5 text-md text-tealBrand mb-4">
+      <div>
+        <h1 className="text-md text-tealBrand mb-4">
           Onze Signature Blends
-        </h2>
-        <p className="text-gray-600 text-xs md:text-sm max-w-2xl mx-auto">
-          Onze best verkochte smoothies en combos!
+        </h1>
+        <p className="body-text max-w-2xl mx-auto">
+          Onze meest geliefde blends, gekozen door onze klanten.
         </p>
       </div>
 
       {/* Cards Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 mt-2 lg:pt-4">
         {smoothies.map((smoothie, index) => (
           <motion.div
             key={smoothie.id}
-            className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
+            className="bg-white overflow-hidden flex flex-col items-center transition-shadow duration-300"
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: index * 0.2 }}
           >
             {/* Afbeelding */}
-            <div className="w-full aspect-w-1 aspect-h-1 relative rounded-t-2xl overflow-hidden">
+            <div className="w-[70%] aspect-w-1 aspect-h-1 relative overflow-hidden">
               <img
                 src={smoothie.image}
                 alt={smoothie.name}
-                className="object-cover w-full h-full"
+                className="object-cover"
               />
             </div>
 
             {/* Tekst onder afbeelding */}
-            <div className="p-4 md:p-6 space-y-2 text-left">
-              <h3 className="text-sm md:text-md text-gray-600">
+            <div className="px-2 md:px-6 py-4 lg:py-16 lg:h-74 xl:h-60 space-y-2 text-center -mt-14 lg:-mt-18 xl:-mt-20 bg-bioGreen/10 rounded-2xl">
+              <h3 className="md:text-md mt-6 lg:mt-10">
                 {smoothie.name}
               </h3>
-              <p className="text-gray-700 text-xs md:text-sm">
+              <p className="body-text">
+                350ml • 1000ml
+              </p>
+              <p className="body-text">
                 {smoothie.description}
               </p>
 
               {/* Tags */}
-              <div className="flex flex-wrap gap-2 pt-2">
+              <div className="flex flex-wrap lg:justify-center gap-2 pt-2 px-2">
                 {smoothie.tags.map((tag, i) => (
                   <span
                     key={i}
-                    className="px-3 py-1 text-green-600 text-xs md:text-xs rounded-full bg-green-100"
+                    className="px-3 py-1 text-green-600 text-xs rounded-full bg-green-100"
                   >
                     {tag}
                   </span>

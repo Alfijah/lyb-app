@@ -20,7 +20,7 @@ body {
 }
 
 .nav-text, .button-text, .body-text {
-  font-size: 0.865rem;
+  font-size: 0.84rem;
 }
 
 .nav-text {
@@ -42,6 +42,10 @@ h1, h2, h3 {
 
 h1 {
   font-size: 1.6rem;
+}
+
+h3 {
+  font-size: 1.2rem;
 }
 
 @media (min-width: 576px) {
