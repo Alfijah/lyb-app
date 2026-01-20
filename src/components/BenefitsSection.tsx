@@ -1,46 +1,38 @@
 "use client";
 
 import { motion } from "framer-motion";
-import heartIcon from "../assets/benefitsSection/heart-attack.png";
-import storeIcon from "../assets/benefitsSection/stand.png";
-import shieldIcon from "../assets/benefitsSection/immune-booster.png";
-import leafIcon from "../assets/benefitsSection/leaf.png";
+import elektrolytes from "../assets/benefitsSection/elektrolytes.png";
+import antioxidant from "../assets/benefitsSection/antioxidant.png";
+import ontsteking from "../assets/benefitsSection/ontsteking.png";
+import spijsvertering from "../assets/benefitsSection/spijsvertering.png";
 
 export default function BenefitsSection() {
   const benefits = [
     {
       id: 1,
       icon: (
-        <img src={heartIcon} alt="Gezond hart" className="w-12 h-12 mb-4" />
+        <img src={elektrolytes} alt="elektrolytes" className="w-40 h-40 mb-4" />
       ),
-      title: "Gezond hart",
-      description:
-        "Rijk aan antioxidanten en voedingsstoffen die de gezondheid van het hart ondersteunen.",
+      title: "Elektrolytes",
     },
     {
       id: 2,
       icon: (
-        <img src={storeIcon} alt="Gezond hart" className="w-12 h-12 mb-4" />
+        <img src={antioxidant} alt="antioxidant" className="w-12 h-12 mb-4" />
       ),
-      title: "Lokale leveranciers",
-      description:
-        "Wij ondersteunen onze lokale markt en werken samen met fruit- en groentetelers.",
+      title: "Antioxidanten",
     },
     {
       id: 3,
       icon: (
-        <img src={shieldIcon} alt="Gezond hart" className="w-12 h-12 mb-4" />
+        <img src={ontsteking} alt="ontstekingremmend" className="w-12 h-12 mb-4" />
       ),
-      title: "Weerstand boost",
-      description:
-        "Boordevol vitamine C en E om de weerstand van je lichaam te versterken.",
+      title: "Ontstekingremmend",
     },
     {
       id: 4,
-      icon: <img src={leafIcon} alt="Gezond hart" className="w-12 h-12 mb-4" />,
-      title: "100% Natuurlijk",
-      description:
-        "Geen kunstmatige toevoegingen, conserveringsmiddelen of geraffineerde suikers.",
+      icon: <img src={spijsvertering} alt="spijsvertering" className="w-12 h-12 mb-4" />,
+      title: "Spijsvertering",
     },
   ];
 
@@ -75,9 +67,6 @@ export default function BenefitsSection() {
             <h3 className="text-sm md:text-md text-gray-600 mb-2">
               {benefit.title}
             </h3>
-            <p className="text-gray-600 text-xs md:text-sm leading-relaxed">
-              {benefit.description}
-            </p>
           </motion.div>
         ))}
       </div>

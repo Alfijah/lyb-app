@@ -10,6 +10,7 @@ export default function FeaturedSmoothies() {
     {
       id: 1,
       name: "Açaí Royale",
+      tag: "podosiri - bacove - kers",
       description:
         "Onze suikervrije podosiri-smoothie wordt gemaakt van verse podosiri, bacove en kers, afkomstig van lokale leveranciers.",
       tags: ["Weerstand", "Energie", "Spijsvertering", "Antioxidanten"],
@@ -18,6 +19,7 @@ export default function FeaturedSmoothies() {
     {
       id: 2,
       name: "Soursop Breeze",
+      tag: "zuurzak - chiazaadjes",
       description:
         "Ons Zuurzak-sap, verrijkt met chiazaadjes, combineert een verfrissende, tropische smaak met natuurlijke voedingskracht.",
       tags: ["Weerstand", "Antioxidant", "Energie"],
@@ -26,6 +28,7 @@ export default function FeaturedSmoothies() {
     {
       id: 3,
       name: "Green Reset",
+      tag: "sopropo - zuurzak - moringa",
       description:
         "Green Reset combineert sopropo, zuurzak en moringa tot een krachtige groene blend die je lichaam ondersteunt bij natuurlijke reiniging en herstel.",
       tags: ["Reiniging", "Weerstand", "Energie", "Balans"],
@@ -71,6 +74,9 @@ export default function FeaturedSmoothies() {
                 {smoothie.name}
               </h3>
               <p className="body-text">
+                <b>{smoothie.tag}</b>
+              </p>
+              <p className="body-text">
                 350ml • 1000ml
               </p>
               <p className="body-text">
@@ -82,7 +88,7 @@ export default function FeaturedSmoothies() {
                 {smoothie.tags.map((tag, i) => (
                   <span
                     key={i}
-                    className="px-3 py-1 text-green-600 text-xs rounded-full bg-green-100"
+                    className="px-3 py-1 text-green-600 text-xs rounded-full bg-darkYellow/20"
                   >
                     {tag}
                   </span>
