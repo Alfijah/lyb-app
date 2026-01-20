@@ -1,5 +1,4 @@
 "use client";
-
 import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../assets/logo2.png";
@@ -9,6 +8,8 @@ export default function Navbar() {
     "home" | "benefits" | null
   >("home");
   const [menuOpen, setMenuOpen] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
+
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -106,18 +107,27 @@ export default function Navbar() {
     { id: "menu", label: "Menu", path: "/menu" },
   ];
 
+  useEffect(() => {
+        function handleScroll() {
+            setIsScrolled(window.scrollY > 10);
+        }
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/50 backdrop-blur-md shadow-md transition-colors duration-300">
-      <div className="flex justify-between items-center px-6 md:px-16 py-3">
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-700 whitespace-nowrap
+            ${isScrolled ? "backdrop-blur-xl text-black shadow-md" : "bg-transparent text-white"}`}>
+      <div className="flex max-w-screen-2xl lg:gap-16 justify-between lg:justify-normal lg:items-center lg:w-[65%] px-8 lg:px-12 py-3">
         {/* Logo + slogan */}
         <div
-          className="flex items-center gap-3 cursor-pointer"
+          className="flex flex-col items-center gap-1 cursor-pointer"
           onClick={goToHome}
         >
           <img src={logo} alt="JuiceBar Logo" className="h-10 w-auto" />
           <div className="flex flex-col items-center leading-tight">
             <span
-              className="text-green-800 font-bold text-base"
+              className="text-green-800 font-bold text-[9px]"
               style={{
                 color: "#02888d",
                 fontFamily: "'Montserrat', sans-serif",
@@ -126,7 +136,7 @@ export default function Navbar() {
               LOVE YOUR BODY
             </span>
             <span
-              className="text-green-600 text-sm"
+              className="text-green-600 text-[9px]"
               style={{ color: "#02888d", fontFamily: "'Atma', cursive" }}
             >
               juices & smoothies
@@ -135,19 +145,19 @@ export default function Navbar() {
         </div>
 
         {/* Desktop menu */}
-        <ul className="hidden md:flex gap-8 text-gray-700 font-medium items-center text-sm">
+        <ul className="hidden lg:flex gap-8 nav-text font-medium items-center">
           {/* Home (special) */}
           <li>
-            <button
+            <Link
+              to={"/"}
               onClick={goToHome}
-              className={`pb-1 transition-colors hover:text-tealHover ${
-                activeSection === "home"
-                  ? "border-b-2 border-green-600 text-bioGreen"
-                  : ""
-              }`}
+              className={`pb-1 hover:text-bioGreen transition-colors ${activeSection === "home"
+                ? "border-b-2 border-bioGreen text-bioGreen"
+                : ""
+                }`}
             >
               Home
-            </button>
+            </Link>
           </li>
 
           {/* Overige pagina-links (geen underline) */}
@@ -161,7 +171,7 @@ export default function Navbar() {
                     <Link
                       to={path}
                       onClick={() => setMenuOpen(false)}
-                      className="pb-1 transition-colors hover:text-tealHover"
+                      className="pb-1 hover:text-bioGreen transition-colors hover:border-b-2 hover:border-bioGreen"
                     >
                       {label}
                     </Link>
@@ -174,7 +184,7 @@ export default function Navbar() {
                   <Link
                     to={path}
                     onClick={() => setMenuOpen(false)}
-                    className="pb-1 transition-colors hover:text-tealHover"
+                    className="pb-1 hover:text-bioGreen transition-colors hover:border-b-2 hover:border-bioGreen"
                   >
                     {label}
                   </Link>
@@ -184,20 +194,20 @@ export default function Navbar() {
 
           {/* Benefits (anchor on Home) */}
           <li>
-            <button
+            <Link
+              to={"/"}
               onClick={goToBenefits}
-              className={`pb-1 transition-colors hover:text-tealHover ${
-                activeSection === "benefits"
-                  ? "border-b-2 border-green-600 text-bioGreen"
-                  : ""
-              }`}
+              className={`pb-1 hover:text-bioGreen transition-colors hover:border-b-2 hover:border-bioGreen ${activeSection === "benefits"
+                ? "border-b-2 border-bioGreen text-bioGreen"
+                : ""
+                }`}
             >
               Benefits
-            </button>
+            </Link>
           </li>
 
           {/* Bestellen (link to contact page) */}
-          <li>
+          {/* <li>
             <a
               onClick={() => setMenuOpen(false)}
               className="bg-bioGreen text-white px-4 py-2 rounded-lg hover:bg-tealHover transition-colors"
@@ -208,13 +218,13 @@ export default function Navbar() {
             >
               Bestellen
             </a>
-          </li>
+          </li> */}
         </ul>
 
         {/* Hamburger knop (mobiel) */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden text-tealHover focus:outline-none"
+          className="lg:hidden text-tealHover focus:outline-none"
           aria-label="Menu toggle"
         >
           {menuOpen ? (
@@ -253,11 +263,10 @@ export default function Navbar() {
 
       {/* Mobiel menu */}
       <div
-        className={`md:hidden bg-green/90 backdrop-blur-md transition-all duration-300 overflow-hidden shadow-md ${
-          menuOpen ? "max-h-96" : "max-h-0"
-        }`}
+        className={`md:hidden bg-gradient-to-b from-green-50 via-green-100 to-white overflow-hidden shadow-md ${menuOpen ? "max-h-96" : "max-h-0"
+          }`}
       >
-        <ul className="flex flex-col items-center gap-4 py-4 text-gray-700 text-xs md:text-sm">
+        <ul className="flex flex-col items-center gap-4 py-4 text-tealBrand">
           {/* Home */}
           <li>
             <button
@@ -265,11 +274,10 @@ export default function Navbar() {
                 goToHome();
                 setMenuOpen(false);
               }}
-              className={`block pb-1 transition-colors hover:text-bioGreen ${
-                activeSection === "home"
-                  ? "border-b-2 border-green-600 text-tealHover"
-                  : ""
-              }`}
+              className={`block pb-1 transition-colors hover:text-bioGreen ${activeSection === "home"
+                ? "border-b-2 border-bioGreen text-bioGreen"
+                : ""
+                }`}
             >
               Home
             </button>
@@ -307,18 +315,17 @@ export default function Navbar() {
                 goToBenefits();
                 setMenuOpen(false);
               }}
-              className={`block pb-1 transition-colors hover:text-bioGreen ${
-                activeSection === "benefits"
-                  ? "border-b-2 border-green-600 text-tealHover"
-                  : ""
-              }`}
+              className={`block pb-1 transition-colors hover:text-bioGreen ${activeSection === "benefits"
+                ? "border-b-2 border-green-600 text-tealHover"
+                : ""
+                }`}
             >
               Benefits
             </button>
           </li>
 
           {/* Bestellen */}
-          <li>
+          {/* <li>
             <a
               onClick={() => setMenuOpen(false)}
               className="bg-bioGreen text-white px-4 py-2 rounded-lg hover:bg-tealHover transition-colors"
@@ -329,7 +336,7 @@ export default function Navbar() {
             >
               Bestellen
             </a>
-          </li>
+          </li> */}
         </ul>
       </div>
     </nav>

@@ -1,19 +1,42 @@
 "use client";
-
 import { motion } from "framer-motion";
-import heroPic from "../assets/heroSection/heropic2.png"; // pas aan naar jouw bestand
-import fruitPng from "../assets/lemon_no_bg.png";
+// import heroPic from "../assets/heroSection/heropic2.png";
+import hero from "../assets/heroSection/hero2.png";
+// import fruitPng from "../assets/lemon_no_bg.png";
 import { Link } from "react-router-dom";
 
 export default function HeroSection() {
   return (
     <section
       id="home"
-      className="bg-gradient-to-b from-green-50 via-green-100 to-white relative min-h-[90vh] flex items-center overflow-visible  pt-[7rem] md:pt-[2rem]"
-    >
+      className="relative w-full lg:min-h-[144vh] h-full bg-gradient-to-b from-green-50 via-green-100 to-white flex flex-col justify-normal lg:justify-center overflow-hidden">
+      <div className="relative lg:absolute w-full inset-y-28 lg:inset-0 pr-24 lg:pr-0">
+        <img
+          src={hero}
+          alt="Verse sap en smoothies"
+          className="w-full h-auto object-cover lg:object-center scale-150 md:scale-125 lg:scale-100" />
+      </div>
+
+      <div className="relative z-10 w-full max-w-screen-2xl mx-auto px-8 lg:px-12 pt-44 sm:pt-56 lg:pt-0 lg:pb-52 lg:-mt-96 xl:-mt-52">
+        <div className="w-full lg:w-[40%] xl:w-[50%] flex flex-col items-center lg:items-start text-center sm:pr-8 md:pr-0 lg:pr-20">
+          <h1 className="lg:text-left">Blended for your body</h1>
+          <p className="body-text lg:text-left mt-4 lg:pr-20 xl:pr-0">Dagelijks vers geblend met fruit, kruiden & superfoods</p>
+          <motion.a
+            href="#menu"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.97 }}
+            className="button-text mt-4 inline-block bg-bioGreen text-white px-8 py-3 rounded-lg hover:text-white hover:bg-darkYellow transition-colors duration-300 text-xs">
+            <Link to="/menu">
+              Ontdek ons menu
+            </Link>
+          </motion.a>
+        </div>
+      </div>
+
+
+
       {/* Inhoud gecentreerd binnen maximale breedte */}
-      <div className="max-w-7xl mx-auto px-8 md:px-24 flex flex-col md:flex-row items-center md:items-start gap-12 h-full">
-        {/* === Linkerkant: Tekst === */}
+      {/* <div className="max-w-7xl mx-auto px-8 md:px-24 flex flex-col md:flex-row items-center md:items-start gap-12 h-full">
         <motion.div
           className="flex-1 self-start space-y-6 text-center md:!text-left"
           initial={{ opacity: 0, x: -60 }}
@@ -25,7 +48,6 @@ export default function HeroSection() {
           </h3>
 
           <h1 className="text-md text-tealBrand leading-snug">
-            {/* font-bold is hier verwijderd */}
             Verzorg je lichaam, <br />
             <span className="text-orange-400">één slok tegelijk</span>
           </h1>
@@ -36,7 +58,6 @@ export default function HeroSection() {
             en pure goedheid voor een gezonde levensstijl.
           </p>
 
-          {/* CTA Knop */}
           <motion.a
             href="#menu"
             whileHover={{ scale: 1.05 }}
@@ -48,7 +69,6 @@ export default function HeroSection() {
             </Link>
           </motion.a>
 
-          {/* Scheidingslijn + cijfers */}
           <motion.div
             className="mt-4 md:mt-6 border-t border-green-200 pt-4 md:pt-10 flex flex-col md:flex-row justify-center md:justify-start items-center gap-3 md:gap-6 text-gray-700 font-medium text-xs md:text-sm"
             initial={{ opacity: 0, y: 40 }}
@@ -69,7 +89,6 @@ export default function HeroSection() {
           </motion.div>
         </motion.div>
 
-        {/* === Rechterkant: Afbeelding === */}
         <motion.div
           className="flex-1 mt-2 md:mt-0 flex justify-center md:justify-end"
           initial={{ opacity: 0, x: 60 }}
@@ -83,12 +102,11 @@ export default function HeroSection() {
           />
         </motion.div>
       </div>
-      {/* Fruit afbeelding onderaan hero */}
       <img
         src={fruitPng}
         alt="Fruit decoratie"
         className="absolute -bottom-12 md:-bottom-10 left-1/2 transform -translate-x-1/2 w-3/4 md:w-1/4 pointer-events-none"
-      />
+      /> */}
     </section>
   );
 }

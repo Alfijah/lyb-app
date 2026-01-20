@@ -8,10 +8,68 @@
   scroll-behavior: smooth;
 } */
 
+@font-face {
+  font-family: "Original Surfer";
+  src: url("./assets/fonts/OriginalSurfer-Regular.ttf") format("truetype");
+  font-weight:lighter;
+  font-style: normal;
+}
+
 body {
   font-family: 'Poppins', sans-serif;
 }
 
-/* h1, h2, h3 {
-  font-family: 'Playfair Display', serif;
-} */
+.nav-text, .button-text, .body-text {
+  font-size: 0.865rem;
+}
+
+.nav-text {
+  color: #02888d;
+}
+
+.button-text {
+  color: white;
+}
+
+.body-text {
+  color: rgb(134, 127, 127);
+}
+
+h1, h2, h3 {
+  font-family: 'Original Surfer', serif;
+  color: #02888d;
+}
+
+h1 {
+  font-size: 1.6rem;
+}
+
+@media (min-width: 576px) {
+  h1 {
+  font-size: 2rem;
+}
+}
+
+@media (min-width: 768px) {
+  h1 {
+  font-size: 3rem;
+}
+}
+
+@media (min-width: 1024px) {
+  .nav-text, .button-text, .body-text {
+    font-size: 1rem;
+    /* text-base */
+  } 
+
+  h1 {
+  font-size: 3rem;
+}
+}
+
+@media (min-width: 1280px) {
+  h1 {
+  font-size: 5rem;
+}
+}
+
