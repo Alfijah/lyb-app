@@ -29,7 +29,7 @@ export default function BenefitsSection() {
       icon: (
         <img src={ontsteking} alt="ontstekingremmend"/>
       ),
-      title: "Ontstekingsremmend",
+      title: "Herstel",
     },
     {
       id: 4,
