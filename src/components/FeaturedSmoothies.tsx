@@ -1,5 +1,4 @@
 "use client";
-
 import { motion } from "framer-motion";
 import podosiri from "../assets/featuredSmoothies/acai.png";
 import chiaZuurzak from "../assets/featuredSmoothies/soursoop.png";
@@ -37,13 +36,13 @@ export default function FeaturedSmoothies() {
   ];
 
   return (
-    <section id="menu" className="bg-white px-8 md:px-12 py-14 text-center">
+    <section id="menu" className="bg-white max-w-screen-3xl mx-auto px-8 md:px-12 py-14 md:py-16 text-center">
       {/* Titel */}
       <div>
-        <h1 className="text-md text-tealBrand mb-4">
+        <h1 className="text-md text-tealBrand mb-4 lg:pb-6">
           Onze Signature Blends
         </h1>
-        <p className="body-text max-w-2xl mx-auto">
+        <p className="body-text">
           Onze meest geliefde blends, gekozen door onze klanten.
         </p>
       </div>
@@ -69,7 +68,7 @@ export default function FeaturedSmoothies() {
             </div>
 
             {/* Tekst onder afbeelding */}
-            <div className="px-2 md:px-6 py-4 lg:py-16 lg:h-74 xl:h-60 space-y-2 text-center -mt-14 lg:-mt-18 xl:-mt-20 bg-bioGreen/10 rounded-2xl">
+            <div className="px-2 md:px-6 py-4 lg:py-16 lg:h-74 xl:h-80 space-y-2 text-center -mt-14 lg:-mt-18 xl:-mt-20 bg-bioGreen/10 rounded-3xl">
               <h3 className="md:text-md mt-6 lg:mt-10">
                 {smoothie.name}
               </h3>
