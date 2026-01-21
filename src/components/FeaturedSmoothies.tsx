@@ -36,7 +36,7 @@ export default function FeaturedSmoothies() {
   ];
 
   return (
-    <section id="menu" className="bg-white max-w-screen-3xl mx-auto px-8 md:px-12 py-14 md:py-16 text-center">
+    <section id="menu" className="bg-white max-w-screen-3xl mx-auto px-6 md:px-12 py-14 md:py-16 text-center">
       {/* Titel */}
       <div>
         <h1 className="text-md text-tealBrand mb-4 lg:pb-6">
@@ -76,7 +76,7 @@ export default function FeaturedSmoothies() {
                 <b>{smoothie.tag}</b>
               </p>
               <p className="body-text">
-                350ml • 1000ml
+                350 ml • 1000 ml
               </p>
               <p className="body-text">
                 {smoothie.description}

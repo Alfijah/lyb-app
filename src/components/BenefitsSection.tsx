@@ -53,7 +53,7 @@ export default function BenefitsSection() {
   return (
     <motion.section
       id="benefits"
-      className="max-w-screen-3xl bg-gradient-to-b from-orange-50 via-orange-100 to-white mx-auto py-14 md:py-16 px-8 md:px-12 text-center"
+      className="max-w-screen-3xl bg-gradient-to-b from-orange-50 via-orange-100 to-white mx-auto py-14 md:py-16 px-6 md:px-12 text-center"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
@@ -70,7 +70,7 @@ export default function BenefitsSection() {
       </div>
 
       {/* Grid met voordelen */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+      <div className="grid grid-cols-3 lg:grid-cols-6 gap-3">
         {benefits.map((benefit, index) => (
           <motion.div
             key={benefit.id}
@@ -81,9 +81,9 @@ export default function BenefitsSection() {
             transition={{ duration: 0.6, delay: index * 0.2 }}
           >
             {benefit.icon}
-            <h3 className="mb-2">
+            <p className="body-text">
               {benefit.title}
-            </h3>
+            </p>
           </motion.div>
         ))}
       </div>
