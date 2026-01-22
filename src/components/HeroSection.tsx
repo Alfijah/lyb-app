@@ -27,7 +27,7 @@ export default function HeroSection() {
             whileTap={{ scale: 0.97 }}
             className="button-text w-full lg:w-fit mt-4 inline-block bg-bioGreen text-white px-8 py-3 rounded-full hover:text-white hover:bg-darkYellow transition-colors duration-300 text-xs">
             <Link to="/menu">
-              Ontdek ons menu
+              Bekijk ons menu
             </Link>
           </motion.a>
         </div>

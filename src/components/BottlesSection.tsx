@@ -48,13 +48,13 @@ export default function BottlesSection() {
                     className="w-full -mt-8 h-auto object-cover lg:object-center" />
             </div>
 
-            <div className="max-w-screen-3xl mx-auto pb-14 md:pb-16 px-6 md:px-12 text-center">
+            <div className="max-w-screen-3xl mx-auto pb-3 md:pb-16 -mt-6 px-6 md:px-12 text-center">
                 {/* Grid met voordelen */}
                 <div className="grid grid-cols-3 gap-3">
                     {benefits.map((benefit, index) => (
                         <motion.div
                             key={benefit.id}
-                            className="flex flex-col items-center justify-start transition-all duration-300"
+                            className="relative z-66 flex flex-col items-center justify-start transition-all duration-300"
                             initial={{ opacity: 0, y: 40 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}

@@ -50,7 +50,7 @@ export default function ReviewSection() {
     <section
       ref={ref}
       id="reviews"
-      className="relative flex flex-col items-center justify-center py-10 md:py-14 bg-gradient-to-b from-white via-green-100 to-green-50 overflow-hidden"
+      className="relative flex flex-col items-center justify-center py-14 md:py-14 bg-gradient-to-b from-white via-green-100 to-green-50 overflow-hidden"
     >
       {/* Titel */}
       <motion.div
@@ -59,8 +59,8 @@ export default function ReviewSection() {
         transition={{ duration: 0.6 }}
         className="text-center mb-10"
       >
-        <h2 className="text-md text-tealBrand mb-4">Wat onze klanten zeggen</h2>
-        <p className="text-gray-600 text-xs md:text-sm px-[15%] md:px-0">
+        <h1 className="mb-4">Wat onze klanten zeggen</h1>
+        <p className="body-text px-[15%] md:px-0">
           Ervaringen van onze klanten die genieten van onze juices en smoothies.
         </p>
       </motion.div>
@@ -70,14 +70,14 @@ export default function ReviewSection() {
         {/* Pijlen */}
         <button
           onClick={handlePrev}
-          className="absolute left-5 md:left-20 top-1/2 -translate-y-1/2 bg-green-600/30 text-white w-10 h-10 rounded-full flex items-center justify-center z-10 hover:bg-green-700/60"
+          className="absolute left-5 md:left-20 top-1/2 -translate-y-1/2 bg-bioGreen/80 text-white w-10 h-10 rounded-full flex items-center justify-center z-10 hover:bg-green-700/60"
         >
           &lt;
         </button>
 
         <button
           onClick={handleNext}
-          className="absolute right-5 md:right-20 top-1/2 -translate-y-1/2 bg-green-600/30 text-white w-10 h-10 rounded-full flex items-center justify-center z-10 hover:bg-green-700/60"
+          className="absolute right-5 md:right-20 top-1/2 -translate-y-1/2 bg-bioGreen/80 text-white w-10 h-10 rounded-full flex items-center justify-center z-10 hover:bg-green-700/60"
         >
           &gt;
         </button>
@@ -96,7 +96,7 @@ export default function ReviewSection() {
               key={i}
               className="min-w-full flex items-center justify-center px-4"
             >
-              <div className="bg-white rounded-2xl shadow-lg p-4 sm:p-6 w-[90%] sm:w-[70%] md:w-[60%] lg:w-[40%] flex items-center justify-center">
+              <div className="bg-white rounded-3xl shadow-md p-4 sm:p-6 w-[90%] sm:w-[70%] md:w-[60%] lg:w-[40%] flex items-center justify-center">
                 <img
                   src={review.image}
                   alt={`Review ${review.id}`}
