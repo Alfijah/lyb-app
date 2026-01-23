@@ -118,7 +118,7 @@ export default function Navbar() {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-700 whitespace-nowrap
             ${isScrolled ? "backdrop-blur-xl text-black shadow-md" : "bg-transparent text-white"}`}>
-      <div className="flex max-w-screen-2xl lg:gap-16 justify-between lg:justify-normal lg:items-center lg:w-[65%] px-3 lg:px-12 py-3">
+      <div className="flex max-w-screen-3xl lg:gap-16 justify-between lg:justify-normal lg:items-center lg:w-[65%] px-3 lg:px-12 py-3">
         {/* Logo + slogan */}
         <div
           className="flex flex-col items-center gap-1 cursor-pointer"
