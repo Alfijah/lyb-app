@@ -9,7 +9,7 @@ export default function HeroSection() {
     <section
       id="home"
       className="relative w-full min-h-screen lg:min-h-[94vh] xl:min-h-[134vh] bg-gradient-to-b from-green-50 via-green-100 to-white flex flex-col justify-normal lg:justify-center overflow-hidden">
-      <div className="absolute inset-0 mt-20 lg:mt-0">
+      <div className="absolute inset-0 mt-20 lg:mt-0 mr-14">
         <img
           src={hero}
           alt="Verse sap en smoothies"

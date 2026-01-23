@@ -23,6 +23,11 @@ body {
   font-size: 0.84rem;
 }
 
+.menu-text {
+  color: rgb(134, 127, 127);
+  font-size: 0.74rem;
+}
+
 .nav-text {
   color: #02888d;
 }
@@ -31,7 +36,7 @@ body {
   color: white;
 }
 
-.body-text {
+.body-text{
   color: rgb(134, 127, 127);
 }
 
