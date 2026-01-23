@@ -1,5 +1,7 @@
 import menu1 from "../assets/lybMenu/1.png";
 import menu2 from "../assets/lybMenu/2.png";
+import juice1 from "../assets/lybMenu/juice-1.png";
+import juice2 from "../assets/lybMenu/juice-2.png";
 
 export default function MenuPage() {
   return (
@@ -7,6 +9,28 @@ export default function MenuPage() {
       id="menu"
       className="text-xs md:text-sm pt-28 md:pt-36 bg-gradient-to-b from-green-200 via-orange-300 to-orange-500/80 min-h-screen bg-white px-6 md:px-[30%]"
     >
+      <div className="flex flex-col mt-3">
+        <li className="flex items-center gap-2">
+          <img
+            src={juice1}
+            alt="fruit splash"
+            className="w-full -mt-8 h-auto object-cover lg:object-center" />
+          <span className="body-text">Detoxen</span>
+        </li>
+        <li className="flex items-center gap-2">
+          <img
+            src={juice2}
+            alt="fruit splash"
+            className="w-full -mt-8 h-auto object-cover lg:object-center" />
+          <span className="body-text">Weightloss</span>
+        </li>
+        <li className="flex items-center gap-2">
+          <span className="body-text">Weerstand herstellen</span>
+        </li>
+        <li className="flex items-center gap-2">
+          <span className="body-text">Natuurlijker leven</span>
+        </li>
+      </div>
       <p className="text-gray-600 mb-3 text-center md:text-left"></p>
       Uit ons menu kunt u kiezen voor een losse juice of smoothie, of een
       combinatie hiervan. <br></br>

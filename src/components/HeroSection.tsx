@@ -13,7 +13,7 @@ export default function HeroSection() {
         <img
           src={hero}
           alt="Verse sap en smoothies"
-          className="w-full h-[45%] lg:h-auto object-cover object-[100%_center] scale-125 md:scale-110 lg:scale-100" />
+          className="w-full h-[40%] lg:h-auto object-cover object-[100%_center] scale-125 md:scale-110 lg:scale-100" />
       </div>
 
       {/* <div className="relative lg:absolute w-full inset-y-28 lg:inset-0 pr-24 lg:pr-0">
@@ -37,10 +37,6 @@ export default function HeroSection() {
               <li className="flex items-center gap-2">
                 <BiSolidLeaf className="text-bioGreen text-xl" />
                 <span className="body-text">Weightloss</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <BiSolidLeaf className="text-bioGreen text-xl" />
-                <span className="body-text">Weerstand herstellen</span>
               </li>
               <li className="flex items-center gap-2">
                 <BiSolidLeaf className="text-bioGreen text-xl" />
