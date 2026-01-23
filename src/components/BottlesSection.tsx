@@ -29,7 +29,7 @@ export default function BottlesSection() {
                 <img src={large} alt="large" />
             ),
             size: "1000 ml",
-            price: "v.a. SRD 110",
+            price: "v.a. SRD 230",
         },
     ];
 
