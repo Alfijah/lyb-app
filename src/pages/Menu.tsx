@@ -40,7 +40,7 @@ export default function MenuPage() {
         <h1 className="w-full py-4 text-center bg-darkYellow/10">LYB menu</h1>
         <div className="border-1 border-darkYellow/20 w-full"></div>
 
-        <div className="bg-gradient-to-b from-white via-orange-100 to-yellow-50 px-4 py-4 flex flex-col gap-12">
+        <div className="bg-gradient-to-b from-white via-orange-100 to-yellow-50 px-4 py-14 flex flex-col gap-12">
           {/* juices */}
           <div className="flex flex-col items-center gap-6">
             <div className="w-full flex flex-col items-center">
@@ -329,6 +329,50 @@ export default function MenuPage() {
                 <span className="menu-text h-9">3x kurkuma vitamine water</span>
               </li>
             </div>
+          </div>
+
+          {/* sappenkuur */}
+          <div className="flex flex-col items-center gap-2">
+            <div className="flex flex-col items-center">
+              <h3 className="">Sappenkuur</h3>
+              <img
+                src={smear}
+                className="w-full h-5px" />
+              <p className="body-text pt-2 font-semibold">350 ml</p>
+
+            </div>
+            <table className="menu-text w-full border-collapse">
+              <thead>
+                <tr className="text-left border-b">
+                  <th className="py-2"></th>
+                  <th className="py-2"></th>
+                  <th className="py-2 text-right">Bedrag in SRD</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr className="border-b">
+                  <td className="py-2 text-nowrap">1-daagse</td>
+                  <td className="py-2 pl-4">8 flessen</td>
+                  <td className="py-2 text-right">850</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="py-2 text-nowrap">3-daagse</td>
+                  <td className="py-2 pl-4">24 flessen + 1 shot gratis</td>
+                  <td className="py-2 text-right">2500</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="py-2 text-nowrap">5-daagse</td>
+                  <td className="py-2 pl-4">40 flessen + 1 L vita water gratis</td>
+                  <td className="py-2 text-right">4100</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="py-2 text-nowrap">7-daagse</td>
+                  <td className="py-2 pl-4">56 flessen + 2 L vita water gratis</td>
+                  <td className="py-2 text-right">5700</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
