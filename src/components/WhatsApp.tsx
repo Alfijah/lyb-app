@@ -9,7 +9,7 @@ export default function WhatsApp() {
       rel="noopener noreferrer"
       className="fixed right-0 bottom-20 flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300 hover:opacity-100 z-50"
     >
-      <PiWhatsappLogoLight className="w-10 h-10 bg-darkYellow text-white rounded-l-lg hover:opacity-80 transition"/>
+      <PiWhatsappLogoLight className="w-10 h-10 bg-tealBrand text-white rounded-l-lg hover:opacity-80 transition"/>
       {/* <img
         src={WhatsAppIcon}
         alt="WhatsApp"
