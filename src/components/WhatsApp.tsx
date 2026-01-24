@@ -1,4 +1,5 @@
-import WhatsAppIcon from "../assets/social.png";
+// import WhatsAppIcon from "../assets/social.png";
+import { PiWhatsappLogoLight } from "react-icons/pi";
 
 export default function WhatsApp() {
   return (
@@ -6,13 +7,14 @@ export default function WhatsApp() {
       href="https://wa.me/5978715108"
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed right-4 bottom-20 flex items-center justify-center rounded-full shadow-lg hover:scale-110 transition-transform duration-300 hover:opacity-100 z-50"
+      className="fixed right-0 bottom-20 flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300 hover:opacity-100 z-50"
     >
-      <img
+      <PiWhatsappLogoLight className="w-10 h-10 bg-darkYellow text-white rounded-l-lg hover:opacity-80 transition"/>
+      {/* <img
         src={WhatsAppIcon}
         alt="WhatsApp"
-        className="w-16 h-16 hover:opacity-80 transition"
-      />
+        className="w-12 h-12 rounded-l-lg hover:opacity-80 transition"
+      /> */}
     </a>
   );
 }
