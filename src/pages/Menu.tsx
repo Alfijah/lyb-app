@@ -26,14 +26,17 @@ import vit4 from "../assets/lybMenu/vitwater4.png";
 import vit5 from "../assets/lybMenu/vitwater5.png";
 import vit6 from "../assets/lybMenu/vitwater6.png";
 import vit7 from "../assets/lybMenu/vitwater7.png";
+import comboshots from "../assets/lybMenu/comboshots.png";
+import combojuice from "../assets/lybMenu/combojuice.png";
+import combovit from "../assets/lybMenu/combovit.png";
 
 export default function MenuPage() {
   return (
     <section
       id="menu"
-      className="text-xs md:text-sm pt-28 md:pt-36 min-h-screen bg-white px-6 md:px-[30%]"
+      className="text-xs md:text-sm pt-28 md:pt-36 min-h-screen bg-gradient-to-b from-white via-green-300 to-green-100/50 px-6 md:px-[30%] py-14"
     >
-      <div className="flex flex-col items-center shadow-sm">
+      <div className="flex flex-col items-center shadow-md">
         <h1 className="w-full py-4 text-center bg-darkYellow/10">LYB menu</h1>
         <div className="border-1 border-darkYellow/20 w-full"></div>
 
@@ -287,6 +290,43 @@ export default function MenuPage() {
                   className="w-full h-auto" />
                 <p className="menu-text font-semibold">SRD 110</p>
                 <p className="menu-text mt-1">#7. appelazijn</p>
+              </li>
+            </div>
+          </div>
+
+          {/* cleanse en heal */}
+          <div className="flex flex-col items-center gap-2">
+            <div className="flex flex-col items-center">
+              <h3 className="">Cleanse & heal</h3>
+              <img
+                src={smear}
+                className="w-full h-5px" />
+              <p className="body-text pt-2 font-semibold">3x 125 ml • 3x 350 ml • 3x 1000 ml</p>
+              {/* <p className="body-text pt-2 font-semibold">3x 350 ml</p>
+              <p className="body-text pt-2 font-semibold">3x 1000 ml</p> */}
+              <p className="body-text pt-2 font-semibold">Complete set t.w.v. SRD 900 ↝ SRD 850</p>
+            </div>
+            <div className="grid grid-cols-3 lg:grid-cols-6 gap-2 items-end text-center">
+              <li className="flex flex-col items-center">
+                <img
+                  src={comboshots}
+                  alt="fruit splash"
+                  className="w-auto h-28" />
+                <span className="menu-text h-9">3x gember shots</span>
+              </li>
+              <li className="flex flex-col items-center">
+                <img
+                  src={combojuice}
+                  alt="fruit splash"
+                  className="w-auto h-32" />
+                <span className="menu-text h-9">3x aloë vera juice</span>
+              </li>
+              <li className="flex flex-col items-center">
+                <img
+                  src={combovit}
+                  alt="fruit splash"
+                  className="w-full h-auto" />
+                <span className="menu-text h-9">3x kurkuma vitamine water</span>
               </li>
             </div>
           </div>
