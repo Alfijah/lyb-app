@@ -15,7 +15,7 @@ export default function BenefitsSection() {
       icon: (
         <img src={elektrolytes} alt="elektrolytes" className="" />
       ),
-      title: "Elektrolytes",
+      title: "Elektrolyten",
     },
     {
       id: 2,

@@ -26,8 +26,8 @@ export default function HeroSection() {
       <div className="absolute z-10 w-full max-w-screen-3xl mx-auto px-6 lg:px-12">
         <div className="min-h-screen flex items-end lg:items-center -mt-16">
           <div className="w-full lg:w-[40%] xl:w-[40%] flex flex-col items-center lg:items-start text-center sm:pr-8 md:pr-0 lg:pr-0">
-            <h1 className="lg:text-left lg:pb-2">Blended for your body</h1>
-            <p className="body-text lg:text-left mt-4 lg:pr-20 xl:pr-0">Dagelijks vers geblend met fruit, kruiden & superfoods en 0% conserveermiddelen.</p>
+            <h1 className="lg:text-left lg:pb-2">Blended for your health</h1>
+            <p className="body-text lg:text-left mt-4 lg:pr-20 xl:pr-0">Dagelijks vers geblend met fruit, kruiden & superfoods voor balans, energie en vitaliteit.</p>
 
             <div className="flex flex-col mt-3">
               <li className="flex items-center gap-2">
@@ -40,7 +40,7 @@ export default function HeroSection() {
               </li>
               <li className="flex items-center gap-2">
                 <BiSolidLeaf className="text-bioGreen text-xl" />
-                <span className="body-text">Natuurlijker leven</span>
+                <span className="body-text">Gezonder leven</span>
               </li>
             </div>
 

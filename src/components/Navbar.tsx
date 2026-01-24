@@ -8,7 +8,7 @@ export default function Navbar() {
     "home" | "benefits" | null
   >("home");
   const [menuOpen, setMenuOpen] = useState(false);
-    const [isScrolled, setIsScrolled] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -74,46 +74,47 @@ export default function Navbar() {
     }, 120);
   };
 
-  const goToBenefits = () => {
-    if (location.pathname === "/") {
-      const el = document.getElementById("benefits");
-      if (el) {
-        // scroll erbij, houdt rekening met vaste navbar
-        const y = el.getBoundingClientRect().top + window.scrollY - 100;
-        window.scrollTo({ top: y, behavior: "smooth" });
-        setActiveSection("benefits");
-      }
-      setMenuOpen(false);
-      return;
-    }
+  // const goToBenefits = () => {
+  //   if (location.pathname === "/") {
+  //     const el = document.getElementById("benefits");
+  //     if (el) {
+  //       // scroll erbij, houdt rekening met vaste navbar
+  //       const y = el.getBoundingClientRect().top + window.scrollY - 100;
+  //       window.scrollTo({ top: y, behavior: "smooth" });
+  //       setActiveSection("benefits");
+  //     }
+  //     setMenuOpen(false);
+  //     return;
+  //   }
 
     // navigeer eerst naar home en scroll daarna naar benefits
-    navigate("/");
-    setTimeout(() => {
-      const el = document.getElementById("benefits");
-      if (el) {
-        const y = el.getBoundingClientRect().top + window.scrollY - 100;
-        window.scrollTo({ top: y, behavior: "smooth" });
-        setActiveSection("benefits");
-      }
-      setMenuOpen(false);
-    }, 200);
-  };
+  //   navigate("/");
+  //   setTimeout(() => {
+  //     const el = document.getElementById("benefits");
+  //     if (el) {
+  //       const y = el.getBoundingClientRect().top + window.scrollY - 100;
+  //       window.scrollTo({ top: y, behavior: "smooth" });
+  //       setActiveSection("benefits");
+  //     }
+  //     setMenuOpen(false);
+  //   }, 200);
+  // };
 
   // navLinks: path voor pages; benefits handled separately because it's an anchor on home
   const navLinks = [
     { id: "home", label: "Home", path: "/" },
-    { id: "about", label: "Over ons", path: "/about" },
+    // { id: "about", label: "Over ons", path: "/about" },
     { id: "menu", label: "Menu", path: "/menu" },
+    { id: "benefits", label: "Benefits", path: "/benefits" },
   ];
 
   useEffect(() => {
-        function handleScroll() {
-            setIsScrolled(window.scrollY > 10);
-        }
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+    function handleScroll() {
+      setIsScrolled(window.scrollY > 10);
+    }
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-700 whitespace-nowrap
@@ -193,7 +194,7 @@ export default function Navbar() {
             })}
 
           {/* Benefits (anchor on Home) */}
-          <li>
+          {/* <li>
             <Link
               to={"/"}
               onClick={goToBenefits}
@@ -204,7 +205,7 @@ export default function Navbar() {
             >
               Benefits
             </Link>
-          </li>
+          </li> */}
 
           {/* Bestellen (link to contact page) */}
           {/* <li>
@@ -309,7 +310,7 @@ export default function Navbar() {
             ))}
 
           {/* Benefits */}
-          <li>
+          {/* <li>
             <button
               onClick={() => {
                 goToBenefits();
@@ -322,7 +323,7 @@ export default function Navbar() {
             >
               Benefits
             </button>
-          </li>
+          </li> */}
 
           {/* Bestellen */}
           {/* <li>
