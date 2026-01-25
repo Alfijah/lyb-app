@@ -1,7 +1,6 @@
 "use client";
 import { useRef, useState } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
-import { fadeInUp } from "../animations/Varianten";
 import type { PanInfo } from "framer-motion";
 import review1 from "../assets/reviewsSection/review1.jpg";
 import review2 from "../assets/reviewsSection/review2.jpg";
