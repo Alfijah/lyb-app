@@ -1,9 +1,12 @@
 "use client";
 import { motion } from "framer-motion";
+import { fadeInUp } from "../animations/Varianten";
 import small from "../assets/bottles/small.png";
 import medium from "../assets/bottles/medium.png";
 import large from "../assets/bottles/large.png";
 import splashfruit from "../assets/bottles/splashfruit.png";
+import wave from "../assets/sellingSection/wave.png";
+import SectionWrapper from "../animations/SectionWrapper";
 
 export default function BottlesSection() {
     const benefits = [
@@ -34,42 +37,41 @@ export default function BottlesSection() {
     ];
 
     return (
-        <motion.section
-            id="benefits"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}>
+        <section
+            id="benefits">
 
-            <div className="w-full">
-                <img
+            <SectionWrapper className="w-full">
+                <motion.img
+                    variants={fadeInUp}
                     src={splashfruit}
                     alt="fruit splash"
                     className="w-full -mt-8 h-auto object-cover lg:object-center" />
-            </div>
+            </SectionWrapper>
 
-            <div className="max-w-screen-3xl mx-auto pb-3 md:pb-16 -mt-6 px-6 md:px-12 text-center">
+            <SectionWrapper className="max-w-screen-3xl mx-auto pb-3 md:pb-16 -mt-6 px-6 md:px-12 text-center">
                 {/* Grid met voordelen */}
-                <div className="grid grid-cols-3 gap-3">
-                    {benefits.map((benefit, index) => (
+                <motion.div variants={fadeInUp} className="grid grid-cols-3 gap-3">
+                    {benefits.map((benefit) => (
                         <motion.div
                             key={benefit.id}
-                            className="relative z-66 flex flex-col items-center justify-start transition-all duration-300"
-                            initial={{ opacity: 0, y: 40 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6, delay: index * 0.2 }}>
+                            variants={fadeInUp}
+                            className="relative z-66 flex flex-col items-center justify-start transition-all">
                             {benefit.icon}
-                            <p className="body-text">
+                            <motion.p variants={fadeInUp} className="body-text">
                                 {benefit.size}
-                            </p>
-                            <p className="body-text">
+                            </motion.p>
+                            <motion.p variants={fadeInUp} className="body-text">
                                 {benefit.price}
-                            </p>
+                            </motion.p>
                         </motion.div>
                     ))}
-                </div>
-            </div>
-        </motion.section>
+                </motion.div>
+            </SectionWrapper>
+
+            <img
+                src={wave}
+                alt="fruit splash"
+                className="w-full -mt-8 h-auto object-cover lg:object-center" />
+        </section>
     );
 }

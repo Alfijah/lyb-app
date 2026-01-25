@@ -1,8 +1,10 @@
 "use client";
 import { motion } from "framer-motion";
+import { fadeInUp } from "../animations/Varianten";
 import podosiri from "../assets/featuredSmoothies/acai.png";
 import chiaZuurzak from "../assets/featuredSmoothies/soursoop.png";
 import cleanseHeal from "../assets/featuredSmoothies/greenReset.png";
+import SectionWrapper from "../animations/SectionWrapper";
 
 export default function FeaturedSmoothies() {
   const smoothies = [
@@ -38,20 +40,21 @@ export default function FeaturedSmoothies() {
   return (
     <section id="menu" className="bg-white max-w-screen-3xl mx-auto px-6 md:px-12 py-14 md:py-16 text-center">
       {/* Titel */}
-      <div>
-        <h1 className="text-md text-tealBrand mb-4 lg:pb-6">
+      <SectionWrapper>
+        <motion.h1 variants={fadeInUp} className="text-md text-tealBrand mb-4 lg:pb-6">
           Onze Signature Blends
-        </h1>
-        <p className="body-text">
+        </motion.h1>
+        <motion.p variants={fadeInUp} className="body-text">
           Onze meest geliefde blends, gekozen door onze klanten.
-        </p>
-      </div>
+        </motion.p>
+      </SectionWrapper>
 
       {/* Cards Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 mt-2 lg:pt-4">
+      <SectionWrapper className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 mt-2 lg:pt-4">
         {smoothies.map((smoothie, index) => (
           <motion.div
             key={smoothie.id}
+            variants={fadeInUp}
             className="bg-white overflow-hidden flex flex-col items-center transition-shadow duration-300"
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -59,31 +62,31 @@ export default function FeaturedSmoothies() {
             transition={{ duration: 0.6, delay: index * 0.2 }}
           >
             {/* Afbeelding */}
-            <div className="w-[70%] aspect-w-1 aspect-h-1 relative overflow-hidden">
+            <motion.div variants={fadeInUp} className="w-[70%] aspect-w-1 aspect-h-1 relative overflow-hidden">
               <img
                 src={smoothie.image}
                 alt={smoothie.name}
                 className="object-cover"
               />
-            </div>
+            </motion.div>
 
             {/* Tekst onder afbeelding */}
-            <div className="px-2 md:px-6 py-4 lg:py-16 lg:h-74 xl:h-80 space-y-2 text-center -mt-14 lg:-mt-18 xl:-mt-20 bg-bioGreen/10 rounded-3xl">
-              <h3 className="md:text-md mt-6 lg:mt-10">
+            <motion.div variants={fadeInUp} className="px-2 md:px-6 py-4 lg:py-16 lg:h-74 xl:h-80 space-y-2 text-center -mt-14 lg:-mt-18 xl:-mt-20 bg-tealBrand/10 rounded-3xl">
+              <motion.h3 variants={fadeInUp} className="md:text-md mt-6 lg:mt-10">
                 {smoothie.name}
-              </h3>
-              <p className="body-text">
+              </motion.h3>
+              <motion.p variants={fadeInUp} className="body-text">
                 <b>{smoothie.tag}</b>
-              </p>
-              <p className="body-text">
+              </motion.p>
+              <motion.p variants={fadeInUp} className="body-text">
                 350 ml • 1000 ml
-              </p>
-              <p className="body-text">
+              </motion.p>
+              <motion.p variants={fadeInUp} className="body-text">
                 {smoothie.description}
-              </p>
+              </motion.p>
 
               {/* Tags */}
-              <div className="flex flex-wrap lg:justify-center gap-2 pt-2 px-2">
+              <motion.div variants={fadeInUp} className="flex flex-wrap lg:justify-center gap-2 pt-2 px-2">
                 {smoothie.tags.map((tag, i) => (
                   <span
                     key={i}
@@ -92,11 +95,11 @@ export default function FeaturedSmoothies() {
                     {tag}
                   </span>
                 ))}
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </motion.div>
         ))}
-      </div>
+      </SectionWrapper>
     </section>
   );
 }

@@ -1,10 +1,8 @@
 "use client";
-
 import { useRef, useState } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
+import { fadeInUp } from "../animations/Varianten";
 import type { PanInfo } from "framer-motion";
-
-// Importeer je review-afbeeldingen
 import review1 from "../assets/reviewsSection/review1.jpg";
 import review2 from "../assets/reviewsSection/review2.jpg";
 import review3 from "../assets/reviewsSection/review3.jpg";

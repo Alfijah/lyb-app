@@ -1,12 +1,13 @@
 "use client";
-
 import { motion } from "framer-motion";
+import { fadeInUp } from "../animations/Varianten";
 import elektrolytes from "../assets/benefitsSection/elektrolytes.png";
 import antioxidant from "../assets/benefitsSection/antioxidant.png";
 import ontsteking from "../assets/benefitsSection/ontsteking.png";
 import spijsvertering from "../assets/benefitsSection/spijsvertering.png";
 import energie from "../assets/benefitsSection/energie.png";
 import weerstand from "../assets/benefitsSection/weerstand.png";
+import SectionWrapper from "../animations/SectionWrapper";
 
 export default function BenefitsSection() {
   const benefits = [
@@ -51,42 +52,34 @@ export default function BenefitsSection() {
   ];
 
   return (
-    <motion.section
+    <section
       id="benefits"
-      className="max-w-screen-3xl bg-gradient-to-b from-orange-50 via-orange-100 to-white mx-auto py-14 md:py-16 px-6 md:px-12 text-center"
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-    >
+      className="max-w-screen-3xl bg-gradient-to-b from-orange-50 via-orange-100 to-white mx-auto py-14 md:py-16 px-6 md:px-12 text-center">
+      
       {/* Titel */}
-      <div className="mb-4">
-        <h1 className="max-w-screen-lg mx-auto text-md text-tealBrand mb-4 lg:pb-6">
+      <SectionWrapper className="mb-4">
+        <motion.h1 variants={fadeInUp} className="max-w-screen-lg mx-auto text-md text-tealBrand mb-4 lg:pb-6">
           LYB juices & smoothies - <br></br>Voeding die je voelt
-        </h1>
-        <p className="body-text">
+        </motion.h1>
+        <motion.p variants={fadeInUp} className="body-text">
           LYB juices & smoothies geven je lichaam wat het nodig heeft. Onze ingrediënten werken samen om balans, energie en welzijn te ondersteunen.
-        </p>
-      </div>
+        </motion.p>
+      </SectionWrapper>
 
       {/* Grid met voordelen */}
-      <div className="grid grid-cols-3 lg:grid-cols-6 gap-3">
-        {benefits.map((benefit, index) => (
+      <SectionWrapper className="grid grid-cols-3 lg:grid-cols-6 gap-3">
+        {benefits.map((benefit) => (
           <motion.div
             key={benefit.id}
-            className="flex flex-col items-center justify-start transition-all duration-300"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: index * 0.2 }}
-          >
+            variants={fadeInUp}
+            className="flex flex-col items-center justify-start transition-all">
             {benefit.icon}
-            <p className="body-text">
+            <motion.p variants={fadeInUp} className="body-text">
               {benefit.title}
-            </p>
+            </motion.p>
           </motion.div>
         ))}
-      </div>
-    </motion.section>
+      </SectionWrapper>
+    </section>
   );
 }
