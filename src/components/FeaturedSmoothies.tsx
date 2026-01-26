@@ -38,7 +38,7 @@ export default function FeaturedSmoothies() {
   ];
 
   return (
-    <section id="menu" className="bg-white max-w-screen-3xl mx-auto px-6 md:px-12 py-14 md:py-16 text-center">
+    <section id="menu" className="bg-white max-w-screen-3xl mx-auto px-6 md:px-8 py-14 md:py-16 text-center">
       {/* Titel */}
       <SectionWrapper>
         <motion.h1 variants={fadeInUp} className="text-md text-tealBrand mb-4 lg:pb-6">
@@ -71,7 +71,7 @@ export default function FeaturedSmoothies() {
             </motion.div>
 
             {/* Tekst onder afbeelding */}
-            <motion.div variants={fadeInUp} className="px-2 md:px-6 py-4 lg:py-16 lg:h-74 xl:h-80 space-y-2 text-center -mt-14 lg:-mt-18 xl:-mt-20 bg-tealBrand/10 rounded-3xl">
+            <motion.div variants={fadeInUp} className="px-2 md:px-6 py-4 lg:py-16 lg:h-74 xl:h-80 space-y-2 text-center -mt-14 sm:-mt-16 md:-mt-18 xl:-mt-20 bg-tealBrand/10 rounded-3xl">
               <motion.h3 variants={fadeInUp} className="md:text-md mt-6 lg:mt-10">
                 {smoothie.name}
               </motion.h3>
@@ -86,7 +86,7 @@ export default function FeaturedSmoothies() {
               </motion.p>
 
               {/* Tags */}
-              <motion.div variants={fadeInUp} className="flex flex-wrap lg:justify-center gap-2 pt-2 px-2">
+              <motion.div variants={fadeInUp} className="flex flex-wrap justify-center gap-2 pt-2 px-2">
                 {smoothie.tags.map((tag, i) => (
                   <span
                     key={i}

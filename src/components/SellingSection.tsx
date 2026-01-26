@@ -10,9 +10,9 @@ export default function SellingSection() {
     return (
         <section
             id="benefits"
-            className="bg-gradient-to-b from-white via-orange-50 to-orange-300">
+            className="bg-gradient-to-b from-white via-orange-50 to-orange-300 flex flex-col">
 
-            <SectionWrapper className="mb-4 px-6 pt-14 text-center">
+            <SectionWrapper className="px-6 md:px-8 pt-14 text-center">
                 <motion.h1 variants={fadeInUp} className="max-w-screen-lg mx-auto text-center text-md text-tealBrand mb-4 lg:pb-6">
                     Gezond genieten, thuis en op de werkvloer
                 </motion.h1>
@@ -36,18 +36,18 @@ export default function SellingSection() {
                 </motion.a>
             </SectionWrapper>
 
-            <SectionWrapper className="w-full mx-auto md:pb-16 pt-4 md:px-12 text-center">
+            <SectionWrapper className="relative w-full mx-auto text-center">
                 <motion.img
                     variants={fadeInUp}
                     src={sapmix}
                     alt="fruit splash"
-                    className="w-full -mt-8 h-auto object-cover lg:object-center" />
+                    className="object-cover lg:object-center" />
 
                 <motion.img
                     variants={fadeInUp}
                     src={fruitmix}
                     alt="fruit splash"
-                    className="w-[45%] -mt-24 h-auto" />
+                    className="absolute w-[45%] bottom-0 h-auto" />
             </SectionWrapper>
         </section>
     );

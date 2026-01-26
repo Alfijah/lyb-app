@@ -19,11 +19,11 @@ export default function FooterSection() {
       <div className="absolute inset-0 bg-black/80"></div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 py-10">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8 py-12 md:py-14">
         {/* GRID: 3 kolommen */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 text-center md:text-left">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-2 text-center md:text-left">
           {/* --- LINKERKOLOM: Logo + slogan + tekst --- */}
-          <div className="space-y-4 flex flex-row items-center md:items-start md:text-start">
+          <div className="space-y-4 flex items-center md:items-start md:text-start md:gap-4">
             <div
               className="flex flex-col items-center gap-1 cursor-pointer"
             // onClick={goToHome}
@@ -48,12 +48,7 @@ export default function FooterSection() {
               </div>
             </div>
 
-            <p className="text-gray-200 max-w-sm text-sm">
-              {/* Verse, gezonde juices en smoothies, dagelijks met liefde bereid
-              met de beste biologische ingrediënten. */}
-            </p>
-
-            <p className="text-xs md:text-sm text-gray-200">
+            <p className="body-text footer">
               ⚠️ Bestellen is momenteel alleen mogelijk via WhatsApp.
             </p>
           </div>
@@ -64,17 +59,17 @@ export default function FooterSection() {
               <h3 className="text-sm font-bold">Quick Links</h3>
               <ul className="space-y-1 text-gray-200 text-xs md:text-sm">
                 <li>
-                  <Link to="/" className="hover:text-white transition">
+                  <Link to="/" className="body-text footer hover:text-darkYellow transition">
                     Home
                   </Link>
                 </li>
                 <li>
-                  <Link to="/menu" className="hover:text-white transition">
+                  <Link to="/menu" className="body-text footer hover:text-darkYellow transition">
                     Menu
                   </Link>
                 </li>
                 <li>
-                  <Link to="/benefits" className="hover:text-white transition">
+                  <Link to="/benefits" className="body-text footer hover:text-darkYellow transition">
                     Benefits
                   </Link>
                 </li>
@@ -118,7 +113,7 @@ export default function FooterSection() {
         </div>
 
         {/* Onderlijn */}
-        <div className="border-t border-white/30 pt-4 text-center text-xs md:text-sm text-gray-300 mt-8">
+        <div className="border-t border-white/30 pt-4 text-center body-text footer mt-8">
           <p>
             © {new Date().getFullYear()} LYB Juices & Smoothies. Alle rechten
             voorbehouden. Website gebouwd met 💚 door{" "}

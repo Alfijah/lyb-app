@@ -34,7 +34,7 @@ export default function MenuPage() {
   return (
     <section
       id="menu"
-      className="text-xs md:text-sm pt-28 md:pt-36 min-h-screen bg-gradient-to-b from-white via-green-300 to-green-100/50 px-6 md:px-[30%] py-14"
+      className="text-xs md:text-sm pt-28 md:pt-36 min-h-screen bg-gradient-to-b from-white via-green-300 to-green-100/50 px-6 md:px-8 py-14"
     >
       <div className="flex flex-col items-center shadow-md">
         <h1 className="w-full py-4 text-center bg-darkYellow/10">LYB menu</h1>
@@ -52,7 +52,7 @@ export default function MenuPage() {
               <p className="body-text pt-2 font-semibold">350 ml ↝ SRD 100</p>
               <p className="body-text pt-2 font-semibold">1000 ml ↝ SRD 230</p>
             </div>
-            <div className="grid grid-cols-3 lg:grid-cols-6 gap-4 text-center">
+            <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-4 text-center">
               <li className="flex flex-col items-center">
                 <img
                   src={juice1}
@@ -123,7 +123,7 @@ export default function MenuPage() {
               <p className="body-text pt-2 font-semibold">350 ml ↝ SRD 115</p>
               <p className="body-text pt-2 font-semibold">1000 ml ↝ SRD 260</p>
             </div>
-            <div className="grid grid-cols-3 lg:grid-cols-6 gap-4 text-center">
+            <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-4 text-center">
               <li className="flex flex-col items-center">
                 <img
                   src={smoothie9}
@@ -192,7 +192,7 @@ export default function MenuPage() {
                 className="w-full h-5px" />
               <p className="body-text pt-2 font-semibold">sets van 125 ml ↝ SRD 500</p>
             </div>
-            <div className="grid grid-cols-3 lg:grid-cols-6 gap-4 text-center">
+            <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-4 text-center">
               <li className="flex flex-col items-center">
                 <img
                   src={shot1}
@@ -234,7 +234,7 @@ export default function MenuPage() {
               <p className="body-text pt-2 font-semibold">1000 ml</p>
               <p className="body-text pt-2 font-semibold">7 liter pack voor SRD 750</p>
             </div>
-            <div className="grid grid-cols-3 lg:grid-cols-6 gap-4 text-center">
+            <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-4 text-center">
               <li className="flex flex-col items-center">
                 <img
                   src={vit1}
@@ -311,14 +311,18 @@ export default function MenuPage() {
                 <img
                   src={comboshots}
                   alt="fruit splash"
-                  className="w-auto h-28" />
+                  // className="w-auto h-28 sm:h-52" />
+                  className="w-[72%] h-28 sm:h-auto" />
+
                 <span className="menu-text h-9">3x gember shots</span>
               </li>
               <li className="flex flex-col items-center">
                 <img
                   src={combojuice}
                   alt="fruit splash"
-                  className="w-auto h-32" />
+                  // className="w-auto h-32 sm:h-60" />
+                  className="w-[72%] h-32 sm:h-auto" />
+
                 <span className="menu-text h-9">3x aloë vera juice</span>
               </li>
               <li className="flex flex-col items-center">

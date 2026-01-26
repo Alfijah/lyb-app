@@ -264,7 +264,7 @@ export default function Navbar() {
 
       {/* Mobiel menu */}
       <div
-        className={`md:hidden bg-gradient-to-b from-green-50 via-green-100 to-white overflow-hidden shadow-md ${menuOpen ? "max-h-96" : "max-h-0"
+        className={`lg:hidden bg-gradient-to-b from-green-50 via-green-100 to-white overflow-hidden shadow-md ${menuOpen ? "max-h-96" : "max-h-0"
           }`}
       >
         <ul className="flex flex-col items-center gap-4 py-4 text-tealBrand">

@@ -16,7 +16,7 @@ export default function BottlesSection() {
                 <img src={small} alt="small" className="" />
             ),
             size: "125 ml",
-            price: "sets v.a. SRD 225",
+            price: "sets v.a. SRD 500",
         },
         {
             id: 2,

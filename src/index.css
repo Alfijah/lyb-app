@@ -40,6 +40,10 @@ body {
   color: rgb(134, 127, 127);
 }
 
+.body-text.footer{
+  color: #e5e7eb;
+}
+
 h1, h2, h3 {
   font-family: 'Original Surfer', serif;
   color: #02888d;
@@ -61,7 +65,7 @@ h3 {
 
 @media (min-width: 768px) {
   h1 {
-  font-size: 3rem;
+  font-size: 2rem;
 }
 }
 
