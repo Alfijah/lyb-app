@@ -29,7 +29,7 @@ export default function SellingSection() {
                     variants={fadeInUp}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.97 }}
-                    className="button-text w-full lg:w-80 inline-block bg-bioGreen text-white px-8 py-3 rounded-full hover:text-white hover:bg-darkYellow transition-colors duration-300 text-xs mt-4 mb-4">
+                    className="button-text w-full lg:w-60 inline-block bg-bioGreen text-white px-8 py-3 rounded-full hover:text-white hover:bg-darkYellow transition-colors duration-300 text-xs mt-4 mb-4">
                     <Link to="/menu">
                         Bekijk ons menu
                     </Link>

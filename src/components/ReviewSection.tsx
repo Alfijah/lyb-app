@@ -10,6 +10,7 @@ import review5 from "../assets/reviewsSection/review5.jpg";
 import review6 from "../assets/reviewsSection/review6.jpg";
 import review7 from "../assets/reviewsSection/review7.jpg";
 import review8 from "../assets/reviewsSection/review8.jpg";
+import bgImage from "../assets/reviewsSection/groupPeople.png";
 
 const reviews = [
   { id: 1, image: review1 },
@@ -47,75 +48,84 @@ export default function ReviewSection() {
     <section
       ref={ref}
       id="reviews"
-      className="relative flex flex-col items-center justify-center py-14 md:py-14 bg-gradient-to-b from-white via-green-100 to-green-50 overflow-hidden"
+      className="relative flex flex-col items-center justify-center py-14 md:py-14 overflow-hidden"
     >
-      {/* Titel */}
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={controls}
-        transition={{ duration: 0.6 }}
-        className="text-center mb-10"
-      >
-        <h1 className="mb-4">Wat onze klanten zeggen</h1>
-        <p className="body-text px-[15%] md:px-0">
-          Ervaringen van onze klanten die genieten van onze juices en smoothies.
-        </p>
-      </motion.div>
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
+        style={{ backgroundImage: `url(${bgImage})` }}
+      />
 
-      {/* Carousel */}
-      <div className="relative w-full max-w-6xl overflow-hidden px-6">
-        {/* Pijlen */}
-        <button
-          onClick={handlePrev}
-          className="absolute left-5 md:left-20 top-1/2 -translate-y-1/2 bg-bioGreen/80 text-white w-10 h-10 rounded-full flex items-center justify-center z-10 hover:bg-green-700/60"
-        >
-          &lt;
-        </button>
+      {/* Gradient overlay layer (jouw huidige gradient) */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white/100 via-green-100/80 to-green-50/90 z-10" />
 
-        <button
-          onClick={handleNext}
-          className="absolute right-5 md:right-20 top-1/2 -translate-y-1/2 bg-bioGreen/80 text-white w-10 h-10 rounded-full flex items-center justify-center z-10 hover:bg-green-700/60"
-        >
-          &gt;
-        </button>
-
-        {/* Kaarten */}
+      <div className="relative z-20 w-full flex flex-col items-center">
+        {/* Titel */}
         <motion.div
-          className="flex"
-          drag="x"
-          dragConstraints={{ left: 0, right: 0 }}
-          onDragEnd={handleDragEnd}
-          animate={{ x: `-${index * 100}%` }}
-          transition={{ type: "spring", stiffness: 300, damping: 30 }}
+          initial={{ opacity: 0, y: 40 }}
+          animate={controls}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-10"
         >
-          {[...reviews, ...reviews].map((review, i) => (
-            <div
-              key={i}
-              className="min-w-full flex items-center justify-center px-4"
-            >
-              <div className="bg-white rounded-3xl shadow-md p-4 sm:p-6 w-[90%] sm:w-[70%] md:w-[60%] lg:w-[40%] flex items-center justify-center">
-                <img
-                  src={review.image}
-                  alt={`Review ${review.id}`}
-                  className="rounded-xl object-contain w-80 h-auto pointer-events-none select-none"
-                />
-              </div>
-            </div>
-          ))}
+          <h1 className="mb-4">Wat onze klanten zeggen</h1>
+          <p className="body-text px-[15%] md:px-0">
+            Ervaringen van onze klanten die genieten van onze juices en smoothies.
+          </p>
         </motion.div>
-      </div>
 
-      {/* Pagination */}
-      <div className="flex justify-center mt-2 space-x-2">
-        {reviews.map((_, i) => (
+        {/* Carousel */}
+        <div className="relative w-full max-w-6xl overflow-hidden px-6">
+          {/* Pijlen */}
           <button
-            key={i}
-            onClick={() => setIndex(i)}
-            className={`w-2 h-2 rounded-full transition ${
-              i === index ? "bg-green-600" : "bg-gray-300"
-            }`}
-          />
-        ))}
+            onClick={handlePrev}
+            className="absolute left-5 md:left-20 top-1/2 -translate-y-1/2 bg-bioGreen/80 text-white w-10 h-10 rounded-full flex items-center justify-center z-10 hover:bg-green-700/60"
+          >
+            &lt;
+          </button>
+
+          <button
+            onClick={handleNext}
+            className="absolute right-5 md:right-20 top-1/2 -translate-y-1/2 bg-bioGreen/80 text-white w-10 h-10 rounded-full flex items-center justify-center z-10 hover:bg-green-700/60"
+          >
+            &gt;
+          </button>
+
+          {/* Kaarten */}
+          <motion.div
+            className="flex"
+            drag="x"
+            dragConstraints={{ left: 0, right: 0 }}
+            onDragEnd={handleDragEnd}
+            animate={{ x: `-${index * 100}%` }}
+            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+          >
+            {[...reviews, ...reviews].map((review, i) => (
+              <div
+                key={i}
+                className="min-w-full flex items-center justify-center px-4"
+              >
+                <div className="bg-white rounded-3xl shadow-md p-4 sm:p-6 w-[90%] sm:w-[70%] md:w-[60%] lg:w-[40%] flex items-center justify-center">
+                  <img
+                    src={review.image}
+                    alt={`Review ${review.id}`}
+                    className="rounded-xl object-contain w-80 h-auto pointer-events-none select-none"
+                  />
+                </div>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+
+        {/* Pagination */}
+        <div className="flex justify-center mt-2 space-x-2">
+          {reviews.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setIndex(i)}
+              className={`w-2 h-2 rounded-full transition ${i === index ? "bg-green-600" : "bg-gray-300"
+                }`}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );
