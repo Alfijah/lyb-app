@@ -16,15 +16,8 @@ export default function HeroSection() {
           className="w-full h-[40%] lg:h-auto object-cover object-[100%_center] scale-150 sm:scale-125 md:scale-100 lg:scale-100" />
       </div>
 
-      {/* <div className="relative lg:absolute w-full inset-y-28 lg:inset-0 pr-24 lg:pr-0">
-        <img
-          src={hero}
-          alt="Verse sap en smoothies"
-          className="w-full object-cover lg:object-center scale-150 md:scale-125 lg:scale-100" />
-      </div> */}
-
       <div className="absolute z-10 w-full max-w-screen-3xl mx-auto px-6 md:px-8 lg:px-12">
-        <div className="min-h-screen flex items-end lg:items-center -mt-16 sm:-mt-10">
+        <div className="min-h-screen flex items-end lg:items-center -mt-28 sm:-mt-10">
           <div className="w-full lg:w-[40%] xl:w-[40%] flex flex-col items-center lg:items-start text-center md:pr-0 lg:pr-0">
             <h1 className="lg:text-left lg:pb-2">Blended for your health</h1>
             <p className="body-text lg:text-left mt-4 lg:pr-20 xl:pr-0">Dagelijks vers geblend met fruit, kruiden & superfoods voor balans, energie en vitaliteit.</p>
