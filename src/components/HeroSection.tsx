@@ -9,7 +9,7 @@ export default function HeroSection() {
     <section
       id="home"
       className="relative w-full min-h-screen sm:min-h-[94vh] lg:min-h-[94vh] xl:min-h-[134vh] bg-gradient-to-b from-green-50 via-green-100 to-white flex flex-col justify-normal lg:justify-center overflow-hidden">
-      <div className="relative inset-0 mt-28 sm:mt-14 md:mt-10 lg:mt-0 mr-16">
+      <div className="relative inset-0 mt-28 sm:mt-14 md:mt-10 lg:mt-0 mr-16 lg:mr-0">
         <img
           src={hero}
           alt="Verse sap en smoothies"
@@ -29,7 +29,7 @@ export default function HeroSection() {
             <h1 className="lg:text-left lg:pb-2">Blended for your health</h1>
             <p className="body-text lg:text-left mt-4 lg:pr-20 xl:pr-0">Dagelijks vers geblend met fruit, kruiden & superfoods voor balans, energie en vitaliteit.</p>
 
-            <div className="flex mt-3 gap-3 sm:gap-4">
+            <div className="flex lg:flex-col mt-3 gap-3 sm:gap-4">
               <li className="flex items-center gap-1">
                 <BiSolidLeaf className="text-bioGreen text-xl" />
                 <span className="body-text">Detoxen</span>
@@ -40,7 +40,7 @@ export default function HeroSection() {
               </li>
               <li className="flex items-center gap-1">
                 <BiSolidLeaf className="text-bioGreen text-xl" />
-                <span className="body-text">Gezonder leven</span>
+                <span className="body-text">Balans</span>
               </li>
             </div>
 

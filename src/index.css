@@ -78,6 +78,10 @@ h3 {
   h1 {
   font-size: 3rem;
 }
+
+h3 {
+  font-size: 1.4rem;
+}
 }
 
 @media (min-width: 1280px) {

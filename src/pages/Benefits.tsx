@@ -16,7 +16,7 @@ export default function Benefits() {
                 className="w-full object-contain scale-110"
             />
 
-            <div className="py-14 flex flex-col gap-12 px-6 md:px-8">
+            <div className="mx-auto py-14 flex flex-col gap-12 px-6 md:px-8 xl:w-[90%]">
 
                 {/* Elektrolyten */}
                 <SectionWrapper className="mb-4">
@@ -26,9 +26,9 @@ export default function Benefits() {
                     <motion.img
                         variants={fadeInUp}
                         src={smear}
-                        className="w-full h-5px pb-3" />
+                        className="w-full h-5px md:-mt-2 lg:-mt-4 xl:-mt-8 pb-3" />
 
-                    <div className="px-2 sm:px-8 md:px-10">
+                    <div className="mx-auto w-[92%]">
                         <motion.p variants={fadeInUp} className="body-text">
                             Elektrolyten helpen je lichaam vocht vast te houden, spieren te laten werken en vermoeidheid te verminderen.
                             <br></br>Ze zijn essentieel bij warmte, beweging en lange dagen.
@@ -67,9 +67,9 @@ export default function Benefits() {
                     </motion.h3>
                     <motion.img variants={fadeInUp}
                         src={smear}
-                        className="w-full h-5px pb-3" />
+                        className="w-full h-5px md:-mt-2 lg:-mt-4 xl:-mt-8 pb-3" />
 
-                    <div className="px-2 sm:px-8 md:px-10">
+                    <div className="mx-auto w-[92%]">
                         <motion.p variants={fadeInUp} className="body-text">
                             Antioxidanten beschermen je cellen tegen stress (zoals vermoeidheid, drukte, slechte voeding) en ondersteunen herstel.
                         </motion.p>
@@ -107,9 +107,9 @@ export default function Benefits() {
                     </motion.h3>
                     <motion.img variants={fadeInUp}
                         src={smear}
-                        className="w-full h-5px pb-3" />
+                        className="w-full h-5px md:-mt-2 lg:-mt-4 xl:-mt-8 pb-3" />
 
-                    <div className="px-2 sm:px-8 md:px-10">
+                    <div className="mx-auto w-[92%]">
                         <motion.p variants={fadeInUp} className="body-text">
                             Herstel gaat over ontspanning, doorbloeding en het verminderen van spanning in je lichaam.
                         </motion.p>
@@ -151,9 +151,9 @@ export default function Benefits() {
                     </motion.h3>
                     <motion.img variants={fadeInUp}
                         src={smear}
-                        className="w-full h-5px pb-3" />
+                        className="w-full h-5px md:-mt-2 lg:-mt-4 xl:-mt-8 pb-3" />
 
-                    <div className="px-2 sm:px-8 md:px-10">
+                    <div className="mx-auto w-[92%]">
 
                         <motion.p variants={fadeInUp} className="body-text">
                             Een goede spijsvertering zorgt voor meer energie, betere opname van voedingsstoffen en minder opgeblazen gevoel.
@@ -196,9 +196,9 @@ export default function Benefits() {
                     </motion.h3>
                     <motion.img variants={fadeInUp}
                         src={smear}
-                        className="w-full h-5px pb-3" />
+                        className="w-full h-5px md:-mt-2 lg:-mt-4 xl:-mt-8 pb-3" />
 
-                    <div className="px-2 sm:px-8 md:px-10">
+                    <div className="mx-auto w-[92%]">
                         <motion.p variants={fadeInUp} className="body-text">
                             Energie uit smoothies komt uit natuurlijke suikers, vezels en mineralen — geen pieken en dalen.
                         </motion.p>
@@ -240,9 +240,9 @@ export default function Benefits() {
                     </motion.h3>
                     <motion.img variants={fadeInUp}
                         src={smear}
-                        className="w-full h-5px pb-3" />
+                        className="w-full h-5px md:-mt-2 lg:-mt-4 xl:-mt-8 pb-3" />
 
-                    <div className="px-2 sm:px-8 md:px-10">
+                    <div className="mx-auto w-[92%]">
                         <motion.p variants={fadeInUp} className="body-text">
                             Weerstand gaat niet alleen over ziek zijn, maar over hoe sterk je lichaam dagelijks reageert op stress.
                         </motion.p>

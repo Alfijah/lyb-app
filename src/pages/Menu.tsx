@@ -1,4 +1,4 @@
-import smear from "../assets/lybMenu/smear.png";
+import smear from "../assets/lybMenu/smear2.png";
 import juice1 from "../assets/lybMenu/juice-1.png";
 import juice2 from "../assets/lybMenu/juice-2.png";
 import juice3 from "../assets/lybMenu/juice-3.png";
@@ -34,25 +34,24 @@ export default function MenuPage() {
   return (
     <section
       id="menu"
-      className="text-xs md:text-sm pt-28 md:pt-36 min-h-screen bg-gradient-to-b from-white via-green-300 to-green-100/50 px-6 md:px-8 py-14"
+      className="text-xs md:text-sm pt-28 md:pt-36 min-h-screen bg-gradient-to-b from-white via-green-100 to-orange-100/50 px-6 md:px-8 py-14"
     >
-      <div className="flex flex-col items-center shadow-md">
+      <div className="lg:w-[80%] mx-auto flex flex-col items-center shadow-md">
         <h1 className="w-full py-4 text-center bg-darkYellow/10">LYB menu</h1>
         <div className="border-1 border-darkYellow/20 w-full"></div>
 
-        <div className="bg-gradient-to-b from-white via-orange-100 to-yellow-50 px-4 py-14 flex flex-col gap-12">
+        <div className="bg-gradient-to-b from-white via-orange-100 to-yellow-50 px-4 py-14 flex flex-col gap-12 lg:gap-16">
           {/* juices */}
           <div className="flex flex-col items-center gap-6">
             <div className="w-full flex flex-col items-center">
               <h3 className="">Juices</h3>
               <img
                 src={smear}
-                className="w-full h-5px" />
-              {/* <div className="border-1 border-tealBrand/50 w-full"></div> */}
+                className="w-full pt-2" />
               <p className="body-text pt-2 font-semibold">350 ml ↝ SRD 100</p>
               <p className="body-text pt-2 font-semibold">1000 ml ↝ SRD 230</p>
             </div>
-            <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-4 text-center">
+            <div className="sm:w-[90%] grid grid-cols-3 sm:grid-cols-4 gap-4 text-center">
               <li className="flex flex-col items-center">
                 <img
                   src={juice1}
@@ -118,12 +117,12 @@ export default function MenuPage() {
               <h3 className="">Smoothies</h3>
               <img
                 src={smear}
-                className="w-full h-5px" />
+                className="w-full pt-2" />
               {/* <div className="border-1 border-darkYellow/20 w-full"></div> */}
               <p className="body-text pt-2 font-semibold">350 ml ↝ SRD 115</p>
               <p className="body-text pt-2 font-semibold">1000 ml ↝ SRD 260</p>
             </div>
-            <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-4 text-center">
+            <div className="sm:w-[90%] grid grid-cols-3 sm:grid-cols-4 gap-4 text-center">
               <li className="flex flex-col items-center">
                 <img
                   src={smoothie9}
@@ -189,10 +188,10 @@ export default function MenuPage() {
               <h3 className="">Welness shots</h3>
               <img
                 src={smear}
-                className="w-full h-5px" />
+                className="w-full pt-2" />
               <p className="body-text pt-2 font-semibold">sets van 125 ml ↝ SRD 500</p>
             </div>
-            <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-4 text-center">
+            <div className="grid grid-cols-4 sm:w-[70%] gap-4 text-center">
               <li className="flex flex-col items-center">
                 <img
                   src={shot1}
@@ -230,11 +229,11 @@ export default function MenuPage() {
               <h3 className="">Vitamine water</h3>
               <img
                 src={smear}
-                className="w-full h-5px" />
+                className="w-full pt-2" />
               <p className="body-text pt-2 font-semibold">1000 ml</p>
               <p className="body-text pt-2 font-semibold">7 liter pack voor SRD 750</p>
             </div>
-            <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-4 text-center">
+            <div className="sm:w-[90%] grid grid-cols-3 sm:grid-cols-4 gap-4 text-center">
               <li className="flex flex-col items-center">
                 <img
                   src={vit1}
@@ -295,18 +294,18 @@ export default function MenuPage() {
           </div>
 
           {/* cleanse en heal */}
-          <div className="flex flex-col items-center gap-2">
+          <div className="flex flex-col items-center">
             <div className="flex flex-col items-center">
               <h3 className="">Cleanse & heal</h3>
               <img
                 src={smear}
-                className="w-full h-5px" />
+                className="w-full pt-2" />
               <p className="body-text pt-2 font-semibold">3x 125 ml • 3x 350 ml • 3x 1000 ml</p>
               {/* <p className="body-text pt-2 font-semibold">3x 350 ml</p>
               <p className="body-text pt-2 font-semibold">3x 1000 ml</p> */}
               <p className="body-text pt-2 font-semibold">Complete set t.w.v. SRD 900 ↝ SRD 850</p>
             </div>
-            <div className="grid grid-cols-3 lg:grid-cols-6 gap-2 items-end text-center">
+            <div className="sm:w-[90%] grid grid-cols-3 gap-2 sm:-ml-6 items-end text-center">
               <li className="flex flex-col items-center">
                 <img
                   src={comboshots}
@@ -341,11 +340,11 @@ export default function MenuPage() {
               <h3 className="">Sappenkuur</h3>
               <img
                 src={smear}
-                className="w-full h-5px" />
+                className="w-full pt-2" />
               <p className="body-text pt-2 font-semibold">350 ml</p>
-
             </div>
-            <table className="menu-text w-full border-collapse">
+
+            <table className="menu-text w-[92%] border-collapse">
               <thead>
                 <tr className="text-left border-b">
                   <th className="py-2"></th>

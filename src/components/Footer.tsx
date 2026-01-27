@@ -19,13 +19,13 @@ export default function FooterSection() {
       <div className="absolute inset-0 bg-black/80"></div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8 py-12 md:py-14">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8 pt-12 pb-4 md:py-14">
         {/* GRID: 3 kolommen */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-2 text-center md:text-left">
           {/* --- LINKERKOLOM: Logo + slogan + tekst --- */}
-          <div className="space-y-4 flex items-center md:items-start md:text-start md:gap-4">
+          <div className="space-y-4 flex items-center md:items-start md:text-start  md:gap-4">
             <div
-              className="flex flex-col items-center gap-1 cursor-pointer"
+              className="flex flex-col md:w-[50%] items-center gap-1 cursor-pointer"
             // onClick={goToHome}
             >
               <img src={logo} alt="JuiceBar Logo" className="h-10 w-auto" />
@@ -48,7 +48,7 @@ export default function FooterSection() {
               </div>
             </div>
 
-            <p className="body-text footer">
+            <p className="flex sm:mx-auto body-text footer">
               ⚠️ Bestellen is momenteel alleen mogelijk via WhatsApp.
             </p>
           </div>

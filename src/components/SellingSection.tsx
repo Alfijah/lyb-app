@@ -41,7 +41,7 @@ export default function SellingSection() {
                     variants={fadeInUp}
                     src={sapmix}
                     alt="fruit splash"
-                    className="object-cover lg:object-center" />
+                    className="w-full object-cover lg:object-center" />
 
                 <motion.img
                     variants={fadeInUp}
