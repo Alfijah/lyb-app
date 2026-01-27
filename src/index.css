@@ -4,9 +4,9 @@
 @tailwind components;
 @tailwind utilities;
 
-/* html {
+html {
   scroll-behavior: smooth;
-} */
+}
 
 @font-face {
   font-family: "Original Surfer";

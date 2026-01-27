@@ -50,7 +50,7 @@ export default function BottlesSection() {
 
             <SectionWrapper className="max-w-screen-3xl mx-auto pb-3 md:pb-16 -mt-6 px-6 md:px-12 text-center">
                 {/* Grid met voordelen */}
-                <motion.div variants={fadeInUp} className="mx-auto grid grid-cols-3 gap-3 lg:w-[70%]">
+                <motion.div variants={fadeInUp} className="mx-auto grid grid-cols-3 gap-3 lg:w-[60%]">
                     {benefits.map((benefit) => (
                         <motion.div
                             key={benefit.id}

@@ -61,7 +61,7 @@ export default function BenefitsSection() {
         <motion.h1 variants={fadeInUp} className="max-w-screen-lg mx-auto text-md text-tealBrand mb-4 lg:pb-6">
           LYB juices & smoothies - <br></br>Voeding die je voelt
         </motion.h1>
-        <motion.p variants={fadeInUp} className="body-text">
+        <motion.p variants={fadeInUp} className="max-w-screen-lg mx-auto body-text">
           LYB juices & smoothies geven je lichaam wat het nodig heeft. Onze ingrediënten werken samen om balans, energie en welzijn te ondersteunen.
         </motion.p>
       </SectionWrapper>

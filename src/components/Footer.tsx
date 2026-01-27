@@ -20,7 +20,6 @@ export default function FooterSection() {
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8 pt-12 pb-4 md:py-14">
-        {/* GRID: 3 kolommen */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-2 text-center md:text-left">
           {/* --- LINKERKOLOM: Logo + slogan + tekst --- */}
           <div className="space-y-4 flex items-center md:items-start md:text-start  md:gap-4">
@@ -57,7 +56,7 @@ export default function FooterSection() {
             {/* --- MIDDENKOLOM: Quick Links --- */}
             <div className="space-y-4 flex flex-col items-center md:items-center md:text-start">
               <h3 className="text-sm font-bold">Quick Links</h3>
-              <ul className="space-y-1 text-gray-200 text-xs md:text-sm">
+              <ul className="space-y-2 text-gray-200 text-xs md:text-sm">
                 <li>
                   <Link to="/" className="body-text footer hover:text-darkYellow transition">
                     Home
@@ -73,15 +72,15 @@ export default function FooterSection() {
                     Benefits
                   </Link>
                 </li>
-                {/* <li>
-                  <Link to="/about" className="hover:text-white transition">
-                    Over ons
+                <li>
+                  <Link to="/benefits#disclaimer" className="body-text footer hover:text-darkYellow transition">
+                    Disclaimer
                   </Link>
-                </li> */}
+                </li>
               </ul>
             </div>
 
-            {/* --- RECHTERKOLOM: Social media icons --- */}
+            {/*RECHTERKOLOM */}
             <div className="flex flex-col items-center md:items-center md:text-start space-y-4">
               <h3 className="text-sm font-medium">Volg ons</h3>
               <div className="flex space-x-4">

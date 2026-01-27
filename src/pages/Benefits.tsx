@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { fadeInUp } from "../animations/Varianten";
 import { BiSolidLeaf } from "react-icons/bi";
@@ -6,6 +8,17 @@ import fruitrow from "../assets/benefits/fruitrow.png";
 import SectionWrapper from "../animations/SectionWrapper";
 
 export default function Benefits() {
+    const { hash } = useLocation();
+
+  useEffect(() => {
+    if (hash) {
+      const el = document.querySelector(hash);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [hash]);
+  
     return (
         <section
             id="menu"
@@ -280,6 +293,20 @@ export default function Benefits() {
                         </motion.p>
                     </div>
                 </SectionWrapper>
+
+                {/* Disclaimer */}
+                <div id="disclaimer">
+                    <SectionWrapper className="mb-4 bg-darkYellow/20 py-4">
+                        <div className="mx-auto w-[92%] ">
+                            <motion.p variants={fadeInUp} className="body-text font-semibold pb-2">
+                                ⚠️ Disclaimer
+                            </motion.p>
+                            <motion.p variants={fadeInUp} className="body-text">
+                                Bij LYB geloven we in de kracht van pure ingrediënten en krachtige combinaties. Veel van onze klanten ervaren positieve effecten, maar ieder lichaam is anders. De manier waarop smoothies worden ervaren kan per persoon verschillen. Onze producten zijn bedoeld als ondersteuning van een gezonde levensstijl en vervangen geen medisch advies.
+                            </motion.p>
+                        </div>
+                    </SectionWrapper>
+                </div>
             </div>
 
         </section>

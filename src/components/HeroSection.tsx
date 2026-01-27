@@ -8,12 +8,12 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="relative w-full min-h-screen sm:min-h-[94vh] lg:min-h-[94vh] xl:min-h-[134vh] bg-gradient-to-b from-green-50 via-green-100 to-white flex flex-col justify-normal lg:justify-center overflow-hidden">
-      <div className="relative inset-0 mt-28 sm:mt-14 md:mt-10 lg:mt-0 mr-16 lg:mr-0">
+      className="relative w-full min-h-screen sm:min-h-[94vh] lg:min-h-[76vh] bg-gradient-to-b from-green-50 via-green-100 to-white flex flex-col justify-normal lg:justify-center overflow-hidden">
+      <div className="relative inset-0 mt-28 sm:mt-14 md:mt-10 lg:-mt-20 mr-16 lg:mr-0">
         <img
           src={hero}
           alt="Verse sap en smoothies"
-          className="w-full h-[40%] lg:h-auto object-cover object-[100%_center] scale-150 sm:scale-125 md:scale-100 lg:scale-100" />
+          className="w-full h-[40%] lg:h-auto object-cover object-[100%_center] scale-150 sm:scale-125 md:scale-100 lg:scale-90" />
       </div>
 
       <div className="absolute z-10 w-full max-w-screen-3xl mx-auto px-6 md:px-8 lg:px-12">
@@ -41,7 +41,7 @@ export default function HeroSection() {
               href="#menu"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.97 }}
-              className="button-text w-full lg:w-fit mt-4 inline-block bg-bioGreen text-white px-8 py-3 rounded-full hover:text-white hover:bg-darkYellow transition-colors duration-300 text-xs">
+              className="button-text w-full lg:w-80 mt-4 inline-block bg-bioGreen text-white px-8 py-3 rounded-full hover:text-white hover:bg-darkYellow transition-colors duration-300 text-xs">
               <Link to="/menu">
                 Bekijk ons menu
               </Link>
