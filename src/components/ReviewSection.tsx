@@ -67,7 +67,7 @@ export default function ReviewSection() {
           className="text-center mb-10"
         >
           <h1 className="mb-4">Wat onze klanten zeggen</h1>
-          <p className="body-text px-[15%] md:px-0">
+          <p className="body-text px-6 md:px-0">
             Ervaringen van onze klanten die genieten van onze juices en smoothies.
           </p>
         </motion.div>
