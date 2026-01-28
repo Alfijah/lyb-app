@@ -117,9 +117,9 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-700 whitespace-nowrap
+    <nav className={`fixed top-0 left-0 right-0 z-[60] transition-colors duration-700 whitespace-nowrap
             ${isScrolled ? "backdrop-blur-xl text-black shadow-md" : "bg-transparent text-white"}`}>
-      <div className="flex max-w-screen-3xl lg:gap-16 justify-between lg:justify-normal lg:items-center lg:w-[65%] px-6 lg:pl-12 py-3">
+      <div className="relative z-[70] flex max-w-screen-3xl lg:gap-16 justify-between lg:justify-normal lg:items-center lg:w-[65%] px-6 lg:pl-12 py-3">
         {/* Logo + slogan */}
         <div
           className="flex flex-col items-center gap-1 cursor-pointer"
@@ -225,7 +225,7 @@ export default function Navbar() {
         {/* Hamburger knop (mobiel) */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="lg:hidden text-tealHover focus:outline-none"
+          className="relative z-[80] lg:hidden text-tealHover focus:outline-none"
           aria-label="Menu toggle"
         >
           {menuOpen ? (
@@ -264,10 +264,10 @@ export default function Navbar() {
 
       {/* Mobiel menu */}
       <div
-        className={`lg:hidden bg-gradient-to-b from-green-50 via-green-100 to-white overflow-hidden shadow-md ${menuOpen ? "max-h-96" : "max-h-0"
+        className={`lg:hidden bg-gradient-to-b from-green-50 via-green-100 to-white overflow-hidden shadow-md ${menuOpen ? "fixed z-50 top-0 right-0 w-[60%] h-screen" : "hidden"
           }`}
       >
-        <ul className="flex flex-col items-center gap-4 py-4 text-tealBrand">
+        <ul className="flex flex-col items-center gap-4 pt-20 body-text">
           {/* Home */}
           <li>
             <button

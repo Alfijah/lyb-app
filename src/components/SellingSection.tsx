@@ -17,7 +17,7 @@ export default function SellingSection() {
                     Gezond genieten, thuis en op de werkvloer
                 </motion.h1>
                 <motion.p variants={fadeInUp} className="max-w-screen-lg mx-auto body-text">
-                    Onze verse smoothies worden geleverd aan particulieren én bedrijven.
+                    Onze verse smoothies worden geleverd aan <i><b>particulieren én bedrijven</b></i>.
                     Voor thuis, onderweg of op kantoor — zodat gezond leven moeiteloos onderdeel wordt van je dag.
                 </motion.p>
                 <motion.p variants={fadeInUp} className="body-text pt-4">
@@ -31,7 +31,7 @@ export default function SellingSection() {
                     whileTap={{ scale: 0.97 }}
                     className="button-text w-full lg:w-60 inline-block bg-bioGreen text-white px-8 py-3 rounded-full hover:text-white hover:bg-darkYellow transition-colors duration-300 text-xs mt-4 mb-4">
                     <Link to="/menu">
-                        Bekijk ons menu
+                        Ontdek onze smaken
                     </Link>
                 </motion.a>
             </SectionWrapper>

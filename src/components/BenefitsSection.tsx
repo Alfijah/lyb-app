@@ -54,7 +54,7 @@ export default function BenefitsSection() {
   return (
     <section
       id="benefits"
-      className="max-w-screen-3xl bg-gradient-to-b from-orange-50 via-orange-100 to-white mx-auto py-14 md:py-16 px-6 md:px-8 text-center">
+      className="max-w-screen-3xl bg-gradient-to-b from-orange-50 via-orange-100 to-white mx-auto py-14 md:py-16 px-6 md:px-8 lg:px-12 text-center">
       
       {/* Titel */}
       <SectionWrapper className="mb-4">

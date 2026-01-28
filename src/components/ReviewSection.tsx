@@ -1,7 +1,6 @@
 "use client";
 import { useRef, useState } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
-import type { PanInfo } from "framer-motion";
 import review1 from "../assets/reviewsSection/review1.jpg";
 import review2 from "../assets/reviewsSection/review2.jpg";
 import review3 from "../assets/reviewsSection/review3.jpg";
@@ -39,11 +38,6 @@ export default function ReviewSection() {
     setIndex((prev) => (prev - 1 + reviews.length) % reviews.length);
   };
 
-  const handleDragEnd = (_: any, info: PanInfo) => {
-    if (info.offset.x < -50) handleNext();
-    else if (info.offset.x > 50) handlePrev();
-  };
-
   return (
     <section
       ref={ref}
@@ -55,7 +49,7 @@ export default function ReviewSection() {
         style={{ backgroundImage: `url(${bgImage})` }}
       />
 
-      {/* Gradient overlay layer (jouw huidige gradient) */}
+      {/* Gradient overlay layer*/}
       <div className="absolute inset-0 bg-gradient-to-b from-white/100 via-green-100/80 to-green-50/90 z-10" />
 
       <div className="relative z-20 w-full flex flex-col items-center">
@@ -66,7 +60,7 @@ export default function ReviewSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-10"
         >
-          <h1 className="mb-4">Wat onze klanten zeggen</h1>
+          <h1 className="mb-4">Gezonder leven doen we samen</h1>
           <p className="body-text px-6 md:px-0">
             Ervaringen van onze klanten die genieten van onze juices en smoothies.
           </p>
@@ -94,7 +88,6 @@ export default function ReviewSection() {
             className="flex"
             drag="x"
             dragConstraints={{ left: 0, right: 0 }}
-            onDragEnd={handleDragEnd}
             animate={{ x: `-${index * 100}%` }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
           >

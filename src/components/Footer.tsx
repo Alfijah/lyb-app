@@ -53,7 +53,7 @@ export default function FooterSection() {
           </div>
 
           <div className="flex mx-auto gap-14">
-            {/* --- MIDDENKOLOM: Quick Links --- */}
+            {/* Quick Links */}
             <div className="space-y-4 flex flex-col items-center md:items-center md:text-start">
               <h3 className="text-sm font-bold">Quick Links</h3>
               <ul className="space-y-2 text-gray-200 text-xs md:text-sm">
@@ -122,7 +122,7 @@ export default function FooterSection() {
               rel="noopener noreferrer"
               className="underline hover:text-white transition"
             >
-              Alfijah.
+              Sarban Works.
             </a>
           </p>
         </div>

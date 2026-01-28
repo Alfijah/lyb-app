@@ -38,14 +38,14 @@ export default function FeaturedSmoothies() {
   ];
 
   return (
-    <section id="menu" className="bg-white max-w-screen-3xl mx-auto px-6 md:px-8 py-14 md:py-16 text-center">
+    <section id="menu" className="bg-white max-w-screen-3xl mx-auto px-6 md:px-8 lg:px-12 py-14 md:py-16 text-center">
       {/* Titel */}
       <SectionWrapper>
         <motion.h1 variants={fadeInUp} className="text-md text-tealBrand mb-4 lg:pb-6">
           Onze Signature Blends
         </motion.h1>
         <motion.p variants={fadeInUp} className="body-text">
-          Onze meest geliefde blends, gekozen door onze klanten.
+          Onze meest geliefde blends, gekozen door onze trouwe klanten.
         </motion.p>
       </SectionWrapper>
 
@@ -61,7 +61,6 @@ export default function FeaturedSmoothies() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: index * 0.2 }}
           >
-            {/* Afbeelding */}
             <motion.div variants={fadeInUp} className="w-[70%] aspect-w-1 aspect-h-1 relative overflow-hidden">
               <img
                 src={smoothie.image}
@@ -78,7 +77,7 @@ export default function FeaturedSmoothies() {
               <motion.p variants={fadeInUp} className="body-text">
                 <b>{smoothie.tag}</b>
               </motion.p>
-              <motion.p variants={fadeInUp} className="body-text">
+              <motion.p variants={fadeInUp} className="body-text font-semibold">
                 350 ml • 1000 ml
               </motion.p>
               <motion.p variants={fadeInUp} className="body-text">

@@ -19,7 +19,7 @@ export default function HeroSection() {
       <div className="absolute z-10 w-full max-w-screen-3xl mx-auto px-6 md:px-8 lg:px-12">
         <div className="min-h-screen flex items-end lg:items-center -mt-28 sm:-mt-10 lg:mt-20">
           <div className="w-full lg:w-[40%] xl:w-[40%] flex flex-col items-center lg:items-start text-center md:pr-0 lg:pr-0">
-            <h1 className="lg:text-left lg:pb-2">Blended for your health</h1>
+            <h1 className="lg:text-left lg:pb-2">Start your healthy journey with us</h1>
             <p className="body-text lg:w-full xl:w-[70%] lg:text-left mt-4 lg:pr-20 xl:pr-0">Dagelijks vers geblend met fruit, kruiden & superfoods voor balans, energie en vitaliteit.</p>
 
             <div className="flex lg:flex-col mt-3 gap-3 sm:gap-4 lg:gap-1">
@@ -43,7 +43,7 @@ export default function HeroSection() {
               whileTap={{ scale: 0.97 }}
               className="button-text w-full lg:w-60 mt-4 inline-block bg-bioGreen text-white px-8 py-3 rounded-full hover:text-white hover:bg-darkYellow transition-colors duration-300 text-xs">
               <Link to="/menu">
-                Bekijk ons menu
+                Ontdek onze smaken
               </Link>
             </motion.a>
           </div>
