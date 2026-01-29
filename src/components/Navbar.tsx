@@ -17,6 +17,27 @@ export default function Navbar() {
   const location = useLocation();
   const navigate = useNavigate();
 
+  useEffect(() => {
+    if (!menuOpen) return;
+
+    const originalOverflow = document.body.style.overflow;
+    const originalPaddingRight = document.body.style.paddingRight;
+
+    // voorkomt "layout shift" door scrollbar verdwijnen (desktop)
+    const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
+
+    document.body.style.overflow = "hidden";
+    if (scrollBarWidth > 0) {
+      document.body.style.paddingRight = `${scrollBarWidth}px`;
+    }
+
+    return () => {
+      document.body.style.overflow = originalOverflow;
+      document.body.style.paddingRight = originalPaddingRight;
+    };
+  }, [menuOpen]);
+
+
   // Scroll-tracking enkel wanneer we op de home route zitten
   useEffect(() => {
     if (location.pathname !== "/") {
@@ -216,61 +237,61 @@ export default function Navbar() {
       {/* Mobiel menu */}
       <AnimatePresence>
         {menuOpen && (
-            <motion.div
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ type: "tween", duration: 0.35, ease: "easeInOut" }}
-              className="lg:hidden fixed top-0 right-0 h-screen w-[60%] bg-gradient-to-b from-green-50 via-green-100 to-white shadow-md z-[50]"
-            >
-              <ul className="flex flex-col items-center gap-4 pt-20 body-text">
-                {/* Home */}
-                <li>
-                  <Link
-                    to={"/"}
-                    onClick={goToHome}
-                    className={`block pb-1 transition-colors hover:text-bioGreen hover:border-b-2 hover:border-bioGreen ${activeSection === "home"
-                      ? "border-b-2 border-bioGreen text-bioGreen"
-                      : ""
-                      }`}
-                  >
-                    Home
-                  </Link>
-                </li>
+          <motion.div
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ type: "tween", duration: 0.35, ease: "easeInOut" }}
+            className="lg:hidden fixed top-0 right-0 h-screen w-[60%] bg-gradient-to-b from-green-50 via-green-100 to-white shadow-md z-[50]"
+          >
+            <ul className="flex flex-col items-center gap-4 pt-20 body-text">
+              {/* Home */}
+              <li>
+                <Link
+                  to={"/"}
+                  onClick={goToHome}
+                  className={`block pb-1 transition-colors hover:text-bioGreen hover:border-b-2 hover:border-bioGreen ${activeSection === "home"
+                    ? "border-b-2 border-bioGreen text-bioGreen"
+                    : ""
+                    }`}
+                >
+                  Home
+                </Link>
+              </li>
 
-                {/* Regular links */}
-                {navLinks
-                  .filter((n) => n.id !== "home")
-                  .map(({ id, label, path }) => (
-                    <li key={id}>
-                      {id === "menu" ? (
-                        <Link
-                          to={path}
-                          onClick={() => setMenuOpen(false)}
-                          className={`block pb-1 transition-colors hover:text-bioGreen hover:border-b-2 hover:border-bioGreen ${activeSection === "menu"
-                            ? "border-b-2 border-bioGreen text-bioGreen"
-                            : ""
-                            }`}
-                        >
-                          {label}
-                        </Link>
-                      ) : (
-                        <Link
-                          to={path}
-                          onClick={() => setMenuOpen(false)}
-                          className={`block pb-1 transition-colors hover:text-bioGreen hover:border-b-2 hover:border-bioGreen ${activeSection === id
-                            ? "border-b-2 border-bioGreen text-bioGreen"
-                            : ""
-                            }`}
-                        >
-                          {label}
-                        </Link>
-                      )}
-                    </li>
-                  ))}
+              {/* Regular links */}
+              {navLinks
+                .filter((n) => n.id !== "home")
+                .map(({ id, label, path }) => (
+                  <li key={id}>
+                    {id === "menu" ? (
+                      <Link
+                        to={path}
+                        onClick={() => setMenuOpen(false)}
+                        className={`block pb-1 transition-colors hover:text-bioGreen hover:border-b-2 hover:border-bioGreen ${activeSection === "menu"
+                          ? "border-b-2 border-bioGreen text-bioGreen"
+                          : ""
+                          }`}
+                      >
+                        {label}
+                      </Link>
+                    ) : (
+                      <Link
+                        to={path}
+                        onClick={() => setMenuOpen(false)}
+                        className={`block pb-1 transition-colors hover:text-bioGreen hover:border-b-2 hover:border-bioGreen ${activeSection === id
+                          ? "border-b-2 border-bioGreen text-bioGreen"
+                          : ""
+                          }`}
+                      >
+                        {label}
+                      </Link>
+                    )}
+                  </li>
+                ))}
 
-                {/* Benefits */}
-                {/* <li>
+              {/* Benefits */}
+              {/* <li>
             <button
               onClick={() => {
                 goToBenefits();
@@ -285,8 +306,8 @@ export default function Navbar() {
             </button>
           </li> */}
 
-                {/* Bestellen */}
-                {/* <li>
+              {/* Bestellen */}
+              {/* <li>
             <a
               onClick={() => setMenuOpen(false)}
               className="bg-bioGreen text-white px-4 py-2 rounded-lg hover:bg-tealHover transition-colors"
@@ -298,33 +319,33 @@ export default function Navbar() {
               Bestellen
             </a>
           </li> */}
-              </ul>
+            </ul>
 
-              {/* Socials */}
-              <div className="absolute left-1/2 -translate-x-1/2 bottom-10 flex space-x-4">
-                <a
-                  href="https://www.facebook.com/lybjuicesandsmoothies/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <TiSocialFacebook className="w-6 h-6 body-text" />
-                </a>
-                <a
-                  href="https://www.instagram.com/lybjuicesandsmoothies/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <TiSocialInstagram className="w-6 h-6 body-text" />
-                </a>
-                <a
-                  href="https://wa.me/5978715108"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <IoLogoWhatsapp className="w-6 h-6 body-text" />
-                </a>
-              </div>
-            </motion.div>
+            {/* Socials */}
+            <div className="absolute left-1/2 -translate-x-1/2 bottom-10 flex space-x-4">
+              <a
+                href="https://www.facebook.com/lybjuicesandsmoothies/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <TiSocialFacebook className="w-6 h-6 body-text" />
+              </a>
+              <a
+                href="https://www.instagram.com/lybjuicesandsmoothies/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <TiSocialInstagram className="w-6 h-6 body-text" />
+              </a>
+              <a
+                href="https://wa.me/5978715108"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <IoLogoWhatsapp className="w-6 h-6 body-text" />
+              </a>
+            </div>
+          </motion.div>
         )}
       </AnimatePresence>
     </nav>

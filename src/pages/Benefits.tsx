@@ -29,7 +29,7 @@ export default function Benefits() {
                 className="w-full object-contain scale-110"
             />
 
-            <div className="mx-auto  flex flex-col gap-12 px-6 md:px-8 xl:w-[90%]">
+            <div className="mx-auto pt-8 flex flex-col gap-12 px-6 md:px-8 xl:w-[90%]">
 
                 {/* Elektrolyten */}
                 <SectionWrapper className="mb-4">
@@ -295,7 +295,7 @@ export default function Benefits() {
                 </SectionWrapper>
 
                 {/* Disclaimer */}
-                <div id="disclaimer" className="scroll-mt-32 md:scroll-mt-36">
+                <div id="disclaimer" className="scroll-mt-32 lg:scroll-mt-42">
                     <SectionWrapper className="mb-4 bg-darkYellow/20 py-4">
                         <div className="mx-auto w-[92%] ">
                             <motion.p variants={fadeInUp} className="body-text font-semibold pb-2">
