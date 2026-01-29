@@ -2,6 +2,7 @@
 import logo from "../assets/logo2.png";
 import fbIcon from "../assets/contactSection/fbIcon.png";
 import iGIcon from "../assets/contactSection/igIcon.png";
+import wAIcon from "../assets/contactSection/wAIcon.png";
 import { Link } from "react-router-dom";
 
 export default function FooterSection() {
@@ -63,6 +64,11 @@ export default function FooterSection() {
                   </Link>
                 </li>
                 <li>
+                  <Link to="/about" className="body-text footer hover:text-darkYellow transition">
+                    Over ons
+                  </Link>
+                </li>
+                <li>
                   <Link to="/menu" className="body-text footer hover:text-darkYellow transition">
                     Menu
                   </Link>
@@ -82,7 +88,7 @@ export default function FooterSection() {
 
             {/*RECHTERKOLOM */}
             <div className="flex flex-col items-center md:items-center md:text-start space-y-4">
-              <h3 className="text-sm font-medium">Volg ons</h3>
+              <h3 className="text-sm font-medium">Socials</h3>
               <div className="flex space-x-4">
                 <a
                   href="https://www.facebook.com/lybjuicesandsmoothies/"
@@ -106,6 +112,17 @@ export default function FooterSection() {
                     className="w-8 h-8 hover:opacity-80 transition"
                   />
                 </a>
+                <a
+                  href="https://wa.me/5978715108"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src={wAIcon}
+                    alt="WhatsApp"
+                    className="w-8 h-8 hover:opacity-80 transition"
+                  />
+                </a>
               </div>
             </div>
           </div>
@@ -122,7 +139,7 @@ export default function FooterSection() {
               rel="noopener noreferrer"
               className="underline hover:text-white transition"
             >
-              Sarban Works.
+              Alfijah.
             </a>
           </p>
         </div>

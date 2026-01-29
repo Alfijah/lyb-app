@@ -66,7 +66,7 @@ export default function BenefitsSection() {
         </motion.p>
       </SectionWrapper>
 
-      {/* Grid met voordelen */}
+      {/* voordelen */}
       <SectionWrapper className="grid grid-cols-3 lg:grid-cols-6 gap-3">
         {benefits.map((benefit) => (
           <motion.div

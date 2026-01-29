@@ -14,7 +14,7 @@ export default function SellingSection() {
 
             <SectionWrapper className="w-full px-6 md:px-8 pt-14 text-center">
                 <motion.h1 variants={fadeInUp} className="max-w-screen-lg mx-auto text-center text-md text-tealBrand mb-4 lg:pb-6">
-                    Gezond genieten, thuis en op de werkvloer
+                    Wij bezorgen - thuis en op de werkvloer
                 </motion.h1>
                 <motion.p variants={fadeInUp} className="max-w-screen-lg mx-auto body-text">
                     Onze verse smoothies worden geleverd aan <i><b>particulieren én bedrijven</b></i>.
