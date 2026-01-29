@@ -322,7 +322,7 @@ export default function Navbar() {
             </ul>
 
             {/* Socials */}
-            <div className="absolute left-1/2 -translate-x-1/2 bottom-10 flex space-x-4">
+            <div className="absolute left-1/2 -translate-x-1/2 mt-10 flex space-x-4">
               <a
                 href="https://www.facebook.com/lybjuicesandsmoothies/"
                 target="_blank"
