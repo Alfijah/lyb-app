@@ -13,7 +13,7 @@ export default function FeaturedSmoothies() {
       name: "Açaí Royale",
       tag: "podosiri - bacove - kers",
       description:
-        "Onze suikervrije podosiri-smoothie wordt gemaakt van verse podosiri, bacove en kers, afkomstig van lokale leveranciers.",
+        "De combinatie van açaí, kers en banaan levert antioxidanten en kalium, die het lichaam ondersteunen bij spierwerking, herstel en het vasthouden van een stabiel energieniveau.",
       tags: ["Weerstand", "Energie", "Spijsvertering", "Antioxidanten"],
       image: podosiri,
     },
@@ -22,7 +22,7 @@ export default function FeaturedSmoothies() {
       name: "Soursop Breeze",
       tag: "zuurzak - chiazaadjes",
       description:
-        "Ons Zuurzak-sap, verrijkt met chiazaadjes, combineert een verfrissende, tropische smaak met natuurlijke voedingskracht.",
+        "Ons Zuurzak-sap, verrijkt met chiazaadjes, ondersteunt hydratatie en een verzadigd gevoel dankzij vezels, omega’s en natuurlijke mineralen.",
       tags: ["Weerstand", "Antioxidant", "Energie"],
       image: chiaZuurzak,
     },
@@ -31,7 +31,7 @@ export default function FeaturedSmoothies() {
       name: "Green Reset",
       tag: "sopropo - zuurzak - moringa",
       description:
-        "Green Reset combineert sopropo, zuurzak en moringa tot een krachtige groene blend die je lichaam ondersteunt bij natuurlijke reiniging en herstel.",
+        "Green Reset combineert sopropo, zuurzak en moringa tot een krachtige groene blend die je lichaam ondersteunt bij natuurlijke balans en dagelijkse weerstand dankzij plantaardige voedingsstoffen en mineralen.",
       tags: ["Reiniging", "Weerstand", "Energie", "Balans"],
       image: cleanseHeal,
     },
