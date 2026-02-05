@@ -134,12 +134,12 @@ export default function FooterSection() {
             © {new Date().getFullYear()} LYB Juices & Smoothies. Alle rechten
             voorbehouden. Website gebouwd met 💚 door{" "}
             <a
-              href="https://www.instagram.com/sarbanworks?igsh=MWxucnpnN3Q3OGk5dw=="
+              href="https://www.instagram.com/sarbandigital.social/"
               target="_blank"
               rel="noopener noreferrer"
               className="underline hover:text-white transition"
             >
-              SarbanWorks.
+              Sarban Digital.
             </a>
           </p>
         </div>
