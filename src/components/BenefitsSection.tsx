@@ -54,7 +54,13 @@ export default function BenefitsSection() {
   return (
     <section
       id="benefits"
-      className="max-w-screen-3xl bg-gradient-to-b from-orange-50 via-orange-100 to-white mx-auto py-14 md:py-16 px-6 md:px-8 lg:px-12 text-center">
+      className="relative max-w-screen-3xl bg-gradient-to-b from-orange-100 via-orange-100 to-white mx-auto pb-14 md:py-16 px-6 md:px-8 lg:px-12 text-center">
+
+      <img
+        src={plantsPixar}
+        alt="hangende plant"
+        className="absolute object-contain left-0 top-0 w-full h-auto -mb-10 lg:-mb-14 -mt-10 sm:-mt-14 md:-mt-16 lg:-mt-28 pointer-events-none select-none"
+      />
       
       {/* Titel */}
       <SectionWrapper className="mb-4">
