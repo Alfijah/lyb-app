@@ -48,9 +48,14 @@ export default function FooterSection() {
               </div>
             </div>
 
-            <p className="flex sm:mx-auto body-text footer">
-              ⚠️ Bestellen is momenteel alleen mogelijk via WhatsApp.
-            </p>
+            <div className="flex flex-col gap-4 px-2">
+              <p className="flex sm:mx-auto body-text footer">
+                Natuurlijke sappen en smoothies in Paramaribo, Suriname.
+              </p>
+              <p className="flex sm:mx-auto body-text footer">
+                ⚠️ Bestellen is momenteel alleen mogelijk via WhatsApp.
+              </p>
+            </div>
           </div>
 
           <div className="flex mx-auto gap-14">

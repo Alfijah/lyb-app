@@ -4,6 +4,7 @@ import { fadeInUp } from "../animations/Varianten";
 import podosiri from "../assets/featuredSmoothies/acai.png";
 import chiaZuurzak from "../assets/featuredSmoothies/soursoop.png";
 import cleanseHeal from "../assets/featuredSmoothies/greenReset.png";
+import fruitBg from "../assets/fluidButton.png";
 import SectionWrapper from "../animations/SectionWrapper";
 
 export default function FeaturedSmoothies() {
@@ -12,6 +13,7 @@ export default function FeaturedSmoothies() {
       id: 1,
       name: "Açaí Royale",
       tag: "podosiri - bacove - kers",
+      bgColor: "bg-[#f1ccd1]",
       description:
         "De combinatie van açaí, kers en banaan levert antioxidanten en kalium, die het lichaam ondersteunen bij spierwerking, herstel en het vasthouden van een stabiel energieniveau.",
       tags: ["Weerstand", "Energie", "Spijsvertering", "Antioxidanten"],
@@ -21,6 +23,7 @@ export default function FeaturedSmoothies() {
       id: 2,
       name: "Soursop Breeze",
       tag: "zuurzak - chiazaadjes",
+      bgColor: "bg-[#f7f6eb]",
       description:
         "Ons Zuurzak-sap, verrijkt met chiazaadjes, ondersteunt hydratatie en een verzadigd gevoel dankzij vezels, omega’s en natuurlijke mineralen.",
       tags: ["Weerstand", "Antioxidant", "Energie"],
@@ -31,21 +34,21 @@ export default function FeaturedSmoothies() {
       name: "Green Reset",
       tag: "sopropo - zuurzak - moringa",
       description:
-        "Green Reset combineert sopropo, zuurzak en moringa tot een krachtige groene blend die je lichaam ondersteunt bij natuurlijke balans en dagelijkse weerstand dankzij plantaardige voedingsstoffen en mineralen.",
+        "Groene smoothie met zuurzak, sopropo en moringa. Rijk aan antioxidanten en perfect voor een natuurlijke energieboost.",
       tags: ["Reiniging", "Weerstand", "Energie", "Balans"],
       image: cleanseHeal,
     },
   ];
 
   return (
-    <section id="menu" className="bg-white max-w-screen-3xl mx-auto px-6 md:px-8 lg:px-12 py-14 md:py-16 text-center">
+    <section id="menu" className="bg-bgColor max-w-screen-3xl mx-auto py-14 md:py-16 pb-20 sm:pb-24 md:pb-32 text-center">
       {/* Titel */}
       <SectionWrapper>
         <motion.h1 variants={fadeInUp} className="text-md text-tealBrand mb-4 lg:pb-6">
           Onze Signature Blends
         </motion.h1>
-        <motion.p variants={fadeInUp} className="body-text">
-          Onze meest geliefde blends, gekozen door onze trouwe klanten.
+        <motion.p variants={fadeInUp} className="body-text px-6">
+          Onze <span className="exceptionText font-semibold">meest gekozen</span> smoothies in Paramaribo. Vers, voedzaam en geliefd door onze klanten.
         </motion.p>
       </SectionWrapper>
 
@@ -55,29 +58,45 @@ export default function FeaturedSmoothies() {
           <motion.div
             key={smoothie.id}
             variants={fadeInUp}
-            className="bg-white overflow-hidden flex flex-col items-center transition-shadow duration-300"
+            className="overflow-hidden flex flex-col items-center transition-shadow duration-300"
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: index * 0.2 }}
           >
-            <motion.div variants={fadeInUp} className="w-[70%] aspect-w-1 aspect-h-1 relative overflow-hidden">
-              <img
-                src={smoothie.image}
-                alt={smoothie.name}
-                className="object-cover"
-              />
-            </motion.div>
+            <div className="relative flex flex-col items-center">
+              <svg viewBox="0 0 500 200" className="relative w-full h-22 sm:pt-6 z-50">
+                <path
+                  id="curve"
+                  d="M 50 150 Q 250 0 450 150"
+                  fill="transparent"
+                />
+                <text className="bestSeller tracking-widest">
+                  <textPath href="#curve" startOffset="50%" textAnchor="middle">
+                    {smoothie.name}
+                  </textPath>
+                </text>
+              </svg>
+
+              <motion.div variants={fadeInUp} className="w-[70%] aspect-w-1 aspect-h-1 -mt-28 sm:-mt-36 lg:-mt-14 xl:-mt-16 relative overflow-hidden z-10">
+                <img
+                  src={smoothie.image}
+                  alt={smoothie.name}
+                  className="object-cover"
+                />
+              </motion.div>
+            </div>
 
             {/* Tekst onder afbeelding */}
-            <motion.div variants={fadeInUp} className="px-2 md:px-6 py-4 lg:py-16 lg:h-74 xl:h-80 space-y-2 text-center -mt-14 sm:-mt-16 md:-mt-18 xl:-mt-20 bg-tealBrand/10 rounded-3xl">
-              <motion.h3 variants={fadeInUp} className="md:text-md mt-6 lg:mt-10">
+            <motion.div variants={fadeInUp} className={`mx-6 px-2 md:px-6 py-4 lg:py-16 lg:h-74 xl:h-80 space-y-2 text-center -mt-14 sm:-mt-16 md:-mt-18 xl:-mt-20   shadow-lg rounded-3xl`}>
+              {/* <motion.h3 variants={fadeInUp} className="relative md:text-md mt-6 lg:mt-10 tracking-widest mb-4 z-99">
                 {smoothie.name}
-              </motion.h3>
-              <motion.p variants={fadeInUp} className="body-text">
+              </motion.h3> */}
+
+              <motion.p variants={fadeInUp} className="body-text pt-4 lg:mt-4 xl:mt-6 italic">
                 <b>{smoothie.tag}</b>
               </motion.p>
-              <motion.p variants={fadeInUp} className="body-text font-semibold">
+              <motion.p variants={fadeInUp} className="body-text font-extrabold">
                 350 ml • 1000 ml
               </motion.p>
               <motion.p variants={fadeInUp} className="body-text">
@@ -89,13 +108,25 @@ export default function FeaturedSmoothies() {
                 {smoothie.tags.map((tag, i) => (
                   <span
                     key={i}
-                    className="px-3 py-1 text-green-600 text-xs rounded-full bg-darkYellow/20"
+                    className="px-3 py-1 text-green-100 text-xs rounded-full bg-tealBrand/50 shadow-sm"
                   >
                     {tag}
                   </span>
                 ))}
               </motion.div>
             </motion.div>
+
+            <div className="w-full px-6 pb-6">
+              <a
+                style={{ backgroundImage: `url(${fruitBg})` }}
+                className="body w-full lg:w-60 mt-2 inline-block bg-cover bg-center text-white py-3 rounded-full shadow-md hover:shadow-md hover:text-white hover:bg-darkYellow transition-colors duration-300 text-xs uppercase tracking-widest"
+                href="https://wa.me/5978531071"
+                target="_blank"
+                rel="noopener
+              noreferrer">
+                Bestel deze smoothie
+              </a>
+            </div>
           </motion.div>
         ))}
       </SectionWrapper>

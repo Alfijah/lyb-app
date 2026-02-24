@@ -131,16 +131,55 @@ export default function Navbar() {
   return (
     <nav id="home" className={`fixed top-0 left-0 right-0 z-[60] transition-colors duration-700 whitespace-nowrap
             ${isScrolled ? "backdrop-blur-xl text-black shadow-md" : "bg-transparent text-white"}`}>
-      <div className="relative z-[70] flex max-w-screen-3xl lg:gap-16 justify-between lg:justify-normal lg:items-center lg:w-[65%] px-6 lg:pl-12 py-3">
+      <div className="relative z-[70] flex max-w-screen-3xl lg:gap-16 lg:justify-normal lg:items-center lg:w-[65%] px-6 lg:pl-12 pt-3 pb-5">
+        {/* Hamburger knop */}
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="relative z-50 lg:hidden text-tealHover focus:outline-none"
+          aria-label="Menu toggle"
+        >
+          {menuOpen ? (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={2}
+              stroke="currentColor"
+              className="w-8 h-8"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          ) : (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={2}
+              stroke="currentColor"
+              className="w-8 h-8"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M4 6h16M4 12h16m-7 6h7"
+              />
+            </svg>
+          )}
+        </button>
+
         {/* Logo + slogan */}
         <div
-          className="flex flex-col items-center gap-1 cursor-pointer"
+          className="absolute z-30 left-1/2 -translate-x-1/2 lg:static lg:translate-x-0 flex flex-col items-center gap-1 cursor-pointer"
           onClick={goToHome}
         >
-          <img src={logo} alt="JuiceBar Logo" className="h-10 w-auto" />
+          <img src={logo} alt="JuiceBar Logo" className="h-8 w-auto" />
           <div className="flex flex-col items-center leading-tight">
             <span
-              className="text-green-800 font-bold text-[9px]"
+              className="text-green-800 font-bold text-[7px]"
               style={{
                 color: "#02888d",
                 fontFamily: "'Montserrat', sans-serif",
@@ -193,56 +232,17 @@ export default function Navbar() {
               );
             })}
         </ul>
-
-        {/* Hamburger knop */}
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="relative z-[80] lg:hidden text-tealHover focus:outline-none"
-          aria-label="Menu toggle"
-        >
-          {menuOpen ? (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={2}
-              stroke="currentColor"
-              className="w-8 h-8"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          ) : (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={2}
-              stroke="currentColor"
-              className="w-8 h-8"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M4 6h16M4 12h16m-7 6h7"
-              />
-            </svg>
-          )}
-        </button>
       </div>
 
       {/* Mobiel menu */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            initial={{ x: "100%" }}
+            initial={{ x: "-100%" }}
             animate={{ x: 0 }}
-            exit={{ x: "100%" }}
+            exit={{ x: "-100%" }}
             transition={{ type: "tween", duration: 0.35, ease: "easeInOut" }}
-            className="lg:hidden fixed top-0 right-0 h-screen w-[60%] bg-gradient-to-b from-green-50 via-green-100 to-white shadow-md z-[50]"
+            className="lg:hidden fixed z-40 top-0 left-0 h-screen w-[60%] bg-gradient-to-b from-green-50 via-green-100 to-white shadow-md"
           >
             <ul className="flex flex-col items-center gap-4 pt-20 body-text">
               {/* Home */}

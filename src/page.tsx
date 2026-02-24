@@ -4,6 +4,7 @@ import BenefitsSection from "./components/BenefitsSection";
 import ReviewsSection from "./components/ReviewSection";
 import BottlesSection from "./components/BottlesSection";
 import SellingSection from "./components/SellingSection";
+import Aanbod from "./components/Aanbod";
 
 export default function HomePage() {
   return (
@@ -11,6 +12,7 @@ export default function HomePage() {
       <HeroSection />
       <FeaturedSmoothies />
       <BenefitsSection />
+      <Aanbod />
       <BottlesSection />
       <SellingSection />
       <ReviewsSection />

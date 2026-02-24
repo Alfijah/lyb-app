@@ -15,8 +15,33 @@ html {
   font-style: normal;
 }
 
+@font-face {
+  font-family: "Muli";
+  src: url("./assets/fonts/Muli-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Muli";
+  src: url("./assets/fonts/Muli-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Dancing Script";
+  src: url("./assets/fonts/Dancing_Script/DancingScript-VariableFont_wght.ttf") format("truetype");
+  font-weight: lighter;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Original Surfer";
+  src: url("./assets/fonts/OriginalSurfer-Regular.ttf") format("truetype");
+}
+
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Muli', sans-serif;
 }
 
 .nav-text,
@@ -50,15 +75,39 @@ h1,
 h2,
 h3 {
   font-family: 'Original Surfer', serif;
+  font-weight:800;
   color: #02888d;
+  letter-spacing: 1px;
 }
 
 h1 {
   font-size: 1.6rem;
 }
 
-h3 {
+/* h3 {
   font-size: 1.2rem;
+  font-family: 'Amsterdam', serif;
+} */
+
+.bestSeller {
+  font-size: 2.8rem;
+  font-family: 'Muli', serif;
+  font-weight:900;
+  fill: #ffc331;
+  text-shadow: rgb(105, 100, 100) 1px 1px;
+}
+
+.exceptionText {
+    font-family: 'Dancing Script', serif;
+    font-size: 1.2rem;
+}
+
+.categoryText {
+  font-family: 'Muli', serif;
+  color: rgb(134, 127, 127);
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 4px;
 }
 
 @media (min-width: 576px) {
@@ -76,7 +125,8 @@ h3 {
 @media (min-width: 1024px) {
   .nav-text,
   .button-text,
-  .body-text {
+  .body-text,
+  .exceptionText {
     font-size: 0.9rem;
     /* text-base */
   }

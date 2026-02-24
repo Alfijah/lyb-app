@@ -10,6 +10,7 @@ import review6 from "../assets/reviewsSection/review6.jpg";
 import review7 from "../assets/reviewsSection/review7.jpg";
 import review8 from "../assets/reviewsSection/review8.jpg";
 import bgImage from "../assets/reviewsSection/groupPeople.png";
+import fruitBg from "../assets/fluidButton.png";
 
 const reviews = [
   { id: 1, image: review1 },
@@ -42,7 +43,7 @@ export default function ReviewSection() {
     <section
       ref={ref}
       id="reviews"
-      className="relative flex flex-col items-center justify-center py-14 md:py-14 overflow-hidden"
+      className="relative flex flex-col items-center justify-center py-14 md:py-14 overflow-hidden z-0"
     >
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
@@ -60,9 +61,9 @@ export default function ReviewSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-10"
         >
-          <h1 className="mb-4">Gezonder leven doen we samen</h1>
+          <h1 className="mb-4 px-6 pt-4">Gezonder leven doen we samen</h1>
           <p className="body-text px-6 md:px-0">
-            Ervaringen van onze klanten die genieten van onze juices en smoothies.
+            Meer dan 500 tevreden klanten in Paramaribo.
           </p>
         </motion.div>
 
@@ -71,14 +72,16 @@ export default function ReviewSection() {
           {/* Pijlen */}
           <button
             onClick={handlePrev}
-            className="absolute left-5 md:left-20 top-1/2 -translate-y-1/2 bg-bioGreen/80 text-white w-10 h-10 rounded-full flex items-center justify-center z-10 hover:bg-green-700/60"
+            style={{ backgroundImage: `url(${fruitBg})` }}
+            className="absolute left-5 md:left-20 top-1/2 -translate-y-1/2 bg-cover bg-center text-white w-10 h-10 rounded-full shadow-lg hover:shadow-xl flex items-center justify-center z-10 hover:bg-green-700/60"
           >
             &lt;
           </button>
 
           <button
             onClick={handleNext}
-            className="absolute right-5 md:right-20 top-1/2 -translate-y-1/2 bg-bioGreen/80 text-white w-10 h-10 rounded-full flex items-center justify-center z-10 hover:bg-green-700/60"
+            style={{ backgroundImage: `url(${fruitBg})` }}
+            className="absolute right-5 md:right-20 top-1/2 -translate-y-1/2 bg-cover bg-center text-white w-10 h-10 rounded-full shadow-lg hover:shadow-xl flex items-center justify-center z-10 hover:bg-green-700/60"
           >
             &gt;
           </button>

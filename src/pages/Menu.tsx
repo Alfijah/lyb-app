@@ -36,7 +36,7 @@ export default function MenuPage() {
       id="menu"
       className="text-xs md:text-sm pt-28 md:pt-36 min-h-screen bg-gradient-to-b from-white via-green-100 to-orange-100/50 px-6 md:px-8 py-14"
     >
-      <div className="lg:w-[80%] mx-auto flex flex-col items-center shadow-md">
+      <div className="lg:w-[80%] mx-auto flex flex-col items-center shadow-lg">
         <h1 className="w-full py-4 text-center bg-darkYellow/10">LYB menu</h1>
         <div className="border-1 border-darkYellow/20 w-full"></div>
 
