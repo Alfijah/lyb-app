@@ -4,7 +4,7 @@ import { PiWhatsappLogoLight } from "react-icons/pi";
 export default function WhatsApp() {
   return (
     <a
-      href="https://wa.me/5978715108"
+      href="https://wa.me/5978531071"
       target="_blank"
       rel="noopener noreferrer"
       className="fixed right-0 bottom-20 flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300 hover:opacity-100 z-50"

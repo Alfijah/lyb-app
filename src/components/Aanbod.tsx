@@ -47,7 +47,9 @@ export default function Aanbod() {
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-12">
                 <SectionWrapper>
                     <div>
-                        <motion.p className="categoryText ">Juices</motion.p>
+                        <motion.p
+                            variants={fadeInUp}
+                            className="categoryText ">Juices</motion.p>
                         <motion.img
                             variants={fadeInUp}
                             src={juices}
@@ -59,7 +61,9 @@ export default function Aanbod() {
 
                 <SectionWrapper>
                     <div>
-                        <motion.p className="categoryText ">Smoothies</motion.p>
+                        <motion.p
+                            variants={fadeInUp}
+                            className="categoryText ">Smoothies</motion.p>
                         <motion.img
                             variants={fadeInUp}
                             src={smoothies}
@@ -71,7 +75,9 @@ export default function Aanbod() {
 
                 <SectionWrapper>
                     <div>
-                        <motion.p className="categoryText ">Wellness shots</motion.p>
+                        <motion.p
+                            variants={fadeInUp}
+                            className="categoryText ">Wellness shots</motion.p>
                         <motion.img
                             variants={fadeInUp}
                             src={shots}
@@ -83,7 +89,9 @@ export default function Aanbod() {
 
                 <SectionWrapper>
                     <div>
-                        <motion.p className="categoryText ">Vitamine water</motion.p>
+                        <motion.p
+                            variants={fadeInUp}
+                            className="categoryText ">Vitamine water</motion.p>
                         <motion.img
                             variants={fadeInUp}
                             src={vitawater}
@@ -95,7 +103,9 @@ export default function Aanbod() {
 
                 <SectionWrapper>
                     <div>
-                        <motion.p className="categoryText ">Cleanse & heal</motion.p>
+                        <motion.p
+                            variants={fadeInUp}
+                            className="categoryText ">Cleanse & heal</motion.p>
                         <motion.img
                             variants={fadeInUp}
                             src={cleanse}
@@ -107,7 +117,9 @@ export default function Aanbod() {
 
                 <SectionWrapper>
                     <div>
-                        <motion.p className="categoryText ">Sappenkuur</motion.p>
+                        <motion.p
+                            variants={fadeInUp}
+                            className="categoryText ">Sappenkuur</motion.p>
                         <motion.img
                             variants={fadeInUp}
                             src={sappenkuur}
@@ -122,18 +134,19 @@ export default function Aanbod() {
                         Nog meer smaken ontdekken?
                     </motion.h3>
                     <motion.p variants={fadeInUp} className="max-w-screen-lg mx-auto body-text sm:px-8 md:px-10 lg:px-28">
-                        Bekijk ons volledige menu met smoothies, juices en wellness drinks; <span className="exceptionText font-semibold">altijd vers</span> met een verfrissende smaak. 
+                        Bekijk ons volledige menu met smoothies, juices en wellness drinks; <span className="exceptionText font-semibold">altijd vers</span> met een verfrissende smaak.
                     </motion.p>
                     <motion.a
-              href="#menu"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.97 }}
-              style={{ backgroundImage: `url(${fruitBg})` }}
-              className="button-text bg-cover bg-center w-full lg:w-60 mt-4 inline-block text-white px-8 py-3 rounded-full shadow-md hover:shadow-md hover:text-white hover:bg-darkYellow transition-colors duration-300 text-xs uppercase tracking-widest">
-              <Link to="/menu">
-                Bekijk ons menu
-              </Link>
-            </motion.a>
+                        href="#menu"
+                        variants={fadeInUp}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.97 }}
+                        style={{ backgroundImage: `url(${fruitBg})` }}
+                        className="button-text bg-cover bg-center w-full lg:w-60 mt-4 inline-block text-white px-8 py-3 rounded-full shadow-md hover:shadow-md hover:text-white hover:bg-darkYellow transition-colors duration-300 text-xs uppercase tracking-widest">
+                        <Link to="/menu">
+                            Bekijk ons menu
+                        </Link>
+                    </motion.a>
                 </SectionWrapper>
             </div>
         </section>

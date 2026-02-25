@@ -5,6 +5,7 @@ import ReviewsSection from "./components/ReviewSection";
 import BottlesSection from "./components/BottlesSection";
 import SellingSection from "./components/SellingSection";
 import Aanbod from "./components/Aanbod";
+import RockOil from "./components/rockoil";
 
 export default function HomePage() {
   return (
@@ -15,6 +16,7 @@ export default function HomePage() {
       <Aanbod />
       <BottlesSection />
       <SellingSection />
+      <RockOil />
       <ReviewsSection />
     </>
   );

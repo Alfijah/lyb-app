@@ -118,7 +118,7 @@ export default function FooterSection() {
                   />
                 </a>
                 <a
-                  href="https://wa.me/5978715108"
+                  href="https://wa.me/5978531071"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

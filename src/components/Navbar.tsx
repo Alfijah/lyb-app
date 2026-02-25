@@ -131,11 +131,11 @@ export default function Navbar() {
   return (
     <nav id="home" className={`fixed top-0 left-0 right-0 z-[60] transition-colors duration-700 whitespace-nowrap
             ${isScrolled ? "backdrop-blur-xl text-black shadow-md" : "bg-transparent text-white"}`}>
-      <div className="relative z-[70] flex max-w-screen-3xl lg:gap-16 lg:justify-normal lg:items-center lg:w-[65%] px-6 lg:pl-12 pt-3 pb-5">
+      <div className="relative flex max-w-screen-3xl lg:gap-16 lg:justify-normal lg:items-center lg:w-[65%] px-6 lg:pl-12 pt-3 pb-5">
         {/* Hamburger knop */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="relative z-50 lg:hidden text-tealHover focus:outline-none"
+          className="relative z-[90] lg:hidden text-tealHover focus:outline-none"
           aria-label="Menu toggle"
         >
           {menuOpen ? (
@@ -242,7 +242,7 @@ export default function Navbar() {
             animate={{ x: 0 }}
             exit={{ x: "-100%" }}
             transition={{ type: "tween", duration: 0.35, ease: "easeInOut" }}
-            className="lg:hidden fixed z-40 top-0 left-0 h-screen w-[60%] bg-gradient-to-b from-green-50 via-green-100 to-white shadow-md"
+            className="lg:hidden fixed z-[80] top-0 left-0 h-screen w-[60%] bg-gradient-to-b from-green-50 via-green-100 to-white shadow-md"
           >
             <ul className="flex flex-col items-center gap-4 pt-20 body-text">
               {/* Home */}
@@ -289,36 +289,6 @@ export default function Navbar() {
                     )}
                   </li>
                 ))}
-
-              {/* Benefits */}
-              {/* <li>
-            <button
-              onClick={() => {
-                goToBenefits();
-                setMenuOpen(false);
-              }}
-              className={`block pb-1 transition-colors hover:text-bioGreen ${activeSection === "benefits"
-                ? "border-b-2 border-green-600 text-tealHover"
-                : ""
-                }`}
-            >
-              Benefits
-            </button>
-          </li> */}
-
-              {/* Bestellen */}
-              {/* <li>
-            <a
-              onClick={() => setMenuOpen(false)}
-              className="bg-bioGreen text-white px-4 py-2 rounded-lg hover:bg-tealHover transition-colors"
-              href="https://wa.me/31648610436"
-              target="_blank"
-              rel="noopener
-              noreferrer"
-            >
-              Bestellen
-            </a>
-          </li> */}
             </ul>
 
             {/* Socials */}
@@ -338,7 +308,7 @@ export default function Navbar() {
                 <TiSocialInstagram className="w-6 h-6 body-text" />
               </a>
               <a
-                href="https://wa.me/5978715108"
+                href="https://wa.me/5978531071"
                 target="_blank"
                 rel="noopener noreferrer"
               >

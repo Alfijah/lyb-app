@@ -38,7 +38,7 @@ export default function BottlesSection() {
 
     return (
         <section
-            id="benefits">
+            id="benefits" className=" overflow-x-hidden">
 
             <SectionWrapper className="scale-105 mb-12 py-2">
                 <motion.img
@@ -56,34 +56,34 @@ export default function BottlesSection() {
                     Onze juices en smoothies worden gemaakt van pure ingrediënten die jouw lichaam ondersteunen. <span className="exceptionText font-semibold">Geen kunstmatige</span> toevoegingen; alleen wat goed is voor jou.
                 </motion.p>
                 <motion.p variants={fadeInUp} className="pt-3">
-                    125 ml – Krachtige shots
+                    125 ml ↝ Krachtige shots
                 </motion.p>
                 <motion.p variants={fadeInUp} className="">
-                    350 ml – Perfect voor smoothies & juices
+                    350 ml ↝ Perfect voor smoothies & juices
                 </motion.p>
                 <motion.p variants={fadeInUp} className="">
-                    1000 ml – Ideaal om te delen of voor onderweg
+                    1000 ml ↝ Vitaminewater of om te delen
                 </motion.p>
             </div>
 
             <SectionWrapper className="max-w-screen-3xl mx-auto pb-3 md:pb-16 px-6 md:px-12 text-center">
                 {/* Grid met voordelen */}
-                <motion.div variants={fadeInUp} className="mx-auto grid grid-cols-3 gap-3 lg:w-[60%]">
+                <div className="mx-auto grid grid-cols-3 gap-3 lg:w-[60%]">
                     {benefits.map((benefit) => (
-                        <motion.div
+                        <div
                             key={benefit.id}
-                            variants={fadeInUp}
                             className="relative z-66 flex flex-col items-center justify-start transition-all">
-                            {benefit.icon}
+                            <motion.div variants={fadeInUp}
+                            >{benefit.icon}</motion.div>
                             <motion.p variants={fadeInUp} className="body-text font-semibold italic">
                                 {benefit.size}
                             </motion.p>
                             <motion.p variants={fadeInUp} className="body-text">
                                 {benefit.price}
                             </motion.p>
-                        </motion.div>
+                        </div>
                     ))}
-                </motion.div>
+                </div>
             </SectionWrapper>
 
             <img

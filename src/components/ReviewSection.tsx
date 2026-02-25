@@ -11,6 +11,7 @@ import review7 from "../assets/reviewsSection/review7.jpg";
 import review8 from "../assets/reviewsSection/review8.jpg";
 import bgImage from "../assets/reviewsSection/groupPeople.png";
 import fruitBg from "../assets/fluidButton.png";
+import SectionWrapper from "../animations/SectionWrapper";
 
 const reviews = [
   { id: 1, image: review1 },
@@ -53,7 +54,7 @@ export default function ReviewSection() {
       {/* Gradient overlay layer*/}
       <div className="absolute inset-0 bg-gradient-to-b from-white/100 via-green-100/80 to-green-50/90 z-10" />
 
-      <div className="relative z-20 w-full flex flex-col items-center">
+      <SectionWrapper className="relative z-20 w-full flex flex-col items-center">
         {/* Titel */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -61,10 +62,10 @@ export default function ReviewSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-10"
         >
-          <h1 className="mb-4 px-6 pt-4">Gezonder leven doen we samen</h1>
-          <p className="body-text px-6 md:px-0">
-            Meer dan 500 tevreden klanten in Paramaribo.
-          </p>
+          <motion.h1 className="mb-4 px-6 pt-4">Gezonder leven doen we samen</motion.h1>
+          <motion.p className="body-text px-6 md:px-0">
+            Meer dan <span className="exceptionText font-semibold">2250 tevreden klanten</span> in Paramaribo gingen je voor.
+          </motion.p>
         </motion.div>
 
         {/* Carousel */}
@@ -118,11 +119,10 @@ export default function ReviewSection() {
               key={i}
               onClick={() => setIndex(i)}
               className={`w-2 h-2 rounded-full transition ${i === index ? "bg-green-600" : "bg-gray-300"
-                }`}
-            />
+                }`}/>
           ))}
         </div>
-      </div>
+      </SectionWrapper>
     </section>
   );
 }

@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { fadeInUp } from "../animations/Varianten";
 import podosiri from "../assets/featuredSmoothies/acai.png";
 import chiaZuurzak from "../assets/featuredSmoothies/soursoop.png";
-import cleanseHeal from "../assets/featuredSmoothies/greenReset.png";
+import cleanseHeal from "../assets/featuredSmoothies/greenReset2.png";
 import fruitBg from "../assets/fluidButton.png";
 import SectionWrapper from "../animations/SectionWrapper";
 
@@ -54,18 +54,13 @@ export default function FeaturedSmoothies() {
 
       {/* Cards Grid */}
       <SectionWrapper className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 mt-2 lg:pt-4">
-        {smoothies.map((smoothie, index) => (
-          <motion.div
+        {smoothies.map((smoothie) => (
+          <SectionWrapper
             key={smoothie.id}
-            variants={fadeInUp}
             className="overflow-hidden flex flex-col items-center transition-shadow duration-300"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: index * 0.2 }}
           >
             <div className="relative flex flex-col items-center">
-              <svg viewBox="0 0 500 200" className="relative w-full h-22 sm:pt-6 z-50">
+              <motion.svg viewBox="0 0 500 200" className="relative w-full h-22 sm:pt-6 z-50">
                 <path
                   id="curve"
                   d="M 50 150 Q 250 0 450 150"
@@ -76,7 +71,7 @@ export default function FeaturedSmoothies() {
                     {smoothie.name}
                   </textPath>
                 </text>
-              </svg>
+              </motion.svg>
 
               <motion.div variants={fadeInUp} className="w-[70%] aspect-w-1 aspect-h-1 -mt-28 sm:-mt-36 lg:-mt-14 xl:-mt-16 relative overflow-hidden z-10">
                 <img
@@ -89,10 +84,6 @@ export default function FeaturedSmoothies() {
 
             {/* Tekst onder afbeelding */}
             <motion.div variants={fadeInUp} className={`mx-6 px-2 md:px-6 py-4 lg:py-16 lg:h-74 xl:h-80 space-y-2 text-center -mt-14 sm:-mt-16 md:-mt-18 xl:-mt-20   shadow-lg rounded-3xl`}>
-              {/* <motion.h3 variants={fadeInUp} className="relative md:text-md mt-6 lg:mt-10 tracking-widest mb-4 z-99">
-                {smoothie.name}
-              </motion.h3> */}
-
               <motion.p variants={fadeInUp} className="body-text pt-4 lg:mt-4 xl:mt-6 italic">
                 <b>{smoothie.tag}</b>
               </motion.p>
@@ -116,7 +107,9 @@ export default function FeaturedSmoothies() {
               </motion.div>
             </motion.div>
 
-            <div className="w-full px-6 pb-6">
+            <motion.div
+              variants={fadeInUp}
+              className="w-full px-6 pb-6">
               <a
                 style={{ backgroundImage: `url(${fruitBg})` }}
                 className="body w-full lg:w-60 mt-2 inline-block bg-cover bg-center text-white py-3 rounded-full shadow-md hover:shadow-md hover:text-white hover:bg-darkYellow transition-colors duration-300 text-xs uppercase tracking-widest"
@@ -126,8 +119,8 @@ export default function FeaturedSmoothies() {
               noreferrer">
                 Bestel deze smoothie
               </a>
-            </div>
-          </motion.div>
+            </motion.div>
+          </SectionWrapper>
         ))}
       </SectionWrapper>
     </section>
