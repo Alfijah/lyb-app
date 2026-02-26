@@ -26,7 +26,7 @@ export default function RockOil() {
 
             <SectionWrapper className="w-full px-6 md:px-8 pt-12 text-center">
                 <motion.h1 variants={fadeInUp} className="max-w-screen-lg mx-auto text-center text-md text-tealBrand mb-4 lg:pb-6">
-                    Elke week vers geleverd bij Rock Oil
+                    Wekelijks vers geleverd bij Rock Oil
                 </motion.h1>
                 <motion.p variants={fadeInUp} className="max-w-screen-lg mx-auto body-text">
                     <span className="exceptionText font-semibold">Elke week</span> leveren wij verse smoothies en juices bij Rock Oil aan de <b><i>Johannes Mungrastraat</i></b>. Zo ben je verzekerd van kwaliteit, versheid en een vast moment waarop je jouw favoriete LYB-drinks kunt vinden.
