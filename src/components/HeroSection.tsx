@@ -20,7 +20,7 @@ export default function HeroSection() {
       </div>
 
       <div className="absolute z-10 w-full max-w-screen-3xl mx-auto px-6 md:px-8 lg:px-12">
-        <div className="flex min-h-screen items-end lg:items-center -mt-32 sm:-mt-28 lg:mt-20">
+        <div className="flex min-h-screen items-end lg:items-center -mt-24 sm:-mt-28 lg:mt-20">
           <SectionWrapper className="w-full lg:w-[36%] xl:w-[40%] flex flex-col items-center lg:items-start text-center md:pr-0 lg:pr-0">
             <motion.h1 variants={fadeInUp} className="lg:text-left lg:pb-2">100% Natuurlijke Juices & Smoothies in Suriname</motion.h1>
             <motion.p variants={fadeInUp} className="body-text lg:w-full xl:w-[70%] lg:text-left mt-4 lg:pr-0">Dagelijks vers bereid met fruit, kruiden en superfoods. Vrij van kunstmatige stoffen. Pure energie voor <span className="exceptionText font-semibold">jouw dag.</span></motion.p>

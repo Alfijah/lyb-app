@@ -90,11 +90,11 @@ h1 {
 } */
 
 .bestSeller {
-  font-size: 2.8rem;
+  font-size: 2rem;
   font-family: 'Muli', serif;
   font-weight:900;
   fill: #ffc331;
-  text-shadow: rgb(105, 100, 100) 1px 1px;
+  text-shadow: rgb(70, 66, 66) 1px 1px;
 }
 
 .exceptionText {

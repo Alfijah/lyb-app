@@ -108,7 +108,7 @@ export default function BenefitsSection() {
       </SectionWrapper>
 
       {/* voordelen */}
-      <SectionWrapper className="relative w-full grid sm:grid-cols-2 lg:grid-cols-6 lg:px-12">
+      <SectionWrapper className="relative w-full grid sm:grid-cols-2 lg:grid-cols-6 gap-2 lg:px-12">
         {benefits.map((benefit) => (
           <motion.div variants={fadeInUp}
             className="relative w-ful flex flex-row items-center justify-between">

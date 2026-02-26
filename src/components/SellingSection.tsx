@@ -14,7 +14,7 @@ export default function SellingSection() {
 
             <SectionWrapper className="w-full px-6 md:px-8 pt-14 text-center">
                 <motion.h1 variants={fadeInUp} className="max-w-screen-lg mx-auto text-center text-md text-tealBrand mb-4 lg:pb-6">
-                    <span className="exceptionText font-semibold">Vandaag besteld?</span> Bezorging in overleg geregeld
+                    <span className="exceptionText font-extrabold">Vandaag besteld?</span> Bezorging in overleg geregeld
                 </motion.h1>
                 <motion.p variants={fadeInUp} className="max-w-screen-lg mx-auto body-text">
                     Te druk vandaag? Wij bezorgen jouw favoriete juices thuis of op kantoor.
