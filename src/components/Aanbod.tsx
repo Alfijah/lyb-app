@@ -1,8 +1,9 @@
 "use client";
+// import { useNavigate } from "react-router-dom";
 import fruitBg from "../assets/fluidButton.png";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { fadeInUp } from "../animations/Varianten";
+import { fadeInLeft, fadeInUp } from "../animations/Varianten";
 import juices from "../assets/aanbod/juices.png";
 import smoothies from "../assets/aanbod/smoothies.png";
 import shots from "../assets/aanbod/shots.png";
@@ -10,6 +11,7 @@ import vitawater from "../assets/aanbod/vitawater.png";
 import cleanse from "../assets/aanbod/cleanse&heal.png";
 import sappenkuur from "../assets/aanbod/sappenkuur.png";
 import SectionWrapper from "../animations/SectionWrapper";
+import { HiArrowUpRight } from "react-icons/hi2";
 
 export default function Aanbod() {
     return (
@@ -48,90 +50,123 @@ export default function Aanbod() {
                 <SectionWrapper>
                     <div>
                         <motion.p
-                            variants={fadeInUp}
-                            className="categoryText ">Juices</motion.p>
-                        <motion.img
-                            variants={fadeInUp}
-                            src={juices}
-                            alt="juices"
-                            className="mx-auto w-full h-auto pointer-events-none select-none rounded-xl shadow-md"
-                        />
+                            variants={fadeInLeft}
+                            className="categoryText italic">Juices</motion.p>
+                        <div className="relative">
+                            <div className="absolute top-4 right-4 flex items-center justify-center z-[90] w-[60px] h-[40px] bg-white/10 border-1 border-white rounded-3xl">
+                                <HiArrowUpRight className="text-white text-2xl" />
+                            </div>
+                            <motion.img
+                                variants={fadeInLeft}
+                                src={juices}
+                                alt="juices"
+                                className="relative mx-auto w-full h-auto pointer-events-none select-none rounded-xl shadow-md"
+                            />
+                        </div>
                     </div>
                 </SectionWrapper>
 
                 <SectionWrapper>
                     <div>
                         <motion.p
-                            variants={fadeInUp}
-                            className="categoryText ">Smoothies</motion.p>
-                        <motion.img
-                            variants={fadeInUp}
-                            src={smoothies}
-                            alt="juices"
-                            className="mx-auto w-full h-auto pointer-events-none select-none rounded-xl shadow-md"
-                        />
+                            variants={fadeInLeft}
+                            className="categoryText italic">Smoothies</motion.p>
+                        <div className="relative">
+                            <div className="absolute top-4 right-4 flex items-center justify-center z-[90] w-[60px] h-[40px] bg-white/10 border-1 border-white rounded-3xl">
+                                <HiArrowUpRight className="text-white text-2xl" />
+                            </div>
+                            <motion.img
+                                variants={fadeInLeft}
+                                src={smoothies}
+                                alt="juices"
+                                className="relative mx-auto w-full h-auto pointer-events-none select-none rounded-xl shadow-md"
+                            />
+                        </div>
+
                     </div>
                 </SectionWrapper>
 
                 <SectionWrapper>
                     <div>
                         <motion.p
-                            variants={fadeInUp}
-                            className="categoryText ">Wellness shots</motion.p>
-                        <motion.img
-                            variants={fadeInUp}
-                            src={shots}
-                            alt="juices"
-                            className="mx-auto w-full h-auto pointer-events-none select-none rounded-xl shadow-md"
-                        />
+                            variants={fadeInLeft}
+                            className="categoryText italic">Wellness shots</motion.p>
+                        <div className="relative">
+                            <div className="absolute top-4 right-4 flex items-center justify-center z-[90] w-[60px] h-[40px] bg-white/10 border-1 border-white rounded-3xl">
+                                <HiArrowUpRight className="text-white text-2xl" />
+                            </div>
+                            <motion.img
+                                variants={fadeInLeft}
+                                src={shots}
+                                alt="juices"
+                                className="mx-auto w-full h-auto pointer-events-none select-none rounded-xl shadow-md"
+                            />
+                        </div>
                     </div>
                 </SectionWrapper>
 
                 <SectionWrapper>
                     <div>
                         <motion.p
-                            variants={fadeInUp}
-                            className="categoryText ">Vitamine water</motion.p>
-                        <motion.img
-                            variants={fadeInUp}
-                            src={vitawater}
-                            alt="juices"
-                            className="mx-auto w-full h-auto pointer-events-none select-none rounded-xl shadow-md"
-                        />
+                            variants={fadeInLeft}
+                            className="categoryText italic">Vitamine water</motion.p>
+                        <div className="relative">
+                            <div className="absolute top-4 right-4 flex items-center justify-center z-[90] w-[60px] h-[40px] bg-white/10 border-1 border-white rounded-3xl">
+                                <HiArrowUpRight className="text-white text-2xl" />
+                            </div>
+                            <motion.img
+                                variants={fadeInLeft}
+                                src={vitawater}
+                                alt="juices"
+                                className="mx-auto w-full h-auto pointer-events-none select-none rounded-xl shadow-md"
+                            />
+                        </div>
                     </div>
                 </SectionWrapper>
 
                 <SectionWrapper>
                     <div>
                         <motion.p
-                            variants={fadeInUp}
-                            className="categoryText ">Cleanse & heal</motion.p>
-                        <motion.img
-                            variants={fadeInUp}
-                            src={cleanse}
-                            alt="juices"
-                            className="mx-auto w-full h-auto pointer-events-none select-none rounded-xl shadow-md"
-                        />
+                            variants={fadeInLeft}
+                            className="categoryText italic">Cleanse & heal</motion.p>
+                        <div className="relative">
+                            <div className="absolute top-4 right-4 flex items-center justify-center z-[90] w-[60px] h-[40px] bg-white/10 border-1 border-white rounded-3xl">
+                                <HiArrowUpRight className="text-white text-2xl" />
+                            </div>
+                            <motion.img
+                                variants={fadeInLeft}
+                                src={cleanse}
+                                alt="juices"
+                                className="mx-auto w-full h-auto pointer-events-none select-none rounded-xl shadow-md"
+                            />
+                        </div>
+
                     </div>
                 </SectionWrapper>
 
                 <SectionWrapper>
                     <div>
                         <motion.p
-                            variants={fadeInUp}
-                            className="categoryText ">Sappenkuur</motion.p>
+                            variants={fadeInLeft}
+                            className="categoryText italic">Sappenkuur</motion.p>
+                            <div className="relative">
+                            <div className="absolute top-4 right-4 flex items-center justify-center z-[90] w-[60px] h-[40px] bg-white/10 border-1 border-white rounded-3xl">
+                                <HiArrowUpRight className="text-white text-2xl" />
+                            </div>
                         <motion.img
-                            variants={fadeInUp}
+                            variants={fadeInLeft}
                             src={sappenkuur}
                             alt="juices"
                             className="mx-auto w-full h-auto pointer-events-none select-none rounded-xl shadow-md"
                         />
+                            </div>
+
                     </div>
                 </SectionWrapper>
 
                 <SectionWrapper className="mb-4">
                     <motion.h3 variants={fadeInUp} className="max-w-screen-lg mx-auto italic font-semibold py-4 sm:px-8 md:px-10 lg:px-28">
-                        Nog meer smaken ontdekken?
+                        Volledig menu bekijken?
                     </motion.h3>
                     <motion.p variants={fadeInUp} className="max-w-screen-lg mx-auto body-text sm:px-8 md:px-10 lg:px-28">
                         Bekijk ons volledige menu met smoothies, juices en wellness drinks; <span className="exceptionText font-semibold">altijd vers</span> met een verfrissende smaak.

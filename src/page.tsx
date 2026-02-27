@@ -6,6 +6,7 @@ import BottlesSection from "./components/BottlesSection";
 import SellingSection from "./components/SellingSection";
 import Aanbod from "./components/Aanbod";
 import RockOil from "./components/RockOil";
+import Purpose from "./components/Purpose";
 
 export default function HomePage() {
   return (
@@ -13,6 +14,7 @@ export default function HomePage() {
       <HeroSection />
       <FeaturedSmoothies />
       <BenefitsSection />
+      <Purpose />
       <Aanbod />
       <BottlesSection />
       <SellingSection />

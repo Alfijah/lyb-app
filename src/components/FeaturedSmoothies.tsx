@@ -73,7 +73,7 @@ export default function FeaturedSmoothies() {
                 </text>
               </motion.svg>
 
-              <motion.div variants={fadeInUp} className="w-[70%] aspect-w-1 aspect-h-1 -mt-28 sm:-mt-36 lg:-mt-14 xl:-mt-16 relative overflow-hidden z-10">
+              <motion.div variants={fadeInUp} className="w-[50%] aspect-w-1 aspect-h-1 -mt-28 sm:-mt-36 lg:-mt-14 xl:-mt-16 relative overflow-hidden z-10">
                 <img
                   src={smoothie.image}
                   alt={smoothie.name}

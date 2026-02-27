@@ -242,15 +242,15 @@ export default function Navbar() {
             animate={{ x: 0 }}
             exit={{ x: "-100%" }}
             transition={{ type: "tween", duration: 0.35, ease: "easeInOut" }}
-            className="lg:hidden fixed z-[80] top-0 left-0 h-screen w-[60%] bg-gradient-to-b from-orange-100 via-orange-100 to-white shadow-md"
+            className="lg:hidden fixed z-[80] top-0 left-0 h-screen w-[60%] bg-gradient-to-b from-orange-100 via-orange-100 to-white backdrop-blur-lg shadow-md"
           >
-            <ul className="flex flex-col items-center gap-4 pt-20 body-text">
+            <ul className="flex flex-col px-6 gap-4 pt-20 body-text">
               {/* Home */}
               <li>
                 <Link
                   to={"/"}
                   onClick={goToHome}
-                  className={`block pb-1 transition-colors hover:text-bioGreen hover:border-b-2 hover:border-bioGreen ${activeSection === "home"
+                  className={`hamburgerText block pb-1 transition-colors hover:text-bioGreen hover:border-b-2 hover:border-tealBrand ${activeSection === "home"
                     ? "border-b-2 border-bioGreen text-bioGreen"
                     : ""
                     }`}
@@ -268,8 +268,8 @@ export default function Navbar() {
                       <Link
                         to={path}
                         onClick={() => setMenuOpen(false)}
-                        className={`block pb-1 transition-colors hover:text-bioGreen hover:border-b-2 hover:border-bioGreen ${activeSection === "menu"
-                          ? "border-b-2 border-bioGreen text-bioGreen"
+                        className={`hamburgerText block pb-1 transition-colors hover:text-bioGreen hover:border-b-2 hover:border-tealBrand ${activeSection === "menu"
+                          ? "border-b-2 border-tealBrand text-bioGreen"
                           : ""
                           }`}
                       >
@@ -279,7 +279,7 @@ export default function Navbar() {
                       <Link
                         to={path}
                         onClick={() => setMenuOpen(false)}
-                        className={`block pb-1 transition-colors hover:text-bioGreen hover:border-b-2 hover:border-bioGreen ${activeSection === id
+                        className={`hamburgerText block pb-1 transition-colors hover:text-bioGreen hover:border-b-2 hover:border-bioGreen ${activeSection === id
                           ? "border-b-2 border-bioGreen text-bioGreen"
                           : ""
                           }`}
@@ -292,27 +292,27 @@ export default function Navbar() {
             </ul>
 
             {/* Socials */}
-            <div className="absolute left-1/2 -translate-x-1/2 mt-10 flex space-x-4">
+            <div className="absolute px-6 mt-10 flex space-x-4">
               <a
                 href="https://www.facebook.com/lybjuicesandsmoothies/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <TiSocialFacebook className="w-6 h-6 body-text" />
+                <TiSocialFacebook className="w-6 h-6 text-tealBrand" />
               </a>
               <a
                 href="https://www.instagram.com/lybjuicesandsmoothies/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <TiSocialInstagram className="w-6 h-6 body-text" />
+                <TiSocialInstagram className="w-6 h-6 text-tealBrand" />
               </a>
               <a
                 href="https://wa.me/5978531071"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <IoLogoWhatsapp className="w-6 h-6 body-text" />
+                <IoLogoWhatsapp className="w-6 h-6 text-tealBrand" />
               </a>
             </div>
           </motion.div>

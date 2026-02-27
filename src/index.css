@@ -37,7 +37,12 @@ html {
 
 @font-face {
   font-family: "Original Surfer";
-  src: url("./assets/fonts/OriginalSurfer-Regular.ttf") format("truetype");
+  src: url("./assets/fonts/Playfair_Display/PlayfairDisplay-VariableFont_wght.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Original Surfer";
+  src: url("./assets/fonts/Playfair_Display/PlayfairDisplay-VariableFont_wght.ttf") format("truetype");
 }
 
 body {
@@ -75,7 +80,7 @@ h1,
 h2,
 h3 {
   font-family: 'Original Surfer', serif;
-  font-weight:800;
+  font-weight: 800;
   color: #02888d;
   letter-spacing: 1px;
 }
@@ -84,22 +89,30 @@ h1 {
   font-size: 1.6rem;
 }
 
-/* h3 {
-  font-size: 1.2rem;
-  font-family: 'Amsterdam', serif;
-} */
+.hamburgerText {
+  font-family: 'Original Surfer', serif;
+  color: rgb(134, 127, 127);
+  font-size: 1rem;
+  color: #026E73;
+
+}
 
 .bestSeller {
   font-size: 2rem;
   font-family: 'Muli', serif;
-  font-weight:900;
+  font-weight: 900;
   fill: #ffc331;
   text-shadow: rgb(70, 66, 66) 1px 1px;
 }
 
 .exceptionText {
-    font-family: 'Dancing Script', serif;
-    font-size: 1.2rem;
+  font-family: 'Dancing Script', serif;
+  font-size: 1.2rem;
+}
+
+.exceptionTextExtra {
+  font-family: 'Dancing Script', serif;
+  font-size: 2.2rem;
 }
 
 .categoryText {
@@ -123,6 +136,7 @@ h1 {
 }
 
 @media (min-width: 1024px) {
+
   .nav-text,
   .button-text,
   .body-text,
@@ -151,7 +165,7 @@ h1 {
 }
 
 @media (min-width: 1536px) {
-   .menu-text {
+  .menu-text {
     font-size: 0.86rem;
   }
 }
