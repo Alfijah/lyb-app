@@ -9,8 +9,9 @@ import review5 from "../assets/reviewsSection/review5.jpg";
 import review6 from "../assets/reviewsSection/review6.jpg";
 import review7 from "../assets/reviewsSection/review7.jpg";
 import review8 from "../assets/reviewsSection/review8.jpg";
-import bgImage from "../assets/reviewsSection/groupPeople.png";
+// import bgImage from "../assets/reviewsSection/groupPeople.png";
 import fruitBg from "../assets/fluidButton.png";
+import groupLyb from "../assets/reviewsSection/lybGroup.png";
 import SectionWrapper from "../animations/SectionWrapper";
 
 const reviews = [
@@ -47,12 +48,12 @@ export default function ReviewSection() {
       className="relative flex flex-col items-center justify-center py-14 md:py-14 overflow-hidden z-0"
     >
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
-        style={{ backgroundImage: `url(${bgImage})` }}
+        className="absolute inset-0 bg-cover bg-top bg-no-repeat z-0"
+        style={{ backgroundImage: `url(${groupLyb})` }}
       />
 
       {/* Gradient overlay layer*/}
-      <div className="absolute inset-0 bg-gradient-to-b from-white/100 via-green-100/80 to-green-50/90 z-10" />
+      <div className="absolute inset-0 bg-gradient-to-b from-white via-white/80 to-white z-10" />
 
       <SectionWrapper className="relative z-20 w-full flex flex-col items-center">
         {/* Titel */}

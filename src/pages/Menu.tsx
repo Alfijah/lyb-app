@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import smear from "../assets/lybMenu/smear2.png";
 import juice1 from "../assets/lybMenu/juice-1.png";
 import juice2 from "../assets/lybMenu/juice-2.png";
@@ -32,6 +34,36 @@ import combovit from "../assets/lybMenu/cleanse3.png";
 import bgImage from "../assets/lybMenu/paperBg.jpg";
 
 export default function MenuPage() {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (!location.hash) return;
+
+    const id = location.hash.slice(1);
+    const headerOffset = 130; // pas aan aan jouw navbar hoogte
+
+    let attempts = 0;
+
+    const tryScroll = () => {
+      const el = document.getElementById(id);
+      if (!el) return;
+
+      const y =
+        el.getBoundingClientRect().top + window.scrollY - headerOffset;
+
+      window.scrollTo({ top: y, behavior: attempts === 0 ? "auto" : "smooth" });
+
+      // Als layout nog verschuift (images laden), probeer nog een paar keer
+      attempts += 1;
+      if (attempts < 6) {
+        setTimeout(tryScroll, 200);
+      }
+    };
+
+    // 1) meteen proberen
+    tryScroll();
+  }, [location.hash]);
+
   return (
     <section
       id="menu"
@@ -42,7 +74,7 @@ export default function MenuPage() {
 
         <div className="flex flex-col gap-8 lg:gap-16">
           {/* juices */}
-          <div id="juices" style={{ backgroundImage: `url(${bgImage})`}} className="flex flex-col items-center py-10 gap-6 border-5 border-double border-tealBrand shadow-md">
+          <div id="juices" style={{ backgroundImage: `url(${bgImage})` }} className="flex flex-col items-center py-10 gap-6 border-5 border-double border-tealBrand shadow-md">
             <div className="w-full flex flex-col items-center">
               <p className="exceptionTextExtra text-tealBrand">Juices</p>
               <img
@@ -112,7 +144,7 @@ export default function MenuPage() {
           </div>
 
           {/* smoothies */}
-          <div id="smoothies" style={{ backgroundImage: `url(${bgImage})`}} className="bg-white flex flex-col items-center py-10 gap-6 border-5 border-double border-tealBrand shadow-md">
+          <div id="smoothies" style={{ backgroundImage: `url(${bgImage})` }} className="bg-white flex flex-col items-center py-10 gap-6 border-5 border-double border-tealBrand shadow-md">
             <div className="flex flex-col items-center">
               <h3 className="exceptionTextExtra text-tealBrand">Smoothies</h3>
               <img
@@ -183,7 +215,7 @@ export default function MenuPage() {
           </div>
 
           {/* welness shots */}
-          <div id="shots" style={{ backgroundImage: `url(${bgImage})`}} className="flex flex-col items-center py-10 gap-6 border-5 border-double border-tealBrand shadow-md">
+          <div id="shots" style={{ backgroundImage: `url(${bgImage})` }} className="flex flex-col items-center py-10 gap-6 border-5 border-double border-tealBrand shadow-md">
             <div className="flex flex-col items-center">
               <h3 className="exceptionTextExtra text-tealBrand">Welness shots</h3>
               <img
@@ -228,7 +260,7 @@ export default function MenuPage() {
           </div>
 
           {/* vitamine water */}
-          <div id="vitawater" style={{ backgroundImage: `url(${bgImage})`}} className="flex flex-col items-center py-10 gap-6 border-5 border-double border-tealBrand shadow-md">
+          <div id="vitawater" style={{ backgroundImage: `url(${bgImage})` }} className="flex flex-col items-center py-10 gap-6 border-5 border-double border-tealBrand shadow-md">
             <div className="flex flex-col items-center">
               <h3 className="exceptionTextExtra text-tealBrand">Vitamine water</h3>
               <img
@@ -297,7 +329,7 @@ export default function MenuPage() {
           </div>
 
           {/* cleanse en heal */}
-          <div id="cleanse" style={{ backgroundImage: `url(${bgImage})`}} className="flex flex-col items-center py-10 border-5 border-double border-tealBrand shadow-md">
+          <div id="cleanse" style={{ backgroundImage: `url(${bgImage})` }} className="flex flex-col items-center py-10 border-5 border-double border-tealBrand shadow-md">
             <div className="flex flex-col items-center">
               <h3 className="exceptionTextExtra text-tealBrand">Cleanse & heal</h3>
               <img
@@ -338,7 +370,7 @@ export default function MenuPage() {
           </div>
 
           {/* sappenkuur */}
-          <div id="sappenkuur" style={{ backgroundImage: `url(${bgImage})`}} className="flex flex-col items-center py-10 gap-6 border-5 border-double border-tealBrand shadow-md">
+          <div id="sappenkuur" style={{ backgroundImage: `url(${bgImage})` }} className="flex flex-col items-center py-10 gap-6 border-5 border-double border-tealBrand shadow-md">
             <div className="flex flex-col items-center">
               <h3 className="exceptionTextExtra text-tealBrand">Sappenkuur</h3>
               <img

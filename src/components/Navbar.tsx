@@ -251,7 +251,7 @@ export default function Navbar() {
                   to={"/"}
                   onClick={goToHome}
                   className={`hamburgerText block pb-1 transition-colors hover:text-bioGreen hover:border-b-2 hover:border-tealBrand ${activeSection === "home"
-                    ? "border-b-2 border-bioGreen text-bioGreen"
+                    ? "border-b-2 border-tealBrand text-bioGreen"
                     : ""
                     }`}
                 >
@@ -280,7 +280,7 @@ export default function Navbar() {
                         to={path}
                         onClick={() => setMenuOpen(false)}
                         className={`hamburgerText block pb-1 transition-colors hover:text-bioGreen hover:border-b-2 hover:border-bioGreen ${activeSection === id
-                          ? "border-b-2 border-bioGreen text-bioGreen"
+                          ? "border-b-2 border-tealBrand text-bioGreen"
                           : ""
                           }`}
                       >

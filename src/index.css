@@ -8,12 +8,10 @@ html {
   scroll-behavior: smooth;
 }
 
-@font-face {
-  font-family: "Original Surfer";
-  src: url("./assets/fonts/OriginalSurfer-Regular.ttf") format("truetype");
-  font-weight: lighter;
-  font-style: normal;
+#juices, #smoothies, #shots, #vitawater, #cleanse, #sappenkuur {
+  scroll-margin-top: 120px;
 }
+
 
 @font-face {
   font-family: "Muli";
@@ -33,11 +31,6 @@ html {
   src: url("./assets/fonts/Dancing_Script/DancingScript-VariableFont_wght.ttf") format("truetype");
   font-weight: lighter;
   font-style: normal;
-}
-
-@font-face {
-  font-family: "Original Surfer";
-  src: url("./assets/fonts/Playfair_Display/PlayfairDisplay-VariableFont_wght.ttf") format("truetype");
 }
 
 @font-face {

@@ -1,5 +1,5 @@
 "use client";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import fruitBg from "../assets/fluidButton.png";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -14,6 +14,12 @@ import SectionWrapper from "../animations/SectionWrapper";
 import { HiArrowUpRight } from "react-icons/hi2";
 
 export default function Aanbod() {
+    const navigate = useNavigate();
+
+    const goToMenuSection = (id: string) => {
+        navigate(`/menu#${id}`);
+    };
+
     return (
         <section
             id="aanbod"
@@ -53,7 +59,10 @@ export default function Aanbod() {
                             variants={fadeInLeft}
                             className="categoryText italic">Juices</motion.p>
                         <div className="relative">
-                            <div className="absolute top-4 right-4 flex items-center justify-center z-[90] w-[60px] h-[40px] bg-white/10 border-1 border-white rounded-3xl">
+                            <div onClick={() => goToMenuSection("juices")}
+                                role="button"
+                                aria-label="Ga naar Juices in menu"
+                                className="absolute top-4 right-4 flex items-center justify-center z-[90] w-[60px] h-[40px] bg-white/10 border-1 border-white rounded-3xl">
                                 <HiArrowUpRight className="text-white text-2xl" />
                             </div>
                             <motion.img
@@ -72,7 +81,10 @@ export default function Aanbod() {
                             variants={fadeInLeft}
                             className="categoryText italic">Smoothies</motion.p>
                         <div className="relative">
-                            <div className="absolute top-4 right-4 flex items-center justify-center z-[90] w-[60px] h-[40px] bg-white/10 border-1 border-white rounded-3xl">
+                            <div onClick={() => goToMenuSection("smoothies")}
+                                role="button"
+                                aria-label="Ga naar Smoothies in menu"
+                                className="absolute top-4 right-4 flex items-center justify-center z-[90] w-[60px] h-[40px] bg-white/10 border-1 border-white rounded-3xl">
                                 <HiArrowUpRight className="text-white text-2xl" />
                             </div>
                             <motion.img
@@ -92,7 +104,9 @@ export default function Aanbod() {
                             variants={fadeInLeft}
                             className="categoryText italic">Wellness shots</motion.p>
                         <div className="relative">
-                            <div className="absolute top-4 right-4 flex items-center justify-center z-[90] w-[60px] h-[40px] bg-white/10 border-1 border-white rounded-3xl">
+                            <div onClick={() => goToMenuSection("shots")}
+                                role="button"
+                                aria-label="Ga naar Welness shots in menu" className="absolute top-4 right-4 flex items-center justify-center z-[90] w-[60px] h-[40px] bg-white/10 border-1 border-white rounded-3xl">
                                 <HiArrowUpRight className="text-white text-2xl" />
                             </div>
                             <motion.img
@@ -111,7 +125,9 @@ export default function Aanbod() {
                             variants={fadeInLeft}
                             className="categoryText italic">Vitamine water</motion.p>
                         <div className="relative">
-                            <div className="absolute top-4 right-4 flex items-center justify-center z-[90] w-[60px] h-[40px] bg-white/10 border-1 border-white rounded-3xl">
+                            <div onClick={() => goToMenuSection("vitawater")}
+                                role="button"
+                                aria-label="Ga naar Vitaminewater in menu" className="absolute top-4 right-4 flex items-center justify-center z-[90] w-[60px] h-[40px] bg-white/10 border-1 border-white rounded-3xl">
                                 <HiArrowUpRight className="text-white text-2xl" />
                             </div>
                             <motion.img
@@ -130,7 +146,9 @@ export default function Aanbod() {
                             variants={fadeInLeft}
                             className="categoryText italic">Cleanse & heal</motion.p>
                         <div className="relative">
-                            <div className="absolute top-4 right-4 flex items-center justify-center z-[90] w-[60px] h-[40px] bg-white/10 border-1 border-white rounded-3xl">
+                            <div onClick={() => goToMenuSection("cleanse")}
+                                role="button"
+                                aria-label="Ga naar Cleanse & heal in menu" className="absolute top-4 right-4 flex items-center justify-center z-[90] w-[60px] h-[40px] bg-white/10 border-1 border-white rounded-3xl">
                                 <HiArrowUpRight className="text-white text-2xl" />
                             </div>
                             <motion.img
@@ -149,17 +167,19 @@ export default function Aanbod() {
                         <motion.p
                             variants={fadeInLeft}
                             className="categoryText italic">Sappenkuur</motion.p>
-                            <div className="relative">
-                            <div className="absolute top-4 right-4 flex items-center justify-center z-[90] w-[60px] h-[40px] bg-white/10 border-1 border-white rounded-3xl">
+                        <div className="relative">
+                            <div onClick={() => goToMenuSection("sappenkuur")}
+                                role="button"
+                                aria-label="Ga naar Sappenkuur in menu" className="absolute top-4 right-4 flex items-center justify-center z-[90] w-[60px] h-[40px] bg-white/10 border-1 border-white rounded-3xl">
                                 <HiArrowUpRight className="text-white text-2xl" />
                             </div>
-                        <motion.img
-                            variants={fadeInLeft}
-                            src={sappenkuur}
-                            alt="juices"
-                            className="mx-auto w-full h-auto pointer-events-none select-none rounded-xl shadow-md"
-                        />
-                            </div>
+                            <motion.img
+                                variants={fadeInLeft}
+                                src={sappenkuur}
+                                alt="juices"
+                                className="mx-auto w-full h-auto pointer-events-none select-none rounded-xl shadow-md"
+                            />
+                        </div>
 
                     </div>
                 </SectionWrapper>
@@ -171,17 +191,13 @@ export default function Aanbod() {
                     <motion.p variants={fadeInUp} className="max-w-screen-lg mx-auto body-text sm:px-8 md:px-10 lg:px-28">
                         Bekijk ons volledige menu met smoothies, juices en wellness drinks; <span className="exceptionText font-semibold">altijd vers</span> met een verfrissende smaak.
                     </motion.p>
-                    <motion.a
-                        href="#menu"
-                        variants={fadeInUp}
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.97 }}
-                        style={{ backgroundImage: `url(${fruitBg})` }}
+                    <motion.div
+                        variants={fadeInUp}>
+                        <Link to="/menu" style={{ backgroundImage: `url(${fruitBg})` }}
                         className="button-text bg-cover bg-center w-full lg:w-60 mt-4 inline-block text-white px-8 py-3 rounded-full shadow-md hover:shadow-md hover:text-white hover:bg-darkYellow transition-colors duration-300 text-xs uppercase tracking-widest">
-                        <Link to="/menu">
                             Bekijk ons menu
                         </Link>
-                    </motion.a>
+                    </motion.div>
                 </SectionWrapper>
             </div>
         </section>
