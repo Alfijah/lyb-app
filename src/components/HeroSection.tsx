@@ -3,51 +3,84 @@ import { motion } from "framer-motion";
 import { fadeInUp } from "../animations/Varianten";
 import hero from "../assets/heroSection/hero.png";
 import fruitBg from "../assets/fluidButton.png";
-import { Link } from "react-router-dom";
 import { BiSolidLeaf } from "react-icons/bi";
 import SectionWrapper from "../animations/SectionWrapper";
+import WipeButton from "./tools/Button";
 
 export default function HeroSection() {
   return (
     <section
       id="home"
-      className="relative w-full min-h-screen  bg-bgColor flex flex-col justify-normal overflow-x-hidden">
-      <div className="relative inset-0 mt-2">
+      className="relative w-full bg-bgColor overflow-hidden"
+    >
+      {/* HERO IMAGE */}
+      <div className="relative lg:inset-x-0 lg:top-0 lg:-bottom-40 z-0">
         <img
           src={hero}
+          loading="lazy"
           alt="Verse sap en smoothies"
-          className="w-full h-[40%] lg:h-auto object-cover object-[100%_center] scale-110" />
+          className="relative w-full object-cover scale-100 sm:scale-100" />
       </div>
 
-      <div className="absolute z-10 w-full max-w-screen-3xl mx-auto px-6 md:px-8 lg:px-12">
-        <div className="flex min-h-screen items-end lg:items-center -mt-24 sm:-mt-28 lg:mt-20">
-          <SectionWrapper className="w-full lg:w-[36%] xl:w-[40%] flex flex-col items-center lg:items-start text-center md:pr-0 lg:pr-0">
-            <motion.h1 variants={fadeInUp} className="lg:text-left lg:pb-2">100% Natuurlijke Juices & Smoothies in Suriname</motion.h1>
-            <motion.p variants={fadeInUp} className="body-text lg:w-full xl:w-[70%] lg:text-left mt-4 lg:pr-0">Dagelijks vers bereid met fruit, kruiden en superfoods. Vrij van kunstmatige stoffen. Pure energie voor <span className="exceptionText font-semibold">jouw dag.</span></motion.p>
-            <motion.div variants={fadeInUp} className="flex lg:flex-col mt-3 gap-3 sm:gap-4 lg:gap-1">
+      {/* CONTENT */}
+      <div className="relative z-10 max-w-screen-2xl mx-auto px-6 md:px-8 lg:px-12">
+        <div className="flex flex-col lg:min-h-screen justify-end lg:justify-center py-10 lg:py-0">
+
+          <SectionWrapper
+            className="
+              w-full
+              lg:w-[46%]
+              xl:w-[60%]
+              flex
+              flex-col
+              items-center
+              lg:items-start
+              text-center"
+          >
+
+            <motion.h1 variants={fadeInUp} className="lg:text-left">
+              100% Natuurlijke Juices & Smoothies in Suriname
+            </motion.h1>
+
+            <motion.p
+              variants={fadeInUp}
+              className="body-text mt-4 lg:text-left"
+            >
+              Dagelijks vers bereid met fruit, kruiden en superfoods.
+              Vrij van kunstmatige stoffen. Pure energie voor
+              <span className="exceptionText font-semibold"> jouw dag.</span>
+            </motion.p>
+
+            <motion.div
+              variants={fadeInUp}
+              className="flex gap-4 mt-4 "
+            >
               <li className="flex items-center gap-1">
                 <BiSolidLeaf className="text-bioGreen text-xl" />
                 <span className="body-text">Detoxen</span>
               </li>
+
               <li className="flex items-center gap-1">
                 <BiSolidLeaf className="text-bioGreen text-xl" />
                 <span className="body-text">Weightloss</span>
               </li>
+
               <li className="flex items-center gap-1">
                 <BiSolidLeaf className="text-bioGreen text-xl" />
                 <span className="body-text">Balans</span>
               </li>
             </motion.div>
 
-            <motion.a
-              href="#menu"
-              variants={fadeInUp}
-              style={{ backgroundImage: `url(${fruitBg})` }}
-              className="button-text bg-cover bg-center w-full lg:w-60 mt-4 inline-block text-white px-8 py-3 rounded-full shadow-md hover:shadow-md hover:text-white hover:bg-darkYellow transition-colors duration-300 text-xs uppercase tracking-widest">
-              <Link to="/menu">
+            <motion.div variants={fadeInUp} className="mt-6">
+              <WipeButton
+                to="/menu"
+                style={{ backgroundImage: `url(${fruitBg})` }}
+                className="w-full sm:w-60 text-white bg-cover bg-center"
+              >
                 Bekijk ons menu
-              </Link>
-            </motion.a>
+              </WipeButton>
+            </motion.div>
+
           </SectionWrapper>
         </div>
       </div>

@@ -8,7 +8,12 @@ html {
   scroll-behavior: smooth;
 }
 
-#juices, #smoothies, #shots, #vitawater, #cleanse, #sappenkuur {
+#juices,
+#smoothies,
+#shots,
+#vitawater,
+#cleanse,
+#sappenkuur {
   scroll-margin-top: 120px;
 }
 
@@ -42,19 +47,21 @@ body {
   font-family: 'Muli', sans-serif;
 }
 
-.nav-text,
 .button-text,
 .body-text {
   font-size: 0.84rem;
 }
 
 .menu-text {
-  color: rgb(134, 127, 127);
+  color: rgb(190, 44, 44);
   font-size: 0.74rem;
 }
 
 .nav-text {
-  color: #02888d;
+  color: rgb(104, 98, 98);
+  font-family: "Original Surfer";
+  letter-spacing: 1px;
+
 }
 
 .button-text {
@@ -74,11 +81,11 @@ h2,
 h3 {
   font-family: 'Original Surfer', serif;
   font-weight: 800;
-  color: #02888d;
+  color: rgb(104, 98, 98);
   letter-spacing: 1px;
 }
 
-h1 {
+h1, h2 {
   font-size: 1.6rem;
 }
 
@@ -86,7 +93,7 @@ h1 {
   font-family: 'Original Surfer', serif;
   color: rgb(134, 127, 127);
   font-size: 1rem;
-  color: #026E73;
+  /* color: #026E73; */
 
 }
 
@@ -132,10 +139,13 @@ h1 {
 
   .nav-text,
   .button-text,
-  .body-text,
-  .exceptionText {
-    font-size: 0.9rem;
+  .body-text {
+    font-size: 1rem;
     /* text-base */
+  }
+
+  .exceptionText {
+    font-size: 1.2rem;
   }
 
   h1 {

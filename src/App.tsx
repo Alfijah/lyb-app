@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HelmetProvider } from 'react-helmet-async';
 import ScrollToTop from "./components/ScrollToTop";
 import Navbar from "./components/Navbar";
 import HomePage from "./page";
@@ -9,22 +10,25 @@ import WhatsApp from "./components/WhatsApp";
 import Benefits from "./pages/Benefits";
 
 export default function App() {
+  const helmetContext = {};
   return (
-    <Router>
-      <ScrollToTop />
-      <Navbar />
+    <HelmetProvider context={helmetContext}>
+      <Router>
+        <ScrollToTop />
+        <Navbar />
 
-      <main className="flex-grow">
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/menu" element={<Menu />} />
-          <Route path="/benefits" element={<Benefits />} />
-          <Route path="/about" element={<About />} />
-        </Routes>
-      </main>
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/menu" element={<Menu />} />
+            <Route path="/benefits" element={<Benefits />} />
+            <Route path="/about" element={<About />} />
+          </Routes>
+        </main>
 
-      <WhatsApp />
-      <Footer />
-    </Router>
+        <WhatsApp />
+        <Footer />
+      </Router>
+    </HelmetProvider>
   );
 }

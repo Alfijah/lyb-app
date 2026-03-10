@@ -61,7 +61,7 @@ export default function FooterSection() {
           <div className="flex mx-auto gap-14">
             {/* Quick Links */}
             <div className="space-y-4 flex flex-col items-center md:items-center md:text-start">
-              <h3 className="text-sm font-bold">Quick Links</h3>
+              <h3 className="text-sm font-bold text-gray-200">Quick Links</h3>
               <ul className="space-y-2 text-gray-200 text-xs md:text-sm">
                 <li>
                   <Link to="/" className="body-text footer hover:text-darkYellow transition">
@@ -93,7 +93,7 @@ export default function FooterSection() {
 
             {/*RECHTERKOLOM */}
             <div className="flex flex-col items-center md:items-center md:text-start space-y-4">
-              <h3 className="text-sm font-medium">Socials</h3>
+              <h3 className="text-sm font-medium text-gray-200">Socials</h3>
               <div className="flex space-x-4">
                 <a
                   href="https://www.facebook.com/lybjuicesandsmoothies/"

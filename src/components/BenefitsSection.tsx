@@ -7,7 +7,6 @@ import ontsteking from "../assets/benefitsSection/ontsteking.png";
 import spijsvertering from "../assets/benefitsSection/spijsvertering.png";
 import energie from "../assets/benefitsSection/energie.png";
 import weerstand from "../assets/benefitsSection/weerstand.png";
-import plantsPixar from "../assets/benefitsSection/herbs.png";
 import SectionWrapper from "../animations/SectionWrapper";
 
 export default function BenefitsSection() {
@@ -73,10 +72,10 @@ export default function BenefitsSection() {
   return (
     <section
       id="benefits"
-      className="relative z-10 max-w-screen-3xl bg-gradient-to-b from-orange-100 via-orange-100 to-white mx-auto pb-14 md:py-16 px-6 md:px-8 lg:px-12 text-center">
+      className="relative z-10 max-w-screen-3xl bg-gradient-to-b from-orange-100 via-orange-100 to-white mx-auto pb-8 md:py-16 px-6 md:px-8 lg:px-12 text-center">
 
       {/* Wave Top */}
-      <div className="absolute -top-10 left-0 w-full overflow-hidden leading-none">
+      <div className="absolute top-0 left-0 w-full overflow-hidden leading-none">
         <svg
           viewBox="0 0 1440 120"
           className="relative block w-full h-[60px] md:h-[90px]"
@@ -84,21 +83,16 @@ export default function BenefitsSection() {
         >
           <path
             d="M0,64L80,74.7C160,85,320,107,480,101.3C640,96,800,64,960,58.7C1120,53,1280,75,1360,85.3L1440,96L1440,0L0,0Z"
-            className="fill-bgColor"
+            className="fill-white"
           ></path>
         </svg>
       </div>
-      <img
-        src={plantsPixar}
-        alt="hangende plant"
-        className="absolute top-0 inset-x-0 mx-auto w-[40%] h-auto -mt-12 pointer-events-none select-none"
-      />
 
       {/* Titel */}
       <SectionWrapper className="mb-4">
-        <motion.h1 variants={fadeInUp} className="max-w-screen-lg mx-auto text-md text-tealBrand mb-4 lg:pb-6 pt-24 sm:pt-28 md:pt-16 xl:pt-24">
+        <motion.h2 variants={fadeInUp} className="max-w-screen-lg mx-auto text-md mb-4 lg:pb-6 pt-24 sm:pt-28 md:pt-16 xl:pt-24">
           Gezond leven begint met natuurlijke voeding
-        </motion.h1>
+        </motion.h2>
         <motion.p variants={fadeInUp} className="max-w-screen-lg mx-auto body-text sm:px-8 md:px-10 lg:px-28">
           Onze juices en smoothies worden gemaakt van <span className="exceptionText font-semibold">pure ingrediënten</span> die jouw lichaam ondersteunen. Geen kunstmatige toevoegingen; alleen wat goed is voor jou.
         </motion.p>
@@ -108,17 +102,17 @@ export default function BenefitsSection() {
       </SectionWrapper>
 
       {/* voordelen */}
-      <SectionWrapper className="relative w-full grid sm:grid-cols-2 lg:grid-cols-6 gap-2 lg:px-12">
+      <SectionWrapper className="relative w-full grid sm:grid-cols-2 lg:grid-cols-6 gap-4 lg:px-12">
         {benefits.map((benefit) => (
           <motion.div variants={fadeInUp}
-            className="relative w-ful flex flex-row items-center justify-between">
+            className={`relative w-ful ${benefit.bgColor} flex flex-row items-center justify-between shadow-sm rounded-xl`}>
             <div
               key={benefit.id}
               className="z-20 flex flex-col w-[38%] shrink-0 items-center justify-start transition-all">
               {benefit.icon}
             </div>
             <div
-              className={`z-10 w-[80%] ${benefit.bgColor} rounded-lg shadow-md -ml-12 text-left flex items-center flex-1 pl-12 py-1 pr-1`}>
+              className={`z-10 w-[80%] ${benefit.bgColor} rounded-lg -ml-12 text-left flex items-center flex-1 pl-12 pr-2`}>
               <p className={`body-text !${benefit.textColor} italic`}
                 style={{ color: benefit.textColor }}>
                 {benefit.text}

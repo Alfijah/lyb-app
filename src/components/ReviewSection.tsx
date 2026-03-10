@@ -45,7 +45,7 @@ export default function ReviewSection() {
     <section
       ref={ref}
       id="reviews"
-      className="relative flex flex-col items-center justify-center py-14 md:py-14 overflow-hidden z-0"
+      className="relative flex flex-col py-10 md:py-14 overflow-hidden z-0"
     >
       <div
         className="absolute inset-0 bg-cover bg-top bg-no-repeat z-0"
@@ -61,7 +61,7 @@ export default function ReviewSection() {
           initial={{ opacity: 0, y: 40 }}
           animate={controls}
           transition={{ duration: 0.6 }}
-          className="text-center mb-10"
+          className="text-center"
         >
           <motion.h1 className="mb-4 px-6 pt-4">Gezonder leven doen we samen</motion.h1>
           <motion.p className="body-text px-6 md:px-0">
@@ -101,7 +101,7 @@ export default function ReviewSection() {
                 key={i}
                 className="min-w-full flex items-center justify-center px-4"
               >
-                <div className="bg-white rounded-3xl shadow-md p-4 sm:p-6 w-[90%] sm:w-[70%] md:w-[60%] lg:w-[40%] flex items-center justify-center">
+                <div className="bg-white rounded-xl shadow-sm p-4 sm:p-6 w-[90%] sm:w-[70%] md:w-[60%] lg:w-[40%] flex items-center justify-center">
                   <img
                     src={review.image}
                     alt={`Review ${review.id}`}
@@ -114,7 +114,7 @@ export default function ReviewSection() {
         </div>
 
         {/* Pagination */}
-        <div className="flex justify-center mt-2 space-x-2">
+        <div className="flex justify-center space-x-2">
           {reviews.map((_, i) => (
             <button
               key={i}

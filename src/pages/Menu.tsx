@@ -391,7 +391,7 @@ export default function MenuPage() {
               <tbody>
                 <tr className="border-b">
                   <td className="py-2 text-nowrap">1-daagse</td>
-                  <td className="py-2 pl-4">8 flessen*</td>
+                  <td className="py-2 pl-4">8 flessen* + 1 shot <span className="exceptionText font-semibold">gratis</span></td>
                   <td className="py-2 text-right">850</td>
                 </tr>
                 <tr className="border-b">

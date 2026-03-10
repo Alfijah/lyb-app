@@ -5,7 +5,6 @@ import small from "../assets/bottles/small.png";
 import medium from "../assets/bottles/medium.png";
 import large from "../assets/bottles/large.png";
 import splashfruit from "../assets/bottles/fruit.png";
-import wave from "../assets/sellingSection/wave.png";
 import SectionWrapper from "../animations/SectionWrapper";
 
 export default function BottlesSection() {
@@ -44,13 +43,13 @@ export default function BottlesSection() {
                 <motion.img
                     variants={fadeInUp}
                     src={splashfruit}
-                    alt="fruit splash"
+                    alt="fruit divider"
                     className="relative h-auto" />
             </SectionWrapper>
 
-            <motion.h1 variants={fadeInUp} className="max-w-screen-lg mx-auto text-md text-tealBrand mb-4 lg:pb-6 px-6 text-center">
+            <motion.h2 variants={fadeInUp} className="max-w-screen-lg mx-auto text-md mb-4 lg:pb-6 px-6 text-center">
                 Flessen in verschillende formaten
-            </motion.h1>
+            </motion.h2>
             <div className="max-w-screen-lg text-center body-text mb-4 px-6 sm:px-8 md:px-10 lg:px-28">
                 <motion.p variants={fadeInUp}>
                     Onze juices en smoothies worden gemaakt van pure ingrediënten die jouw lichaam ondersteunen. <span className="exceptionText font-semibold">Geen kunstmatige</span> toevoegingen; alleen wat goed is voor jou.
@@ -86,10 +85,10 @@ export default function BottlesSection() {
                 </div>
             </SectionWrapper>
 
-            <img
+            {/* <img
                 src={wave}
                 alt="fruit splash"
-                className="w-full -mt-8 h-auto object-cover lg:object-center" />
+                className="w-full -mt-8 h-auto object-cover lg:object-center" /> */}
         </section>
     );
 }
