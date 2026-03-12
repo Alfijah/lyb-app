@@ -73,7 +73,7 @@ export default function Aanbod() {
                 </motion.p>
             </SectionWrapper>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-12">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {categories.map((c) => (
                     <SectionWrapper key={c.id}>
                         <div>

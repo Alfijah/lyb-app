@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import FaqSection, { faqItems } from "./components/FaqSection";
 import HeroSection from "./components/HeroSection";
 import FeaturedSmoothies from "./components/FeaturedSmoothies";
 import BenefitsSection from "./components/BenefitsSection";
@@ -36,6 +37,19 @@ export default function HomePage() {
     priceRange: "$$"
   };
 
+  const faqStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
+
   return (
     <>
       <Helmet>
@@ -58,6 +72,10 @@ export default function HomePage() {
         <script type="application/ld+json">
           {JSON.stringify(structuredData)}
         </script>
+
+        <script type="application/ld+json">
+          {JSON.stringify(faqStructuredData)}
+        </script>
       </Helmet>
       <HeroSection />
       <FeaturedSmoothies />
@@ -65,6 +83,7 @@ export default function HomePage() {
       <Purpose />
       <Aanbod />
       <SellingSection />
+      <FaqSection />
       <RockOil />
       <ReviewsSection />
     </>
