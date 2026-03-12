@@ -29,9 +29,9 @@ export default function WipeButton({
     "relative isolate overflow-hidden",
     "inline-flex items-center justify-center",
     "rounded-full",
-    "px-8 py-3",
+    "px-8 py-[10px]",
     "shadow-sm",
-    "text-xs uppercase tracking-widest",
+    "text-sm capitalize tracking-widest",
     "transition-shadow duration-300",
     className,
   ].join(" ");

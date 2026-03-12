@@ -27,9 +27,9 @@ export default function Purpose() {
             </div>
 
             {/* Titel */}
-            <SectionWrapper className="mb-4">
+            <SectionWrapper className="mb-4 text-left">
                 <motion.h2 variants={fadeInUp} className="max-w-screen-lg mx-auto text-md mb-4 lg:pb-6 pt-16 sm:pt-28 md:pt-16 xl:pt-24">
-                    Meer dan een smoothie, <span className="italic">een bewuste keuze</span>
+                    Een<span className="italic"> bewuste keuze</span> voor een gezonder lichaam
                 </motion.h2>
                 <motion.p variants={fadeInUp} className="max-w-screen-lg mx-auto body-text pb-4 sm:px-8 md:px-10 lg:px-28">
                     Onze smoothies en juices helpen je energie op peil te houden, je weerstand te ondersteunen en bewuster te leven. Geen tijdelijke hype, maar een <span className="exceptionText font-bold">duurzame gewoonte</span> die bij jouw levensstijl past.

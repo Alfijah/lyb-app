@@ -1,5 +1,4 @@
 import { Helmet } from "react-helmet-async";
-import FaqSection, { faqItems } from "./components/FaqSection";
 import HeroSection from "./components/HeroSection";
 import FeaturedSmoothies from "./components/FeaturedSmoothies";
 import BenefitsSection from "./components/BenefitsSection";
@@ -8,6 +7,7 @@ import SellingSection from "./components/SellingSection";
 import Aanbod from "./components/Aanbod";
 import RockOil from "./components/RockOil";
 import Purpose from "./components/Purpose";
+import FaqTeaser from "./components/FaqTeaser";
 
 export default function HomePage() {
   const structuredData = {
@@ -37,18 +37,18 @@ export default function HomePage() {
     priceRange: "$$"
   };
 
-  const faqStructuredData = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqItems.map((faq) => ({
-      "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: faq.answer,
-      },
-    })),
-  };
+  // const faqStructuredData = {
+  //   "@context": "https://schema.org",
+  //   "@type": "FAQPage",
+  //   mainEntity: faqItems.map((faq) => ({
+  //     "@type": "Question",
+  //     name: faq.question,
+  //     acceptedAnswer: {
+  //       "@type": "Answer",
+  //       text: faq.answer,
+  //     },
+  //   })),
+  // };
 
   return (
     <>
@@ -73,9 +73,9 @@ export default function HomePage() {
           {JSON.stringify(structuredData)}
         </script>
 
-        <script type="application/ld+json">
+        {/* <script type="application/ld+json">
           {JSON.stringify(faqStructuredData)}
-        </script>
+        </script> */}
       </Helmet>
       <HeroSection />
       <FeaturedSmoothies />
@@ -83,7 +83,7 @@ export default function HomePage() {
       <Purpose />
       <Aanbod />
       <SellingSection />
-      <FaqSection />
+      <FaqTeaser />
       <RockOil />
       <ReviewsSection />
     </>

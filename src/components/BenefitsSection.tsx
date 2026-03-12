@@ -72,7 +72,7 @@ export default function BenefitsSection() {
   return (
     <section
       id="benefits"
-      className="relative z-10 max-w-screen-3xl bg-gradient-to-b from-orange-100 via-orange-100 to-white mx-auto pb-8 md:py-16 px-6 md:px-8 lg:px-12 text-center">
+      className="relative z-10 max-w-screen-3xl bg-white mx-auto pb-8 md:py-16 px-6 md:px-8 lg:px-12 text-center">
 
       {/* Wave Top */}
       <div className="absolute top-0 left-0 w-full overflow-hidden leading-none">
@@ -83,22 +83,22 @@ export default function BenefitsSection() {
         >
           <path
             d="M0,64L80,74.7C160,85,320,107,480,101.3C640,96,800,64,960,58.7C1120,53,1280,75,1360,85.3L1440,96L1440,0L0,0Z"
-            className="fill-white"
+            className="fill-bgColor"
           ></path>
         </svg>
       </div>
 
       {/* Titel */}
-      <SectionWrapper className="mb-4">
+      <SectionWrapper className="mb-4 text-left">
         <motion.h2 variants={fadeInUp} className="max-w-screen-lg mx-auto text-md mb-4 lg:pb-6 pt-24 sm:pt-28 md:pt-16 xl:pt-24">
-          Gezond leven begint met natuurlijke voeding
+          Wat is bijzonder aan de juices en smoothies van LYB?
         </motion.h2>
         <motion.p variants={fadeInUp} className="max-w-screen-lg mx-auto body-text sm:px-8 md:px-10 lg:px-28">
-          Onze juices en smoothies worden gemaakt van <span className="exceptionText font-semibold">pure ingrediënten</span> die jouw lichaam ondersteunen. Geen kunstmatige toevoegingen; alleen wat goed is voor jou.
+          Onze juices en smoothies bestaan uit <span className="exceptionText font-semibold">creatieve combinaties</span> en worden gemaakt van <span className="exceptionText font-semibold">pure ingrediënten</span> die jouw lichaam ondersteunen. Geen kunstmatige toevoegingen; alleen wat goed is voor jou.
         </motion.p>
-        <motion.h3 variants={fadeInUp} className="max-w-screen-lg mx-auto italic font-semibold pt-8 sm:px-8 md:px-10 lg:px-28">
+        {/* <motion.h3 variants={fadeInUp} className="max-w-screen-lg mx-auto italic font-semibold pt-8 sm:px-8 md:px-10 lg:px-28">
           Waarom kiezen voor een gezonde smoothie van LYB?
-        </motion.h3>
+        </motion.h3> */}
       </SectionWrapper>
 
       {/* voordelen */}

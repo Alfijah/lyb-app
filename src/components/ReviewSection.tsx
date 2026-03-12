@@ -63,9 +63,9 @@ export default function ReviewSection() {
           transition={{ duration: 0.6 }}
           className="text-center"
         >
-          <motion.h1 className="mb-4 px-6 pt-4">Gezonder leven doen we samen</motion.h1>
+          <motion.h2 className="mb-4 px-6 pt-4">Ervaringen van LYB klanten</motion.h2>
           <motion.p className="body-text px-6 md:px-0">
-            Meer dan <span className="exceptionText font-semibold">2250 tevreden klanten</span> in Paramaribo gingen je voor.
+            Meer dan <span className="exceptionText font-semibold">2250 tevreden klanten</span> in Paramaribo gingen je voor. Gezonder leven doe je niet alleen; wij helpen je graag.
           </motion.p>
         </motion.div>
 

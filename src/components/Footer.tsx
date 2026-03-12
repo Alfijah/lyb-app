@@ -20,10 +20,10 @@ export default function FooterSection() {
       <div className="absolute inset-0 bg-black/80"></div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8 pt-12 pb-4 md:py-14">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-2 text-center md:text-left">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8 pt-4 pb-4 md:py-14">
+        <div className="grid md:grid-cols-2 gap-10 md:gap-2 text-center md:text-left">
           {/* --- LINKERKOLOM: Logo + slogan + tekst --- */}
-          <div className="space-y-4 flex items-center md:items-start md:text-start  md:gap-4">
+          <div className="flex mx-auto md:items-start md:text-start md:gap-4">
             <div
               className="flex flex-col md:w-[50%] items-center gap-1 cursor-pointer"
             // onClick={goToHome}
@@ -48,53 +48,53 @@ export default function FooterSection() {
               </div>
             </div>
 
-            <div className="flex flex-col gap-4 px-2">
-              <p className="flex sm:mx-auto body-text footer">
-                Natuurlijke sappen en smoothies in Paramaribo, Suriname.
-              </p>
+            {/* <div className="flex flex-col gap-4 px-2">
               <p className="flex sm:mx-auto body-text footer">
                 ⚠️ Bestellen is momenteel alleen mogelijk via WhatsApp.
               </p>
-            </div>
+            </div> */}
           </div>
 
           <div className="flex mx-auto gap-14">
             {/* Quick Links */}
-            <div className="space-y-4 flex flex-col items-center md:items-center md:text-start">
-              <h3 className="text-sm font-bold text-gray-200">Quick Links</h3>
-              <ul className="space-y-2 text-gray-200 text-xs md:text-sm">
+            <div className="space-y-4 flex flex-col items-left md:items-center md:text-start">
+              {/* <h3 className="text-sm font-bold text-gray-200">Quick Links</h3> */}
+              <ul className="space-y-2 text-gray-200 text-center text-xs md:text-sm">
                 <li>
-                  <Link to="/" className="body-text footer hover:text-darkYellow transition">
+                  <Link to="/" className="footer-text hover:text-darkYellow transition">
                     Home
                   </Link>
                 </li>
                 <li>
-                  <Link to="/about" className="body-text footer hover:text-darkYellow transition">
+                  <Link to="/about" className="footer-text hover:text-darkYellow transition">
                     Over ons
                   </Link>
                 </li>
                 <li>
-                  <Link to="/menu" className="body-text footer hover:text-darkYellow transition">
+                  <Link to="/menu" className="footer-text hover:text-darkYellow transition">
                     Menu
                   </Link>
                 </li>
                 <li>
-                  <Link to="/benefits" className="body-text footer hover:text-darkYellow transition">
+                  <Link to="/benefits" className="footer-text hover:text-darkYellow transition">
                     Benefits
                   </Link>
                 </li>
                 <li>
-                  <Link to="/benefits#disclaimer" className="body-text footer hover:text-darkYellow transition">
+                  <Link to="/benefits#disclaimer" className="footer-text hover:text-darkYellow transition">
                     Disclaimer
+                  </Link>
+                </li><li>
+                  <Link to="/benefits#disclaimer" className="footer-text hover:text-darkYellow transition">
+                    FAQ
                   </Link>
                 </li>
               </ul>
             </div>
 
             {/*RECHTERKOLOM */}
-            <div className="flex flex-col items-center md:items-center md:text-start space-y-4">
-              <h3 className="text-sm font-medium text-gray-200">Socials</h3>
-              <div className="flex space-x-4">
+            <div className="flex items-start md:items-center md:text-start space-y-4">
+              <div className="flex flex-col items-center gap-2 lg:space-x-4">
                 <a
                   href="https://www.facebook.com/lybjuicesandsmoothies/"
                   target="_blank"
@@ -134,10 +134,10 @@ export default function FooterSection() {
         </div>
 
         {/* Onderlijn */}
-        <div className="border-t border-white/30 pt-4 text-center body-text footer mt-8">
+        <div className="border-t border-white/30 pt-4 text-center footer-text mt-8">
           <p>
             © {new Date().getFullYear()} LYB Juices & Smoothies. Alle rechten
-            voorbehouden. Website gebouwd met 💚 door{" "}
+            voorbehouden. Website door{" "}
             <a
               href="https://www.instagram.com/sarbandigital.social/"
               target="_blank"

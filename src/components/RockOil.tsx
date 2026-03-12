@@ -8,10 +8,10 @@ export default function RockOil() {
     return (
         <section
             id="benefits"
-            className="relative z-20 w-full bg-gradient-to-b from-white via-orange-50 to-orange-300 pt-10 flex flex-col">
+            className="relative z-20 w-full bg-gradient-to-b from-white via-orange-50 to-orange-300 pt-2 flex flex-col">
 
-            <SectionWrapper className="w-full px-6 md:px-8 pt-6 text-center">
-                <motion.h2 variants={fadeInUp} className="max-w-screen-lg mx-auto text-center text-md mb-4 lg:pb-6">
+            <SectionWrapper className="w-full px-6 md:px-8 pt-6">
+                <motion.h2 variants={fadeInUp} className="max-w-screen-lg mx-auto text-md mb-4 lg:pb-6">
                     Wekelijks vers geleverd bij Rock Oil
                 </motion.h2>
                 <motion.p variants={fadeInUp} className="max-w-screen-lg mx-auto body-text">

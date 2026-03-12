@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { fadeInUp } from "../animations/Varianten";
-import sapmix from "../assets/sellingSection/sapmix.png";
+import sapmix from "../assets/sellingSection/sapmix1.png";
 import fruitBg from "../assets/fluidButton.png";
 import SectionWrapper from "../animations/SectionWrapper";
 import WipeButton from "./tools/Button";
@@ -11,7 +11,7 @@ export default function SellingSection() {
         <section
             id="benefits"
             className="relative z-10 w-full flex flex-col px-6 py-14">
-            <div className="bg-gradient-to-b from-orange-100 via-orange-50 to-orange-300 shadow-md rounded-xl">
+            <div className="bg-bgColor shadow-sm rounded-xl">
                 <SectionWrapper className="w-full px-2 md:px-8 pt-14 text-center">
                     <motion.h2 variants={fadeInUp} className="max-w-screen-lg mx-auto text-center text-md mb-4 lg:pb-6">
                         <span className="italic">Vandaag besteld?</span> Bezorging in overleg geregeld
@@ -28,7 +28,7 @@ export default function SellingSection() {
                             href="https://wa.me/5978531071"
                             external
                             style={{ backgroundImage: `url(${fruitBg})` }}
-                            className="body w-full lg:w-60 mt-2 bg-cover bg-center text-white">
+                            className="body w-[80%] lg:w-60 mt-2 bg-cover bg-center text-white">
                             Bestel vandaag nog
                         </WipeButton>
                     </motion.div>

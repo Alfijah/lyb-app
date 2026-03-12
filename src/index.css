@@ -61,7 +61,13 @@ body {
   color: rgb(104, 98, 98);
   font-family: "Original Surfer";
   letter-spacing: 1px;
+}
 
+.footer-text {
+  color: #e5e7eb;
+  font-family: "Original Surfer";
+  letter-spacing: 1px;
+  font-size: 0.85rem;
 }
 
 .button-text {
@@ -70,10 +76,6 @@ body {
 
 .body-text {
   color: rgb(134, 127, 127);
-}
-
-.body-text.footer {
-  color: #e5e7eb;
 }
 
 h1,
@@ -85,7 +87,8 @@ h3 {
   letter-spacing: 1px;
 }
 
-h1, h2 {
+h1,
+h2 {
   font-size: 1.6rem;
 }
 

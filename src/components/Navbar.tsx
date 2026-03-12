@@ -242,7 +242,7 @@ export default function Navbar() {
             animate={{ x: 0 }}
             exit={{ x: "-100%" }}
             transition={{ type: "tween", duration: 0.35, ease: "easeInOut" }}
-            className="lg:hidden fixed z-[80] top-0 left-0 h-screen w-[60%] bg-gradient-to-b from-orange-100 via-orange-100 to-white backdrop-blur-lg shadow-md"
+            className="lg:hidden fixed z-[80] top-0 left-0 h-screen w-[60%] bg-bgColor backdrop-blur-lg shadow-md"
           >
             <ul className="flex flex-col px-6 gap-4 pt-20 body-text">
               {/* Home */}

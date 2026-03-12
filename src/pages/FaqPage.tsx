@@ -89,7 +89,7 @@ function FaqItem({ question, answer, isOpen, onToggle }: FaqItemProps) {
   );
 }
 
-export default function FaqSection() {
+export default function FaqPage() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const handleToggle = (index: number) => {

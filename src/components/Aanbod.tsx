@@ -55,7 +55,7 @@ export default function Aanbod() {
                     variants={fadeInUp}
                     className="max-w-screen-lg mx-auto text-md mb-4 lg:pb-6 pt-20 sm:pt-28 md:pt-16 xl:pt-24"
                 >
-                    Verse smoothies, juices & sappenkuur in Suriname
+                    Ontdek ons aanbod
                 </motion.h2>
                 <motion.p
                     variants={fadeInUp}
@@ -139,7 +139,7 @@ export default function Aanbod() {
                         <WipeButton
                             to="/menu"
                             style={{ backgroundImage: `url(${fruitBg})` }}
-                            className="w-full lg:w-60 mt-4 text-white bg-cover bg-center"
+                            className="w-[80%] lg:w-60 mt-4 text-white bg-cover bg-center"
                         >
                             Bekijk ons menu
                         </WipeButton>

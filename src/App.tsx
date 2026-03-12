@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 import About from "./pages/AboutUs";
 import WhatsApp from "./components/WhatsApp";
 import Benefits from "./pages/Benefits";
+import FaqPage from "./pages/FaqPage";
 
 export default function App() {
   const helmetContext = {};
@@ -23,6 +24,7 @@ export default function App() {
             <Route path="/menu" element={<Menu />} />
             <Route path="/benefits" element={<Benefits />} />
             <Route path="/about" element={<About />} />
+            <Route path="/faq" element={<FaqPage />} />
           </Routes>
         </main>
 

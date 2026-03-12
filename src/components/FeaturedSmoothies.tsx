@@ -45,7 +45,7 @@ export default function FeaturedSmoothies() {
   ];
 
   return (
-    <section id="menu" className="bg-gradient-to-b from-bgColor via-bgColor/50 to-white max-w-screen-3xl mx-auto py-10 md:py-16 pb-8 sm:pb-24 md:pb-32 text-center">
+    <section id="menu" className="bg-bgColor max-w-screen-3xl mx-auto py-10 md:py-16 pb-8 sm:pb-24 md:pb-32 text-center">
       {/* Titel */}
       <SectionWrapper>
         <motion.h2 variants={fadeInUp} className="text-md mb-4 lg:pb-6">
@@ -115,7 +115,7 @@ export default function FeaturedSmoothies() {
                   href="https://wa.me/5978531071"
                   external
                   style={{ backgroundImage: `url(${fruitBg})` }}
-                  className="body w-full lg:w-60 mt-2 bg-cover bg-center text-white">
+                  className="body w-[80%] lg:w-60 mt-2 bg-cover bg-center text-white">
                   Bestel deze smoothie
                 </WipeButton>
               </motion.div>
