@@ -72,7 +72,7 @@ export default function BenefitsSection() {
   return (
     <section
       id="benefits"
-      className="relative z-10 max-w-screen-3xl bg-white mx-auto pb-8 md:py-16 px-6 md:px-8 lg:px-12 text-center">
+      className="relative z-10 max-w-screen-3xl bg-neutral-50  mx-auto pb-8 md:py-16 px-6 md:px-8 lg:px-12 text-center">
 
       {/* Wave Top */}
       <div className="absolute top-0 left-0 w-full overflow-hidden leading-none">
@@ -89,7 +89,7 @@ export default function BenefitsSection() {
       </div>
 
       {/* Titel */}
-      <SectionWrapper className="mb-4 text-left">
+      <SectionWrapper className="mb-4 text-left ">
         <motion.h2 variants={fadeInUp} className="max-w-screen-lg mx-auto text-md mb-4 lg:pb-6 pt-24 sm:pt-28 md:pt-16 xl:pt-24">
           Wat is bijzonder aan de juices en smoothies van LYB?
         </motion.h2>

@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { fadeInUp } from "../animations/Varianten";
-import sapmix from "../assets/sellingSection/sapmix1.png";
+import sapmix from "../assets/sellingSection/sapmix.png";
 import fruitBg from "../assets/fluidButton.png";
 import SectionWrapper from "../animations/SectionWrapper";
 import WipeButton from "./tools/Button";

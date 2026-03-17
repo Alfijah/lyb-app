@@ -9,7 +9,7 @@ import { IoLogoWhatsapp } from "react-icons/io";
 
 export default function Navbar() {
   const [activeSection, setActiveSection] = useState<
-    "home" | "about" | "benefits" | "menu" | null
+    "home" | "about" | "benefits" | "menu" | "faq" | null
   >("home");
   const [menuOpen, setMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -41,10 +41,11 @@ export default function Navbar() {
   // Scroll-tracking enkel wanneer we op de home route zitten
   useEffect(() => {
     if (location.pathname !== "/") {
-      const map: Record<string, "about" | "menu" | "benefits" | "home"> = {
+      const map: Record<string, "about" | "menu" | "benefits" | "faq" | "home"> = {
         "/about": "about",
         "/menu": "menu",
         "/benefits": "benefits",
+        "/faq": "faq",
         "/": "home",
       };
       setActiveSection(map[location.pathname] ?? null);
@@ -118,6 +119,8 @@ export default function Navbar() {
     { id: "about", label: "Over ons", path: "/about" },
     { id: "menu", label: "Menu", path: "/menu" },
     { id: "benefits", label: "Benefits", path: "/benefits" },
+    { id: "faq", label: "FAQ", path: "/faq" },
+
   ];
 
   useEffect(() => {
@@ -135,7 +138,7 @@ export default function Navbar() {
         {/* Hamburger knop */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="relative z-[90] lg:hidden text-tealHover focus:outline-none"
+          className="relative z-[90] lg:hidden body-text focus:outline-none"
           aria-label="Menu toggle"
         >
           {menuOpen ? (
@@ -242,7 +245,7 @@ export default function Navbar() {
             animate={{ x: 0 }}
             exit={{ x: "-100%" }}
             transition={{ type: "tween", duration: 0.35, ease: "easeInOut" }}
-            className="lg:hidden fixed z-[80] top-0 left-0 h-screen w-[60%] bg-bgColor backdrop-blur-lg shadow-md"
+            className="lg:hidden fixed z-[80] top-0 left-0 h-screen w-[60%] bg-neutral-50 backdrop-blur-lg shadow-md"
           >
             <ul className="flex flex-col px-6 gap-4 pt-20 body-text">
               {/* Home */}
@@ -251,7 +254,7 @@ export default function Navbar() {
                   to={"/"}
                   onClick={goToHome}
                   className={`hamburgerText block pb-1 transition-colors hover:text-bioGreen hover:border-b-2 hover:border-tealBrand ${activeSection === "home"
-                    ? "border-b-2 border-tealBrand text-bioGreen"
+                    ? "border-b-2 border-gray-400 text-bioGreen"
                     : ""
                     }`}
                 >
@@ -269,7 +272,7 @@ export default function Navbar() {
                         to={path}
                         onClick={() => setMenuOpen(false)}
                         className={`hamburgerText block pb-1 transition-colors hover:text-bioGreen hover:border-b-2 hover:border-tealBrand ${activeSection === "menu"
-                          ? "border-b-2 border-tealBrand text-bioGreen"
+                          ? "border-b-2 border-gray-400 text-bioGreen"
                           : ""
                           }`}
                       >
@@ -280,7 +283,7 @@ export default function Navbar() {
                         to={path}
                         onClick={() => setMenuOpen(false)}
                         className={`hamburgerText block pb-1 transition-colors hover:text-bioGreen hover:border-b-2 hover:border-bioGreen ${activeSection === id
-                          ? "border-b-2 border-tealBrand text-bioGreen"
+                          ? "border-b-2 border-gray-400 text-bioGreen"
                           : ""
                           }`}
                       >
@@ -298,21 +301,21 @@ export default function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <TiSocialFacebook className="w-6 h-6 text-tealBrand" />
+                <TiSocialFacebook className="w-6 h-6 body-text" />
               </a>
               <a
                 href="https://www.instagram.com/lybjuicesandsmoothies/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <TiSocialInstagram className="w-6 h-6 text-tealBrand" />
+                <TiSocialInstagram className="w-6 h-6 body-text" />
               </a>
               <a
                 href="https://wa.me/5978531071"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <IoLogoWhatsapp className="w-6 h-6 text-tealBrand" />
+                <IoLogoWhatsapp className="w-6 h-6 body-text" />
               </a>
             </div>
           </motion.div>

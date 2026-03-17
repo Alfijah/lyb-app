@@ -85,7 +85,7 @@ export default function FooterSection() {
                     Disclaimer
                   </Link>
                 </li><li>
-                  <Link to="/benefits#disclaimer" className="footer-text hover:text-darkYellow transition">
+                  <Link to="/faq" className="footer-text hover:text-darkYellow transition">
                     FAQ
                   </Link>
                 </li>

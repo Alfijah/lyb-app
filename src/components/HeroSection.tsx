@@ -1,7 +1,6 @@
-"use client";
 import { motion } from "framer-motion";
 import { fadeInUp } from "../animations/Varianten";
-import hero from "../assets/heroSection/hero.png";
+import hero from "../assets/heroSection/heroN.png";
 import fruitBg from "../assets/fluidButton.png";
 import { BiSolidLeaf } from "react-icons/bi";
 import SectionWrapper from "../animations/SectionWrapper";
@@ -11,49 +10,48 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="relative w-full bg-bgColor overflow-hidden"
+      className="relative w-full bg-bgColor overflow-hidden flex flex-col"
     >
-      {/* HERO IMAGE */}
-      <div className="relative lg:inset-x-0 lg:top-0 lg:-bottom-40 z-0">
+      {/* 1. AFBEELDING: Bovenkant van de sectie */}
+      <div className="relative w-full flex items-center h-[38vh] md:h-[60vh] lg:h-[70vh] xl:h-[80vh] overflow-hidden">
         <img
           src={hero}
-          loading="lazy"
           alt="Verse sap en smoothies"
-          className="relative w-full object-cover scale-100 sm:scale-100" />
+          // fetchpriority="high"
+          className="w-full h-full object-cover object-bottom scale-100 " 
+          // object-bottom zorgt dat het fruit onderaan de foto altijd zichtbaar is
+        />
       </div>
 
-      {/* CONTENT */}
-      <div className="relative z-10 max-w-screen-2xl mx-auto px-6 md:px-8 lg:px-12">
-        <div className="flex flex-col lg:min-h-screen justify-end lg:justify-center py-10 lg:py-0">
-
+      {/* 2. CONTENT: Onder de afbeelding */}
+      <div className="relative z-10 max-w-screen-2xl mx-auto px-6 md:px-8 lg:px-12 py-10">
+        <div className="flex flex-col items-center">
+          
           <SectionWrapper
             className="
               w-full
-              lg:w-[46%]
-              xl:w-[60%]
+              lg:w-[76%]
               flex
               flex-col
               items-center
-              lg:items-start
               text-center"
           >
-
-            <motion.h1 variants={fadeInUp} className="lg:text-left">
-              100% Natuurlijke Juices & Smoothies in Suriname
+            <motion.h1 variants={fadeInUp}>
+              <span className="text-bioGreen">100% Natuurlijke</span> Juices & Smoothies in Suriname
             </motion.h1>
 
             <motion.p
               variants={fadeInUp}
-              className="body-text mt-4 lg:text-left"
+              className="body-text mt-4"
             >
               Dagelijks vers bereid met fruit, kruiden en superfoods.
               Vrij van kunstmatige stoffen. Pure energie voor
               <span className="exceptionText font-semibold"> jouw dag.</span>
             </motion.p>
 
-            <motion.div
+            <motion.ul
               variants={fadeInUp}
-              className="flex gap-4 mt-4 "
+              className="flex gap-4 mt-2"
             >
               <li className="flex items-center gap-1">
                 <BiSolidLeaf className="text-bioGreen text-xl" />
@@ -69,7 +67,7 @@ export default function HeroSection() {
                 <BiSolidLeaf className="text-bioGreen text-xl" />
                 <span className="body-text">Balans</span>
               </li>
-            </motion.div>
+            </motion.ul>
 
             <motion.div variants={fadeInUp} className="mt-6">
               <WipeButton

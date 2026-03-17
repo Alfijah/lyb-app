@@ -49,12 +49,12 @@ body {
 
 .button-text,
 .body-text {
-  font-size: 0.84rem;
+  font-size: 0.9rem;
 }
 
 .menu-text {
-  color: rgb(190, 44, 44);
-  font-size: 0.74rem;
+  color: whitesmoke;
+  font-size: 0.84rem;
 }
 
 .nav-text {
@@ -130,6 +130,10 @@ h2 {
   h1 {
     font-size: 2rem;
   }
+
+  .body-text {
+    font-size: 0.94rem;
+  }
 }
 
 @media (min-width: 768px) {
@@ -148,7 +152,7 @@ h2 {
   }
 
   .exceptionText {
-    font-size: 1.2rem;
+    font-size: 1.6rem;
   }
 
   h1 {
@@ -160,13 +164,13 @@ h2 {
   }
 
   .menu-text {
-    font-size: 0.84rem;
+    font-size: 1rem;
   }
 }
 
 @media (min-width: 1280px) {
   h1 {
-    font-size: 3.5rem;
+    font-size: 2.8rem;
   }
 }
 

@@ -21,7 +21,7 @@ export default function Purpose() {
                 >
                     <path
                         d="M0,64L80,74.7C160,85,320,107,480,101.3C640,96,800,64,960,58.7C1120,53,1280,75,1360,85.3L1440,96L1440,0L0,0Z"
-                        className="fill-white"
+                        className="fill-neutral-50"
                     ></path>
                 </svg>
             </div>

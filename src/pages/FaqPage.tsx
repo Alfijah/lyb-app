@@ -2,6 +2,7 @@ import { useState } from "react";
 import SectionWrapper from "../animations/SectionWrapper";
 import { motion } from "framer-motion";
 import { fadeInUp } from "../animations/Varianten";
+import faqHero from "../assets/faqPage/preparation.png"
 
 type FaqItemType = {
   question: string;
@@ -72,9 +73,8 @@ function FaqItem({ question, answer, isOpen, onToggle }: FaqItemProps) {
         </span>
 
         <span
-          className={`text-2xl text-gray-500 transition-transform duration-300 ${
-            isOpen ? "rotate-45" : ""
-          }`}
+          className={`text-2xl text-gray-500 transition-transform duration-300 ${isOpen ? "rotate-45" : ""
+            }`}
         >
           +
         </span>
@@ -97,24 +97,32 @@ export default function FaqPage() {
   };
 
   return (
-    <section className="bg-orange-100 px-6 py-16 md:px-8 lg:px-12">
-      <div className="mx-auto max-w-5xl rounded-[32px] p-0 md:p-10">
+    <section className="relative w-full h-full flex flex-col items-center pb-8 pt-28 md:pt-36 bg-neutral-50">
+      <div className="">
         <SectionWrapper>
-          <motion.p variants={fadeInUp} className="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-darkYellow">
-            FAQ
-          </motion.p>
+          <img
+            src={faqHero}
+            loading="lazy"
+            alt="groene voedzame smoothie"
+            className="relative inset-0 h-[200px] w-full object-cover" />
 
-          <motion.h2 variants={fadeInUp} className="max-w-screen-lg mx-auto text-md">
-            Veelgestelde vragen
-          </motion.h2>
+          <div className="pt-10 px-6 md:px-8">
+            <motion.p variants={fadeInUp} className="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-darkYellow">
+              FAQ
+            </motion.p>
 
-          <motion.p variants={fadeInUp} className="mt-4 max-w-screen-lg mx-auto body-text">
-            Hier vind je antwoorden op veelgestelde vragen over onze juices,
-            smoothies en detoxopties.
-          </motion.p>
+            <motion.h2 variants={fadeInUp} className="max-w-screen-lg mx-auto text-md">
+              Veelgestelde vragen
+            </motion.h2>
+
+            <motion.p variants={fadeInUp} className="mt-4 max-w-screen-lg mx-auto body-text">
+              Hier vind je antwoorden op veelgestelde vragen over onze juices,
+              smoothies en detoxopties.
+            </motion.p>
+          </div>
         </SectionWrapper>
 
-        <div>
+        <div className="px-6 md:px-8 py-6">
           {faqItems.map((faq, index) => (
             <FaqItem
               key={faq.question}

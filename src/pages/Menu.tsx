@@ -31,7 +31,7 @@ import vit7 from "../assets/lybMenu/vitwater7.png";
 import comboshots from "../assets/lybMenu/cleanse1.png";
 import combojuice from "../assets/lybMenu/cleanse2.png";
 import combovit from "../assets/lybMenu/cleanse3.png";
-import bgImage from "../assets/lybMenu/paperBg.jpg";
+import bgImage from "../assets/lybMenu/menuCards.png";
 
 export default function MenuPage() {
   const location = useLocation();
@@ -67,21 +67,21 @@ export default function MenuPage() {
   return (
     <section
       id="menu"
-      className="text-xs md:text-sm pt-28 md:pt-36 min-h-screen bg-gradient-to-b from-orange-100 via-orange-50 to-orange-100 px-6 md:px-8 py-14"
+      className="text-xs md:text-sm pt-28 md:pt-36 min-h-screen bg-neutral-50 px-6 md:px-8 py-14"
     >
       <div className="lg:w-[80%] mx-auto flex flex-col items-center">
         <h1 className="w-full py-4 text-center">LYB menu</h1>
 
         <div className="flex flex-col gap-8 lg:gap-16">
           {/* juices */}
-          <div id="juices" style={{ backgroundImage: `url(${bgImage})` }} className="flex flex-col items-center py-10 gap-6 border-5 border-double border-tealBrand shadow-md">
+          <div id="juices" style={{ backgroundImage: `url(${bgImage})` }} className="flex flex-col items-center py-10 gap-6 border-5 border-double">
             <div className="w-full flex flex-col items-center">
-              <p className="exceptionTextExtra text-tealBrand">Juices</p>
+              <p className="exceptionTextExtra text-neutral-50">Juices</p>
               <img
                 src={smear}
                 className="w-full pt-2" />
-              <p className="body-text pt-2 font-semibold">350 ml ↝ SRD 100</p>
-              <p className="body-text pt-2 font-semibold">1000 ml ↝ SRD 230</p>
+              <p className="menu-text pt-2 font-semibold">350 ml ↝ SRD 100</p>
+              <p className="menu-text pt-2 font-semibold">1000 ml ↝ SRD 230</p>
             </div>
             <div className="sm:w-[90%] grid grid-cols-2 gap-4 text-center px-4">
               <li className="w-full flex flex-col items-center justify-center">
@@ -89,70 +89,70 @@ export default function MenuPage() {
                   src={juice1}
                   alt="fruit splash"
                   className="w-[100px] h-auto" />
-                <span className="body-text"><span className="exceptionText font-semibold">#1.</span> ananas-lemmetje</span>
+                <span className="menu-text"><span className="exceptionText font-semibold">#1.</span> ananas-lemmetje</span>
               </li>
               <li className="flex flex-col items-center">
                 <img
                   src={juice2}
                   alt="fruit splash"
                   className="w-[100px] h-auto" />
-                <span className="body-text"><span className="exceptionText font-semibold">#2.</span> chia-zuurzak</span>
+                <span className="menu-text"><span className="exceptionText font-semibold">#2.</span> chia-zuurzak</span>
               </li>
               <li className="flex flex-col items-center">
                 <img
                   src={juice3}
                   alt="fruit splash"
                   className="w-[100px] h-auto" />
-                <span className="body-text"><span className="exceptionText font-semibold">#3.</span> chia-aardbei</span>
+                <span className="menu-text"><span className="exceptionText font-semibold">#3.</span> chia-aardbei</span>
               </li>
               <li className="flex flex-col items-center">
                 <img
                   src={juice4}
                   alt="fruit splash"
                   className="w-[100px] h-auto" />
-                <span className="body-text"><span className="exceptionText font-semibold">#4.</span> papaja-kers</span>
+                <span className="menu-text"><span className="exceptionText font-semibold">#4.</span> papaja-kers</span>
               </li>
               <li className="flex flex-col items-center">
                 <img
                   src={juice5}
                   alt="fruit splash"
                   className="w-[100px] h-auto" />
-                <span className="body-text"><span className="exceptionText font-semibold">#5.</span> awarra</span>
+                <span className="menu-text"><span className="exceptionText font-semibold">#5.</span> awarra</span>
               </li>
               <li className="flex flex-col items-center">
                 <img
                   src={juice6}
                   alt="fruit splash"
                   className="w-[100px] h-auto" />
-                <span className="body-text"><span className="exceptionText font-semibold">#6.</span> basilicum-lemmetje-moringa</span>
+                <span className="menu-text"><span className="exceptionText font-semibold">#6.</span> basilicum-lemmetje-moringa</span>
               </li>
               <li className="flex flex-col items-center">
                 <img
                   src={juice7}
                   alt="fruit splash"
                   className="w-[100px] h-auto" />
-                <span className="body-text"><span className="exceptionText font-semibold">#7.</span> sopropo-zuurzak-moringa</span>
+                <span className="menu-text"><span className="exceptionText font-semibold">#7.</span> sopropo-zuurzak-moringa</span>
               </li>
               <li className="flex flex-col items-center">
                 <img
                   src={juice8}
                   alt="fruit splash"
                   className="w-[100px] h-auto" />
-                <span className="body-text"><span className="exceptionText font-semibold">#8.</span> avocado-ananas-moringa</span>
+                <span className="menu-text"><span className="exceptionText font-semibold">#8.</span> avocado-ananas-moringa</span>
               </li>
             </div>
           </div>
 
           {/* smoothies */}
-          <div id="smoothies" style={{ backgroundImage: `url(${bgImage})` }} className="bg-white flex flex-col items-center py-10 gap-6 border-5 border-double border-tealBrand shadow-md">
+          <div id="smoothies" style={{ backgroundImage: `url(${bgImage})` }} className="bg-white flex flex-col items-center py-10 gap-6 border-5 border-double  ">
             <div className="flex flex-col items-center">
-              <h3 className="exceptionTextExtra text-tealBrand">Smoothies</h3>
+              <h3 className="exceptionTextExtra text-neutral-50">Smoothies</h3>
               <img
                 src={smear}
                 className="w-full pt-2" />
               {/* <div className="border-1 border-darkYellow/20 w-full"></div> */}
-              <p className="body-text pt-2 font-semibold">350 ml ↝ SRD 115</p>
-              <p className="body-text pt-2 font-semibold">1000 ml ↝ SRD 260</p>
+              <p className="menu-text pt-2 font-semibold">350 ml ↝ SRD 115</p>
+              <p className="menu-text pt-2 font-semibold">1000 ml ↝ SRD 260</p>
             </div>
             <div className="sm:w-[90%] grid grid-cols-2 gap-4 text-center px-4">
               <li className="flex flex-col items-center">
@@ -215,13 +215,13 @@ export default function MenuPage() {
           </div>
 
           {/* welness shots */}
-          <div id="shots" style={{ backgroundImage: `url(${bgImage})` }} className="flex flex-col items-center py-10 gap-6 border-5 border-double border-tealBrand shadow-md">
+          <div id="shots" style={{ backgroundImage: `url(${bgImage})` }} className="flex flex-col items-center py-10 gap-6 border-5 border-double  ">
             <div className="flex flex-col items-center">
-              <h3 className="exceptionTextExtra text-tealBrand">Welness shots</h3>
+              <h3 className="exceptionTextExtra text-neutral-50">Welness shots</h3>
               <img
                 src={smear}
                 className="w-full pt-2" />
-              <p className="body-text pt-2 font-semibold">Elke set ↝ SRD 500</p>
+              <p className="menu-text pt-2 font-semibold">Elke set ↝ SRD 500</p>
             </div>
             <div className="grid grid-cols-2 gap-4 text-center px-4">
               <li className="flex flex-col items-center">
@@ -229,44 +229,44 @@ export default function MenuPage() {
                   src={shot1}
                   alt="fruit splash"
                   className="w-[100px] h-auto" />
-                <span className="body-text">kurkuma-kers-zwarte peper</span>
-                <p className="body-text font-semibold pt-1">7x 350 ml</p>
+                <span className="menu-text">kurkuma-kers-zwarte peper</span>
+                <p className="menu-text font-semibold pt-1">7x 350 ml</p>
               </li>
               <li className="flex flex-col items-center">
                 <img
                   src={shot2}
                   alt="fruit splash"
                   className="w-[100px] h-auto" />
-                <span className="body-text">gember-markoesa-cayenne</span>
-                <p className="body-text font-semibold pt-1">7x 350 ml</p>
+                <span className="menu-text">gember-markoesa-cayenne</span>
+                <p className="menu-text font-semibold pt-1">7x 350 ml</p>
               </li>
               <li className="flex flex-col items-center">
                 <img
                   src={shot3}
                   alt="fruit splash"
                   className="w-[100px] h-auto" />
-                <span className="body-text">gember-aardbei</span>
-                <p className="body-text font-semibold pt-1">5x 350 ml</p>
+                <span className="menu-text">gember-aardbei</span>
+                <p className="menu-text font-semibold pt-1">5x 350 ml</p>
               </li>
               <li className="flex flex-col items-center">
                 <img
                   src={shot4}
                   alt="fruit splash"
                   className="w-[100px] h-auto" />
-                <span className="body-text">gember-kurkuma-limoen</span>
-                <p className="body-text font-semibold pt-1">7x 350 ml</p>
+                <span className="menu-text">gember-kurkuma-limoen</span>
+                <p className="menu-text font-semibold pt-1">7x 350 ml</p>
               </li>
             </div>
           </div>
 
           {/* vitamine water */}
-          <div id="vitawater" style={{ backgroundImage: `url(${bgImage})` }} className="flex flex-col items-center py-10 gap-6 border-5 border-double border-tealBrand shadow-md">
+          <div id="vitawater" style={{ backgroundImage: `url(${bgImage})` }} className="flex flex-col items-center py-10 gap-6 border-5 border-double  ">
             <div className="flex flex-col items-center">
-              <h3 className="exceptionTextExtra text-tealBrand">Vitamine water</h3>
+              <h3 className="exceptionTextExtra text-neutral-50">Vitamine water</h3>
               <img
                 src={smear}
                 className="w-full pt-2" />
-              <p className="body-text pt-2 font-semibold">7 liter pack voor SRD 750</p>
+              <p className="menu-text pt-2 font-semibold">7 liter pack voor SRD 750</p>
             </div>
             <div className="sm:w-[90%] grid grid-cols-2 gap-4 text-center px-4">
               <li className="flex flex-col items-center">
@@ -274,70 +274,70 @@ export default function MenuPage() {
                   src={vit1}
                   alt="fruit splash"
                   className="w-[100px] h-auto" />
-                <p className="body-text mt-1"><span className="exceptionText font-semibold">#1.</span> gember-citroengras</p>
-                <p className="body-text font-semibold pt-1">1000 ml ↝ SRD 125</p>
+                <p className="menu-text mt-1"><span className="exceptionText font-semibold">#1.</span> gember-citroengras</p>
+                <p className="menu-text font-semibold pt-1">1000 ml ↝ SRD 125</p>
               </li>
               <li className="flex flex-col items-center">
                 <img
                   src={vit2}
                   alt="fruit splash"
                   className="w-[100px] h-auto" />
-                <p className="body-text mt-1"><span className="exceptionText font-semibold">#2.</span> gember-lemmetje</p>
-                <p className="body-text font-semibold pt-1">1000 ml ↝ SRD 125</p>
+                <p className="menu-text mt-1"><span className="exceptionText font-semibold">#2.</span> gember-lemmetje</p>
+                <p className="menu-text font-semibold pt-1">1000 ml ↝ SRD 125</p>
               </li>
               <li className="flex flex-col items-center">
                 <img
                   src={vit3}
                   alt="fruit splash"
                   className="w-[100px] h-auto" />
-                <p className="body-text mt-1"><span className="exceptionText font-semibold">#3.</span> kurkuma-kers</p>
-                <p className="body-text font-semibold pt-1">1000 ml ↝ SRD 125</p>
+                <p className="menu-text mt-1"><span className="exceptionText font-semibold">#3.</span> kurkuma-kers</p>
+                <p className="menu-text font-semibold pt-1">1000 ml ↝ SRD 125</p>
               </li>
               <li className="flex flex-col items-center">
                 <img
                   src={vit4}
                   alt="fruit splash"
                   className="w-[100px] h-auto" />
-                <p className="body-text mt-1"><span className="exceptionText font-semibold">#4.</span> kaneel-kruidnagel</p>
-                <p className="body-text font-semibold pt-1">1000 ml ↝ SRD 110</p>
+                <p className="menu-text mt-1"><span className="exceptionText font-semibold">#4.</span> kaneel-kruidnagel</p>
+                <p className="menu-text font-semibold pt-1">1000 ml ↝ SRD 110</p>
               </li>
               <li className="flex flex-col items-center">
                 <img
                   src={vit5}
                   alt="fruit splash"
                   className="w-[100px] h-auto" />
-                <p className="body-text mt-1"><span className="exceptionText font-semibold">#5.</span> basilicum-lemmetje</p>
-                <p className="body-text font-semibold pt-1">1000 ml ↝ SRD 110</p>
+                <p className="menu-text mt-1"><span className="exceptionText font-semibold">#5.</span> basilicum-lemmetje</p>
+                <p className="menu-text font-semibold pt-1">1000 ml ↝ SRD 110</p>
               </li>
               <li className="flex flex-col items-center">
                 <img
                   src={vit6}
                   alt="fruit splash"
                   className="w-[100px] h-auto" />
-                <p className="body-text mt-1"><span className="exceptionText font-semibold">#6.</span> sjoeroe</p>
-                <p className="body-text font-semibold pt-1">1000 ml ↝ SRD 110</p>
+                <p className="menu-text mt-1"><span className="exceptionText font-semibold">#6.</span> sjoeroe</p>
+                <p className="menu-text font-semibold pt-1">1000 ml ↝ SRD 110</p>
               </li>
               <li className="flex flex-col items-center">
                 <img
                   src={vit7}
                   alt="fruit splash"
                   className="w-[100px] h-auto" />
-                <p className="body-text mt-1"><span className="exceptionText font-semibold">#7.</span> appelazijn</p>
-                <p className="body-text font-semibold pt-1">1000 ml ↝ SRD 110</p>
+                <p className="menu-text mt-1"><span className="exceptionText font-semibold">#7.</span> appelazijn</p>
+                <p className="menu-text font-semibold pt-1">1000 ml ↝ SRD 110</p>
               </li>
             </div>
           </div>
 
           {/* cleanse en heal */}
-          <div id="cleanse" style={{ backgroundImage: `url(${bgImage})` }} className="flex flex-col items-center py-10 border-5 border-double border-tealBrand shadow-md">
+          <div id="cleanse" style={{ backgroundImage: `url(${bgImage})` }} className="flex flex-col items-center py-10 border-5 border-double  ">
             <div className="flex flex-col items-center">
-              <h3 className="exceptionTextExtra text-tealBrand">Cleanse & heal</h3>
+              <h3 className="exceptionTextExtra text-neutral-50">Cleanse & heal</h3>
               <img
                 src={smear}
                 className="w-full pt-2" />
-              {/* <p className="body-text pt-2 font-semibold">3x 350 ml</p>
-              <p className="body-text pt-2 font-semibold">3x 1000 ml</p> */}
-              <p className="body-text pt-2 font-semibold">Complete set t.w.v. SRD 900 ↝ SRD 850</p>
+              {/* <p className="menu-text pt-2 font-semibold">3x 350 ml</p>
+              <p className="menu-text pt-2 font-semibold">3x 1000 ml</p> */}
+              <p className="menu-text pt-2 font-semibold">Complete set t.w.v. SRD 900 ↝ SRD 850</p>
             </div>
             <div className="sm:w-[90%] grid grid-cols-2 gap-4 text-center px-4">
               <li className="flex flex-col items-center">
@@ -345,8 +345,8 @@ export default function MenuPage() {
                   src={comboshots}
                   alt="fruit splash"
                   className="w-[200px] h-auto sm:h-auto" />
-                <span className="body-text">Gember shots</span>
-                <p className="body-text font-semibold pt-1">3x 125 ml</p>
+                <span className="menu-text">Gember shots</span>
+                <p className="menu-text font-semibold pt-1">3x 125 ml</p>
               </li>
               <li className="flex flex-col items-center">
                 <img
@@ -354,8 +354,8 @@ export default function MenuPage() {
                   alt="fruit splash"
                   // className="w-auto h-32 sm:h-60" />
                   className="w-[200px] h-auto sm:h-auto" />
-                <span className="body-text">Aloë vera juice</span>
-                <p className="body-text font-semibold pt-1">3x 350 ml</p>
+                <span className="menu-text">Aloë vera juice</span>
+                <p className="menu-text font-semibold pt-1">3x 350 ml</p>
 
               </li>
               <li className="flex flex-col items-center">
@@ -363,23 +363,23 @@ export default function MenuPage() {
                   src={combovit}
                   alt="fruit splash"
                   className="w-[200px] h-auto" />
-                <span className="body-text">Kurkuma vitamine water</span>
-                <p className="body-text font-semibold pt-1">3x 1000 ml</p>
+                <span className="menu-text">Kurkuma vitamine water</span>
+                <p className="menu-text font-semibold pt-1">3x 1000 ml</p>
               </li>
             </div>
           </div>
 
           {/* sappenkuur */}
-          <div id="sappenkuur" style={{ backgroundImage: `url(${bgImage})` }} className="flex flex-col items-center py-10 gap-6 border-5 border-double border-tealBrand shadow-md">
+          <div id="sappenkuur" style={{ backgroundImage: `url(${bgImage})` }} className="flex flex-col items-center py-10 gap-6 border-5 border-double ">
             <div className="flex flex-col items-center">
-              <h3 className="exceptionTextExtra text-tealBrand">Sappenkuur</h3>
+              <h3 className="exceptionTextExtra text-neutral-50">Sappenkuur</h3>
               <img
                 src={smear}
                 className="w-full pt-2" />
-              <p className="body-text pt-2 font-semibold">*350 ml</p>
+              <p className="menu-text pt-2 font-semibold">*350 ml</p>
             </div>
 
-            <table className="body-text w-[92%] border-collapse">
+            <table className="menu-text w-[92%] border-collapse">
               <thead>
                 <tr className="text-left border-b">
                   <th className="py-2"></th>
