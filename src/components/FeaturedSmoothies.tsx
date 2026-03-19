@@ -1,9 +1,8 @@
-"use client";
 import { motion } from "framer-motion";
 import { fadeInUp } from "../animations/Varianten";
-import podosiri from "../assets/featuredSmoothies/acai.png";
-import chiaZuurzak from "../assets/featuredSmoothies/soursoop.png";
-import cleanseHeal from "../assets/featuredSmoothies/greenReset2.png";
+import podosiri from "../assets/featuredSmoothies/acaiN1.png";
+import chiaZuurzak from "../assets/featuredSmoothies/soursopN1.png";
+import cleanseHeal from "../assets/featuredSmoothies/greenResetN1.png";
 import fruitBg from "../assets/fluidButton.png";
 import SectionWrapper from "../animations/SectionWrapper";
 import WipeButton from "./tools/Button";
@@ -13,116 +12,111 @@ export default function FeaturedSmoothies() {
     {
       id: 1,
       name: "Açaí Royale",
-      alt: "verse podosiri sap",
+      alt: "Verse podosiri sap met bacove en kers - Love Your Body Suriname",
       tag: "podosiri - bacove - kers",
-      bgColor: "bg-[#f1ccd1]",
       description:
-        "De combinatie van açaí, kers en banaan levert antioxidanten en kalium, die het lichaam ondersteunen bij spierwerking, herstel en het vasthouden van een stabiel energieniveau.",
-      tags: ["Weerstand", "Energie", "Spijsvertering", "Antioxidanten"],
+        "Ondersteunt het lichaam bij spierwerking en het vasthouden van een stabiel energieniveau.",
+      tags: ["Weerstand", "Energie", "Spijsvertering"],
       image: podosiri,
     },
     {
       id: 2,
       name: "Soursop Breeze",
-      alt: "verse zuurzak sap",
+      alt: "Verse zuurzak sap met chiazaadjes - Love Your Body Suriname",
       tag: "zuurzak - chiazaadjes",
-      bgColor: "bg-[#f7f6eb]",
       description:
-        "Ons Zuurzak-sap, verrijkt met chiazaadjes, ondersteunt hydratatie en een verzadigd gevoel dankzij vezels, omega’s en natuurlijke mineralen.",
+        "Ondersteunt hydratatie en een verzadigd gevoel dankzij vezels en natuurlijke mineralen.",
       tags: ["Weerstand", "Antioxidant", "Energie"],
       image: chiaZuurzak,
     },
     {
       id: 3,
       name: "Green Reset",
-      alt: "verse zuurzak, sopropo sap",
+      alt: "Groene smoothie met zuurzak, sopropo en moringa - Love Your Body Suriname",
       tag: "sopropo - zuurzak - moringa",
       description:
-        "Groene smoothie met zuurzak, sopropo en moringa. Rijk aan antioxidanten en perfect voor een natuurlijke energieboost.",
-      tags: ["Reiniging", "Weerstand", "Energie", "Balans"],
+        "Rijk aan antioxidanten en perfect voor een natuurlijke energieboost.",
+      tags: ["Reiniging", "Weerstand", "Energie"],
       image: cleanseHeal,
     },
   ];
 
   return (
-    <section id="menu" className="bg-bgColor max-w-screen-3xl mx-auto py-10 md:py-16 pb-8 sm:pb-24 md:pb-32 text-center">
-      {/* Titel */}
-      <SectionWrapper>
-        <motion.h2 variants={fadeInUp} className="text-md mb-4 lg:pb-6">
+    <section id="menu" className="bg-gradient-to-b from-bioGreen/40 via-bioGreen/10 to-white max-w-screen-3xl mx-auto lg:px-8 xl:px-10 py-10 md:py-16 pb-8 sm:pb-10 md:pb-6 xl:pb-8 text-center">
+      {/* Titel & SEO intro */}
+      <SectionWrapper className="pb-4">
+        <motion.h2 variants={fadeInUp} className="text-md mb-4 lg:pb-0 px-6 sm:px-8">
           Onze Signature Blends
         </motion.h2>
-        <motion.p variants={fadeInUp} className="body-text px-6">
+        <motion.p variants={fadeInUp} className="body-text px-6 sm:px-20 md:px-44 max-w-4xl mx-auto">
           Onze <span className="exceptionText font-semibold">meest gekozen</span> smoothies in Paramaribo. Vers, voedzaam en geliefd door onze klanten.
         </motion.p>
       </SectionWrapper>
 
-      {/* Cards Grid */}
-      <SectionWrapper className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 lg:pt-4">
+      {/* Cards Grid: Verbeterde responsiviteit */}
+      <div className="relative mx-auto max-w-screen-2xl grid grid-cols-1 lg:grid-cols-3 gap-y-6 gap-x-6 lg:gap-4 2xl:gap-6 lg:pt-6 xl:pt-0 px-6 sm:px-24 md:px-44 lg:px-8 xl:px-12 2xl:px-20">
         {smoothies.map((smoothie) => (
           <SectionWrapper
             key={smoothie.id}
-            className="overflow-hidden flex flex-col items-center transition-shadow duration-300"
+            className="relative flex flex-col items-center"
           >
-            <div className="relative flex flex-col items-center">
-              <motion.svg viewBox="0 0 500 200" className="relative w-full h-22 sm:pt-6 z-50">
-                <path
-                  id="curve"
-                  d="M 50 150 Q 250 0 450 150"
-                  fill="transparent"
-                />
-                <text className="bestSeller tracking-widest">
-                  <textPath href="#curve" startOffset="50%" textAnchor="middle">
-                    {smoothie.name}
-                  </textPath>
-                </text>
-              </motion.svg>
+            {/* Header met Curve */}
 
-              <motion.div variants={fadeInUp} className="w-[50%] aspect-w-1 aspect-h-1 -mt-28 sm:-mt-36 lg:-mt-14 xl:-mt-16 relative overflow-hidden z-10">
-                <img
-                  src={smoothie.image}
-                  loading="lazy"
-                  alt={smoothie.name}
-                  className="object-cover"
-                />
-              </motion.div>
-            </div>
+            {/* Product Image */}
+            <motion.img
+              variants={fadeInUp}
+              src={smoothie.image}
+              loading="lazy"
+              alt={smoothie.alt}
+              className="w-full h-auto object-contain scale-110 rounded-t-xl"
+            />
 
-            {/* Tekst onder afbeelding */}
-            <motion.div variants={fadeInUp} className={`mx-6 px-2 md:px-6 py-4 lg:py-16 lg:h-74 xl:h-80 space-y-2 text-center -mt-14 sm:-mt-16 md:-mt-18 xl:-mt-20 shadow-sm border-2 border-orange-200 rounded-xl`}>
-              <motion.p variants={fadeInUp} className="body-text pt-4 lg:mt-4 xl:mt-6 italic">
-                <b>{smoothie.tag}</b>
-              </motion.p>
-              <motion.p variants={fadeInUp} className="body-text font-extrabold">
-                350 ml • 1000 ml
-              </motion.p>
-              <motion.p variants={fadeInUp} className="body-text">
-                {smoothie.description}
-              </motion.p>
+            {/* Content Card: Hoogte-optimalisatie voor grid-alignment */}
+            <motion.div
+              variants={fadeInUp}
+              className="flex flex-col flex-1 w-full px-4 md:px-6 py-6 space-y-1 text-left shadow-sm border-x-2 border-b-2 border-bioGreen rounded-b-xl bg-transparent"
+            >
+              <div className="flex-1 flex flex-col space-y-1">
+                <p className="body-text italic">
+                  <b>{smoothie.tag}</b>
+                </p>
+                <p className="body-text text-left leading-relaxed">
+                  {smoothie.description}
+                </p>
+              </div>
 
-              {/* Tags */}
-              <motion.div variants={fadeInUp} className="flex flex-wrap justify-center gap-2 pt-2 px-2">
+              {/* Tags: Semantisch verbeterd */}
+              <div className="flex flex-wrap justify-left gap-2 py-2">
                 {smoothie.tags.map((tag, i) => (
                   <span
                     key={i}
-                    className="px-3 py-1 text-green-100 text-xs rounded-full bg-tealBrand/50 shadow-sm">
+                    className="px-3 py-1 text-bioGreen text-[10px] tracking-widest uppercase font-semibold rounded-full bg-transparant border-1 border-bioGreen"
+                  >
                     {tag}
                   </span>
                 ))}
-              </motion.div>
+              </div>
 
-              <motion.div variants={fadeInUp} className="w-full px-6">
+              <div className="w-full flex justify-between">
+                {/* <p className="body-text font-extrabold tracking-tighter">
+                  350 ml
+                </p> */}
+                <p className="flex items-center bestSellerPrice">
+                  SRD 115
+                </p>
                 <WipeButton
                   href="https://wa.me/5978531071"
                   external
                   style={{ backgroundImage: `url(${fruitBg})` }}
-                  className="body w-[80%] lg:w-60 mt-2 bg-cover bg-center text-white">
-                  Bestel deze smoothie
+                  className="body w-full max-w-[240px] mx-auto bg-cover bg-center text-white"
+                >
+                  Bestel Nu
                 </WipeButton>
-              </motion.div>
+              </div>
             </motion.div>
           </SectionWrapper>
         ))}
-      </SectionWrapper>
+      </div>
     </section>
   );
 }

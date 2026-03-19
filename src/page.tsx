@@ -8,6 +8,7 @@ import Aanbod from "./components/Aanbod";
 import RockOil from "./components/RockOil";
 import Purpose from "./components/Purpose";
 import FaqTeaser from "./components/FaqTeaser";
+import Process from "./components/Process";
 
 export default function HomePage() {
   const structuredData = {
@@ -78,6 +79,7 @@ export default function HomePage() {
         </script> */}
       </Helmet>
       <HeroSection />
+      <Process />
       <FeaturedSmoothies />
       <BenefitsSection />
       <Purpose />

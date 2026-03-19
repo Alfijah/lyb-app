@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { fadeInUp } from "../animations/Varianten";
-import hero from "../assets/heroSection/heroN.png";
+import hero from "../assets/heroSection/heroW.png";
 import fruitBg from "../assets/fluidButton.png";
 import { BiSolidLeaf } from "react-icons/bi";
 import SectionWrapper from "../animations/SectionWrapper";
@@ -17,14 +17,14 @@ export default function HeroSection() {
         <img
           src={hero}
           alt="Verse sap en smoothies"
-          // fetchpriority="high"
+          fetchPriority="high"
           className="w-full h-full object-cover object-bottom scale-100 " 
           // object-bottom zorgt dat het fruit onderaan de foto altijd zichtbaar is
         />
       </div>
 
       {/* 2. CONTENT: Onder de afbeelding */}
-      <div className="relative z-10 max-w-screen-2xl mx-auto px-6 md:px-8 lg:px-12 py-10">
+      <div className="relative z-10 max-w-screen-2xl mx-auto px-6 sm:px-8 lg:px-12 py-10">
         <div className="flex flex-col items-center">
           
           <SectionWrapper

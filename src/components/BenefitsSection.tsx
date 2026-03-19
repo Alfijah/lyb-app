@@ -1,81 +1,47 @@
-"use client";
 import { motion } from "framer-motion";
 import { fadeInUp } from "../animations/Varianten";
-import elektrolytes from "../assets/benefitsSection/elektrolytes.png";
-import antioxidant from "../assets/benefitsSection/antioxidant.png";
-import ontsteking from "../assets/benefitsSection/ontsteking.png";
-import spijsvertering from "../assets/benefitsSection/spijsvertering.png";
-import energie from "../assets/benefitsSection/energie.png";
-import weerstand from "../assets/benefitsSection/weerstand.png";
+import verifyIcon from "../assets/benefitsSection/verify.png";
 import SectionWrapper from "../animations/SectionWrapper";
 
 export default function BenefitsSection() {
   const benefits = [
     {
       id: 1,
-      icon: (
-        <img src={elektrolytes} alt="elektrolytes" className="" />
-      ),
-      title: "Elektrolyten",
-      bgColor: "bg-[#d1e06c]",
-      textColor: "text-[#867F7F]",
-      text: "Natuurlijke elektrolyten ondersteunen hydratatie, spierherstel en energie; ideaal voor een actieve levensstijl."
+      icon: verifyIcon,
+      title: "Puur & Gezond",
+      alt: "verificatie icon",
+      text: "Bevat boordevol vitaminen en mineralen."
     },
     {
       id: 2,
-      icon: (
-        <img src={antioxidant} alt="antioxidant" />
-      ),
-      title: "Antioxidanten",
-      bgColor: "bg-[#fddb2a]",
-      textColor: "text-[#867F7F]",
-      text: "Antioxidanten helpen je cellen beschermen, versterken je weerstand en ondersteunen een energiek gevoel."
+      icon: verifyIcon,
+      title: "Premium Kwaliteit",
+      alt: "verificatie icon",
+      text: "Geen additieven, altijd vers bereid."
     },
     {
       id: 3,
-      icon: (
-        <img src={ontsteking} alt="ontstekingremmend" />
-      ),
-      title: "Herstel",
-      bgColor: "bg-[#f9d956]",
-      textColor: "text-[#867F7F]",
-      text: "Essentiële vitamines, mineralen en natuurlijke suikers ondersteunen spierherstel en energieaanvulling na een drukke dag."
+      icon: verifyIcon,
+      title: "Duurzaam",
+      alt: "verificatie icon",
+      text: "Focus op lokale inkoop."
     },
     {
       id: 4,
-      icon: <img src={spijsvertering} alt="spijsvertering" />,
-      title: "Spijsvertering",
-      bgColor: "bg-[#dae584]",
-      textColor: "text-[#ffffff]",
-      text: "Vezelrijke smoothies ondersteunen een gezonde spijsvertering en helpen je lichaam natuurlijk in balans te blijven."
-    },
-    {
-      id: 5,
-      icon: (
-        <img src={energie} alt="energie" />
-      ),
-      title: "Energie",
-      bgColor: "bg-[#e3ec9b]",
-      textColor: "text-[#867F7F]",
-      text: "De natuurlijke energie uit fruit zorgt voor een stabiel energieniveau zonder plotselinge suikerdips gedurende de dag."
-    },
-    {
-      id: 6,
-      icon: <img src={weerstand} alt="weerstand" />,
-      title: "Weerstand",
-      bgColor: "bg-[#e6ec9e]",
-      textColor: "text-[#ffffff]",
-      text: "Rijk aan vitamine C, antioxidanten en essentiële voedingsstoffen ondersteunen je weerstand en een gezond immuunsysteem."
-    },
+      icon: verifyIcon,
+      title: "Gemak",
+      alt: "verificatie icon",
+      text: "Thuis of op kantoor bezorgd."
+    }
   ];
 
   return (
     <section
       id="benefits"
-      className="relative z-10 max-w-screen-3xl bg-neutral-50  mx-auto pb-8 md:py-16 px-6 md:px-8 lg:px-12 text-center">
-
-      {/* Wave Top */}
-      <div className="absolute top-0 left-0 w-full overflow-hidden leading-none">
+      className="relative z-10 max-w-screen-3xl bg-bgColor mx-auto md:pt-16 px-6 sm:px-20 md:px-8 lg:px-14"
+    >
+      {/* Wave Top - Decoratief element (verborgen voor screenreaders) */}
+      <div className="absolute top-0 left-0 w-full overflow-hidden leading-none" aria-hidden="true">
         <svg
           viewBox="0 0 1440 120"
           className="relative block w-full h-[60px] md:h-[90px]"
@@ -83,42 +49,57 @@ export default function BenefitsSection() {
         >
           <path
             d="M0,64L80,74.7C160,85,320,107,480,101.3C640,96,800,64,960,58.7C1120,53,1280,75,1360,85.3L1440,96L1440,0L0,0Z"
-            className="fill-bgColor"
+            className="fill-white"
           ></path>
         </svg>
       </div>
 
-      {/* Titel */}
-      <SectionWrapper className="mb-4 text-left ">
-        <motion.h2 variants={fadeInUp} className="max-w-screen-lg mx-auto text-md mb-4 lg:pb-6 pt-24 sm:pt-28 md:pt-16 xl:pt-24">
-          Wat is bijzonder aan de juices en smoothies van LYB?
+      {/* Titel & SEO Content */}
+      <SectionWrapper className="mb-4 text-left">
+        <motion.h2
+          variants={fadeInUp}
+          className="max-w-screen-lg mx-auto text-md lg:text-left mb-4 lg:pb-2 pt-24 sm:pt-28 md:pt-16 xl:pt-24"
+        >
+          Wat is bijzonder aan de <span className="text-bioGreen">juices en smoothies</span> van LYB?
         </motion.h2>
-        <motion.p variants={fadeInUp} className="max-w-screen-lg mx-auto body-text sm:px-8 md:px-10 lg:px-28">
+        <motion.p
+          variants={fadeInUp}
+          className="max-w-screen-lg mx-auto body-text lg:text-left"
+        >
           Onze juices en smoothies bestaan uit <span className="exceptionText font-semibold">creatieve combinaties</span> en worden gemaakt van <span className="exceptionText font-semibold">pure ingrediënten</span> die jouw lichaam ondersteunen. Geen kunstmatige toevoegingen; alleen wat goed is voor jou.
         </motion.p>
-        {/* <motion.h3 variants={fadeInUp} className="max-w-screen-lg mx-auto italic font-semibold pt-8 sm:px-8 md:px-10 lg:px-28">
-          Waarom kiezen voor een gezonde smoothie van LYB?
-        </motion.h3> */}
       </SectionWrapper>
 
-      {/* voordelen */}
-      <SectionWrapper className="relative w-full grid sm:grid-cols-2 lg:grid-cols-6 gap-4 lg:px-12">
+      {/* Voordelen Grid - Geoptimaliseerd voor verschillende schermen */}
+      <SectionWrapper className="relative w-full max-w-screen-lg mx-auto grid grid-cols-1 md:grid-cols-2 lg:px-4">
         {benefits.map((benefit) => (
-          <motion.div variants={fadeInUp}
-            className={`relative w-ful ${benefit.bgColor} flex flex-row items-center justify-between shadow-sm rounded-xl`}>
-            <div
-              key={benefit.id}
-              className="z-20 flex flex-col w-[38%] shrink-0 items-center justify-start transition-all">
-              {benefit.icon}
+          <motion.article
+            key={benefit.id}
+            variants={fadeInUp}
+            className="relative flex flex-row items-center overflow-hidden"
+          >
+            {/* Icoon Container */}
+            <div className="z-20 w-[70px] shrink-0 p-2 flex items-center justify-center">
+              <img
+                src={benefit.icon}
+                alt={benefit.alt}
+                className="w-full h-auto object-contain"
+                loading="lazy"
+              />
             </div>
+
+            {/* Tekst Container */}
             <div
-              className={`z-10 w-[80%] ${benefit.bgColor} rounded-lg -ml-12 text-left flex items-center flex-1 pl-12 pr-2`}>
-              <p className={`body-text !${benefit.textColor} italic`}
-                style={{ color: benefit.textColor }}>
+              className="z-10 flex-1 py-4 pr-4 pl-2 text-left">
+                <h3>
+                  {benefit.title}
+                </h3>
+              <p
+                className="body-text pt-2 leading-tight text-sm">
                 {benefit.text}
               </p>
             </div>
-          </motion.div>
+          </motion.article>
         ))}
       </SectionWrapper>
     </section>
