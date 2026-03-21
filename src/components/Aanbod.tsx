@@ -1,14 +1,13 @@
-"use client";
 import { Link } from "react-router-dom";
 import fruitBg from "../assets/fluidButton.png";
 import { motion } from "framer-motion";
 import { fadeInLeft, fadeInUp } from "../animations/Varianten";
-import juices from "../assets/aanbod/juices.png";
-import smoothies from "../assets/aanbod/smoothies.png";
-import shots from "../assets/aanbod/shots.png";
-import vitawater from "../assets/aanbod/vitawater.png";
-import cleanse from "../assets/aanbod/cleanse&heal.png";
-import sappenkuur from "../assets/aanbod/sappenkuur.png";
+import juices from "../assets/aanbod/juicesN.png";
+import smoothies from "../assets/aanbod/smoothiesN.png";
+import shots from "../assets/aanbod/shotsN.png";
+import vitawater from "../assets/aanbod/vitawaterN.png";
+import cleanse from "../assets/aanbod/cleanse&healN.png";
+import sappenkuur from "../assets/aanbod/sappenkuurN.png";
 import SectionWrapper from "../animations/SectionWrapper";
 import { HiArrowUpRight } from "react-icons/hi2";
 import WipeButton from "./tools/Button";
@@ -22,21 +21,21 @@ type Category = {
 
 export default function Aanbod() {
     const categories: Category[] = [
-        { title: "Juices", id: "juices", img: juices, alt: "verse sappen" },
-        { title: "Smoothies", id: "smoothies", img: smoothies, alt: "verse smoothies" },
-        { title: "Wellness shots", id: "shots", img: shots, alt: "gember en kurkuma welness shots" },
-        { title: "Vitamine water", id: "vitawater", img: vitawater, alt: "verse vitaminewater" },
-        { title: "Cleanse & heal", id: "cleanse", img: cleanse, alt: "detox sappen" },
-        { title: "Sappenkuur", id: "sappenkuur", img: sappenkuur, alt: "sapenkuur" },
+        { title: "Juices", id: "juices", img: juices, alt: "Verse koudgeperste juices in Suriname" },
+        { title: "Smoothies", id: "smoothies", img: smoothies, alt: "Gezonde fruit smoothies Paramaribo" },
+        { title: "Wellness shots", id: "shots", img: shots, alt: "Gember en kurkuma wellness shots voor weerstand" },
+        { title: "Vitamine water", id: "vitawater", img: vitawater, alt: "Verfrissend vitamine water met fruit" },
+        { title: "Cleanse & heal", id: "cleanse", img: cleanse, alt: "Detox sappen voor reiniging" },
+        { title: "Sappenkuur", id: "sappenkuur", img: sappenkuur, alt: "Complete sappenkuur voor gewichtsverlies" },
     ];
 
     return (
         <section
             id="aanbod"
-            className="relative z-20 max-w-screen-3xl bg-gradient-to-b from-orange-100 via-orange-100 to-white mx-auto pb-6 py-6 md:py-16 px-6 md:px-8 lg:px-12 text-center overflow-hidden"
+            className="relative z-20 max-w-screen-3xl bg-gradient-to-b from-orange-100 via-orange-100 to-white mx-auto pb-12 py-6 md:py-16 px-6 sm:px-20 md:px-12 lg:px-12 text-center overflow-hidden"
         >
-            {/* Wave Top */}
-            <div className="absolute top-0 left-0 w-full overflow-hidden leading-none">
+            {/* Wave Top - Decoratief */}
+            <div className="absolute top-0 left-0 w-full overflow-hidden leading-none" aria-hidden="true">
                 <svg
                     viewBox="0 0 1440 120"
                     className="relative block w-full h-[60px] md:h-[90px]"
@@ -49,23 +48,23 @@ export default function Aanbod() {
                 </svg>
             </div>
 
-            {/* Titel */}
-            <SectionWrapper className="mb-4">
+            {/* Titel Sectie */}
+            <SectionWrapper className="mb-12 text-left">
                 <motion.h2
                     variants={fadeInUp}
-                    className="max-w-screen-lg mx-auto text-md mb-4 lg:pb-6 pt-20 sm:pt-28 md:pt-16 xl:pt-24"
+                    className="max-w-screen-lg mx-auto text-md mb-4 lg:pb-6 pt-20 sm:pt-28 md:pt-16 xl:pt-24 font-bold"
                 >
                     Ontdek ons aanbod
                 </motion.h2>
                 <motion.p
                     variants={fadeInUp}
-                    className="max-w-screen-lg mx-auto body-text sm:px-8 md:px-10 lg:px-28"
+                    className="max-w-screen-lg mx-auto body-text font-bold text-xl"
                 >
                     Alles voor een Gezonde Boost!
                 </motion.p>
                 <motion.p
                     variants={fadeInUp}
-                    className="body-text max-w-screen-lg mx-auto pt-4 sm:px-8 md:px-10 lg:px-28"
+                    className="body-text max-w-screen-lg mx-auto pt-4"
                 >
                     Ontdek onze gezonde smoothies, verse juices, wellness shots en
                     sappenkuur; <span className="exceptionText font-semibold">vers bereid</span>{" "}
@@ -73,18 +72,22 @@ export default function Aanbod() {
                 </motion.p>
             </SectionWrapper>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {/* Categorieën Grid */}
+            <div className="max-w-screen-2xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20 xl:px-10 2xl:px-16">
                 {categories.map((c) => (
                     <SectionWrapper key={c.id}>
-                        <div>
-                            <motion.p variants={fadeInLeft} className="categoryText italic">
+                        <div className="group">
+                            <motion.h3 variants={fadeInLeft} className="categoryText italic mb-2">
                                 {c.title}
-                            </motion.p>
+                            </motion.h3>
 
-                            {/* Card wrapper met hover state */}
-                            <motion.div initial="rest" animate="rest" whileHover="hover">
-                                <Link to={`/menu#${c.id}`} className="block relative rounded-xl overflow-hidden">
-                                    {/* wipe overlay */}
+                            <motion.div initial="rest" animate="rest" whileHover="hover" className="relative">
+                                <Link 
+                                    to={`/menu#${c.id}`} 
+                                    className="block relative rounded-xl overflow-hidden shadow-md"
+                                    aria-label={`Bekijk ons aanbod ${c.title}`}
+                                >
+                                    {/* Wipe overlay */}
                                     <motion.span
                                         variants={{
                                             rest: { scaleX: 0, transformOrigin: "0% 50%" },
@@ -94,8 +97,8 @@ export default function Aanbod() {
                                         className="absolute inset-0 z-[60] bg-black/55 pointer-events-none"
                                     />
 
-                                    {/* arrow (purely visual) */}
-                                    <div className="absolute top-4 right-4 z-[90] flex items-center justify-center w-[60px] h-[40px] bg-white/10 border-1 border-white rounded-3xl">
+                                    {/* Arrow icon */}
+                                    <div className="absolute top-4 right-4 z-[90] flex items-center justify-center w-[60px] h-[40px] bg-white/10 border border-white/30 rounded-3xl backdrop-blur-sm">
                                         <motion.span
                                             variants={{ rest: { rotate: 0 }, hover: { rotate: 45 } }}
                                             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
@@ -110,42 +113,42 @@ export default function Aanbod() {
                                         src={c.img}
                                         alt={c.alt}
                                         loading="lazy"
-                                        className="relative mx-auto w-full h-auto pointer-events-none select-none rounded-xl shadow-md"
+                                        className="relative mx-auto w-full h-auto aspect-[16/9] object-cover pointer-events-none select-none rounded-xl"
                                     />
                                 </Link>
                             </motion.div>
                         </div>
                     </SectionWrapper>
                 ))}
-
-                {/* CTA */}
-                <SectionWrapper className="mb-4">
-                    <motion.h3
-                        variants={fadeInUp}
-                        className="max-w-screen-lg mx-auto italic font-semibold py-4 sm:px-8 md:px-10 lg:px-28"
-                    >
-                        Volledig menu bekijken?
-                    </motion.h3>
-                    <motion.p
-                        variants={fadeInUp}
-                        className="max-w-screen-lg mx-auto body-text sm:px-8 md:px-10 lg:px-28"
-                    >
-                        Bekijk ons volledige menu met smoothies, juices en wellness drinks;{" "}
-                        <span className="exceptionText font-semibold">altijd vers</span> met
-                        een verfrissende smaak.
-                    </motion.p>
-
-                    <motion.div variants={fadeInUp}>
-                        <WipeButton
-                            to="/menu"
-                            style={{ backgroundImage: `url(${fruitBg})` }}
-                            className="w-[80%] lg:w-60 mt-4 text-white bg-cover bg-center"
-                        >
-                            Bekijk ons menu
-                        </WipeButton>
-                    </motion.div>
-                </SectionWrapper>
             </div>
+
+            {/* CTA Sectie - Nu buiten de grid geplaatst voor betere layout */}
+            <SectionWrapper className="mt-10 text-left">
+                <motion.h3
+                    variants={fadeInUp}
+                    className="max-w-screen-lg mx-auto italic font-semibold pb-4"
+                >
+                    Volledig menu bekijken?
+                </motion.h3>
+                <motion.p
+                    variants={fadeInUp}
+                    className="max-w-screen-lg mx-auto body-text"
+                >
+                    Bekijk ons volledige menu met smoothies, juices en wellness drinks;{" "}
+                    <span className="exceptionText font-semibold">altijd vers</span> met
+                    een verfrissende smaak.
+                </motion.p>
+
+                <motion.div variants={fadeInUp} className="max-w-screen-lg mx-auto flex justify-start xl:px-20 2xl:px-0">
+                    <WipeButton
+                        to="/menu"
+                        style={{ backgroundImage: `url(${fruitBg})` }}
+                        className="w-full lg:w-60 mt-6 text-white bg-cover bg-center shadow-sm"
+                    >
+                        Bekijk ons menu
+                    </WipeButton>
+                </motion.div>
+            </SectionWrapper>
         </section>
     );
 }
