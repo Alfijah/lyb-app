@@ -1,37 +1,37 @@
-"use client";
 import logo from "../assets/logo2.png";
 import fbIcon from "../assets/contactSection/fbIcon.png";
 import iGIcon from "../assets/contactSection/igIcon.png";
 import wAIcon from "../assets/contactSection/wAIcon.png";
+import contactBg from "../assets/contactSection/contactSectionBg.png"; // Import voor Vite optimalisatie
 import { Link } from "react-router-dom";
 
 export default function FooterSection() {
-
   return (
     <footer
       id="contact"
-      className="relative bg-cover bg-bottom text-white"
+      className="relative bg-cover bg-bottom text-white overflow-hidden"
       style={{
-        backgroundImage:
-          "url('src/assets/contactSection/contactSectionBg.png')",
+        backgroundImage: `url(${contactBg})`,
       }}
     >
-      {/* Overlay kleur */}
-      <div className="absolute inset-0 bg-black/80"></div>
+      {/* Overlay kleur - Ongewijzigd */}
+      <div className="absolute inset-0 bg-black/80" aria-hidden="true"></div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8 pt-4 pb-4 md:py-14">
-        <div className="grid md:grid-cols-2 gap-10 md:gap-2 text-center md:text-left">
-          {/* --- LINKERKOLOM: Logo + slogan + tekst --- */}
-          <div className="flex mx-auto md:items-start md:text-start md:gap-4">
-            <div
-              className="flex flex-col md:w-[50%] items-center gap-1 cursor-pointer"
-            // onClick={goToHome}
-            >
-              <img src={logo} alt="JuiceBar Logo" className="h-10 w-auto" />
+      <div className="relative z-10 max-w-screen-2xl mx-auto px-6 md:px-8 pt-10 md:pt-14 pb-6 ">
+        <div className="flex flex-col gap-8 md:gap-10 text-center">
+          
+          {/* --- LOGO SECTIE --- */}
+          <div className="flex mx-auto">
+            <Link to="/" className="flex flex-col items-center gap-1 cursor-pointer group">
+              <img 
+                src={logo} 
+                alt="Love Your Body Juices & Smoothies Logo" 
+                className="h-12 w-auto transition-transform group-hover:scale-105" 
+              />
               <div className="flex flex-col items-center leading-tight">
                 <span
-                  className="text-green-800 font-bold text-[9px]"
+                  className="font-bold text-[10px] tracking-widest"
                   style={{
                     color: "#02888d",
                     fontFamily: "'Montserrat', sans-serif",
@@ -40,111 +40,97 @@ export default function FooterSection() {
                   LOVE YOUR BODY
                 </span>
                 <span
-                  className="text-green-600 text-[9px]"
+                  className="text-[10px]"
                   style={{ color: "#02888d", fontFamily: "'Atma', cursive" }}
                 >
                   juices & smoothies
                 </span>
               </div>
-            </div>
-
-            {/* <div className="flex flex-col gap-4 px-2">
-              <p className="flex sm:mx-auto body-text footer">
-                ⚠️ Bestellen is momenteel alleen mogelijk via WhatsApp.
-              </p>
-            </div> */}
+            </Link>
           </div>
 
-          <div className="flex mx-auto gap-14">
-            {/* Quick Links */}
-            <div className="space-y-4 flex flex-col items-left md:items-center md:text-start">
-              {/* <h3 className="text-sm font-bold text-gray-200">Quick Links</h3> */}
-              <ul className="space-y-2 text-gray-200 text-center text-xs md:text-sm">
-                <li>
-                  <Link to="/" className="footer-text hover:text-darkYellow transition">
-                    Home
-                  </Link>
+          <div className="flex flex-col mx-auto gap-8 w-full max-w-3xl">
+
+            {/* QUICK LINKS: Gecentreerd met 4+2 logica op mobiel */}
+            <nav aria-label="Footer navigatie">
+              <ul className="flex flex-wrap justify-center items-center gap-y-4 text-gray-200 text-xs md:text-sm font-medium">
+                {/* Door basis-1/4 te gebruiken op mobiel, passen er precies 4 op een rij. 
+                   De overgebleven 2 worden door 'justify-center' netjes in het midden geplaatst.
+                */}
+                <li className="basis-1/4 sm:basis-auto sm:px-4">
+                  <Link to="/" className="footer-text hover:text-darkYellow transition px-2">Home</Link>
                 </li>
-                <li>
-                  <Link to="/about" className="footer-text hover:text-darkYellow transition">
-                    Over ons
-                  </Link>
+                <li className="basis-1/4 sm:basis-auto sm:px-4">
+                  <Link to="/about" className="footer-text hover:text-darkYellow transition px-2">Over ons</Link>
                 </li>
-                <li>
-                  <Link to="/menu" className="footer-text hover:text-darkYellow transition">
-                    Menu
-                  </Link>
+                <li className="basis-1/4 sm:basis-auto sm:px-4">
+                  <Link to="/menu" className="footer-text hover:text-darkYellow transition px-2">Menu</Link>
                 </li>
-                <li>
-                  <Link to="/benefits" className="footer-text hover:text-darkYellow transition">
-                    Benefits
-                  </Link>
+                <li className="basis-1/4 sm:basis-auto sm:px-4">
+                  <Link to="/benefits" className="footer-text hover:text-darkYellow transition px-2">Benefits</Link>
                 </li>
-                <li>
-                  <Link to="/benefits#disclaimer" className="footer-text hover:text-darkYellow transition">
-                    Disclaimer
-                  </Link>
-                </li><li>
-                  <Link to="/faq" className="footer-text hover:text-darkYellow transition">
-                    FAQ
-                  </Link>
+                <li className="basis-1/4 sm:basis-auto sm:px-4">
+                  <Link to="/benefits#disclaimer" className="footer-text hover:text-darkYellow transition px-2">Disclaimer</Link>
+                </li>
+                <li className="basis-1/4 sm:basis-auto sm:px-4">
+                  <Link to="/faq" className="footer-text hover:text-darkYellow transition px-2">FAQ</Link>
                 </li>
               </ul>
-            </div>
+            </nav>
 
-            {/*RECHTERKOLOM */}
-            <div className="flex items-start md:items-center md:text-start space-y-4">
-              <div className="flex flex-col items-center gap-2 lg:space-x-4">
-                <a
-                  href="https://www.facebook.com/lybjuicesandsmoothies/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img
-                    src={fbIcon}
-                    alt="Facebook"
-                    className="w-8 h-8 hover:opacity-80 transition"
-                  />
-                </a>
-                <a
-                  href="https://www.instagram.com/lybjuicesandsmoothies/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img
-                    src={iGIcon}
-                    alt="Instagram"
-                    className="w-8 h-8 hover:opacity-80 transition"
-                  />
-                </a>
-                <a
-                  href="https://wa.me/5978531071"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img
-                    src={wAIcon}
-                    alt="WhatsApp"
-                    className="w-8 h-8 hover:opacity-80 transition"
-                  />
-                </a>
-              </div>
+            {/* SOCIALS */}
+            <div className="flex flex-row justify-center items-center gap-6">
+              <a
+                href="https://www.facebook.com/lybjuicesandsmoothies/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Volg Love Your Body op Facebook"
+              >
+                <img
+                  src={fbIcon}
+                  alt=""
+                  className="w-7 h-7 hover:scale-110 transition-transform opacity-90 hover:opacity-100"
+                />
+              </a>
+              <a
+                href="https://www.instagram.com/lybjuicesandsmoothies/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Volg Love Your Body op Instagram"
+              >
+                <img
+                  src={iGIcon}
+                  alt=""
+                  className="w-7 h-7 hover:scale-110 transition-transform opacity-90 hover:opacity-100"
+                />
+              </a>
+              <a
+                href="https://wa.me/5978531071"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Contacteer ons via WhatsApp"
+              >
+                <img
+                  src={wAIcon}
+                  alt=""
+                  className="w-7 h-7 hover:scale-110 transition-transform opacity-90 hover:opacity-100"
+                />
+              </a>
             </div>
           </div>
         </div>
 
-        {/* Onderlijn */}
-        <div className="border-t border-white/30 pt-4 text-center footer-text mt-8">
+        {/* COPYRIGHT SECTIE */}
+        <div className="border-t border-white/20 pt-6 text-center text-[13px] md:text-sm text-gray-400 mt-10">
           <p>
-            © {new Date().getFullYear()} LYB Juices & Smoothies. Alle rechten
-            voorbehouden. Website door{" "}
+            © {new Date().getFullYear()} LYB. Website door{" "}
             <a
               href="https://www.instagram.com/sarbandigital.social/"
               target="_blank"
               rel="noopener noreferrer"
               className="underline hover:text-white transition"
             >
-              Sarban Digital.
+              Sarban Digital
             </a>
           </p>
         </div>

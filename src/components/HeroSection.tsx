@@ -13,12 +13,12 @@ export default function HeroSection() {
       className="relative w-full bg-bgColor overflow-hidden flex flex-col"
     >
       {/* 1. AFBEELDING: Bovenkant van de sectie */}
-      <div className="relative w-full flex items-center h-[38vh] md:h-[60vh] lg:h-[70vh] xl:h-[80vh] overflow-hidden">
+      <div className="relative w-full flex items-center h-[36vh] sm:h-[46vh] md:h-[60vh] lg:h-[74vh] xl:h-[70vh] 2xl:min-h-screen overflow-hidden">
         <img
           src={hero}
           alt="Verse sap en smoothies"
           fetchPriority="high"
-          className="w-full h-full object-cover object-bottom scale-100 " 
+          className="w-full h-full object-cover scale-100 " 
           // object-bottom zorgt dat het fruit onderaan de foto altijd zichtbaar is
         />
       </div>

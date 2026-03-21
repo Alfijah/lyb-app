@@ -32,7 +32,7 @@ export default function Aanbod() {
     return (
         <section
             id="aanbod"
-            className="relative z-20 max-w-screen-3xl bg-gradient-to-b from-orange-100 via-orange-100 to-white mx-auto pb-12 py-6 md:py-16 px-6 sm:px-20 md:px-12 lg:px-12 text-center overflow-hidden"
+            className="relative z-20 max-w-screen-3xl bg-gradient-to-b from-orange-100 via-orange-100 to-white mx-auto pb-12 py-6 md:py-16 px-6 sm:px-20 md:px-12 text-center overflow-hidden"
         >
             {/* Wave Top - Decoratief */}
             <div className="absolute top-0 left-0 w-full overflow-hidden leading-none" aria-hidden="true">
@@ -123,7 +123,7 @@ export default function Aanbod() {
             </div>
 
             {/* CTA Sectie - Nu buiten de grid geplaatst voor betere layout */}
-            <SectionWrapper className="mt-10 text-left">
+            <SectionWrapper className="mt-10 text-center">
                 <motion.h3
                     variants={fadeInUp}
                     className="max-w-screen-lg mx-auto italic font-semibold pb-4"
@@ -139,7 +139,7 @@ export default function Aanbod() {
                     een verfrissende smaak.
                 </motion.p>
 
-                <motion.div variants={fadeInUp} className="max-w-screen-lg mx-auto flex justify-start xl:px-20 2xl:px-0">
+                <motion.div variants={fadeInUp} className="max-w-screen-lg mx-auto flex justify-center xl:px-20 2xl:px-0">
                     <WipeButton
                         to="/menu"
                         style={{ backgroundImage: `url(${fruitBg})` }}

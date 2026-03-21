@@ -1,29 +1,47 @@
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { fadeInUp } from "../animations/Varianten";
+import SectionWrapper from "../animations/SectionWrapper";
 
 export default function FaqTeaser() {
   return (
-    <section className="px-6 py-10 md:px-8 lg:px-12">
-      <div className="mx-auto max-w-5xl py-4 border-t-2 border-b-2 border-bgColor p-0 md:p-10">
-        <p className="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-darkYellow">
-          FAQ
-        </p>
+    <section className="px-6 py-10 md:px-8 lg:px-12 w-full">
+      <SectionWrapper>
+        <div className="mx-auto max-w-5xl py-12 border-t-2 border-b-2 border-bgColor text-left">
+          
+          {/* Label: Consistent met SEO-structuur */}
+          <motion.p 
+            variants={fadeInUp}
+            className="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-darkYellow"
+          >
+            FAQ
+          </motion.p>
 
-        <h2 className="max-w-screen-lg mx-auto">
-          Heb je vragen?
-        </h2>
+          {/* Titel */}
+          <motion.h2 
+            variants={fadeInUp}
+            className="max-w-screen-lg mx-auto md:mx-0 font-bold"
+          >
+            Heb je vragen?
+          </motion.h2>
 
-        <p className="mt-4 max-w-screen-lg mx-auto body-text">
-          Lees meer over bestellen, levering, versheid en detoxopties op onze&nbsp;
-          <span><Link
-          to="/faq"
-          className="underline"
-        >
-        FAQ-pagina.
-        </Link></span>
-        </p>
-
-        
-      </div>
+          {/* Body tekst met geoptimaliseerde link */}
+          <motion.p 
+            variants={fadeInUp}
+            className="mt-4 max-w-screen-lg mx-auto md:mx-0 body-text"
+          >
+            Lees meer over bestellen, levering, versheid en detoxopties op onze&nbsp;
+            <Link
+              to="/faq"
+              className="underline font-semibold hover:opacity-80 transition-opacity"
+              aria-label="Bekijk de veelgestelde vragen op onze FAQ-pagina"
+            >
+              FAQ-pagina.
+            </Link>
+          </motion.p>
+          
+        </div>
+      </SectionWrapper>
     </section>
   );
 }

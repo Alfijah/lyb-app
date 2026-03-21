@@ -9,7 +9,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative w-full h-full flex flex-col items-center pt-28 md:pt-36 bg-neutral-50">
+      className="max-w-screen-2xl relative w-full h-full flex flex-col items-center pt-0 md:pt-36 bg-neutral-50 overflow-x-hidden">
       <div className="relative w-full mb-4 flex flex-col pb-10">
         <img
           src={blender}
