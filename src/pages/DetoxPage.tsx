@@ -1,0 +1,153 @@
+import { motion } from "framer-motion";
+import { fadeInUp } from "../animations/Varianten";
+import SectionWrapper from "../animations/SectionWrapper";
+import detoxHero from "../assets/detox/detoxen.jpg"; // We gebruiken de hero image als basis
+import fruitBg from "../assets/fluidButton.png";
+import WipeButton from "../components/tools/Button";
+import { BiCheckCircle, BiTimeFive, BiWater, BiCoffeeTogo } from "react-icons/bi";
+
+export default function DetoxPage() {
+    const packages = [
+        { day: "1-daagse", label: "For Comfort", content: "8 flessen (350ml) + 1 wellness shot GRATIS", price: "SRD 850" },
+        { day: "3-daagse", label: "For Beginners", content: "24 flessen (350ml) + 1 wellness shot GRATIS", price: "SRD 2500" },
+        { day: "5-daagse", label: "Most Popular", content: "40 flessen (350ml) + 1L vitamine water GRATIS", price: "SRD 4100" },
+        { day: "7-daagse", label: "For Advanced", content: "56 flessen (350ml) + 2L vitamine water GRATIS", price: "SRD 5700" },
+    ];
+
+    const benefits = [
+        "Gewichtsverlies & Minder opgeblazen gevoel",
+        "Meer energie & Betere focus",
+        "Stralende huid & Sterke nagels",
+        "Betere weerstand & Nachtrust",
+        "Gezonde cholesterol & Bloeddruk",
+        "Reiniging van maag, lever en darmen"
+    ];
+
+    return (
+        <main className="relative w-full bg-neutral-50 overflow-x-hidden">
+            {/* 1. HERO SECTION */}
+            <div className="relative w-full h-[300px] md:h-[450px] overflow-hidden">
+                <img
+                    src={detoxHero}
+                    alt="LYB Detox kuur Paramaribo"
+                    className="w-full h-full object-cover object-center"
+                />
+            </div>
+
+            <div className="max-w-screen-xl mx-auto px-6 md:px-12 py-12 md:py-20">
+                <SectionWrapper>
+                    <motion.h1
+                        variants={fadeInUp}
+                        className="text-center text-3xl md:text-4xl font-bold mb-6 pb-4 border-b-2 border-gray-200"
+                    >
+                        Detoxen
+                    </motion.h1>
+                </SectionWrapper>
+
+                {/* 2. INTRO: WAT & WAAROM */}
+                <SectionWrapper className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-20">
+                    <div>
+                        <motion.h2 variants={fadeInUp} className="text-2xl md:text-3xl font-bold text-bioGreen mb-6">
+                            Wat is een Detox?
+                        </motion.h2>
+                        <motion.p variants={fadeInUp} className="body-text mb-6">
+                            Detox is een lichamelijk reinigingsproces waarbij uitsluitend <strong>alkalische (rauwe), vloeibare voeding</strong> wordt gebruikt. Hierdoor wordt de zuurgraad in je lichaam weer in balans gebracht, zodat de ideale pH-waarde kan worden gerealiseerd.
+                        </motion.p>
+                        <motion.blockquote variants={fadeInUp} className="border-l-4 border-darkYellow pl-4 italic text-gray-600">
+                            "Willpower is like a muscle, if you exercise it, it gets stronger."
+                        </motion.blockquote>
+                    </div>
+                    <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                        <motion.h2 variants={fadeInUp} className="text-2xl font-bold mb-4">Waarom detoxen?</motion.h2>
+                        <motion.p variants={fadeInUp} className="body-text text-sm">
+                            Onze dagelijkse voeding bestaat vaak uit gekookt en bewerkt voedsel, waarbij veel nutriënten verloren gaan. Je lichaam raakt hierdoor "verzuurd", wat kan leiden tot vermoeidheid, slapeloosheid en een gebrek aan energie. Een sapvastenkuur geeft je systeem de rust die het verdient.
+                        </motion.p>
+                    </div>
+                </SectionWrapper>
+
+                {/* 3. VOORDELEN GRID */}
+                <SectionWrapper className="mb-20 text-center">
+                    <motion.h2 variants={fadeInUp} className="text-3xl font-bold mb-10">De voordelen na een detox</motion.h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        {benefits.map((benefit, i) => (
+                            <motion.div
+                                key={i}
+                                variants={fadeInUp}
+                                className="flex items-center gap-3 bg-bioGreen/5 p-4 rounded-xl border border-bioGreen/10"
+                            >
+                                <BiCheckCircle className="text-bioGreen text-2xl shrink-0" />
+                                <span className="body-text text-sm font-medium">{benefit}</span>
+                            </motion.div>
+                        ))}
+                    </div>
+                </SectionWrapper>
+
+                {/* 4. PACKAGES SECTION */}
+                <div id="pakketten">
+                    <SectionWrapper className="mb-20">
+                        <div className="text-center mb-12">
+                            <motion.h2 variants={fadeInUp} className="text-3xl font-bold mb-4">Kies jouw Sappenkuur</motion.h2>
+                            <motion.p variants={fadeInUp} className="body-text">Elke set bevat een mix van vitamine water (1), greens (3) en fruits (4).</motion.p>
+                        </div>
+                        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+                            {packages.map((pkg, i) => (
+                                <motion.div
+                                    key={i}
+                                    variants={fadeInUp}
+                                    className="bg-white rounded-2xl p-6 shadow-md border-t-4 border-bioGreen flex flex-col items-center text-center"
+                                >
+                                    <span className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">{pkg.label}</span>
+                                    <h3 className="text-2xl font-bold mb-4">{pkg.day}</h3>
+                                    <p className="text-sm text-gray-600 mb-6 flex-1">{pkg.content}</p>
+                                    <div className="text-xl font-black text-bioGreen mb-6">{pkg.price}</div>
+                                    <WipeButton
+                                        href="https://wa.me/5978531071"
+                                        external
+                                        style={{ backgroundImage: `url(${fruitBg})` }}
+                                        className="w-full text-white text-xs py-3"
+                                    >
+                                        Bestel Nu
+                                    </WipeButton>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </SectionWrapper>
+                </div>
+
+                {/* 5. DOS & DONTS + SCHEDULE */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <SectionWrapper className="bg-darkYellow/10 p-8 rounded-3xl">
+                        <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
+                            <BiWater className="text-2xl text-bioGreen" /> Do's & Dont's
+                        </h3>
+                        <ul className="space-y-4 text-sm body-text">
+                            <li className="flex gap-2"><strong>7:00 AM:</strong> Begin met je Vitamine Water.</li>
+                            <li className="flex gap-2"><strong>Interval:</strong> Drink daarna elke 2 uur een fles.</li>
+                            <li className="flex gap-2"><strong>Water:</strong> Drink minimaal 2 liter water per dag naast je sappen.</li>
+                            <li className="flex gap-2"><strong>Cravings:</strong> Honger? Neem wat komkommer of een klein stukje fruit.</li>
+                            <li className="flex gap-2 items-center text-red-600 font-semibold italic">
+                                <BiCoffeeTogo className="text-xl" /> Zeg even bye-bye tegen koffie!
+                            </li>
+                        </ul>
+                    </SectionWrapper>
+
+                    <SectionWrapper className="bg-neutral-100 p-8 rounded-3xl flex flex-col justify-center">
+                        <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
+                            <BiTimeFive className="text-2xl text-bioGreen" /> Drinktijden
+                        </h3>
+                        <div className="flex flex-wrap gap-3">
+                            {["07:00", "09:00", "11:00", "13:00", "15:00", "17:00", "19:00", "21:00"].map(time => (
+                                <span key={time} className="bg-white px-4 py-2 rounded-lg font-bold shadow-sm text-bioGreen">
+                                    {time}
+                                </span>
+                            ))}
+                        </div>
+                        <p className="mt-6 text-xs italic text-gray-500">
+                            Tip: Zet een reminder in je telefoon voor elke drinkbeurt!
+                        </p>
+                    </SectionWrapper>
+                </div>
+            </div>
+        </main>
+    );
+}

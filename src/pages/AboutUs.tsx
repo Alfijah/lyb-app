@@ -12,7 +12,7 @@ export default function About() {
       className="relative w-full bg-neutral-50 overflow-x-hidden"
     >
       {/* 1. HERO IMAGE: Direct onder de navbar */}
-      <div className="relative w-full h-[250px] sm:h-[350px] lg:h-[450px] xl:h-[550px] overflow-hidden">
+      <div className="relative w-full h-[250px] sm:h-[350px] lg:h-[450px] overflow-hidden">
         <img
           src={blender}
           // fetchpriority="high"
@@ -22,7 +22,7 @@ export default function About() {
       </div>
 
       {/* 2. CONTENT SECTIE */}
-      <div className="max-w-screen-xl mx-auto px-6 py-12 md:py-20">
+      <div className="max-w-screen-xl mx-auto px-6 md:px-12 py-12 md:py-20">
         
         <SectionWrapper className="flex flex-col gap-12 lg:gap-20">
           
@@ -37,7 +37,7 @@ export default function About() {
           </div>
 
           {/* Eerste Rij: Tekst en Chef Image */}
-          <div className="flex flex-col lg:flex-row items-center justify-between md:px-8 gap-10">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-10">
             
             <div className="w-full lg:w-1/2 flex flex-col gap-6">
               <motion.h2 
@@ -79,12 +79,12 @@ export default function About() {
           {/* Tweede Rij: Sfeerbeeld / Team Image */}
           <motion.div 
             variants={fadeInUp}
-            className="w-full lg:w-[70%] overflow-hidden rounded-2xl shadow-sm"
+            className="w-full lg:w-[70%] overflow-hidden"
           >
             <img
               src={about2}
               alt="Het team en de sfeer van Love Your Body"
-              className="w-full h-auto object-cover max-h-[600px]"
+              className="w-full h-auto object-cover max-h-[600px] rounded-2xl shadow-sm"
               loading="lazy"
             />
           </motion.div>

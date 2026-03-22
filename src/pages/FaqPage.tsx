@@ -1,8 +1,8 @@
 import { useState } from "react";
 import SectionWrapper from "../animations/SectionWrapper";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { fadeInUp } from "../animations/Varianten";
-import faqHero from "../assets/faqPage/preparation.png"
+import faqHero from "../assets/faqPage/preparation.png";
 
 type FaqItemType = {
   question: string;
@@ -20,71 +20,76 @@ export const faqItems: FaqItemType[] = [
   {
     question: "Hoe kan ik een bestelling plaatsen?",
     answer:
-      "Je kunt eenvoudig een bestelling plaatsen door contact met ons op te nemen via WhatsApp of social media. Wij helpen je daarna verder met de beschikbare opties en levering.",
+      "Je kunt eenvoudig een bestelling plaatsen door contact met ons op te nemen via WhatsApp of onze social media kanalen. Wij helpen je daarna direct verder met de beschikbare smaken en de bezorging in Paramaribo.",
   },
   {
-    question: "Levert LYB in Paramaribo?",
+    question: "Levert LYB in heel Paramaribo?",
     answer:
-      "Ja, LYB levert in Paramaribo. Neem contact met ons op om te controleren welke bezorgopties momenteel beschikbaar zijn voor jouw locatie.",
+      "Ja, LYB levert door heel Paramaribo. De bezorgkosten en tijden kunnen variëren per locatie. Neem contact met ons op om de specifieke bezorgopties voor jouw adres te bespreken.",
   },
   {
     question: "Zijn de juices en smoothies vers bereid?",
     answer:
-      "Ja, onze juices en smoothies worden vers bereid met natuurlijke ingrediënten. We vinden smaak, versheid en kwaliteit erg belangrijk.",
+      "Absoluut. Onze juices en smoothies worden dagelijks vers bereid met 100% natuurlijke ingrediënten. We gebruiken geen conserveringsmiddelen, waardoor de versheid en kwaliteit optimaal blijven.",
   },
   {
-    question: "Bevatten jullie producten toegevoegde suikers?",
+    question: "Bevatten de producten toegevoegde suikers?",
     answer:
-      "Wij werken zoveel mogelijk met natuurlijke ingrediënten. Neem gerust contact met ons op als je meer wilt weten over een specifieke smoothie, juice of detoxoptie.",
+      "Nee, wij voegen geen geraffineerde suikers toe. De zoetheid komt puur uit het verse fruit dat we gebruiken. Voor specifieke vragen over ingrediënten bij detoxkuren kun je ons altijd een bericht sturen.",
   },
   {
-    question: "Hoe lang blijven de juices en smoothies goed?",
+    question: "Hoe lang kan ik de sappen bewaren?",
     answer:
-      "We adviseren om onze juices en smoothies gekoeld te bewaren en zo vers mogelijk te consumeren voor de beste smaak en kwaliteit.",
+      "Omdat onze producten vers en zonder toevoegingen zijn, adviseren we ze direct gekoeld te bewaren. De meeste juices blijven 2 tot 3 dagen goed, maar voor de beste smaakbeleving raden we aan ze zo snel mogelijk te consumeren.",
   },
   {
-    question: "Hebben jullie ook detox of sapvasten opties?",
+    question: "Bieden jullie ook detox- of sapvastenkuren aan?",
     answer:
-      "Ja, LYB biedt ook detoxopties en sappenkuren aan. Neem contact met ons op voor de actuele mogelijkheden, inhoud en prijzen.",
+      "Ja, wij zijn gespecialiseerd in detoxopties en meerdaagse sappenkuren. Je kunt kiezen uit kuren van 1, 3, 5 of 7 dagen. Neem contact met ons op voor een advies op maat en de actuele prijzen.",
   },
   {
-    question: "Welke smaken staan op het menu?",
+    question: "Kan ik hulp krijgen bij het kiezen van een kuur of smaak?",
     answer:
-      "Wij bieden verschillende juices en smoothies aan. Bekijk onze menupagina of neem contact met ons op voor het actuele aanbod.",
-  },
-  {
-    question: "Kan ik hulp krijgen bij het kiezen van een smoothie of juice?",
-    answer:
-      "Ja, zeker. We helpen je graag bij het kiezen van een smoothie of juice die past bij jouw smaak en voorkeuren.",
+      "Zeker! Elk lichaam is anders. We adviseren je graag via WhatsApp over welke juice of smoothie het beste past bij jouw persoonlijke doelen, of dat nu energie, herstel of reiniging is.",
   },
 ];
 
 function FaqItem({ question, answer, isOpen, onToggle }: FaqItemProps) {
   return (
-    <div className="border-b border-gray-500 py-2">
+    <div className="border-b border-gray-300 py-4">
       <button
         type="button"
         onClick={onToggle}
-        className="flex w-full items-center justify-between gap-4 text-left"
+        className="flex w-full items-center justify-between gap-4 text-left group transition-colors"
         aria-expanded={isOpen}
       >
-        <span className="max-w-screen-lg body-text">
+        <span className={`body-text font-semibold transition-colors ${isOpen ? "text-bioGreen" : "text-gray-800"}`}>
           {question}
         </span>
-
         <span
-          className={`text-2xl text-gray-500 transition-transform duration-300 ${isOpen ? "rotate-45" : ""
-            }`}
+          className={`text-2xl font-light transition-transform duration-300 ${
+            isOpen ? "rotate-45 text-bioGreen" : "text-gray-400"
+          }`}
         >
           +
         </span>
       </button>
 
-      {isOpen && (
-        <p className="mt-3 max-w-3xl leading-7 body-text">
-          {answer}
-        </p>
-      )}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="overflow-hidden"
+          >
+            <p className="mt-3 body-text text-gray-600 leading-relaxed max-w-4xl">
+              {answer}
+            </p>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
@@ -97,43 +102,62 @@ export default function FaqPage() {
   };
 
   return (
-    <section className="relative w-full h-full flex flex-col items-center pb-8 pt-28 md:pt-36 bg-neutral-50">
-      <div className="">
-        <SectionWrapper>
-          <img
-            src={faqHero}
-            loading="lazy"
-            alt="groene voedzame smoothie"
-            className="relative inset-0 h-[200px] w-full object-cover" />
+    <main className="relative w-full bg-neutral-50 overflow-x-hidden">
+      
+      {/* 1. HERO IMAGE: Consistent met About & Benefits */}
+      <div className="relative w-full h-[200px] sm:h-[300px] lg:h-[400px] overflow-hidden">
+        <img
+          src={faqHero}
+          // fetchpriority="high"
+          alt="Vers bereide groene sappen en smoothies voorbereiding"
+          className="w-full h-full object-cover object-center"
+        />
+      </div>
 
-          <div className="pt-10 px-6 md:px-8">
-            <motion.p variants={fadeInUp} className="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-darkYellow">
+      {/* 2. CONTENT SECTIE */}
+      <div className="max-w-screen-xl mx-auto px-6 md:px-12 py-12 md:py-20">
+        <SectionWrapper>
+          <div className="mb-10">
+            <motion.p 
+              variants={fadeInUp} 
+              className="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-darkYellow"
+            >
               FAQ
             </motion.p>
 
-            <motion.h2 variants={fadeInUp} className="max-w-screen-lg mx-auto text-md">
+            <motion.h1 
+              variants={fadeInUp} 
+              className="text-3xl md:text-4xl font-bold pb-4 border-b-2 border-gray-200"
+            >
               Veelgestelde vragen
-            </motion.h2>
+            </motion.h1>
 
-            <motion.p variants={fadeInUp} className="mt-4 max-w-screen-lg mx-auto body-text">
-              Hier vind je antwoorden op veelgestelde vragen over onze juices,
-              smoothies en detoxopties.
+            <motion.p 
+              variants={fadeInUp} 
+              className="mt-6 body-text max-w-2xl"
+            >
+              Hier vind je antwoorden op de meest gestelde vragen over onze juices,
+              smoothies en detoxopties in Suriname. Staat je vraag er niet tussen? 
+              Stuur ons gerust een bericht.
             </motion.p>
           </div>
         </SectionWrapper>
 
-        <div className="px-6 md:px-8 py-6">
-          {faqItems.map((faq, index) => (
-            <FaqItem
-              key={faq.question}
-              question={faq.question}
-              answer={faq.answer}
-              isOpen={openIndex === index}
-              onToggle={() => handleToggle(index)}
-            />
-          ))}
-        </div>
+        {/* FAQ LIJST */}
+        <SectionWrapper>
+          <div className="bg-white rounded-xl p-6 md:p-10 shadow-sm border border-gray-100">
+            {faqItems.map((faq, index) => (
+              <FaqItem
+                key={faq.question}
+                question={faq.question}
+                answer={faq.answer}
+                isOpen={openIndex === index}
+                onToggle={() => handleToggle(index)}
+              />
+            ))}
+          </div>
+        </SectionWrapper>
       </div>
-    </section>
+    </main>
   );
 }

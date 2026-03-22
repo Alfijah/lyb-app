@@ -74,7 +74,7 @@ export default function FeaturedSmoothies() {
             {/* Content Card: Hoogte-optimalisatie voor grid-alignment */}
             <motion.div
               variants={fadeInUp}
-              className="flex flex-col flex-1 w-full px-4 md:px-6 py-6 space-y-1 text-left shadow-sm border-x-2 border-b-2 border-orange-200 rounded-b-xl bg-transparent"
+              className="flex flex-col flex-1 w-full px-4 md:px-6 py-6 space-y-1 text-left shadow-sm border-x-2 border border-gray-100 rounded-b-xl bg-transparent"
             >
               <div className="flex-1 flex flex-col space-y-1">
                 <p className="body-text italic">
@@ -101,7 +101,7 @@ export default function FeaturedSmoothies() {
                 {/* <p className="body-text font-extrabold tracking-tighter">
                   350 ml
                 </p> */}
-                <p className="flex items-center bestSellerPrice">
+                <p className="flex items-center bestSellerPrice font-black">
                   SRD 115
                 </p>
                 <WipeButton
