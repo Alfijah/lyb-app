@@ -125,7 +125,7 @@ export default function Navbar() {
         <div className="flex-1 lg:flex-none flex justify-end lg:ml-auto">
           
           {/* Desktop Menu (Verborgen op mobiel) */}
-          <ul className="hidden lg:flex gap-8 items-center list-none mr-16">
+          <ul className="nav-text hidden lg:flex gap-8 items-center list-none mr-16">
             {navLinks.map(({ id, label, path }) => (
               <li key={id}>
                 <Link
@@ -185,7 +185,7 @@ export default function Navbar() {
                         setMenuOpen(false);
                         if (id === "home") goToHome();
                       }}
-                      className={`text-md block pb-2 border-b-2 transition-colors ${
+                      className={`text-md nav-text block pb-2 border-b-2 transition-colors ${
                         activeSection === id ? "border-bioGreen text-bioGreen" : "border-gray-100 text-gray-600"
                       }`}
                     >

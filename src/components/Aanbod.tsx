@@ -32,7 +32,7 @@ export default function Aanbod() {
     return (
         <section
             id="aanbod"
-            className="relative z-20 max-w-screen-3xl bg-gradient-to-b from-orange-100 via-orange-100 to-white mx-auto pb-12 py-6 md:py-16 px-6 sm:px-20 md:px-12 text-center overflow-hidden"
+            className="relative z-20 max-w-screen-3xl bg-stone-50 from-orange-100 via-orange-100 to-white mx-auto pb-12 py-6 md:py-16 px-6 sm:px-20 md:px-12 text-center overflow-hidden"
         >
             {/* Wave Top - Decoratief */}
             <div className="absolute top-0 left-0 w-full overflow-hidden leading-none" aria-hidden="true">
@@ -43,7 +43,7 @@ export default function Aanbod() {
                 >
                     <path
                         d="M0,64L80,74.7C160,85,320,107,480,101.3C640,96,800,64,960,58.7C1120,53,1280,75,1360,85.3L1440,96L1440,0L0,0Z"
-                        className="fill-white"
+                        className="fill-bgColor"
                     />
                 </svg>
             </div>

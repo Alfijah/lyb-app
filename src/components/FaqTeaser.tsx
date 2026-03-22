@@ -5,7 +5,7 @@ import SectionWrapper from "../animations/SectionWrapper";
 
 export default function FaqTeaser() {
   return (
-    <section className="px-6 py-10 md:px-8 lg:px-12 w-full">
+    <section className="px-6 py-10 md:px-12 lg:px-12 w-full">
       <SectionWrapper>
         <div className="mx-auto max-w-5xl py-12 border-t-2 border-b-2 border-bgColor text-left">
           

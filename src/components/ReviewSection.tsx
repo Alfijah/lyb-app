@@ -48,7 +48,7 @@ export default function ReviewSection() {
       />
       <div className="absolute inset-0 bg-gradient-to-b from-white via-white/85 to-white z-10 pointer-events-none" aria-hidden="true" />
 
-      <div className="relative z-20 w-full max-w-screen-lg mx-auto px-6 md:px-12 lg:px-0">
+      <div className="relative z-20 w-full max-w-screen-lg mx-auto px-6 md:px-12 lg:px-12 xl:px-0">
         <SectionWrapper className="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-14">
           
           {/* TEXT SECTIE: 60% op desktop voor betere leesbaarheid */}

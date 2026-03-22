@@ -24,7 +24,7 @@ export default function HeroSection() {
       </div>
 
       {/* 2. CONTENT: Onder de afbeelding */}
-      <div className="relative z-10 max-w-screen-2xl mx-auto px-6 sm:px-8 lg:px-12 py-10">
+      <div className="relative z-10 max-w-screen-2xl mx-auto px-6 sm:px-8 md:px-12 py-10">
         <div className="flex flex-col items-center">
           
           <SectionWrapper

@@ -9,7 +9,7 @@ export default function SellingSection() {
     return (
         <section
             id="bestellen" // GEWIJZIGD: Was "benefits", maar die ID bestond al. Unieke ID's zijn essentieel voor SEO en navigatie.
-            className="relative z-10 w-full max-w-screen-lg mx-auto flex flex-col px-6 lg:px-12 xl:px-0 py-14"
+            className="relative z-10 w-full max-w-screen-lg mx-auto flex flex-col px-6 md:px-12 xl:px-0 py-14"
         >
             <div className="bg-bgColor shadow-sm rounded-xl overflow-hidden">
                 <SectionWrapper className="w-full px-6 md:px-8 pt-14 text-center">
@@ -18,7 +18,7 @@ export default function SellingSection() {
                         variants={fadeInUp} 
                         className="max-w-screen-lg mx-auto text-center text-md mb-4 lg:pb-6"
                     >
-                        <span className="italic">Vandaag besteld?</span> Bezorging in overleg geregeld
+                        Bezorging in overleg geregeld
                     </motion.h2>
 
                     <motion.p 

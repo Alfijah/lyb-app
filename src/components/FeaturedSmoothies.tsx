@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { fadeInUp } from "../animations/Varianten";
-import podosiri from "../assets/featuredSmoothies/acaiN1.png";
-import chiaZuurzak from "../assets/featuredSmoothies/soursopN1.png";
-import cleanseHeal from "../assets/featuredSmoothies/greenResetN1.png";
+import podosiri from "../assets/featuredSmoothies/acai.png";
+import chiaZuurzak from "../assets/featuredSmoothies/soursop.png";
+import cleanseHeal from "../assets/featuredSmoothies/greenReset.png";
 import fruitBg from "../assets/fluidButton.png";
 import SectionWrapper from "../animations/SectionWrapper";
 import WipeButton from "./tools/Button";
@@ -42,7 +42,7 @@ export default function FeaturedSmoothies() {
   ];
 
   return (
-    <section id="menu" className="bg-gradient-to-b from-bioGreen/40 via-bioGreen/10 to-white max-w-screen-3xl mx-auto lg:px-8 xl:px-10 py-10 md:py-16 pb-8 sm:pb-10 md:pb-6 xl:pb-8 text-center">
+    <section id="menu" className="bg-bgColor max-w-screen-3xl mx-auto lg:px-8 xl:px-10 py-10 md:py-16 pb-8 sm:pb-10 md:pb-6 xl:pb-8 text-center">
       {/* Titel & SEO intro */}
       <SectionWrapper className="pb-4">
         <motion.h2 variants={fadeInUp} className="text-md mb-4 lg:pb-0 px-6 sm:px-8">
@@ -74,7 +74,7 @@ export default function FeaturedSmoothies() {
             {/* Content Card: Hoogte-optimalisatie voor grid-alignment */}
             <motion.div
               variants={fadeInUp}
-              className="flex flex-col flex-1 w-full px-4 md:px-6 py-6 space-y-1 text-left shadow-sm border-x-2 border-b-2 border-bioGreen rounded-b-xl bg-transparent"
+              className="flex flex-col flex-1 w-full px-4 md:px-6 py-6 space-y-1 text-left shadow-sm border-x-2 border-b-2 border-orange-200 rounded-b-xl bg-transparent"
             >
               <div className="flex-1 flex flex-col space-y-1">
                 <p className="body-text italic">
@@ -90,7 +90,7 @@ export default function FeaturedSmoothies() {
                 {smoothie.tags.map((tag, i) => (
                   <span
                     key={i}
-                    className="px-3 py-1 text-bioGreen text-[10px] tracking-widest uppercase font-semibold rounded-full bg-transparant border-1 border-bioGreen"
+                    className="px-3 py-1 text-gray-500 text-[10px] tracking-widest uppercase font-semibold rounded-full bg-transparant border-1 border-darkYellow"
                   >
                     {tag}
                   </span>

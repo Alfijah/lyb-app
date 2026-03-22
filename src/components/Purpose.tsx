@@ -9,7 +9,7 @@ export default function Purpose() {
     return (
         <section
             id="aanbod"
-            className="relative z-20 max-w-screen-3xl bg-gradient-to-b from-bioGreen/40 via-bioGreen/10 to-white mx-auto pb-4 py-10 sm:py-0 md:py-16 px-6 sm:px-20 md:px-12 lg:px-12 text-center overflow-hidden"
+            className="relative z-20 max-w-screen-3xl bg-bgColor mx-auto pb-4 py-10 sm:py-0 md:py-16 px-6 sm:px-20 md:px-12 lg:px-12 text-center overflow-hidden"
         >
             {/* Wave Top - Verborgen voor screenreaders */}
             <div className="absolute top-0 left-0 w-full overflow-hidden leading-none" aria-hidden="true">
@@ -20,7 +20,7 @@ export default function Purpose() {
                 >
                     <path
                         d="M0,64L80,74.7C160,85,320,107,480,101.3C640,96,800,64,960,58.7C1120,53,1280,75,1360,85.3L1440,96L1440,0L0,0Z"
-                        className="fill-bgColor"
+                        className="fill-stone-50"
                     ></path>
                 </svg>
             </div>

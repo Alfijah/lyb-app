@@ -38,7 +38,7 @@ export default function BenefitsSection() {
   return (
     <section
       id="benefits"
-      className="relative z-10 max-w-screen-3xl bg-bgColor mx-auto md:pt-16 px-6 sm:px-20 md:px-8 lg:px-14"
+      className="relative z-10 max-w-screen-3xl bg-stone-50 mx-auto md:pt-16 px-6 sm:px-20 md:px-12 lg:px-14"
     >
       {/* Wave Top - Decoratief element (verborgen voor screenreaders) */}
       <div className="absolute top-0 left-0 w-full overflow-hidden leading-none" aria-hidden="true">
@@ -49,7 +49,7 @@ export default function BenefitsSection() {
         >
           <path
             d="M0,64L80,74.7C160,85,320,107,480,101.3C640,96,800,64,960,58.7C1120,53,1280,75,1360,85.3L1440,96L1440,0L0,0Z"
-            className="fill-white"
+            className="fill-bgColor"
           ></path>
         </svg>
       </div>

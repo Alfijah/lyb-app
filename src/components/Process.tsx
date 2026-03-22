@@ -36,7 +36,7 @@ export default function Process() {
     ];
 
     return (
-        <section id="menu" className="bg-stone-50 max-w-screen-3xl mx-auto py-10 md:py-16 pb-14 sm:pb-16 lg:pb-20 text-center">
+        <section id="menu" className="bg-stone-50 mx-auto py-10 md:py-16 pb-14 sm:pb-16 lg:pb-20 text-center">
             {/* Titel & SEO intro */}
             <SectionWrapper className="pb-4">
                 <motion.h2 variants={fadeInUp} className="text-md lg:pb-0 px-6 sm:px-8">
@@ -45,7 +45,7 @@ export default function Process() {
             </SectionWrapper>
 
             {/* Cards Grid: Verbeterde responsiviteit */}
-            <div className="relative mx-auto max-w-screen-2xl grid grid-cols-1 md:grid-cols-3 gap-y-6 gap-x-6 lg:gap-4 2xl:gap-6 lg:pt-6 xl:pt-0 px-6 sm:px-24 md:px-8 xl:px-14 2xl:px-20">
+            <div className="relative mx-auto max-w-screen-xl grid grid-cols-1 md:grid-cols-3 gap-y-6 gap-x-6 lg:gap-4 2xl:gap-6 lg:pt-6 xl:pt-0 px-6 sm:px-24 md:px-8 xl:px-14 2xl:px-20">
                 {smoothies.map((smoothie) => (
                     <SectionWrapper
                         key={smoothie.id}

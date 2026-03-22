@@ -10,7 +10,7 @@ export default function RockOil() {
             className="max-w-screen-3xl relative z-20 w-full bg-gradient-to-b from-white via-orange-50 to-orange-300 pt-2 flex flex-col"
         >
             {/* Tekst Sectie */}
-            <SectionWrapper className="w-full max-w-screen-lg mx-auto px-6 md:px-8 lg:px-12 xl:px-0 pt-6">
+            <SectionWrapper className="w-full max-w-screen-lg mx-auto px-6 md:px-12 lg:px-12 xl:px-0 pt-6">
                 <motion.h2 
                     variants={fadeInUp} 
                     className="max-w-screen-lg mx-auto text-md mb-4 lg:pb-6"
