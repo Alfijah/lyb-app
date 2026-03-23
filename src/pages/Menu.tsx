@@ -82,7 +82,7 @@ export default function MenuPage() {
               <SectionWrapper className="flex flex-col items-center mb-10">
                 <h2 className="exceptionTextExtra text-white drop-shadow-md text-4xl">{cat.title}</h2>
                 <img src={smear} alt="" className="w-64 h-auto -mt-2" />
-                <div className="mt-4 font-bold text-white text-center">
+                <div className="mt-4 font-bold text-bioGreen text-center">
                   {cat.prices.map((p, i) => <p key={i}>{p}</p>)}
                 </div>
               </SectionWrapper>
@@ -101,7 +101,7 @@ export default function MenuPage() {
           <div id="shots" style={{ backgroundImage: `url(${bgImage})` }} className="flex flex-col items-center py-12 border-[6px] border-double border-orange-100 bg-cover bg-center">
              <h2 className="exceptionTextExtra text-white drop-shadow-md text-4xl">Wellness shots</h2>
              <img src={smear} alt="" className="w-64 h-auto" />
-             <p className="font-bold my-4">Elke set ↝ SRD 500</p>
+             <p className="font-bold my-4">Elke set ↝ <span className="text-bioGreen">SRD 500</span></p>
              <ul className="grid grid-cols-2 md:grid-cols-4 gap-6 px-4 max-w-5xl">
                 {[
                   { img: shot1, name: "kurkuma-kers-zwarte peper", qty: "7x 125 ml" },
@@ -123,7 +123,7 @@ export default function MenuPage() {
             <SectionWrapper className="mb-8">
               <h2 className="exceptionTextExtra text-white drop-shadow-md text-4xl">Vitamine water</h2>
               <img src={smear} alt="" className="w-64 h-auto" />
-              <p className="font-bold mt-4">7 liter pack ↝ SRD 750</p>
+              <p className="font-bold mt-4">7 liter pack ↝ <span className="text-bioGreen">SRD 750</span></p>
             </SectionWrapper>
             <ul className="grid grid-cols-2 md:grid-cols-4 px-4 gap-8 gap-y-12 max-w-6xl">
               {[
@@ -148,7 +148,7 @@ export default function MenuPage() {
           <div id="cleanse" style={{ backgroundImage: `url(${bgImage})` }} className="flex flex-col items-center py-12 border-[6px] border-double border-orange-100 bg-cover bg-center">
             <h2 className="exceptionTextExtra text-white drop-shadow-md text-4xl text-center px-4">Cleanse & heal</h2>
             <img src={smear} alt="" className="w-64 h-auto" />
-            <p className="font-bold my-6 text-center">Complete set t.w.v. SRD 900 ↝ <span className="text-bioGreen underline">SRD 850</span></p>
+            <p className="font-bold my-6 text-center">Complete set t.w.v. SRD 900 ↝ <span className="text-bioGreen">SRD 850</span></p>
             <ul className="grid grid-cols-1 sm:grid-cols-3 gap-8 px-8 max-w-5xl">
               {[
                 { img: comboshots, name: "Gember shots", info: "3x 125 ml" },

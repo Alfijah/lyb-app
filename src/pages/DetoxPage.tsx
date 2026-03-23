@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { fadeInUp } from "../animations/Varianten";
 import SectionWrapper from "../animations/SectionWrapper";
-import detoxHero from "../assets/detox/detoxen.jpg"; // We gebruiken de hero image als basis
+import detoxHero from "../assets/detox/detoxen.jpg";
 import fruitBg from "../assets/fluidButton.png";
 import WipeButton from "../components/tools/Button";
 import { BiCheckCircle, BiTimeFive, BiWater, BiCoffeeTogo } from "react-icons/bi";

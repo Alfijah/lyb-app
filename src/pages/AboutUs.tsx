@@ -15,7 +15,7 @@ export default function About() {
       <div className="relative w-full h-[250px] sm:h-[350px] lg:h-[450px] overflow-hidden">
         <img
           src={blender}
-          // fetchpriority="high"
+          fetchPriority="high"
           alt="Verse roze romige smoothie van Love Your Body Suriname"
           className="w-full h-full object-cover object-center"
         />

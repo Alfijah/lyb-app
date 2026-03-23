@@ -108,7 +108,7 @@ export default function FaqPage() {
       <div className="relative w-full h-[200px] sm:h-[300px] lg:h-[400px] overflow-hidden">
         <img
           src={faqHero}
-          // fetchpriority="high"
+          fetchPriority="high"
           alt="Vers bereide groene sappen en smoothies voorbereiding"
           className="w-full h-full object-cover object-center"
         />

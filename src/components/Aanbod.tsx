@@ -26,7 +26,7 @@ export default function Aanbod() {
         { title: "Wellness shots", id: "shots", img: shots, alt: "Gember en kurkuma wellness shots voor weerstand" },
         { title: "Vitamine water", id: "vitawater", img: vitawater, alt: "Verfrissend vitamine water met fruit" },
         { title: "Cleanse & heal", id: "cleanse", img: cleanse, alt: "Detox sappen voor reiniging" },
-        { title: "Sappenkuur", id: "sappenkuur", img: sappenkuur, alt: "Complete sappenkuur voor gewichtsverlies" },
+        { title: "Detoxen", id: "detoxen", img: sappenkuur, alt: "Complete sappenkuur voor gewichtsverlies" },
     ];
 
     return (
@@ -54,7 +54,7 @@ export default function Aanbod() {
                     variants={fadeInUp}
                     className="max-w-screen-lg mx-auto text-md mb-4 lg:pb-6 pt-20 sm:pt-28 md:pt-16 xl:pt-24 font-bold"
                 >
-                    Ontdek ons aanbod
+                    Ontdek ons <span className="text-bioGreen">gezonde</span> aanbod
                 </motion.h2>
                 <motion.p
                     variants={fadeInUp}
@@ -67,7 +67,7 @@ export default function Aanbod() {
                     className="body-text max-w-screen-lg mx-auto pt-4"
                 >
                     Ontdek onze gezonde smoothies, verse juices, wellness shots en
-                    sappenkuur; <span className="exceptionText font-semibold">vers bereid</span>{" "}
+                    detox kuur; <span className="exceptionText font-semibold">vers bereid</span>{" "}
                     met natuurlijke ingrediënten voor energie, weerstand en balans.
                 </motion.p>
             </SectionWrapper>

@@ -18,7 +18,7 @@ export default function SellingSection() {
                         variants={fadeInUp} 
                         className="max-w-screen-lg mx-auto text-center text-md mb-4 lg:pb-6"
                     >
-                        Bezorging in overleg geregeld
+                        Bezorging <span className="text-darkYellow">netjes</span> in overleg geregeld
                     </motion.h2>
 
                     <motion.p 

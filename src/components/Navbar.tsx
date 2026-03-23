@@ -7,9 +7,8 @@ import { TiSocialFacebook, TiSocialInstagram } from "react-icons/ti";
 import { IoLogoWhatsapp } from "react-icons/io";
 
 export default function Navbar() {
-  const [activeSection, setActiveSection] = useState("home");
   const [menuOpen, setMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [, setIsScrolled] = useState(false);
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -28,24 +27,11 @@ export default function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
-      
-      if (location.pathname === "/") {
-        const sections = ["home", "benefits"];
-        const scrollPosition = window.scrollY + 150;
-
-        for (const section of sections) {
-          const el = document.getElementById(section);
-          if (el && el.offsetTop <= scrollPosition && (el.offsetTop + el.offsetHeight) > scrollPosition) {
-            setActiveSection(section);
-            return;
-          }
-        }
-      }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [location.pathname]);
+  }, []);
 
   const goToHome = () => {
     setMenuOpen(false);
@@ -133,7 +119,7 @@ export default function Navbar() {
                   to={path}
                   onClick={() => id === "home" ? goToHome() : setMenuOpen(false)}
                   className={`text-md transition-all pb-1 border-b-2 ${
-                    (location.pathname === path && id !== "benefits") || (activeSection === id && location.pathname === "/")
+                    location.pathname === path
                       ? "border-bioGreen text-bioGreen"
                       : "border-transparent text-gray-500 hover:text-bioGreen"
                   }`}
@@ -187,7 +173,7 @@ export default function Navbar() {
                         if (id === "home") goToHome();
                       }}
                       className={`text-md nav-text block pb-2 border-b-2 transition-colors ${
-                        activeSection === id ? "border-bioGreen text-bioGreen" : "border-gray-100 text-gray-600"
+                        location.pathname === path ? "border-bioGreen text-bioGreen" : "border-gray-100 text-gray-600"
                       }`}
                     >
                       {label}

@@ -81,7 +81,7 @@ export default function Benefits() {
       <div className="relative w-full h-[250px] sm:h-[350px] lg:h-[450px] overflow-hidden">
         <img 
           src={fruitrow}
-        //   fetchpriority="high"
+          fetchPriority="high"
           alt="Verse papaja in de boom - De basis van onze natuurlijke ingrediënten"
           className="w-full h-full object-cover object-center"
         />
