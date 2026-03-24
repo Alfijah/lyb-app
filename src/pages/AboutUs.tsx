@@ -1,9 +1,9 @@
 import SectionWrapper from "../animations/SectionWrapper";
 import { motion } from "framer-motion";
 import { fadeInUp } from "../animations/Varianten";
-import about1 from "../assets/about/chef.png";
-import about2 from "../assets/about/IMG-20240627-WA0001.jpg";
-import blender from "../assets/about/blender.png";
+import about1 from "../assets/about/chef.webp";
+import about2 from "../assets/about/IMG-20240627-WA0001.webp";
+import blender from "../assets/about/blender.webp";
 
 export default function About() {
   return (

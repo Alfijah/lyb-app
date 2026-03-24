@@ -1,6 +1,6 @@
 import type React from "react";
 import Navbar from "./components/Navbar";
-import Footer from "./components/Footer"; //function is nog leeg
+import Footer from "./components/Footer";
 import HomePage from "./page";
 
 export default function RootLayout({

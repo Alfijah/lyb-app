@@ -63,7 +63,7 @@ export default function Navbar() {
         <div className="flex-1 lg:hidden">
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="relative z-[90] text-gray-600 focus:outline-none p-2 -ml-2"
+            className="relative z-[90] text-gray-700 focus:outline-none p-2 -ml-2"
             aria-label={menuOpen ? "Menu sluiten" : "Menu openen"}
             aria-expanded={menuOpen}
           >
@@ -121,7 +121,7 @@ export default function Navbar() {
                   className={`text-md transition-all pb-1 border-b-2 ${
                     location.pathname === path
                       ? "border-bioGreen text-bioGreen"
-                      : "border-transparent text-gray-500 hover:text-bioGreen"
+                      : "border-transparent text-gray-700 hover:text-bioGreen"
                   }`}
                 >
                   {label}
@@ -173,7 +173,7 @@ export default function Navbar() {
                         if (id === "home") goToHome();
                       }}
                       className={`text-md nav-text block pb-2 border-b-2 transition-colors ${
-                        location.pathname === path ? "border-bioGreen text-bioGreen" : "border-gray-100 text-gray-600"
+                        location.pathname === path ? "border-b-2 border-bioGreen text-bioGreen font-black" : "border-gray-300 text-gray-700"
                       }`}
                     >
                       {label}

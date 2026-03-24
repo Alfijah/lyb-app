@@ -2,12 +2,12 @@ import { Link } from "react-router-dom";
 import fruitBg from "../assets/fluidButton.png";
 import { motion } from "framer-motion";
 import { fadeInLeft, fadeInUp } from "../animations/Varianten";
-import juices from "../assets/aanbod/juicesN.png";
-import smoothies from "../assets/aanbod/smoothiesN.png";
-import shots from "../assets/aanbod/shotsN.png";
-import vitawater from "../assets/aanbod/vitawaterN.png";
-import cleanse from "../assets/aanbod/cleanse&healN.png";
-import sappenkuur from "../assets/aanbod/sappenkuurN.png";
+import juices from "../assets/aanbod/juicesN.webp";
+import smoothies from "../assets/aanbod/smoothiesN.webp";
+import shots from "../assets/aanbod/shotsN.webp";
+import vitawater from "../assets/aanbod/vitawaterN.webp";
+import cleanse from "../assets/aanbod/cleanse&healN.webp";
+import sappenkuur from "../assets/aanbod/sappenkuurN.webp";
 import SectionWrapper from "../animations/SectionWrapper";
 import { HiArrowUpRight } from "react-icons/hi2";
 import WipeButton from "./tools/Button";
@@ -113,7 +113,7 @@ export default function Aanbod() {
                                         src={c.img}
                                         alt={c.alt}
                                         loading="lazy"
-                                        className="relative mx-auto w-full h-auto aspect-[16/9] object-cover pointer-events-none select-none rounded-xl"
+                                        className="relative mx-auto w-full h-auto aspect-[3/2] object-cover pointer-events-none select-none rounded-xl"
                                     />
                                 </Link>
                             </motion.div>

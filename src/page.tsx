@@ -13,43 +13,41 @@ import Process from "./components/Process";
 export default function HomePage() {
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    name: "LYB Juices & Smoothies",
-    url: "https://drinklyb.com/",
-    image: "https://drinklyb.com/lyb-smoothies.jpg",
-    logo: "https://drinklyb.com/logo.png",
-    description:
-      "LYB Juices & Smoothies biedt verse juices, smoothies en detoxopties in Paramaribo, Suriname.",
-    telephone: "+597-8531071",
-    address: {
+    "@type": "HealthFoodStore", // Specifieker dan LocalBusiness
+    "additionalType": "http://www.productontology.org/id/Smoothie",
+    "name": "LYB Juices & Smoothies",
+    "alternateName": "Love Your Body Suriname",
+    "url": "https://drinklyb.com/",
+    "logo": "https://drinklyb.com/logo.png",
+    "image": "https://drinklyb.com/hero-image.jpg",
+    "description": "De nummer 1 plek voor 100% natuurlijke juices, smoothies en detox kuren in Paramaribo, Suriname.",
+    "address": {
       "@type": "PostalAddress",
-      addressLocality: "Paramaribo",
-      addressCountry: "SR",
+      "streetAddress": "Tawajarieweg", // Voeg het exacte adres toe als je dat hebt
+      "addressLocality": "Lelydorp",
+      "addressCountry": "SR"
     },
-    areaServed: {
-      "@type": "Country",
-      name: "Suriname",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "5.68", // Zoek de exacte coördinaten van je locatie op Google Maps
+      "longitude": "55.23"
     },
-    sameAs: [
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "09:00",
+        "closes": "16:00"
+      }
+    ],
+    "sameAs": [
       "https://www.instagram.com/lybjuicesandsmoothies/",
       "https://www.facebook.com/lybjuicesandsmoothies/"
     ],
-    hasMenu: "https://drinklyb.com/menu",
-    priceRange: "$$"
+    "priceRange": "$$",
+    "telephone": "+5978531071",
+    "hasMenu": "https://drinklyb.com/menu"
   };
-
-  // const faqStructuredData = {
-  //   "@context": "https://schema.org",
-  //   "@type": "FAQPage",
-  //   mainEntity: faqItems.map((faq) => ({
-  //     "@type": "Question",
-  //     name: faq.question,
-  //     acceptedAnswer: {
-  //       "@type": "Answer",
-  //       text: faq.answer,
-  //     },
-  //   })),
-  // };
 
   return (
     <>
@@ -74,9 +72,6 @@ export default function HomePage() {
           {JSON.stringify(structuredData)}
         </script>
 
-        {/* <script type="application/ld+json">
-          {JSON.stringify(faqStructuredData)}
-        </script> */}
       </Helmet>
       <HeroSection />
       <Process />
