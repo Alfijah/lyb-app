@@ -39,7 +39,7 @@ export default function WipeButton({
     rounded-full
     px-8 py-[12px]
     shadow-sm hover:shadow-md
-    text-sm font-bold uppercase tracking-widest
+    text-sm font-bold tracking-widest
     transition-all duration-300
     active:scale-95
     ${className}

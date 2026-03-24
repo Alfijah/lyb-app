@@ -82,8 +82,8 @@ export default function Aanbod() {
                             </motion.h3>
 
                             <motion.div initial="rest" animate="rest" whileHover="hover" className="relative">
-                                <Link 
-                                    to={`/menu#${c.id}`} 
+                                <Link
+                                    to={`/menu#${c.id}`}
                                     className="block relative rounded-xl overflow-hidden shadow-md"
                                     aria-label={`Bekijk ons aanbod ${c.title}`}
                                 >
@@ -122,33 +122,48 @@ export default function Aanbod() {
                 ))}
             </div>
 
-            {/* CTA Sectie - Nu buiten de grid geplaatst voor betere layout */}
-            <SectionWrapper className="mt-10 text-center">
-                <motion.h3
-                    variants={fadeInUp}
-                    className="max-w-screen-lg mx-auto italic font-semibold pb-4"
-                >
-                    Volledig menu bekijken?
-                </motion.h3>
-                <motion.p
-                    variants={fadeInUp}
-                    className="max-w-screen-lg mx-auto body-text"
-                >
-                    Bekijk ons volledige menu met smoothies, juices en wellness drinks;{" "}
-                    <span className="exceptionText font-semibold">altijd vers</span> met
-                    een verfrissende smaak.
-                </motion.p>
+            {/* NIEUWE DUO-CTA SECTIE */}
+            <div className="max-w-screen-lg mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 mt-10">
 
-                <motion.div variants={fadeInUp} className="max-w-screen-lg mx-auto flex justify-center xl:px-20 2xl:px-0">
-                    <WipeButton
-                        to="/menu"
-                        style={{ backgroundImage: `url(${fruitBg})` }}
-                        className="w-full lg:w-60 mt-6 text-white bg-cover bg-center shadow-sm"
-                    >
-                        Bekijk ons menu
-                    </WipeButton>
-                </motion.div>
-            </SectionWrapper>
+                {/* Kaart 1: Het Menu */}
+                <SectionWrapper className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col justify-between text-center lg:text-left">
+                    <div>
+                        <motion.h3 variants={fadeInUp} className="text-xl font-bold mb-3 italic">Volledig menu bekijken?</motion.h3>
+                        <motion.p variants={fadeInUp} className="body-text text-sm mb-6">
+                            Bekijk onze uitgebreide kaart met smoothies, juices en wellness drinks. <span className="font-semibold text-bioGreen italic">Altijd vers geblend</span> voor jouw dagelijkse vitamineboost.
+                        </motion.p>
+                    </div>
+                    <motion.div variants={fadeInUp}>
+                        <WipeButton
+                            to="/menu"
+                            style={{ backgroundImage: `url(${fruitBg})` }}
+                            className="w-full text-white shadow-sm"
+                        >
+                            Bekijk het Menu
+                        </WipeButton>
+                    </motion.div>
+                </SectionWrapper>
+
+                {/* Kaart 2: De Detox (Nieuw!) */}
+                <SectionWrapper className="max-w-screen-lg bg-bioGreen/5 p-8 rounded-3xl border-2 border-bioGreen/20 shadow-sm flex flex-col justify-between text-center lg:text-left">
+                    <div>
+                        <motion.h3 variants={fadeInUp} className="text-xl font-bold mb-3 italic">Tijd voor een reset?</motion.h3>
+                        <motion.p variants={fadeInUp} className="body-text text-sm mb-6 text-gray-700">
+                            Geef je lichaam een frisse start met onze 1, 3, 5 of 7-daagse <span className="font-bold text-darkYellow italic">detox kuren</span>. Speciaal samengesteld voor maximale reiniging en energie.
+                        </motion.p>
+                    </div>
+                    <motion.div variants={fadeInUp}>
+                        <WipeButton
+                            to="/detoxen"
+                            overlayClassName="bg-bioGreen"
+                            className="w-full bg-darkYellow text-white shadow-sm"
+                        >
+                            Ontdek Detox Kuren
+                        </WipeButton>
+                    </motion.div>
+                </SectionWrapper>
+
+            </div>
         </section>
     );
 }

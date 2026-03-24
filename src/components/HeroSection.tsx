@@ -42,8 +42,9 @@ export default function HeroSection() {
 
             <motion.p
               variants={fadeInUp}
-              className="body-text mt-4"
+              className="max-w-screen-lg body-text mt-4"
             >
+              De verste juices van Paramaribo, bij jou thuis geleverd.
               Dagelijks vers bereid met fruit, kruiden en superfoods.
               Vrij van kunstmatige stoffen. Pure energie voor
               <span className="exceptionText font-semibold"> jouw dag.</span>
