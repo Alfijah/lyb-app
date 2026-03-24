@@ -3,41 +3,41 @@ import { useLocation } from "react-router-dom";
 import SectionWrapper from "../animations/SectionWrapper";
 
 // Assets
-import smear from "../assets/lybMenu/smear2.png";
-import bgImage from "../assets/lybMenu/menuCards.png";
+import smear from "../assets/lybMenu/smear2.webp";
+import bgImage from "../assets/lybMenu/menuCards.webp";
 // Juices & Smoothies (Eerder geïmporteerd...)
-import juice1 from "../assets/lybMenu/juice-1.png";
-import juice2 from "../assets/lybMenu/juice-2.png";
-import juice3 from "../assets/lybMenu/juice-3.png";
-import juice4 from "../assets/lybMenu/juice-4.png";
-import juice5 from "../assets/lybMenu/juice-5.png";
-import juice6 from "../assets/lybMenu/juice-6.png";
-import juice7 from "../assets/lybMenu/juice-7.png";
-import juice8 from "../assets/lybMenu/juice-8.png";
-import smoothie9 from "../assets/lybMenu/smoothie-9.png";
-import smoothie10 from "../assets/lybMenu/smoothie-10.png";
-import smoothie11 from "../assets/lybMenu/smoothie-11.png";
-import smoothie12 from "../assets/lybMenu/smoothie-12.png";
-import smoothie13 from "../assets/lybMenu/smoothie-13.png";
-import smoothie14 from "../assets/lybMenu/smoothie-14.png";
-import smoothie15 from "../assets/lybMenu/smoothie-15.png";
-import smoothie16 from "../assets/lybMenu/smoothie-16.png";
+import juice1 from "../assets/lybMenu/juice-1.webp";
+import juice2 from "../assets/lybMenu/juice-2.webp";
+import juice3 from "../assets/lybMenu/juice-3.webp";
+import juice4 from "../assets/lybMenu/juice-4.webp";
+import juice5 from "../assets/lybMenu/juice-5.webp";
+import juice6 from "../assets/lybMenu/juice-6.webp";
+import juice7 from "../assets/lybMenu/juice-7.webp";
+import juice8 from "../assets/lybMenu/juice-8.webp";
+import smoothie9 from "../assets/lybMenu/smoothie-9.webp";
+import smoothie10 from "../assets/lybMenu/smoothie-10.webp";
+import smoothie11 from "../assets/lybMenu/smoothie-11.webp";
+import smoothie12 from "../assets/lybMenu/smoothie-12.webp";
+import smoothie13 from "../assets/lybMenu/smoothie-13.webp";
+import smoothie14 from "../assets/lybMenu/smoothie-14.webp";
+import smoothie15 from "../assets/lybMenu/smoothie-15.webp";
+import smoothie16 from "../assets/lybMenu/smoothie-16.webp";
 // Vitaminewater
-import vit1 from "../assets/lybMenu/vitwater1.png";
-import vit2 from "../assets/lybMenu/vitwater2.png";
-import vit3 from "../assets/lybMenu/vitwater3.png";
-import vit4 from "../assets/lybMenu/vitwater4.png";
-import vit5 from "../assets/lybMenu/vitwater5.png";
-import vit6 from "../assets/lybMenu/vitwater6.png";
-import vit7 from "../assets/lybMenu/vitwater7.png";
+import vit1 from "../assets/lybMenu/vitwater1.webp";
+import vit2 from "../assets/lybMenu/vitwater2.webp";
+import vit3 from "../assets/lybMenu/vitwater3.webp";
+import vit4 from "../assets/lybMenu/vitwater4.webp";
+import vit5 from "../assets/lybMenu/vitwater5.webp";
+import vit6 from "../assets/lybMenu/vitwater6.webp";
+import vit7 from "../assets/lybMenu/vitwater7.webp";
 // Shots & Cleanse
-import shot1 from "../assets/lybMenu/shot1.png";
-import shot2 from "../assets/lybMenu/shot2.png";
-import shot3 from "../assets/lybMenu/shot3.png";
-import shot4 from "../assets/lybMenu/shot4.png";
-import comboshots from "../assets/lybMenu/cleanse1.png";
-import combojuice from "../assets/lybMenu/cleanse2.png";
-import combovit from "../assets/lybMenu/cleanse3.png";
+import shot1 from "../assets/lybMenu/shot1.webp";
+import shot2 from "../assets/lybMenu/shot2.webp";
+import shot3 from "../assets/lybMenu/shot3.webp";
+import shot4 from "../assets/lybMenu/shot4.webp";
+import comboshots from "../assets/lybMenu/cleanse1.webp";
+import combojuice from "../assets/lybMenu/cleanse2.webp";
+import combovit from "../assets/lybMenu/cleanse3.webp";
 
 export default function MenuPage() {
   const { hash } = useLocation();

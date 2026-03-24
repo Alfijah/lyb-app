@@ -1,4 +1,3 @@
-// import WhatsAppIcon from "../assets/social.png";
 import { PiWhatsappLogoLight } from "react-icons/pi";
 
 export default function WhatsApp() {

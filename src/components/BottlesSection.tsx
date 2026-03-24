@@ -1,10 +1,10 @@
 "use client";
 import { motion } from "framer-motion";
 import { fadeInUp } from "../animations/Varianten";
-import small from "../assets/bottles/small.png";
-import medium from "../assets/bottles/medium.png";
-import large from "../assets/bottles/large.png";
-import splashfruit from "../assets/bottles/fruit.png";
+import small from "../assets/bottles/small.webp";
+import medium from "../assets/bottles/medium.webp";
+import large from "../assets/bottles/large.webp";
+import splashfruit from "../assets/bottles/fruit.webp";
 import SectionWrapper from "../animations/SectionWrapper";
 
 export default function BottlesSection() {

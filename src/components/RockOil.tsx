@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { fadeInUp } from "../animations/Varianten";
-import sapmix from "../assets/contactSection/contactSectionBg.png";
+import sapmix from "../assets/contactSection/contactSectionBg.webp";
 import SectionWrapper from "../animations/SectionWrapper";
 
 export default function RockOil() {

@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { fadeInUp } from "../animations/Varianten";
 import { BiSolidLeaf } from "react-icons/bi";
-import smear from "../assets/lybMenu/smear.png";
+import smear from "../assets/lybMenu/smear.webp";
 import fruitrow from "../assets/benefits/papaja.webp";
 import SectionWrapper from "../animations/SectionWrapper";
 

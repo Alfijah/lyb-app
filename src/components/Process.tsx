@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import { fadeInUp } from "../animations/Varianten";
-import bottle from "../assets/processSection/iconBottle.png";
-import blender from "../assets/processSection/iconBlender.png";
-import delivery from "../assets/processSection/iconDelivery.png";
-import fruitBg from "../assets/fluidButton.png";
+import bottle from "../assets/processSection/iconBottle.webp";
+import blender from "../assets/processSection/iconBlender.webp";
+import delivery from "../assets/processSection/iconDelivery.webp";
+import fruitBg from "../assets/fluidButton.webp";
 import SectionWrapper from "../animations/SectionWrapper";
 import WipeButton from "./tools/Button";
 

@@ -1,8 +1,8 @@
-import logo from "../assets/logo2.png";
-import fbIcon from "../assets/contactSection/fbIcon.png";
-import iGIcon from "../assets/contactSection/igIcon.png";
-import wAIcon from "../assets/contactSection/wAIcon.png";
-import contactBg from "../assets/contactSection/contactSectionBg.png"; // Import voor Vite optimalisatie
+import logo from "../assets/logo2.webp";
+import fbIcon from "../assets/contactSection/fbIcon.webp";
+import iGIcon from "../assets/contactSection/igIcon.webp";
+import wAIcon from "../assets/contactSection/wAIcon.webp";
+import contactBg from "../assets/contactSection/contactSectionBg.webp"; // Import voor Vite optimalisatie
 import { Link } from "react-router-dom";
 
 export default function FooterSection() {

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import fruitBg from "../assets/fluidButton.png";
+import fruitBg from "../assets/fluidButton.webp";
 import { motion } from "framer-motion";
 import { fadeInLeft, fadeInUp } from "../animations/Varianten";
 import juices from "../assets/aanbod/juicesN.webp";

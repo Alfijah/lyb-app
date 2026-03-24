@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import { fadeInUp } from "../animations/Varianten";
-import podosiri from "../assets/featuredSmoothies/acai.png";
-import chiaZuurzak from "../assets/featuredSmoothies/soursop.png";
-import cleanseHeal from "../assets/featuredSmoothies/greenReset.png";
-import fruitBg from "../assets/fluidButton.png";
+import podosiri from "../assets/featuredSmoothies/acai.webp";
+import chiaZuurzak from "../assets/featuredSmoothies/soursop.webp";
+import cleanseHeal from "../assets/featuredSmoothies/greenReset.webp";
+import fruitBg from "../assets/fluidButton.webp";
 import SectionWrapper from "../animations/SectionWrapper";
 import WipeButton from "./tools/Button";
 

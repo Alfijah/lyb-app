@@ -1,15 +1,15 @@
 import { useRef, useState } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
-import review1 from "../assets/reviewsSection/review1.jpg";
-import review2 from "../assets/reviewsSection/review2.jpg";
-import review3 from "../assets/reviewsSection/review3.jpg";
-import review4 from "../assets/reviewsSection/review4.jpg";
-import review5 from "../assets/reviewsSection/review5.jpg";
-import review6 from "../assets/reviewsSection/review6.jpg";
-import review7 from "../assets/reviewsSection/review7.jpg";
-import review8 from "../assets/reviewsSection/review8.jpg";
-import fruitBg from "../assets/fluidButton.png";
-import groupLyb from "../assets/reviewsSection/lybGroup.png";
+import review1 from "../assets/reviewsSection/review1.webp";
+import review2 from "../assets/reviewsSection/review2.webp";
+import review3 from "../assets/reviewsSection/review3.webp";
+import review4 from "../assets/reviewsSection/review4.webp";
+import review5 from "../assets/reviewsSection/review5.webp";
+import review6 from "../assets/reviewsSection/review6.webp";
+import review7 from "../assets/reviewsSection/review7.webp";
+import review8 from "../assets/reviewsSection/review8.webp";
+import fruitBg from "../assets/fluidButton.webp";
+import groupLyb from "../assets/reviewsSection/lybGroup.webp";
 import SectionWrapper from "../animations/SectionWrapper";
 
 const reviews = [

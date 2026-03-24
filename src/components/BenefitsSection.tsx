@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { fadeInUp } from "../animations/Varianten";
-import verifyIcon from "../assets/benefitsSection/verify.png";
+import verifyIcon from "../assets/benefitsSection/verify.webp";
 import SectionWrapper from "../animations/SectionWrapper";
 
 export default function BenefitsSection() {

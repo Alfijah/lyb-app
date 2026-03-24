@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { fadeInUp } from "../animations/Varianten";
-import hero from "../assets/heroSection/heroW.png";
-import fruitBg from "../assets/fluidButton.png";
+import hero from "../assets/heroSection/heroW.webp";
+import fruitBg from "../assets/fluidButton.webp";
 import { BiSolidLeaf } from "react-icons/bi";
 import SectionWrapper from "../animations/SectionWrapper";
 import WipeButton from "./tools/Button";

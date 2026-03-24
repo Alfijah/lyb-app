@@ -2,7 +2,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import logo from "../assets/logo2.png";
+import logo from "../assets/logo2.webp";
 import { TiSocialFacebook, TiSocialInstagram } from "react-icons/ti";
 import { IoLogoWhatsapp } from "react-icons/io";
 

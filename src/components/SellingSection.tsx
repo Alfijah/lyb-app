@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { fadeInUp } from "../animations/Varianten";
-import sapmix from "../assets/sellingSection/sapmix.png";
-import fruitBg from "../assets/fluidButton.png";
+import sapmix from "../assets/sellingSection/sapmix.webp";
+import fruitBg from "../assets/fluidButton.webp";
 import SectionWrapper from "../animations/SectionWrapper";
 import WipeButton from "./tools/Button";
 

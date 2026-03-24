@@ -2,7 +2,7 @@ import { useState } from "react";
 import SectionWrapper from "../animations/SectionWrapper";
 import { motion, AnimatePresence } from "framer-motion";
 import { fadeInUp } from "../animations/Varianten";
-import faqHero from "../assets/faqPage/preparation.png";
+import faqHero from "../assets/faqPage/preparation.webp";
 
 type FaqItemType = {
   question: string;
