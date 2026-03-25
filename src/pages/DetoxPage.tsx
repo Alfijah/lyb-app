@@ -28,12 +28,19 @@ export default function DetoxPage() {
         <>
             <Helmet>
                 <title>Detox Sappenkuur Paramaribo | 1, 3, 5 of 7 Dagen | LYB</title>
-                <meta name="description" content="Reset je lichaam met de natuurlijke detox kuren van LYB in Suriname. Keuze uit 1 tot 7 dagen sapvasten. Vers bereid en vol vitaminen voor maximale reiniging." />
+                <meta name="description" content="Reset je lichaam met de natuurlijke detox kuren van LYB in Suriname. Vers bereid en vol vitaminen." />
+
+                {/* Social Media Previews voor Detox */}
+                <meta property="og:title" content="Start jouw Detox bij LYB Suriname" />
+                <meta property="og:description" content="Kies voor een 1, 3, 5 of 7-daagse sapkuur en voel je herboren." />
+                <meta property="og:image" content="https://drinklyb.com/detox-preview.jpg" /> {/* Een specifieke detox foto in je public map */}
+                <meta property="og:url" content="https://drinklyb.com/detoxen" />
+                <meta property="og:type" content="article" />
             </Helmet>
-            
+
             <main className="relative w-full bg-neutral-50 overflow-x-hidden">
                 {/* 1. HERO SECTION */}
-                <div className="relative w-full h-[300px] md:h-[450px] overflow-hidden">
+                <div className="relative w-full h-[250px] sm:h-[350px] lg:h-[450px] overflow-hidden">
                     <img
                         src={detoxHero}
                         alt="LYB Detox kuur Paramaribo"

@@ -145,7 +145,7 @@ export default function Aanbod() {
                 </SectionWrapper>
 
                 {/* Kaart 2: De Detox (Nieuw!) */}
-                <SectionWrapper className="max-w-screen-lg bg-bioGreen/5 p-8 rounded-3xl border-2 border-bioGreen/20 shadow-sm flex flex-col justify-between text-center lg:text-left">
+                <SectionWrapper className="max-w-screen-lg bg-white p-8 rounded-3xl border border-gray-100 shadow-sm flex flex-col justify-between text-center lg:text-left">
                     <div>
                         <motion.h3 variants={fadeInUp} className="text-xl font-bold mb-3 italic">Tijd voor een reset?</motion.h3>
                         <motion.p variants={fadeInUp} className="body-text text-sm mb-6 text-gray-700">

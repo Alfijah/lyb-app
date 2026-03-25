@@ -105,7 +105,7 @@ export default function FaqPage() {
     <main className="relative w-full bg-neutral-50 overflow-x-hidden">
       
       {/* 1. HERO IMAGE: Consistent met About & Benefits */}
-      <div className="relative w-full h-[200px] sm:h-[300px] lg:h-[400px] overflow-hidden">
+      <div className="relative w-full h-[250px] sm:h-[350px] lg:h-[450px] overflow-hidden">
         <img
           src={faqHero}
           fetchPriority="high"

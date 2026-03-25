@@ -35,9 +35,9 @@ export default function HomePage() {
     "openingHoursSpecification": [
       {
         "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "dayOfWeek": ["Monday", "Wednesday", "Friday"],
         "opens": "09:00",
-        "closes": "16:00"
+        "closes": "14:00"
       }
     ],
     "sameAs": [

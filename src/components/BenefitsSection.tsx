@@ -10,28 +10,28 @@ export default function BenefitsSection() {
       icon: verifyIcon,
       title: "Puur & Gezond",
       alt: "verificatie icon",
-      text: "Bevat boordevol vitaminen en mineralen."
+      text: "Boordevol natuurlijke vitaminen en mineralen die je lichaam ondersteunen."
     },
     {
       id: 2,
       icon: verifyIcon,
       title: "Premium Kwaliteit",
       alt: "verificatie icon",
-      text: "Geen additieven, altijd vers bereid."
+      text: "Geen toevoegingen & geen onnodige suikers, alleen verse ingrediënten."
     },
     {
       id: 3,
       icon: verifyIcon,
-      title: "Duurzaam",
+      title: "Duurzaam & Bewust",
       alt: "verificatie icon",
-      text: "Focus op lokale inkoop."
+      text: "Voornamelijk lokaal ingekocht, aangevuld met hoogwaardige ingrediënten van buiten."
     },
     {
       id: 4,
       icon: verifyIcon,
-      title: "Gemak",
+      title: "Geniet zonder moeite",
       alt: "verificatie icon",
-      text: "Thuis of op kantoor bezorgd."
+      text: "Wij bezorgen, jij geniet - thuis of op werk."
     }
   ];
 

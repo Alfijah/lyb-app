@@ -58,10 +58,16 @@ export default function MenuPage() {
   return (
     <>
       <Helmet>
-        <title>Ons Menu | Verse Smoothies, Juices & Wellness Shots | LYB Suriname</title>
-        <meta name="description" content="Bekijk de menukaart van Love Your Body. Van verfrissende ananas-lemmetje juices tot energieke manja-smoothies. Ontdek jouw gezonde boost in Paramaribo." />
+        <title>Ons Menu | Verse Smoothies, Juices, Welness shots, Detox kuren & Vitawater | LYB Suriname</title>
+        <meta name="description" content="Bekijk de menukaart van Love Your Body. Ontdek jouw gezonde boost in Paramaribo." />
+
+        {/* Social Media Previews voor Menu */}
+        <meta property="og:title" content="Ontdek het menu van Love Your Body" />
+        <meta property="og:description" content="Van verfrissende juices tot romige smoothies. Bekijk ons aanbod!" />
+        <meta property="og:image" content="https://drinklyb.com/og-image.jpg" />
+        <meta property="og:url" content="https://drinklyb.com/menu" />
       </Helmet>
-      
+
       <main className="bg-neutral-50 min-h-screen">
         <section id="menu" className="max-w-screen-md mx-auto text-white px-6 md:px-12 py-12 md:py-20 lg:pt-32">
           <SectionWrapper>

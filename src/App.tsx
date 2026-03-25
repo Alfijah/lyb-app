@@ -10,6 +10,7 @@ import WhatsApp from "./components/WhatsApp";
 import Benefits from "./pages/Benefits";
 import FaqPage from "./pages/FaqPage";
 import DetoxPage from "./pages/DetoxPage";
+import NotFound from "./pages/NotFound";
 
 export default function App() {
   const helmetContext = {};
@@ -27,6 +28,9 @@ export default function App() {
             <Route path="/about" element={<About />} />
             <Route path="/faq" element={<FaqPage />} />
             <Route path="/detoxen" element={<DetoxPage />} />
+
+            {/* DE 404 ROUTE (altijd als LAATSTE plaatsen) */}
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
 
