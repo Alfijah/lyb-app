@@ -159,8 +159,38 @@ export default function DetoxPage() {
                             <p className="mt-6 text-xs italic text-gray-500">
                                 Tip: Zet een reminder in je telefoon voor elke drinkbeurt!
                             </p>
+
+                            <div className="mt-4 p-3 bg-white rounded-2xl shadow-sm border border-gray-100 flex flex-col md:flex-row items-center justify-between gap-6">
+                                <div className="text-left">
+                                    <h4 className="body-text font-bold">Download de Detox Gids</h4>
+                                    {/* <p className="text-sm body-text">Alles wat je moet weten over je kuur, handig bij de hand op je telefoon.</p> */}
+                                </div>
+
+                                {/* We gebruiken een gewone 'a' tag met de 'download' property */}
+                                <a
+                                    href="/detox-instructies-lyb.pdf"
+                                    download="LYB_Detox_Instructies.pdf"
+                                    className="inline-flex items-center px-6 py-3 bg-darkYellow text-white rounded-full font-bold text-xs tracking-widest hover:bg-bioGreen transition-colors duration-300"
+                                >
+                                    Download PDF (GRATIS)
+                                </a>
+                            </div>
                         </SectionWrapper>
                     </div>
+
+                    <SectionWrapper className="mt-20 py-12 lg:text-center border-t border-gray-200">
+                        <h3 className="text-xl font-bold mb-4 italic text-darkYellow">Houd je gezonde ritme vast</h3>
+                        <p className="body-text mb-8 max-w-2xl mx-auto">
+                            Na een detox is het belangrijk om je lichaam te blijven voeden met natuurlijke bouwstoffen. Bekijk ons dagelijks menu voor jouw favoriete smoothies en juices.
+                        </p>
+                        <WipeButton
+                            to="/menu"
+                            style={{ backgroundImage: `url(${fruitBg})` }}
+                            className="text-white"
+                        >
+                            Bekijk het Dagelijks Menu
+                        </WipeButton>
+                    </SectionWrapper>
                 </div>
             </main>
         </>

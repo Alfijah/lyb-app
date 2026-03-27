@@ -60,7 +60,7 @@ export default function Purpose() {
                     <div className="text-left flex-1 flex flex-col pt-4">
                         <motion.h3
                             variants={fadeInLeft}
-                            className="categoryText italic font-semibold text-lg"
+                            className="categoryText italic"
                         >
                             Detox & Balans
                         </motion.h3>

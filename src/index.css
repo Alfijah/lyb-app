@@ -21,12 +21,14 @@ html {
 @font-face {
   font-family: "Muli";
   src: url("./assets/fonts/Muli-Regular.ttf") format("truetype");
+  font-display: swap;
   font-weight: 400;
 }
 
 @font-face {
   font-family: "Muli";
   src: url("./assets/fonts/Muli-Italic.ttf") format("truetype");
+  font-display: swap;
   font-weight: 400;
   font-style: italic;
 }
@@ -34,6 +36,7 @@ html {
 @font-face {
   font-family: "Dancing Script";
   src: url("./assets/fonts/Dancing_Script/DancingScript-VariableFont_wght.ttf") format("truetype");
+  font-display: swap;
   font-weight: lighter;
   font-style: normal;
 }
@@ -41,6 +44,7 @@ html {
 @font-face {
   font-family: "Original Surfer";
   src: url("./assets/fonts/Playfair_Display/PlayfairDisplay-VariableFont_wght.ttf") format("truetype");
+  font-display: swap;
 }
 
 body {
@@ -127,7 +131,7 @@ h2 {
 .categoryText {
   font-family: 'Muli', serif;
   color: rgb(134, 127, 127);
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   text-transform: none;
   letter-spacing: 1px;
 }
