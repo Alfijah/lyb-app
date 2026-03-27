@@ -60,6 +60,7 @@ export default function MenuPage() {
       <Helmet>
         <title>Ons Menu | Verse Smoothies, Juices, Welness shots, Detox kuren & Vitawater | LYB Suriname</title>
         <meta name="description" content="Bekijk de menukaart van Love Your Body. Ontdek jouw gezonde boost in Paramaribo." />
+        <link rel="canonical" href="https://drinklyb.com/menu" />
 
         {/* Social Media Previews voor Menu */}
         <meta property="og:title" content="Ontdek het menu van Love Your Body" />

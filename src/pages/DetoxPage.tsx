@@ -29,7 +29,7 @@ export default function DetoxPage() {
             <Helmet>
                 <title>Detox Sappenkuur Paramaribo | 1, 3, 5 of 7 Dagen | LYB</title>
                 <meta name="description" content="Reset je lichaam met de natuurlijke detox kuren van LYB in Suriname. Vers bereid en vol vitaminen." />
-
+                <link rel="canonical" href="https://drinklyb.com/detoxen" />
                 {/* Social Media Previews voor Detox */}
                 <meta property="og:title" content="Start jouw Detox bij LYB Suriname" />
                 <meta property="og:description" content="Kies voor een 1, 3, 5 of 7-daagse sapkuur en voel je herboren." />
@@ -130,7 +130,7 @@ export default function DetoxPage() {
 
                     {/* 5. DOS & DONTS + SCHEDULE */}
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                        <SectionWrapper className="bg-darkYellow/10 p-8 rounded-3xl">
+                        <SectionWrapper className="bg-darkYellow/10 p-8 rounded-3xl shadow-md">
                             <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
                                 <BiWater className="text-2xl text-bioGreen" /> Do's & Dont's
                             </h3>
@@ -145,7 +145,7 @@ export default function DetoxPage() {
                             </ul>
                         </SectionWrapper>
 
-                        <SectionWrapper className="bg-neutral-100 p-8 rounded-3xl flex flex-col justify-center">
+                        <SectionWrapper className="bg-neutral-100 p-8 rounded-3xl flex flex-col justify-center shadow-md">
                             <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
                                 <BiTimeFive className="text-2xl text-bioGreen" /> Drinktijden
                             </h3>
