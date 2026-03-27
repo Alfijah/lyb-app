@@ -68,7 +68,7 @@ export default function DetoxPage() {
                                 Detox is een lichamelijk reinigingsproces waarbij uitsluitend <strong>alkalische (rauwe), vloeibare voeding</strong> wordt gebruikt. Hierdoor wordt de zuurgraad in je lichaam weer in balans gebracht, zodat de ideale pH-waarde kan worden gerealiseerd.
                             </motion.p>
                             <motion.blockquote variants={fadeInUp} className="border-l-4 border-darkYellow pl-4 italic text-gray-600">
-                                "Willpower is like a muscle, if you exercise it, it gets stronger."
+                                "Wees lief voor je lichaam, het is de enige plek waar je altijd in woont."
                             </motion.blockquote>
                         </div>
                         <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">

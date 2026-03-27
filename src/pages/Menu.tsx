@@ -43,18 +43,6 @@ import combovit from "../assets/lybMenu/cleanse3.webp";
 export default function MenuPage() {
   const { hash } = useLocation();
 
-  // useEffect(() => {
-  //   if (hash) {
-  //     const id = hash.replace("#", "");
-  //     const element = document.getElementById(id);
-  //     if (element) {
-  //       const offset = 120; // Hoogte van je sticky navbar
-  //       const elementPosition = element.getBoundingClientRect().top + window.scrollY;
-  //       window.scrollTo({ top: elementPosition - offset, behavior: "smooth" });
-  //     }
-  //   }
-  // }, [hash]);
-
   useEffect(() => {
   if (hash) {
     // We geven de browser 100ms de tijd om de DOM te 'settelen'
