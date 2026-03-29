@@ -44,6 +44,7 @@ export default function Navbar() {
 
   const navLinks = [
     { id: "home", label: "Home", path: "/" },
+    { id: "bestellen", label: "Bestellen", path: "/bestellen" },
     { id: "detoxen", label: "Detoxen", path: "/detoxen" },
     { id: "menu", label: "Menu", path: "/menu" },
     { id: "benefits", label: "Benefits", path: "/benefits" },

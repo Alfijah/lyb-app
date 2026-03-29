@@ -11,6 +11,7 @@ import Benefits from "./pages/Benefits";
 import FaqPage from "./pages/FaqPage";
 import DetoxPage from "./pages/DetoxPage";
 import NotFound from "./pages/NotFound";
+import OrderPage from "./pages/OrderPage";
 
 export default function App() {
   const helmetContext = {};
@@ -23,6 +24,8 @@ export default function App() {
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<HomePage />} />
+            
+            <Route path="/bestellen" element={<OrderPage />} />
             <Route path="/menu" element={<Menu />} />
             <Route path="/benefits" element={<Benefits />} />
             <Route path="/about" element={<About />} />
