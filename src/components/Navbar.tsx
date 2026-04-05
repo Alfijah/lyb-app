@@ -2,6 +2,8 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useCartStore } from "../store/useCartStore";
+import { IoCartOutline } from "react-icons/io5";
 import logo from "../assets/logo2.webp";
 import { TiSocialFacebook, TiSocialInstagram } from "react-icons/ti";
 import { IoLogoWhatsapp } from "react-icons/io";
@@ -12,6 +14,9 @@ export default function Navbar() {
 
   const location = useLocation();
   const navigate = useNavigate();
+
+  const { cart, setIsCartOpen } = useCartStore();
+  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
 
   // Voorkom scrollen wanneer mobiel menu open is
   useEffect(() => {
@@ -111,7 +116,6 @@ export default function Navbar() {
         {/* 3. RECHTERKANT: Onzichtbare spacer op mobiel / Menu & Socials op desktop 
             De flex-1 zorgt ervoor dat het logo in het midden blijft staan op mobiel */}
         <div className="flex-1 lg:flex-none flex justify-end lg:ml-auto">
-
           {/* Desktop Menu (Verborgen op mobiel) */}
           <ul className="nav-text hidden lg:flex gap-8 items-center list-none mr-16">
             {navLinks.map(({ id, label, path }) => (
@@ -120,8 +124,8 @@ export default function Navbar() {
                   to={path}
                   onClick={() => id === "home" ? goToHome() : setMenuOpen(false)}
                   className={`text-md transition-all pb-1 border-b-2 ${location.pathname === path
-                      ? "border-bioGreen text-bioGreen"
-                      : "border-transparent text-gray-700 hover:text-bioGreen"
+                    ? "border-bioGreen text-bioGreen"
+                    : "border-transparent text-gray-700 hover:text-bioGreen"
                     }`}
                 >
                   {label}
@@ -129,6 +133,18 @@ export default function Navbar() {
               </li>
             ))}
           </ul>
+
+          <button
+            onClick={() => setIsCartOpen(true)}
+            className="relative p-2 text-gray-700 hover:text-bioGreen transition-colors"
+          >
+            <IoCartOutline size={28} />
+            {totalItems > 0 && (
+              <span className="absolute top-0 right-0 bg-red-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full border-2 border-white">
+                {totalItems}
+              </span>
+            )}
+          </button>
 
           {/* WhatsApp Icon (Zichtbaar op desktop) */}
           <div className="hidden lg:flex items-center">
