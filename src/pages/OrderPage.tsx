@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { motion, AnimatePresence } from "framer-motion";
 import { useCartStore } from "../store/useCartStore";
 import { useState } from "react";
-import { IoLogoWhatsapp, IoCartOutline, IoTrashOutline, IoAdd } from "react-icons/io5";
+import { IoLogoWhatsapp, IoCartOutline, IoTrashOutline, IoAdd, IoChevronDownOutline } from "react-icons/io5";
 import { IoCloseOutline } from "react-icons/io5";
 import { juicesAndSmoothies, wellnessShots, vitamineWater, cleanseAndHeal, sappenkuur } from '../data/menuData';
 
@@ -10,40 +10,76 @@ import { juicesAndSmoothies, wellnessShots, vitamineWater, cleanseAndHeal, sappe
 import specialImg from "../assets/lybMenu/cleanse1.webp"; // Voorbeeld voor de banner
 
 function ProductAddToCart({ item, category, addItem, triggerToast, parsePrice }: any) {
-    // We zetten de eerste prijs (meestal 350ml) als default
-    const [selectedPriceIdx, setSelectedPriceIdx] = useState(0);
-    const currentPriceString = category.prices[selectedPriceIdx];
+    const [selectedIdx, setSelectedIdx] = useState(0);
+    const [isOpen, setIsOpen] = useState(false); // Houdt bij of de lijst open is
+    const currentPriceString = category.prices[selectedIdx];
 
     const handleAdd = () => {
         addItem({
-            id: `${category.id}-${item.id}-${selectedPriceIdx}`,
+            id: `${category.id}-${item.id}-${selectedIdx}`,
             name: `${item.name} (${currentPriceString.split('↝')[0].trim()})`,
             price: parsePrice(currentPriceString),
             quantity: 1,
             img: item.img
         });
-        triggerToast(); // Start de animatie rechtsboven
+        triggerToast();
     };
 
     return (
-        <div className="flex w-full gap-2">
-            <select
-                value={selectedPriceIdx}
-                onChange={(e) => setSelectedPriceIdx(parseInt(e.target.value))}
-                className="flex-1 bg-neutral-100 py-2 px-3 rounded-xl text-[11px] font-bold outline-none border-none focus:ring-2 focus:ring-bioGreen/20"
-            >
-                {category.prices.map((p: string, i: number) => (
-                    <option key={i} value={i}>
-                        {p.replace('↝', '-')}
-                    </option>
-                ))}
-            </select>
+        <div className="flex items-center w-full gap-2 mt-auto border-t border-gray-50 relative">
 
+            {/* CUSTOM DROPDOWN CONTAINER */}
+            <div className="relative flex-1">
+                {/* De 'Button' die de dropdown opent */}
+                <button
+                    onClick={() => setIsOpen(!isOpen)}
+                    className="w-full bg-neutral-100 py-3 px-4 rounded-2xl text-[11px] font-black text-gray-700 flex justify-between items-center uppercase tracking-wider hover:bg-neutral-200 transition-colors"
+                >
+                    {currentPriceString.replace('↝', '-')}
+                    <motion.div animate={{ rotate: isOpen ? 180 : 0 }}>
+                        <IoChevronDownOutline size={16} />
+                    </motion.div>
+                </button>
+
+                {/* DE LIJST ZELF (De popup) */}
+                <AnimatePresence>
+                    {isOpen && (
+                        <>
+                            {/* Onzichtbare klik-laag om dropdown te sluiten bij klik buiten menu */}
+                            <div className="fixed inset-0 z-[60]" onClick={() => setIsOpen(false)} />
+
+                            <motion.div
+                                initial={{ opacity: 0, y: -10 }}
+                                animate={{ opacity: 1, y: 5 }}
+                                exit={{ opacity: 0, y: -10 }}
+                                className="absolute left-0 right-0 top-full bg-white border border-gray-100 shadow-2xl rounded-2xl overflow-hidden z-[70] py-2"
+                            >
+                                {category.prices.map((p: string, i: number) => (
+                                    <button
+                                        key={i}
+                                        onClick={() => {
+                                            setSelectedIdx(i);
+                                            setIsOpen(false);
+                                        }}
+                                        className={`w-full text-left px-4 py-3 text-[11px] font-bold uppercase tracking-wider transition-colors
+                      ${selectedIdx === i ? 'bg-bioGreen text-white' : 'text-gray-600 hover:bg-bioGreen/10'}
+                    `}
+                                    >
+                                        {p.replace('↝', '-')}
+                                    </button>
+                                ))}
+                            </motion.div>
+                        </>
+                    )}
+                </AnimatePresence>
+            </div>
+
+            {/* PLUS BUTTON */}
             <button
                 onClick={handleAdd}
-                className="bg-bioGreen text-white w-10 h-10 rounded-xl flex items-center justify-center hover:bg-darkYellow transition-colors shadow-sm active:scale-90"
+                className="bg-bioGreen text-white w-12 h-12 rounded-2xl flex items-center justify-center hover:bg-darkYellow transition-all shadow-md active:scale-90 flex-shrink-0"
             >
-                <IoAdd size={24} />
+                <IoAdd size={28} />
             </button>
         </div>
     );
@@ -102,12 +138,12 @@ export default function OrderPage() {
                     {juicesAndSmoothies.map(category => (
                         <div key={category.id}>
                             <h2 className="text-3xl font-black italic mb-8 border-l-8 border-bioGreen pl-4">{category.title}</h2>
-                            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-16">
+                            <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-16">
                                 {category.items.map(item => (
                                     <div key={item.id} className="bg-white p-4 rounded-3xl shadow-sm border border-gray-100 flex flex-col">
-                                        <img src={item.img} alt={item.name} className="w-32 h-auto mx-auto mb-4" />
-                                        <h4 className="font-bold text-center text-gray-800 mb-4 h-10 line-clamp-2 text-sm">#{item.id} {item.name}</h4>
-                                        <div className="flex gap-2 bg-orange-300 mt-auto pt-4 border-t border-gray-50">
+                                        <img src={item.img} alt={item.name} className="w-32 h-auto mx-auto mb-2" />
+                                        <h4 className="font-bold text-center text-gray-800 h-10 line-clamp-2 text-sm">#{item.id}. {item.name}</h4>
+                                        <div className="flex gap-2 mt-auto border-t border-gray-50">
                                             <ProductAddToCart
                                                 item={item}
                                                 category={category}
@@ -132,7 +168,7 @@ export default function OrderPage() {
                                     <h4 className="font-bold text-center text-gray-800 mb-2 h-10 line-clamp-2 uppercase text-sm">{item.name}</h4>
                                     <p className="text-center text-xs text-gray-500 mb-4">{item.qty}</p>
                                     <button
-                                        onClick={() => {addItem({ id: `shot-${index}`, name: item.name, price: 500, quantity: 1, img: item.img }); triggerToast()}}
+                                        onClick={() => { addItem({ id: `shot-${index}`, name: item.name, price: 500, quantity: 1, img: item.img }); triggerToast() }}
                                         className="mt-auto w-full bg-neutral-100 py-2 rounded-xl text-xs font-bold hover:bg-bioGreen hover:text-white transition-colors"
                                     >
                                         Voeg toe - SRD 500
@@ -151,7 +187,7 @@ export default function OrderPage() {
                                     <img src={item.img} alt={item.name} className="w-32 h-auto mx-auto mb-4" />
                                     <h4 className="font-bold text-center text-gray-800 mb-2 h-10 line-clamp-2 uppercase text-sm">{item.name}</h4>
                                     <button
-                                        onClick={() => {addItem({ id: `vitawater-${index}`, name: item.name, price: parsePrice(item.price), quantity: 1, img: item.img }); triggerToast()}}
+                                        onClick={() => { addItem({ id: `vitawater-${index}`, name: item.name, price: parsePrice(item.price), quantity: 1, img: item.img }); triggerToast() }}
                                         className="mt-auto w-full bg-neutral-100 py-2 rounded-xl text-xs font-bold hover:bg-bioGreen hover:text-white transition-colors"
                                     >
                                         Voeg toe - {item.price}
@@ -177,7 +213,7 @@ export default function OrderPage() {
                             </div>
                             <div className="flex-shrink-0 w-full lg:w-auto">
                                 <button
-                                    onClick={() => {addItem({ id: 'cleanse-set', name: 'Cleanse & Heal Set', price: 850, quantity: 1, img: cleanseAndHeal[0].img }); triggerToast()}}
+                                    onClick={() => { addItem({ id: 'cleanse-set', name: 'Cleanse & Heal Set', price: 850, quantity: 1, img: cleanseAndHeal[0].img }); triggerToast() }}
                                     className="w-full lg:w-auto bg-bioGreen text-white px-8 py-3 rounded-xl font-bold hover:bg-darkYellow transition-colors"
                                 >
                                     Voeg set toe
@@ -195,7 +231,7 @@ export default function OrderPage() {
                                     <h3 className="font-black text-lg text-bioGreen mb-2">{item.d}</h3>
                                     <p className="text-xs text-gray-600 mb-4 flex-grow">{item.i}</p>
                                     <button
-                                        onClick={() => {addItem({ id: `kuur-${index}`, name: `Sappenkuur ${item.d}`, price: parseInt(item.p, 10), quantity: 1, img: cleanseAndHeal[0].img }); triggerToast()}}
+                                        onClick={() => { addItem({ id: `kuur-${index}`, name: `Sappenkuur ${item.d}`, price: parseInt(item.p, 10), quantity: 1, img: cleanseAndHeal[0].img }); triggerToast() }}
                                         className="mt-auto w-full bg-neutral-100 py-2 rounded-xl text-xs font-bold hover:bg-bioGreen hover:text-white transition-colors"
                                     >
                                         Voeg toe - SRD {item.p}
