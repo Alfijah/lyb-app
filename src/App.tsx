@@ -12,6 +12,7 @@ import FaqPage from "./pages/FaqPage";
 import DetoxPage from "./pages/DetoxPage";
 import NotFound from "./pages/NotFound";
 import OrderPage from "./pages/OrderPage";
+import CartSidebar from "./components/CartSidebar";
 
 export default function App() {
   const helmetContext = {};
@@ -20,6 +21,7 @@ export default function App() {
       <Router>
         <ScrollToTop />
         <Navbar />
+        <CartSidebar />
 
         <main className="flex-grow">
           <Routes>
