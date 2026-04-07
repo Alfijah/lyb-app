@@ -11,14 +11,25 @@ import specialImg from "../assets/lybMenu/cleanse1.webp"; // Voorbeeld voor de b
 
 function ProductAddToCart({ item, category, addItem, triggerToast, parsePrice }: any) {
     const [selectedIdx, setSelectedIdx] = useState(0);
-    const [isOpen, setIsOpen] = useState(false); // Houdt bij of de lijst open is
-    const currentPriceString = category.prices[selectedIdx];
+    const [isOpen, setIsOpen] = useState(false);
+
+    // Helper om de tekst te splitsen: "350 ml ↝ SRD 75" -> ["350 ml", "SRD 75"]
+    const getParts = (priceString: string) => {
+        const parts = priceString.split('↝');
+        return {
+            label: parts[0]?.trim() || "",
+            priceDisplay: parts[1]?.trim() || ""
+        };
+    };
+
+    const currentData = getParts(category.prices[selectedIdx]);
+    const numericPrice = parsePrice(category.prices[selectedIdx]);
 
     const handleAdd = () => {
         addItem({
             id: `${category.id}-${item.id}-${selectedIdx}`,
-            name: `${item.name} (${currentPriceString.split('↝')[0].trim()})`,
-            price: parsePrice(currentPriceString),
+            name: `${item.name} (${currentData.label})`,
+            price: numericPrice,
             quantity: 1,
             img: item.img
         });
@@ -26,61 +37,64 @@ function ProductAddToCart({ item, category, addItem, triggerToast, parsePrice }:
     };
 
     return (
-        <div className="flex items-center w-full gap-2 mt-auto border-t border-gray-50 relative">
-
-            {/* CUSTOM DROPDOWN CONTAINER */}
-            <div className="relative flex-1">
-                {/* De 'Button' die de dropdown opent */}
-                <button
-                    onClick={() => setIsOpen(!isOpen)}
-                    className="w-full bg-neutral-100 py-3 px-4 rounded-2xl text-[11px] font-black text-gray-700 flex justify-between items-center uppercase tracking-wider hover:bg-neutral-200 transition-colors"
-                >
-                    {currentPriceString.replace('↝', '-')}
-                    <motion.div animate={{ rotate: isOpen ? 180 : 0 }}>
-                        <IoChevronDownOutline size={16} />
-                    </motion.div>
-                </button>
-
-                {/* DE LIJST ZELF (De popup) */}
-                <AnimatePresence>
-                    {isOpen && (
-                        <>
-                            {/* Onzichtbare klik-laag om dropdown te sluiten bij klik buiten menu */}
-                            <div className="fixed inset-0 z-[60]" onClick={() => setIsOpen(false)} />
-
-                            <motion.div
-                                initial={{ opacity: 0, y: -10 }}
-                                animate={{ opacity: 1, y: 5 }}
-                                exit={{ opacity: 0, y: -10 }}
-                                className="absolute left-0 right-0 top-full bg-white border border-gray-100 shadow-2xl rounded-2xl overflow-hidden z-[70] py-2"
-                            >
-                                {category.prices.map((p: string, i: number) => (
-                                    <button
-                                        key={i}
-                                        onClick={() => {
-                                            setSelectedIdx(i);
-                                            setIsOpen(false);
-                                        }}
-                                        className={`w-full text-left px-4 py-3 text-[11px] font-bold uppercase tracking-wider transition-colors
-                      ${selectedIdx === i ? 'bg-bioGreen text-white' : 'text-gray-600 hover:bg-bioGreen/10'}
-                    `}
-                                    >
-                                        {p.replace('↝', '-')}
-                                    </button>
-                                ))}
-                            </motion.div>
-                        </>
-                    )}
-                </AnimatePresence>
+        <div className="flex flex-col w-full h-full">
+            {/* 1. DYNAMISCHE PRIJS (Onder de naam) */}
+            <div className="mb-4">
+                <p className="text-2xl font-black text-bioGreen tracking-tight">
+                    {currentData.priceDisplay}
+                </p>
             </div>
 
-            {/* PLUS BUTTON */}
-            <button
-                onClick={handleAdd}
-                className="bg-bioGreen text-white w-12 h-12 rounded-2xl flex items-center justify-center hover:bg-darkYellow transition-all shadow-md active:scale-90 flex-shrink-0"
-            >
-                <IoAdd size={28} />
-            </button>
+            {/* 2. DROPDOWN & PLUS BUTTON RIJ */}
+            <div className="flex items-center gap-2 mt-auto relative">
+                <div className="relative flex-1">
+                    <button
+                        onClick={() => setIsOpen(!isOpen)}
+                        className="w-full bg-neutral-100 py-3 px-4 rounded-2xl text-[11px] font-black text-gray-700 flex justify-between items-center uppercase tracking-wider hover:bg-neutral-200 transition-colors border border-transparent focus:border-bioGreen/20"
+                    >
+                        {currentData.label}
+                        <motion.div animate={{ rotate: isOpen ? 180 : 0 }}>
+                            <IoChevronDownOutline size={16} />
+                        </motion.div>
+                    </button>
+
+                    <AnimatePresence>
+                        {isOpen && (
+                            <>
+                                <div className="fixed inset-0 z-[60]" onClick={() => setIsOpen(false)} />
+                                <motion.div
+                                    initial={{ opacity: 0, y: -10 }}
+                                    animate={{ opacity: 1, y: 5 }}
+                                    exit={{ opacity: 0, y: -10 }}
+                                    className="absolute left-0 right-0 top-full bg-white border border-gray-100 shadow-2xl rounded-2xl overflow-hidden z-[70] py-1"
+                                >
+                                    {category.prices.map((p: string, i: number) => (
+                                        <button
+                                            key={i}
+                                            onClick={() => {
+                                                setSelectedIdx(i);
+                                                setIsOpen(false);
+                                            }}
+                                            className={`w-full text-left px-4 py-3 text-[11px] font-bold uppercase tracking-wider transition-colors
+                        ${selectedIdx === i ? 'bg-bioGreen text-white' : 'text-gray-600 hover:bg-bioGreen/10'}
+                      `}
+                                        >
+                                            {getParts(p).label} {/* Toon alleen de inhoud (ml) */}
+                                        </button>
+                                    ))}
+                                </motion.div>
+                            </>
+                        )}
+                    </AnimatePresence>
+                </div>
+
+                <button
+                    onClick={handleAdd}
+                    className="bg-bioGreen text-white w-12 h-12 rounded-2xl flex items-center justify-center hover:bg-darkYellow transition-all shadow-md active:scale-90 flex-shrink-0"
+                >
+                    <IoAdd size={28} />
+                </button>
+            </div>
         </div>
     );
 }
@@ -140,10 +154,25 @@ export default function OrderPage() {
                             <h2 className="text-3xl font-black italic mb-8 border-l-8 border-bioGreen pl-4">{category.title}</h2>
                             <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-16">
                                 {category.items.map(item => (
-                                    <div key={item.id} className="bg-white p-4 rounded-3xl shadow-sm border border-gray-100 flex flex-col">
-                                        <img src={item.img} alt={item.name} className="w-32 h-auto mx-auto mb-2" />
-                                        <h4 className="font-bold text-center text-gray-800 h-10 line-clamp-2 text-sm">#{item.id}. {item.name}</h4>
-                                        <div className="flex gap-2 mt-auto border-t border-gray-50">
+                                    <div
+                                        key={item.id}
+                                        className="bg-white p-6 rounded-[2.5rem] shadow-sm border border-gray-100 flex flex-col min-h-[420px]"
+                                    >
+                                        {/* Afbeelding */}
+                                        <div className="h-40 flex items-center justify-center mb-4">
+                                            <img src={item.img} alt={item.name} className="max-h-full w-auto object-contain drop-shadow-xl" />
+                                        </div>
+
+                                        {/* Info sectie */}
+                                        <div className="flex-grow flex flex-col">
+                                            <span className="text-[10px] font-black text-bioGreen/40 mb-1 tracking-widest uppercase">#{item.id}</span>
+                                            <h4 className="font-bold text-gray-800 mb-1 leading-tight uppercase text-sm line-clamp-2">
+                                                {item.name}
+                                            </h4>
+
+                                            {/* De component rendert nu zelf de prijs én de controls. 
+          Hierdoor reageert de prijs boven de dropdown op de selectie.
+      */}
                                             <ProductAddToCart
                                                 item={item}
                                                 category={category}
@@ -248,127 +277,140 @@ export default function OrderPage() {
                 <AnimatePresence>
                     {showCart && (
                         <>
-                            {/* 1. BACKDROP: Sluit mandje bij klik buiten venster */}
+                            {/* 1. BACKDROP: Nu met iets lichtere overlay */}
                             <motion.div
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
                                 onClick={() => setIsCartOpen(false)}
-                                className="fixed inset-0 bg-black/60 z-[120] backdrop-blur-sm"
+                                className="fixed inset-0 bg-black/40 z-[150] backdrop-blur-[2px]"
                             />
 
-                            {/* 2. HET WINKELMAND VENSTER */}
+                            {/* 2. SIDEBAR MANDJE: Vast aan de rechterkant */}
                             <motion.div
-                                initial={{ y: "100%", opacity: 0 }}
-                                animate={{ y: 0, opacity: 1 }}
-                                exit={{ y: "100%", opacity: 0 }}
+                                initial={{ x: "100%" }} // Start volledig buiten beeld (rechts)
+                                animate={{ x: 0 }}      // Slide naar binnen
+                                exit={{ x: "100%" }}    // Slide terug naar buiten
                                 transition={{ type: "spring", damping: 25, stiffness: 200 }}
-                                className="fixed bottom-0 left-0 right-0 z-[130] px-4 pb-6 md:pb-10"
+                                className="fixed top-0 right-0 bottom-0 w-full max-w-[400px] bg-white z-[160] shadow-[-10px_0_50px_rgba(0,0,0,0.1)] flex flex-col"
                             >
-                                <div className="max-w-md mx-auto bg-white rounded-t-[2.5rem] rounded-b-[2.5rem] shadow-[0_-20px_50px_rgba(0,0,0,0.2)] border border-gray-100 p-6 relative">
-
-                                    {/* SLUIT ICOON RECHTSBOVEN */}
-                                    <button
-                                        onClick={() => setIsCartOpen(false)}
-                                        className="absolute -top-3 right-6 bg-white shadow-xl rounded-full p-2 text-gray-400 hover:text-red-500 border border-gray-100 transition-all hover:scale-110"
-                                    >
-                                        <IoCloseOutline size={28} />
-                                    </button>
-
-                                    {/* HEADER */}
-                                    <div className="flex justify-between items-center mb-6 mt-2">
+                                {/* HEADER: Met Sluitknop links of rechts */}
+                                <div className="p-6 border-b border-gray-100 flex justify-between items-center bg-white sticky top-0 z-10">
+                                    <div>
                                         <h3 className="font-black italic flex items-center gap-2 text-gray-800 text-xl">
                                             <IoCartOutline className="text-bioGreen text-3xl" /> Jouw Mandje
                                         </h3>
-                                        <button
-                                            onClick={clearCart}
-                                            className="text-red-400 text-xs font-bold flex items-center gap-1 hover:text-red-600 transition-colors bg-red-50 px-3 py-1.5 rounded-full"
-                                        >
-                                            <IoTrashOutline /> Leegmaken
-                                        </button>
+                                        <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest mt-1">
+                                            {cart.reduce((t, i) => t + i.quantity, 0)} items geselecteerd
+                                        </p>
                                     </div>
 
-                                    {/* DE LIJST MET ITEMS (Swipeable & Geoptimaliseerde layout) */}
-                                    <div className="max-h-[40vh] overflow-y-auto mb-6 pr-1 custom-scrollbar">
-                                        <AnimatePresence mode="popLayout">
-                                            {cart.map((item) => (
+                                    <button
+                                        onClick={() => setIsCartOpen(false)}
+                                        className="p-2 hover:bg-neutral-100 rounded-full transition-colors text-gray-400 hover:text-gray-800"
+                                    >
+                                        <IoCloseOutline size={32} />
+                                    </button>
+                                </div>
+
+                                {/* ITEMS LIJST: Neemt de rest van de hoogte in */}
+                                <div className="flex-1 overflow-y-auto p-6 custom-scrollbar">
+                                    <AnimatePresence mode="popLayout">
+                                        {cart.map((item) => (
+                                            <div key={item.id} className="relative mb-4 overflow-hidden rounded-[1.5rem]">
+
+                                                {/* 1. DE ONDERLIGGENDE LAAG (Statisch) */}
+                                                <div className="absolute inset-0 bg-red-500 flex items-center px-6">
+                                                    <div className="flex items-center gap-2 text-white">
+                                                        <IoTrashOutline size={20} />
+                                                        <span className="font-black text-[10px] uppercase tracking-wider">
+                                                            Verwijderen
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+                                                {/* 2. DE BOVENSTE LAAG (Sleepbaar) */}
                                                 <motion.div
-                                                    key={item.id}
-                                                    layout
                                                     drag="x"
-                                                    dragConstraints={{ left: 0, right: 100 }}
+                                                    dragConstraints={{ left: 0, right: 150 }} // Hoe ver je kunt schuiven
+                                                    dragElastic={0.1} // Geeft een beetje weerstand aan het einde
                                                     onDragEnd={(_, info) => {
-                                                        if (info.offset.x > 80) removeItem(item.id);
+                                                        // Als de swipe meer dan 100px is, item verwijderen
+                                                        if (info.offset.x > 100) removeItem(item.id);
                                                     }}
-                                                    initial={{ opacity: 0, x: -20 }}
-                                                    animate={{ opacity: 1, x: 0 }}
-                                                    exit={{ opacity: 0, scale: 0.9, x: 100 }}
-                                                    className="relative mb-3 group"
+                                                    initial={{ x: -20, opacity: 0 }}
+                                                    animate={{ x: 0, opacity: 1 }}
+                                                    exit={{ x: 200, opacity: 0 }} // Vliegt weg bij verwijderen
+                                                    className="relative flex items-center gap-4 bg-white p-4 border border-gray-100 shadow-sm cursor-grab active:cursor-grabbing"
                                                 >
-                                                    {/* Swipe indicator achtergrond */}
-                                                    <div className="absolute inset-0 bg-red-100 flex items-center pl-6 rounded-2xl -z-10">
-                                                        <IoTrashOutline className="text-red-500 text-xl animate-pulse" />
+                                                    {/* AFBEELDING */}
+                                                    <div className="w-16 h-16 flex-shrink-0 bg-neutral-50 rounded-xl flex items-center justify-center p-1">
+                                                        <img src={item.img} alt={item.name} className="w-full h-full object-contain" />
                                                     </div>
 
-                                                    {/* De Item Kaart */}
-                                                    <div className="flex items-center gap-3 bg-white p-2 rounded-2xl border border-gray-50 shadow-sm">
-                                                        {/* 1. Afbeelding */}
-                                                        <div className="w-14 h-14 bg-neutral-50 rounded-xl flex items-center justify-center p-1">
-                                                            <img src={item.img} alt={item.name} className="w-full h-full object-contain" />
-                                                        </div>
+                                                    {/* TEKST & PRIJS */}
+                                                    <div className="flex-1 min-w-0">
+                                                        <p className="font-bold text-gray-800 text-[12px] uppercase leading-tight whitespace-normal break-words">
+                                                            {item.name}
+                                                        </p>
+                                                        <p className="text-bioGreen font-black text-sm mt-1">
+                                                            SRD {item.price * item.quantity}
+                                                        </p>
 
-                                                        {/* 2 & 3. Naam & Prijs */}
-                                                        <div className="flex-1 min-w-0">
-                                                            <p className="font-bold text-gray-800 text-[11px] uppercase truncate leading-tight">{item.name}</p>
-                                                            <p className="text-bioGreen font-black text-sm">SRD {item.price * item.quantity}</p>
-                                                        </div>
-
-                                                        {/* 4. Aantal Controls */}
-                                                        <div className="flex items-center bg-neutral-100 rounded-full p-1 gap-2 border border-gray-200">
+                                                        {/* AANTAL CONTROLS */}
+                                                        <div className="flex items-center bg-neutral-100 rounded-full w-fit mt-3 px-1 py-1 gap-3">
                                                             <button
                                                                 onClick={() => useCartStore.getState().updateQuantity(item.id, -1)}
-                                                                className="w-7 h-7 flex items-center justify-center bg-white rounded-full shadow-sm hover:text-bioGreen font-bold transition-transform active:scale-90"
-                                                            >
-                                                                -
-                                                            </button>
-                                                            <span className="text-xs font-black w-4 text-center">{item.quantity}</span>
+                                                                className="w-7 h-7 bg-white rounded-full flex items-center justify-center shadow-sm hover:text-bioGreen transition-colors"
+                                                            > - </button>
+                                                            <span className="text-xs font-black min-w-[15px] text-center">{item.quantity}</span>
                                                             <button
                                                                 onClick={() => useCartStore.getState().updateQuantity(item.id, 1)}
-                                                                className="w-7 h-7 flex items-center justify-center bg-white rounded-full shadow-sm hover:text-bioGreen font-bold transition-transform active:scale-90"
-                                                            >
-                                                                +
-                                                            </button>
+                                                                className="w-7 h-7 bg-white rounded-full flex items-center justify-center shadow-sm hover:text-bioGreen transition-colors"
+                                                            > + </button>
                                                         </div>
-
-                                                        {/* 5. Prullenbak */}
-                                                        <button
-                                                            onClick={() => removeItem(item.id)}
-                                                            className="p-2 text-gray-300 hover:text-red-500 transition-colors"
-                                                        >
-                                                            <IoTrashOutline size={20} />
-                                                        </button>
                                                     </div>
+
+                                                    {/* PRULLENBAK (Handmatig) */}
+                                                    <button
+                                                        onClick={() => removeItem(item.id)}
+                                                        className="text-gray-300 hover:text-red-500 p-2 transition-colors flex-shrink-0"
+                                                    >
+                                                        <IoTrashOutline size={22} />
+                                                    </button>
                                                 </motion.div>
-                                            ))}
-                                        </AnimatePresence>
+                                            </div>
+                                        ))}
+                                    </AnimatePresence>
+
+                                    {cart.length > 0 && (
+                                        <button
+                                            onClick={clearCart}
+                                            className="w-full py-3 text-red-400 text-xs font-bold hover:underline mt-4"
+                                        >
+                                            Winkelmand leegmaken
+                                        </button>
+                                    )}
+                                </div>
+
+                                {/* FOOTER: Altijd onderaan de sidebar */}
+                                <div className="p-8 border-t border-gray-100 bg-neutral-50 rounded-t-[2.5rem]">
+                                    <div className="flex items-center justify-between mb-6">
+                                        <div>
+                                            <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest">Totaal te betalen</p>
+                                            <p className="text-3xl font-black text-gray-800">SRD {totalPrice()}</p>
+                                        </div>
                                     </div>
 
-                                    {/* FOOTER: TOTAAL & BESTELKNOP */}
-                                    <div className="pt-5 border-t-2 border-dashed border-gray-100">
-                                        <div className="flex items-center justify-between mb-4">
-                                            <div>
-                                                <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest">Totaalbedrag</p>
-                                                <p className="text-3xl font-black text-gray-800 tracking-tight">SRD {totalPrice()}</p>
-                                            </div>
-                                            <button
-                                                onClick={handleWhatsApp}
-                                                className="bg-[#25D366] text-white px-8 py-4 rounded-2xl font-black flex items-center gap-3 shadow-[0_10px_20px_rgba(37,211,102,0.3)] hover:bg-[#128C7E] transition-all hover:scale-105 active:scale-95"
-                                            >
-                                                <IoLogoWhatsapp size={24} /> BESTEL NU
-                                            </button>
-                                        </div>
-                                        <p className="text-[10px] text-center text-gray-400 italic">Tik op '+' of '-' om te wijzigen. Swipe een item naar rechts om te wissen.</p>
-                                    </div>
+                                    <button
+                                        onClick={handleWhatsApp}
+                                        className="w-full bg-[#25D366] text-white py-5 rounded-2xl font-black flex items-center justify-center gap-3 shadow-[0_10px_20px_rgba(37,211,102,0.2)] hover:bg-[#128C7E] transition-all active:scale-95"
+                                    >
+                                        <IoLogoWhatsapp size={24} /> BESTEL VIA WHATSAPP
+                                    </button>
+                                    <p className="text-[9px] text-center text-gray-400 mt-4 leading-relaxed">
+                                        Door op bestellen te klikken openen we WhatsApp.<br />Je kunt daar je bestelling controleren en versturen.
+                                    </p>
                                 </div>
                             </motion.div>
                         </>

@@ -152,9 +152,6 @@ export default function Navbar() {
               <IoLogoWhatsapp className="w-6 h-6" />
             </a>
           </div>
-
-          {/* Onzichtbare spacer voor mobiel: zorgt dat logo gecentreerd blijft */}
-          <div className="w-12 lg:hidden" aria-hidden="true"></div>
         </div>
 
       </div>

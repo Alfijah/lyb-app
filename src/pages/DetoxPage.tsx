@@ -1,13 +1,19 @@
 import { Helmet } from "react-helmet-async";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useCartStore } from "../store/useCartStore";
+import { useState } from "react";
 import { fadeInUp } from "../animations/Varianten";
 import SectionWrapper from "../animations/SectionWrapper";
 import detoxHero from "../assets/detox/detoxen.webp";
 import fruitBg from "../assets/fluidButton.webp";
 import WipeButton from "../components/tools/Button";
 import { BiCheckCircle, BiTimeFive, BiWater, BiCoffeeTogo } from "react-icons/bi";
+import { IoCartOutline } from "react-icons/io5";
 
 export default function DetoxPage() {
+    const { addItem } = useCartStore(); // Haal addItem uit de store
+    const [showToast, setShowToast] = useState(false); // State voor de melding
+
     const packages = [
         { day: "1-daagse", label: "For Comfort", content: "8 flessen (350ml) + 1 wellness shot GRATIS", price: "SRD 850" },
         { day: "3-daagse", label: "For Beginners", content: "24 flessen (350ml) + 1 wellness shot GRATIS", price: "SRD 2500" },
@@ -23,6 +29,27 @@ export default function DetoxPage() {
         "Gezonde cholesterol & Bloeddruk",
         "Reiniging van maag, lever en darmen"
     ];
+
+    // Helper om prijs om te zetten naar getal
+    const parsePrice = (priceString: string) => {
+        const priceMatch = priceString.match(/SRD\s*(\d+)/);
+        return priceMatch ? parseInt(priceMatch[1], 10) : 0;
+    };
+
+    // Functie om item toe te voegen en melding te tonen
+    const handleAddToCart = (pkg: any) => {
+        addItem({
+            id: pkg.id,
+            name: `${pkg.day} Detox Kuur (${pkg.label})`,
+            price: parsePrice(pkg.price),
+            quantity: 1,
+            img: detoxHero // We gebruiken de hero image als thumbnail
+        });
+
+        // Toon toast
+        setShowToast(true);
+        setTimeout(() => setShowToast(false), 2500);
+    };
 
     return (
         <>
@@ -115,12 +142,11 @@ export default function DetoxPage() {
                                         <p className="text-sm text-gray-600 mb-6 flex-1">{pkg.content}</p>
                                         <div className="text-xl font-black text-bioGreen mb-6">{pkg.price}</div>
                                         <WipeButton
-                                            href="https://wa.me/5978531071"
-                                            external
+                                            onClick={() => handleAddToCart(pkg)}
                                             style={{ backgroundImage: `url(${fruitBg})` }}
-                                            className="w-full text-white text-xs py-3"
+                                            className="w-full text-white text-xs py-3 border-none cursor-pointer"
                                         >
-                                            Bestel Nu
+                                          Voeg toe aan mandje
                                         </WipeButton>
                                     </motion.div>
                                 ))}
@@ -192,6 +218,26 @@ export default function DetoxPage() {
                         </WipeButton>
                     </SectionWrapper>
                 </div>
+
+                {/* DE TOAST NOTIFICATIE (Hetzelfde als op de OrderPage) */}
+                <AnimatePresence>
+                    {showToast && (
+                        <motion.div
+                            initial={{ x: 300, opacity: 0 }}
+                            animate={{ x: 0, opacity: 1 }}
+                            exit={{ x: 300, opacity: 0 }}
+                            className="fixed top-24 right-4 z-[200] bg-white border-l-4 border-bioGreen shadow-2xl rounded-2xl p-4 flex items-center gap-3 min-w-[220px]"
+                        >
+                            <div className="bg-bioGreen/10 p-2 rounded-full">
+                                <IoCartOutline className="text-bioGreen text-xl" />
+                            </div>
+                            <div>
+                                <p className="text-xs font-black text-gray-800 uppercase tracking-tight">Gelukt!</p>
+                                <p className="text-[10px] text-gray-500 font-medium">Kuur toegevoegd aan mandje</p>
+                            </div>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
             </main>
         </>
     );
