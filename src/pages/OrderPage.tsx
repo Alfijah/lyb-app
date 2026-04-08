@@ -2,8 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { motion, AnimatePresence } from "framer-motion";
 import { useCartStore } from "../store/useCartStore";
 import { useState } from "react";
-import { IoLogoWhatsapp, IoCartOutline, IoTrashOutline, IoAdd, IoChevronDownOutline } from "react-icons/io5";
-import { IoCloseOutline } from "react-icons/io5";
+import { IoCartOutline, IoAdd, IoChevronDownOutline } from "react-icons/io5";
 import { juicesAndSmoothies, wellnessShots, vitamineWater, cleanseAndHeal, sappenkuur } from '../data/menuData';
 
 // Importeer hier al je assets (zelfde als in MenuPage)
@@ -100,17 +99,9 @@ function ProductAddToCart({ item, category, addItem, triggerToast, parsePrice }:
 }
 
 export default function OrderPage() {
-    const { cart, addItem, removeItem, totalPrice, clearCart, isCartOpen, setIsCartOpen } = useCartStore();
+    const { addItem } = useCartStore();
 
     const [showToast, setShowToast] = useState(false);
-
-    const showCart = cart.length > 0 && isCartOpen;
-
-    const handleWhatsApp = () => {
-        const items = cart.map(i => `• ${i.quantity}x ${i.name} - SRD ${i.price * i.quantity}`).join('%0A');
-        const message = `Hallo LYB! 👋 Ik wil graag de volgende bestelling plaatsen:%0A%0A${items}%0A%0A*Totaalbedrag: SRD ${totalPrice()}*%0A%0A_Ik wacht op bevestiging voor betaling en levering._`;
-        window.open(`https://wa.me/5978531071?text=${message}`, '_blank');
-    };
 
     const parsePrice = (priceString: string) => {
         const priceMatch = priceString.match(/SRD\s*(\d+)/);
@@ -271,151 +262,6 @@ export default function OrderPage() {
                     </div>
 
                 </div>
-
-                {/* 3. FLOATING WHATSAPP CART */}
-
-                <AnimatePresence>
-                    {showCart && (
-                        <>
-                            {/* 1. BACKDROP: Nu met iets lichtere overlay */}
-                            <motion.div
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                exit={{ opacity: 0 }}
-                                onClick={() => setIsCartOpen(false)}
-                                className="fixed inset-0 bg-black/40 z-[150] backdrop-blur-[2px]"
-                            />
-
-                            {/* 2. SIDEBAR MANDJE: Vast aan de rechterkant */}
-                            <motion.div
-                                initial={{ x: "100%" }} // Start volledig buiten beeld (rechts)
-                                animate={{ x: 0 }}      // Slide naar binnen
-                                exit={{ x: "100%" }}    // Slide terug naar buiten
-                                transition={{ type: "spring", damping: 25, stiffness: 200 }}
-                                className="fixed top-0 right-0 bottom-0 w-full max-w-[400px] bg-white z-[160] shadow-[-10px_0_50px_rgba(0,0,0,0.1)] flex flex-col"
-                            >
-                                {/* HEADER: Met Sluitknop links of rechts */}
-                                <div className="p-6 border-b border-gray-100 flex justify-between items-center bg-white sticky top-0 z-10">
-                                    <div>
-                                        <h3 className="font-black italic flex items-center gap-2 text-gray-800 text-xl">
-                                            <IoCartOutline className="text-bioGreen text-3xl" /> Jouw Mandje
-                                        </h3>
-                                        <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest mt-1">
-                                            {cart.reduce((t, i) => t + i.quantity, 0)} items geselecteerd
-                                        </p>
-                                    </div>
-
-                                    <button
-                                        onClick={() => setIsCartOpen(false)}
-                                        className="p-2 hover:bg-neutral-100 rounded-full transition-colors text-gray-400 hover:text-gray-800"
-                                    >
-                                        <IoCloseOutline size={32} />
-                                    </button>
-                                </div>
-
-                                {/* ITEMS LIJST: Neemt de rest van de hoogte in */}
-                                <div className="flex-1 overflow-y-auto p-6 custom-scrollbar">
-                                    <AnimatePresence mode="popLayout">
-                                        {cart.map((item) => (
-                                            <div key={item.id} className="relative mb-4 overflow-hidden rounded-[1.5rem]">
-
-                                                {/* 1. DE ONDERLIGGENDE LAAG (Statisch) */}
-                                                <div className="absolute inset-0 bg-red-500 flex items-center px-6">
-                                                    <div className="flex items-center gap-2 text-white">
-                                                        <IoTrashOutline size={20} />
-                                                        <span className="font-black text-[10px] uppercase tracking-wider">
-                                                            Verwijderen
-                                                        </span>
-                                                    </div>
-                                                </div>
-
-                                                {/* 2. DE BOVENSTE LAAG (Sleepbaar) */}
-                                                <motion.div
-                                                    drag="x"
-                                                    dragConstraints={{ left: 0, right: 150 }} // Hoe ver je kunt schuiven
-                                                    dragElastic={0.1} // Geeft een beetje weerstand aan het einde
-                                                    onDragEnd={(_, info) => {
-                                                        // Als de swipe meer dan 100px is, item verwijderen
-                                                        if (info.offset.x > 100) removeItem(item.id);
-                                                    }}
-                                                    initial={{ x: -20, opacity: 0 }}
-                                                    animate={{ x: 0, opacity: 1 }}
-                                                    exit={{ x: 200, opacity: 0 }} // Vliegt weg bij verwijderen
-                                                    className="relative flex items-center gap-4 bg-white p-4 border border-gray-100 shadow-sm cursor-grab active:cursor-grabbing"
-                                                >
-                                                    {/* AFBEELDING */}
-                                                    <div className="w-16 h-16 flex-shrink-0 bg-neutral-50 rounded-xl flex items-center justify-center p-1">
-                                                        <img src={item.img} alt={item.name} className="w-full h-full object-contain" />
-                                                    </div>
-
-                                                    {/* TEKST & PRIJS */}
-                                                    <div className="flex-1 min-w-0">
-                                                        <p className="font-bold text-gray-800 text-[12px] uppercase leading-tight whitespace-normal break-words">
-                                                            {item.name}
-                                                        </p>
-                                                        <p className="text-bioGreen font-black text-sm mt-1">
-                                                            SRD {item.price * item.quantity}
-                                                        </p>
-
-                                                        {/* AANTAL CONTROLS */}
-                                                        <div className="flex items-center bg-neutral-100 rounded-full w-fit mt-3 px-1 py-1 gap-3">
-                                                            <button
-                                                                onClick={() => useCartStore.getState().updateQuantity(item.id, -1)}
-                                                                className="w-7 h-7 bg-white rounded-full flex items-center justify-center shadow-sm hover:text-bioGreen transition-colors"
-                                                            > - </button>
-                                                            <span className="text-xs font-black min-w-[15px] text-center">{item.quantity}</span>
-                                                            <button
-                                                                onClick={() => useCartStore.getState().updateQuantity(item.id, 1)}
-                                                                className="w-7 h-7 bg-white rounded-full flex items-center justify-center shadow-sm hover:text-bioGreen transition-colors"
-                                                            > + </button>
-                                                        </div>
-                                                    </div>
-
-                                                    {/* PRULLENBAK (Handmatig) */}
-                                                    <button
-                                                        onClick={() => removeItem(item.id)}
-                                                        className="text-gray-300 hover:text-red-500 p-2 transition-colors flex-shrink-0"
-                                                    >
-                                                        <IoTrashOutline size={22} />
-                                                    </button>
-                                                </motion.div>
-                                            </div>
-                                        ))}
-                                    </AnimatePresence>
-
-                                    {cart.length > 0 && (
-                                        <button
-                                            onClick={clearCart}
-                                            className="w-full py-3 text-red-400 text-xs font-bold hover:underline mt-4"
-                                        >
-                                            Winkelmand leegmaken
-                                        </button>
-                                    )}
-                                </div>
-
-                                {/* FOOTER: Altijd onderaan de sidebar */}
-                                <div className="p-8 border-t border-gray-100 bg-neutral-50 rounded-t-[2.5rem]">
-                                    <div className="flex items-center justify-between mb-6">
-                                        <div>
-                                            <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest">Totaal te betalen</p>
-                                            <p className="text-3xl font-black text-gray-800">SRD {totalPrice()}</p>
-                                        </div>
-                                    </div>
-
-                                    <button
-                                        onClick={handleWhatsApp}
-                                        className="w-full bg-[#25D366] text-white py-5 rounded-2xl font-black flex items-center justify-center gap-3 shadow-[0_10px_20px_rgba(37,211,102,0.2)] hover:bg-[#128C7E] transition-all active:scale-95"
-                                    >
-                                        <IoLogoWhatsapp size={24} /> BESTEL VIA WHATSAPP
-                                    </button>
-                                    <p className="text-[9px] text-center text-gray-400 mt-4 leading-relaxed">
-                                        Door op bestellen te klikken openen we WhatsApp.<br />Je kunt daar je bestelling controleren en versturen.
-                                    </p>
-                                </div>
-                            </motion.div>
-                        </>
-                    )}
-                </AnimatePresence>
 
                 {/* 4. DE TOAST NOTIFICATIE RECHTSBOVEN */}
                 <AnimatePresence>

@@ -36,17 +36,17 @@ export default function DetoxPage() {
         return priceMatch ? parseInt(priceMatch[1], 10) : 0;
     };
 
-    // Functie om item toe te voegen en melding te tonen
     const handleAddToCart = (pkg: any) => {
         addItem({
+            // Gebruik pkg.id om te zorgen dat detox-1 en detox-3 verschillend zijn
             id: pkg.id,
+            // Geef de volledige naam mee zodat je het onderscheid ziet in de lijst
             name: `${pkg.day} Detox Kuur (${pkg.label})`,
             price: parsePrice(pkg.price),
             quantity: 1,
-            img: detoxHero // We gebruiken de hero image als thumbnail
+            img: detoxHero
         });
 
-        // Toon toast
         setShowToast(true);
         setTimeout(() => setShowToast(false), 2500);
     };
@@ -146,7 +146,7 @@ export default function DetoxPage() {
                                             style={{ backgroundImage: `url(${fruitBg})` }}
                                             className="w-full text-white text-xs py-3 border-none cursor-pointer"
                                         >
-                                          Voeg toe aan mandje
+                                            Voeg toe aan mandje
                                         </WipeButton>
                                     </motion.div>
                                 ))}
