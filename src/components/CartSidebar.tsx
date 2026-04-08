@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react"; // useRef en useEffect toegevoegd
 import { motion, AnimatePresence } from "framer-motion";
 import { useCartStore } from "../store/useCartStore";
 import {
@@ -16,17 +16,76 @@ interface ScratchModalProps {
     onComplete: () => void;
     onClose: () => void;
 }
+
 // --- SUBCOMPONENT: DE KRASKAART MODAL ---
 function ScratchModal({ onComplete, onClose }: ScratchModalProps) {
+    const canvasRef = useRef<HTMLCanvasElement>(null);
     const [isScratched, setIsScratched] = useState(false);
+    const [isDrawing, setIsDrawing] = useState(false);
 
-    // We simuleren het krassen met een hover/touch beweging of simpelweg een klik op de "deklaag"
-    const handleScratch = () => {
-        if (!isScratched) {
-            setIsScratched(true);
-            setTimeout(() => {
-                onComplete(); // Voeg item toe aan mandje
-            }, 1000);
+    // Initialiseer de kraslaag op het canvas
+    useEffect(() => {
+        const canvas = canvasRef.current;
+        if (!canvas) return;
+        const ctx = canvas.getContext("2d");
+        if (!ctx) return;
+
+        // Maak canvas even groot als de container
+        const size = canvas.offsetWidth;
+        canvas.width = size;
+        canvas.height = size;
+
+        // Teken de deklaag (BioGreen verloop)
+        const gradient = ctx.createLinearGradient(0, 0, size, size);
+        gradient.addColorStop(0, "#2ecc71"); // bioGreen
+        gradient.addColorStop(1, "#27ae60");
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, 0, size, size);
+
+        // Voeg tekst toe (optioneel)
+        // ctx.fillStyle = "white";
+        // ctx.font = "bold 16px Arial";
+        // ctx.textAlign = "center";
+        // ctx.fillText("KRAS HIER", size / 2, size / 2 + 10);
+    }, []);
+
+    const handleScratch = (e: any) => {
+        if (isScratched) return;
+        const canvas = canvasRef.current;
+        const ctx = canvas?.getContext("2d");
+        if (!canvas || !ctx) return;
+
+        const rect = canvas.getBoundingClientRect();
+        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+        const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+        const x = clientX - rect.left;
+        const y = clientY - rect.top;
+
+        // Dit "gumt" de laag weg
+        ctx.globalCompositeOperation = "destination-out";
+        ctx.beginPath();
+        ctx.arc(x, y, 25, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Check of er genoeg gekrast is (simpele check)
+        checkProgress(ctx, canvas);
+    };
+
+    const checkProgress = (ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement) => {
+        const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        const pixels = imageData.data;
+        let totalTransparent = 0;
+
+        for (let i = 3; i < pixels.length; i += 40) { // Check om de 10 pixels voor performance
+            if (pixels[i] === 0) totalTransparent++;
+        }
+
+        // Als meer dan 40% transparant is, beschouwen we het als gekrast
+        if (totalTransparent > (pixels.length / 40) * 0.4) {
+            if (!isScratched) {
+                setIsScratched(true);
+                onComplete();
+            }
         }
     };
 
@@ -40,45 +99,46 @@ function ScratchModal({ onComplete, onClose }: ScratchModalProps) {
                 className="bg-white w-full max-w-[320px] rounded-[2.5rem] overflow-hidden shadow-2xl"
             >
                 <div className="p-8 text-center">
-                    <h3 className="font-black text-2xl italic text-gray-800 mb-2">KRAS & WIN!</h3>
-                    <p className="text-gray-500 text-sm mb-6">Beweeg over de kaart om je cadeau te onthullen</p>
+                    <h3 className="font-black text-2xl italic text-gray-800 mb-2 uppercase tracking-tighter">Kras & Win!</h3>
+                    <p className="text-gray-500 text-sm mb-6">Veeg over de kaart om te onthullen</p>
 
-                    {/* Het kras-oppervlak */}
-                    <div
-                        className="relative w-full aspect-square bg-neutral-100 rounded-3xl overflow-hidden cursor-pointer"
-                        onMouseEnter={handleScratch}
-                        onTouchStart={handleScratch}
-                    >
-                        <AnimatePresence>
-                            {!isScratched ? (
-                                <motion.div
-                                    exit={{ opacity: 0, scale: 1.2 }}
-                                    className="absolute inset-0 bg-gradient-to-br from-bioGreen to-emerald-700 z-10 flex flex-col items-center justify-center text-white p-6"
-                                >
-                                    <IoGiftOutline size={60} className="mb-2 animate-bounce" />
-                                    <span className="font-black uppercase tracking-widest text-xs">Kras hier!</span>
-                                </motion.div>
-                            ) : (
-                                <motion.div
-                                    initial={{ opacity: 0, scale: 0.5 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center"
-                                >
-                                    <IoSparklesOutline size={40} className="text-yellow-400 mb-2" />
-                                    <img src="/images/smoothie-350ml.png" alt="Smoothie" className="w-24 h-24 object-contain mb-2" />
-                                    <h4 className="font-black text-bioGreen uppercase text-sm">GEWONNEN!</h4>
-                                    <p className="text-[12px] font-bold text-gray-700">Verse Smoothie (350ml)</p>
-                                    <p className="text-[10px] text-gray-400 mt-1">Automatisch toegevoegd!</p>
-                                </motion.div>
-                            )}
-                        </AnimatePresence>
+                    <div className="relative w-full aspect-square bg-neutral-100 rounded-3xl overflow-hidden shadow-inner border-4 border-white">
+
+                        {/* DE PRIJS (Onderste laag - Jouw originele code met bouncende iconen) */}
+                        <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
+                            <IoSparklesOutline size={40} className="text-yellow-400 mb-2" />
+                            <img src="/images/smoothie-350ml.png" alt="Smoothie" className="w-24 h-24 object-contain mb-2" />
+                            <h4 className="font-black text-bioGreen uppercase text-sm">GEWONNEN!</h4>
+                            <p className="text-[12px] font-bold text-gray-700 leading-tight">Verse Smoothie (350ml)</p>
+                            <p className="text-[10px] text-gray-400 mt-1 uppercase font-black">Gratis toegevoegd!</p>
+                        </div>
+
+                        {/* DE KRASLAAG (Canvas - Bovenste laag) */}
+                        <canvas
+                            ref={canvasRef}
+                            onMouseDown={() => setIsDrawing(true)}
+                            onMouseUp={() => setIsDrawing(false)}
+                            onMouseMove={(e) => isDrawing && handleScratch(e)}
+                            onTouchStart={() => setIsDrawing(true)}
+                            onTouchEnd={() => setIsDrawing(false)}
+                            onTouchMove={(e) => isDrawing && handleScratch(e)}
+                            className={`absolute inset-0 z-10 cursor-crosshair touch-none transition-opacity duration-500 ${isScratched ? "opacity-0 pointer-events-none" : "opacity-100"}`}
+                        />
+
+                        {/* HET BOUNCENDE CADEAU (Alleen zichtbaar als er nog niet gekrast is) */}
+                        {!isScratched && (
+                            <div className="absolute inset-0 z-20 pointer-events-none flex flex-col items-center justify-center text-white">
+                                <IoGiftOutline size={60} className="mb-2 animate-bounce" />
+                                <span className="font-black uppercase tracking-widest text-[10px]">Kras hier!</span>
+                            </div>
+                        )}
                     </div>
 
                     <button
                         onClick={onClose}
-                        className="mt-6 w-full py-3 bg-gray-100 rounded-xl font-bold text-gray-600 hover:bg-gray-200 transition-colors"
+                        className="mt-6 w-full py-4 bg-neutral-900 text-white rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-bioGreen transition-colors"
                     >
-                        Sluiten
+                        {isScratched ? "Geweldig!" : "Sluiten"}
                     </button>
                 </div>
             </motion.div>
@@ -239,7 +299,7 @@ export default function CartSidebar() {
                                         )}
                                         <div className="flex items-center justify-between pt-4 border-t border-gray-200">
                                             <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest">Totaal te betalen</p>
-                                            <p className="text-3xl font-black text-gray-800">SRD {grandTotal}</p>
+                                            <p className="text-sm font-black text-gray-800">SRD {grandTotal}</p>
                                         </div>
                                     </div>
 
@@ -260,20 +320,6 @@ export default function CartSidebar() {
                                             </div>
                                             <IoSparklesOutline className="absolute right-4 top-4 text-white/40 animate-pulse" />
                                         </motion.button>
-
-                                        // <motion.div
-                                        //     initial={{ scale: 0.9, opacity: 0 }}
-                                        //     animate={{ scale: 1, opacity: 1 }}
-                                        //     className="bg-yellow-100 border border-yellow-200 p-3 rounded-xl flex items-center gap-3 mb-4"
-                                        // >
-                                        //     <div className="bg-yellow-400 p-2 rounded-lg text-white">
-                                        //         <IoGiftOutline size={20} />
-                                        //     </div>
-                                        //     <div>
-                                        //         <p className="text-[11px] font-black text-yellow-800 uppercase leading-none">Hoera! Je krijgt een kraskaart</p>
-                                        //         <p className="text-[10px] text-yellow-700 mt-1">Omdat je voor meer dan SRD 500 bestelt!</p>
-                                        //     </div>
-                                        // </motion.div>
                                     )}
 
                                     {/* OPTIE 2: BESTEDINGSMINIMUM MELDING (Makkelijk te commentariëren) */}
@@ -287,15 +333,15 @@ export default function CartSidebar() {
                                     <button
                                         onClick={handleWhatsApp}
                                         disabled={subtotal < MINIMUM_SPEND} // Optioneel: blokkeer knop bij te laag bedrag
-                                        className={`w-full py-5 rounded-2xl font-black flex items-center justify-center gap-3 shadow-lg transition-all active:scale-95 ${subtotal < MINIMUM_SPEND
+                                        className={`w-full py-3 rounded-2xl font-black flex items-center justify-center gap-3 shadow-md transition-all active:scale-95 ${subtotal < MINIMUM_SPEND
                                             ? "bg-gray-300 cursor-not-allowed text-white"
                                             : "bg-[#25D366] text-white hover:bg-[#128C7E] shadow-[0_10px_20px_rgba(37,211,102,0.2)]"
                                             }`}
                                     >
-                                        <IoLogoWhatsapp size={24} /> BESTEL VIA WHATSAPP
+                                        <IoLogoWhatsapp size={24} /> Bestel via WhatsApp
                                     </button>
 
-                                    <p className="text-[9px] text-center text-gray-400 mt-4 leading-relaxed">
+                                    <p className="text-[11px] text-center text-gray-400 mt-4 leading-relaxed">
                                         Door op bestellen te klikken openen we WhatsApp.<br />Je kunt daar je bestelling controleren en versturen.
                                     </p>
                                 </div>
