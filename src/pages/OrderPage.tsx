@@ -8,7 +8,6 @@ import { juicesAndSmoothies, wellnessShots, vitamineWater, cleanseAndHeal, sappe
 // Importeer hier al je assets (zelfde als in MenuPage)
 import specialImg from "../assets/bestelling/kurkumakersVita.webp"; // Voorbeeld voor de banner
 import banner from "../assets/bestelling/bestelling.webp"; // Voorbeeld voor de banner
-import { div } from "framer-motion/client";
 
 function ProductAddToCart({ item, category, addItem, triggerToast, parsePrice }: any) {
     const [selectedIdx, setSelectedIdx] = useState(0);
