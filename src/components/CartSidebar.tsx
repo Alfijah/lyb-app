@@ -275,77 +275,79 @@ export default function CartSidebar() {
                                         Winkelmand leegmaken
                                     </button>
                                 )}
+
+                                {/* FOOTER */}
+                                {cart.length > 0 && (
+                                    <div className="p-8 border-t border-gray-100 bg-neutral-50 rounded-t-[2.5rem]">
+                                        <div className="space-y-2 mb-6">
+                                            <div className="flex justify-between text-sm">
+                                                <span className="text-gray-500">Subtotaal</span>
+                                                <span className="font-bold text-gray-800">SRD {subtotal}</span>
+                                            </div>
+                                            <div className="flex justify-between text-sm">
+                                                <span className="text-gray-500">Bezorgkosten</span>
+                                                <span className="font-bold text-gray-800">SRD {deliveryFee}</span>
+                                            </div>
+
+                                            {/* GRATIS ITEM WEERGAVE (Na krassen) */}
+                                            {hasWonGift && (
+                                                <motion.div initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} className="flex justify-between text-bioGreen font-bold border-t border-dashed border-bioGreen/30 pt-2 mt-2">
+                                                    <span className="flex items-center gap-1"><IoSparklesOutline /> Smoothie 350ml</span>
+                                                    <span className="uppercase text-[10px] bg-bioGreen text-white px-2 py-0.5 rounded-full">Gratis</span>
+                                                </motion.div>
+                                            )}
+                                            <div className="flex items-center justify-between pt-4 border-t border-gray-200">
+                                                <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest">Totaal te betalen</p>
+                                                <p className="text-sm font-black text-gray-800">SRD {grandTotal}</p>
+                                            </div>
+                                        </div>
+
+                                        {/* OPTIE 1: KRASKAART MELDING (Makkelijk te commentariëren) */}
+                                        {subtotal >= 500 && !hasWonGift && (
+                                            <motion.button
+                                                whileHover={{ scale: 1.02 }}
+                                                whileTap={{ scale: 0.98 }}
+                                                onClick={() => setShowScratchCard(true)}
+                                                className="w-full bg-gradient-to-r from-yellow-400 to-orange-400 p-4 rounded-2xl flex items-center gap-4 mb-4 shadow-md group relative overflow-hidden"
+                                            >
+                                                <div className="bg-white/20 p-2 rounded-xl text-white group-hover:rotate-12 transition-transform">
+                                                    <IoGiftOutline size={24} />
+                                                </div>
+                                                <div className="text-left">
+                                                    <p className="text-[11px] font-black text-white uppercase leading-none">Je hebt een cadeau verdiend!</p>
+                                                    <p className="text-[12px] text-white font-bold underline decoration-white/50">Bekijk wat je hebt gewonnen!</p>
+                                                </div>
+                                                <IoSparklesOutline className="absolute right-4 top-4 text-white/40 animate-pulse" />
+                                            </motion.button>
+                                        )}
+
+                                        {/* OPTIE 2: BESTEDINGSMINIMUM MELDING (Makkelijk te commentariëren) */}
+                                        {subtotal < MINIMUM_SPEND && (
+                                            <div className="bg-orange-50 border border-orange-100 p-3 rounded-xl flex items-center gap-3 mb-4 text-orange-700">
+                                                <IoAlertCircleOutline size={20} className="flex-shrink-0" />
+                                                <p className="text-[10px] font-bold">Minimaal SRD 500 nodig om een bestelling te plaatsen via WhatsApp.</p>
+                                            </div>
+                                        )}
+
+                                        <button
+                                            onClick={handleWhatsApp}
+                                            disabled={subtotal < MINIMUM_SPEND} // Optioneel: blokkeer knop bij te laag bedrag
+                                            className={`w-full py-3 rounded-2xl font-black flex items-center justify-center gap-3 shadow-md transition-all active:scale-95 ${subtotal < MINIMUM_SPEND
+                                                ? "bg-gray-300 cursor-not-allowed text-white"
+                                                : "bg-[#25D366] text-white hover:bg-[#128C7E] shadow-[0_10px_20px_rgba(37,211,102,0.2)]"
+                                                }`}
+                                        >
+                                            <IoLogoWhatsapp size={24} /> Bestel via WhatsApp
+                                        </button>
+
+                                        <p className="text-[11px] text-center text-gray-400 mt-4 leading-relaxed">
+                                            Door op bestellen te klikken openen we WhatsApp.<br />Je kunt daar je bestelling controleren en versturen.
+                                        </p>
+                                    </div>
+                                )}
                             </div>
 
-                            {/* FOOTER */}
-                            {cart.length > 0 && (
-                                <div className="p-8 border-t border-gray-100 bg-neutral-50 rounded-t-[2.5rem]">
-                                    <div className="space-y-2 mb-6">
-                                        <div className="flex justify-between text-sm">
-                                            <span className="text-gray-500">Subtotaal</span>
-                                            <span className="font-bold text-gray-800">SRD {subtotal}</span>
-                                        </div>
-                                        <div className="flex justify-between text-sm">
-                                            <span className="text-gray-500">Bezorgkosten</span>
-                                            <span className="font-bold text-gray-800">SRD {deliveryFee}</span>
-                                        </div>
 
-                                        {/* GRATIS ITEM WEERGAVE (Na krassen) */}
-                                        {hasWonGift && (
-                                            <motion.div initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} className="flex justify-between text-bioGreen font-bold border-t border-dashed border-bioGreen/30 pt-2 mt-2">
-                                                <span className="flex items-center gap-1"><IoSparklesOutline /> Smoothie 350ml</span>
-                                                <span className="uppercase text-[10px] bg-bioGreen text-white px-2 py-0.5 rounded-full">Gratis</span>
-                                            </motion.div>
-                                        )}
-                                        <div className="flex items-center justify-between pt-4 border-t border-gray-200">
-                                            <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest">Totaal te betalen</p>
-                                            <p className="text-sm font-black text-gray-800">SRD {grandTotal}</p>
-                                        </div>
-                                    </div>
-
-                                    {/* OPTIE 1: KRASKAART MELDING (Makkelijk te commentariëren) */}
-                                    {subtotal >= 500 && !hasWonGift && (
-                                        <motion.button
-                                            whileHover={{ scale: 1.02 }}
-                                            whileTap={{ scale: 0.98 }}
-                                            onClick={() => setShowScratchCard(true)}
-                                            className="w-full bg-gradient-to-r from-yellow-400 to-orange-400 p-4 rounded-2xl flex items-center gap-4 mb-4 shadow-md group relative overflow-hidden"
-                                        >
-                                            <div className="bg-white/20 p-2 rounded-xl text-white group-hover:rotate-12 transition-transform">
-                                                <IoGiftOutline size={24} />
-                                            </div>
-                                            <div className="text-left">
-                                                <p className="text-[11px] font-black text-white uppercase leading-none">Je hebt een cadeau verdiend!</p>
-                                                <p className="text-[12px] text-white font-bold underline decoration-white/50">Bekijk wat je hebt gewonnen!</p>
-                                            </div>
-                                            <IoSparklesOutline className="absolute right-4 top-4 text-white/40 animate-pulse" />
-                                        </motion.button>
-                                    )}
-
-                                    {/* OPTIE 2: BESTEDINGSMINIMUM MELDING (Makkelijk te commentariëren) */}
-                                    {subtotal < MINIMUM_SPEND && (
-                                        <div className="bg-orange-50 border border-orange-100 p-3 rounded-xl flex items-center gap-3 mb-4 text-orange-700">
-                                            <IoAlertCircleOutline size={20} className="flex-shrink-0" />
-                                            <p className="text-[10px] font-bold">Minimaal SRD 500 nodig om een bestelling te plaatsen via WhatsApp.</p>
-                                        </div>
-                                    )}
-
-                                    <button
-                                        onClick={handleWhatsApp}
-                                        disabled={subtotal < MINIMUM_SPEND} // Optioneel: blokkeer knop bij te laag bedrag
-                                        className={`w-full py-3 rounded-2xl font-black flex items-center justify-center gap-3 shadow-md transition-all active:scale-95 ${subtotal < MINIMUM_SPEND
-                                            ? "bg-gray-300 cursor-not-allowed text-white"
-                                            : "bg-[#25D366] text-white hover:bg-[#128C7E] shadow-[0_10px_20px_rgba(37,211,102,0.2)]"
-                                            }`}
-                                    >
-                                        <IoLogoWhatsapp size={24} /> Bestel via WhatsApp
-                                    </button>
-
-                                    <p className="text-[11px] text-center text-gray-400 mt-4 leading-relaxed">
-                                        Door op bestellen te klikken openen we WhatsApp.<br />Je kunt daar je bestelling controleren en versturen.
-                                    </p>
-                                </div>
-                            )}
                         </motion.div>
                     </>
                 )}
