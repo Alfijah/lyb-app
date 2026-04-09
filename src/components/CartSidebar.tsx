@@ -11,14 +11,16 @@ import {
     IoAlertCircleOutline,
     IoSparklesOutline
 } from "react-icons/io5";
+import { juicesAndSmoothies } from '../data/menuData';
 
 interface ScratchModalProps {
     onComplete: () => void;
     onClose: () => void;
+    giftItem: any;
 }
 
 // --- SUBCOMPONENT: DE KRASKAART MODAL ---
-function ScratchModal({ onComplete, onClose }: ScratchModalProps) {
+function ScratchModal({ onComplete, onClose, giftItem }: ScratchModalProps) {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const [isScratched, setIsScratched] = useState(false);
     const [isDrawing, setIsDrawing] = useState(false);
@@ -107,10 +109,10 @@ function ScratchModal({ onComplete, onClose }: ScratchModalProps) {
                         {/* DE PRIJS (Onderste laag - Jouw originele code met bouncende iconen) */}
                         <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
                             <IoSparklesOutline size={40} className="text-yellow-400 mb-2" />
-                            <img src="/images/smoothie-350ml.png" alt="Smoothie" className="w-24 h-24 object-contain mb-2" />
-                            <h4 className="font-black text-bioGreen uppercase text-sm">GEWONNEN!</h4>
-                            <p className="text-[12px] font-bold text-gray-700 leading-tight">Verse Smoothie (350ml)</p>
-                            <p className="text-[10px] text-gray-400 mt-1 uppercase font-black">Gratis toegevoegd!</p>
+                            <img src={giftItem?.img} alt={giftItem?.name} className="w-24 h-24 object-contain mb-2" />
+                            <h4 className="font-black text-bioGreen uppercase text-sm leading-none">Je wint een gratis</h4>
+                            <p className="text-sm font-black text-gray-800 mt-1 uppercase leading-tight">{giftItem?.name}</p>
+                            <p className="text-sm text-gray-400 mt-1">350 ML • AUTOMATISCH TOEGEVOEGD</p>
                         </div>
 
                         {/* DE KRASLAAG (Canvas - Bovenste laag) */}
@@ -150,13 +152,26 @@ export default function CartSidebar() {
     const { cart, isCartOpen, setIsCartOpen, removeItem, totalPrice, clearCart } = useCartStore();
     const [showScratchCard, setShowScratchCard] = useState(false);
     const [hasWonGift, setHasWonGift] = useState(false);
+    const [randomGift, setRandomGift] = useState<any>(null);
 
     const subtotal = totalPrice();
     const deliveryFee = 100;
     const grandTotal = subtotal + deliveryFee;
-
     // CONFIGURATIE VOOR MAKKELIJK AAN/UIT ZETTEN
     const MINIMUM_SPEND = 499;
+
+    useEffect(() => {
+        if (subtotal >= MINIMUM_SPEND && !randomGift) {
+            // Pak alle items uit alle categorieën van juicesAndSmoothies
+            const allAvailableItems = juicesAndSmoothies.flatMap(category => category.items);
+            // Kies een willekeurig item
+            const randomIndex = Math.floor(Math.random() * allAvailableItems.length);
+            setRandomGift(allAvailableItems[randomIndex]);
+        } else if (subtotal < MINIMUM_SPEND && !hasWonGift) {
+            // Reset cadeau als ze weer onder de 500 zakken (en nog niet gekrast hebben)
+            setRandomGift(null);
+        }
+    }, [subtotal, randomGift, hasWonGift]);
 
     const handleScratchComplete = () => {
         setHasWonGift(true);
@@ -166,10 +181,8 @@ export default function CartSidebar() {
 
     const handleWhatsApp = () => {
         const items = cart.map(i => `• ${i.quantity}x ${i.name} - SRD ${i.price * i.quantity}`).join('%0A');
-        const giftText = hasWonGift ? `%0A🎁 *CADEAU: 1x Gratis Smoothie 350ml (Kraskaart)*` : '';
-        // const message = `Hallo LYB! 👋 Ik wil graag de volgende bestelling plaatsen:%0A%0A${items}%0A%0A*Subtotaal: SRD ${subtotal}*%0A*Bezorgkosten: SRD ${deliveryFee}*%0A*Totaalbedrag: SRD ${grandTotal}*%0A%0A_Ik wacht op bevestiging voor betaling en levering._`;
-        // window.open(`https://wa.me/5978531071?text=${message}`, '_blank');
-        const message = `Hallo LYB! 👋 Bestelling:%0A%0A${items}${giftText}%0A%0A*Totaal: SRD ${grandTotal}*%0A_Inclusief bezorging en eventuele kortingen._`;
+        const giftText = hasWonGift ? `%0A🎁 *CADEAU: 1x GRATIS ${randomGift?.name} (350ml)*` : '';
+        const message = `Hallo LYB! 👋 Bestelling:%0A%0A${items}${giftText}%0A%0A*Totaal: SRD ${grandTotal}*%0A_Inclusief bezorging en verrassing._`;
         window.open(`https://wa.me/5978531071?text=${message}`, '_blank');
     };
 
@@ -291,9 +304,9 @@ export default function CartSidebar() {
 
                                             {/* GRATIS ITEM WEERGAVE (Na krassen) */}
                                             {hasWonGift && (
-                                                <motion.div initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} className="flex justify-between text-bioGreen font-bold border-t border-dashed border-bioGreen/30 pt-2 mt-2">
-                                                    <span className="flex items-center gap-1"><IoSparklesOutline /> Smoothie 350ml</span>
-                                                    <span className="uppercase text-[10px] bg-bioGreen text-white px-2 py-0.5 rounded-full">Gratis</span>
+                                                <motion.div initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} className="flex justify-between text-bioGreen border-t border-dashed border-bioGreen/30 pt-2 mt-2 text-sm">
+                                                    <span className="flex items-center gap-1"><IoSparklesOutline /> {randomGift?.name} 350 ML</span>
+                                                    <span className="uppercase text-sm font-bold text-bioGreen px-2 py-0.5 rounded-full">Gratis</span>
                                                 </motion.div>
                                             )}
                                             <div className="flex items-center justify-between pt-4 border-t border-gray-200">
@@ -353,15 +366,15 @@ export default function CartSidebar() {
                 )}
             </AnimatePresence>
 
-            {/* MODAL VOOR KRASKAART */}
+            {/* MODAL VOOR KRASKAART MET RANDOM ITEM */}
             <AnimatePresence>
-                {showScratchCard && (
+                {showScratchCard && randomGift && (
                     <ScratchModal
+                        giftItem={randomGift}
                         onClose={() => setShowScratchCard(false)}
                         onComplete={() => {
                             handleScratchComplete();
-                            // Optioneel: sluit de modal na 2 seconden automatisch
-                            setTimeout(() => setShowScratchCard(false), 2000);
+                            setTimeout(() => setShowScratchCard(false), 2500);
                         }}
                     />
                 )}

@@ -29,6 +29,7 @@ import shot1 from "../assets/lybMenu/shot1.webp";
 import shot2 from "../assets/lybMenu/shot2.webp";
 import shot3 from "../assets/lybMenu/shot3.webp";
 import shot4 from "../assets/lybMenu/shot4.webp";
+import shot5 from "../assets/lybMenu/shot5.webp";
 import comboshots from "../assets/lybMenu/cleanse1.webp";
 import combojuice from "../assets/lybMenu/cleanse2.webp";
 import combovit from "../assets/lybMenu/cleanse3.webp";
@@ -56,7 +57,8 @@ export const wellnessShots = [
     { img: shot1, name: "kurkuma-kers-zwarte peper", qty: "7x 125 ml" },
     { img: shot2, name: "gember-markoesa-cayenne", qty: "7x 125 ml" },
     { img: shot3, name: "gember-aardbei", qty: "5x 125 ml" },
-    { img: shot4, name: "gember-kurkuma-limoen", qty: "7x 125 ml" }
+    { img: shot4, name: "gember-kurkuma-lemmetje", qty: "7x 125 ml" },
+    { img: shot5, name: "gember-cayenne-lemmetje", qty: "7x 125 ml" }
 ];
 
 export const vitamineWater = [

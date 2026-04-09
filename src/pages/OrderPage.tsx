@@ -2,11 +2,11 @@ import { Helmet } from "react-helmet-async";
 import { motion, AnimatePresence } from "framer-motion";
 import { useCartStore } from "../store/useCartStore";
 import { useState } from "react";
-import { IoCartOutline, IoAdd, IoChevronDownOutline } from "react-icons/io5";
+import { IoCartOutline, IoChevronDownOutline, IoSparklesOutline } from "react-icons/io5";
 import { juicesAndSmoothies, wellnessShots, vitamineWater, cleanseAndHeal, sappenkuur } from '../data/menuData';
 
 // Importeer hier al je assets (zelfde als in MenuPage)
-import specialImg from "../assets/lybMenu/cleanse1.webp"; // Voorbeeld voor de banner
+import specialImg from "../assets/bestelling/bestelling.webp"; // Voorbeeld voor de banner
 
 function ProductAddToCart({ item, category, addItem, triggerToast, parsePrice }: any) {
     const [selectedIdx, setSelectedIdx] = useState(0);
@@ -45,8 +45,8 @@ function ProductAddToCart({ item, category, addItem, triggerToast, parsePrice }:
             </div>
 
             {/* 2. DROPDOWN & PLUS BUTTON RIJ */}
-            <div className="flex items-center gap-2 mt-auto relative">
-                <div className="relative flex-1">
+            <div className="flex flex-col items-center gap-2 mt-auto relative">
+                <div className="relative w-full flex-1">
                     <button
                         onClick={() => setIsOpen(!isOpen)}
                         className="w-full bg-neutral-100 py-3 px-4 rounded-2xl text-[11px] font-black text-gray-700 flex justify-between items-center uppercase tracking-wider hover:bg-neutral-200 transition-colors border border-transparent focus:border-bioGreen/20"
@@ -89,9 +89,9 @@ function ProductAddToCart({ item, category, addItem, triggerToast, parsePrice }:
 
                 <button
                     onClick={handleAdd}
-                    className="bg-bioGreen text-white w-12 h-12 rounded-2xl flex items-center justify-center hover:bg-darkYellow transition-all shadow-md active:scale-90 flex-shrink-0"
+                    className="bg-bioGreen w-full text-white text-sm h-12 rounded-2xl flex items-center justify-center hover:bg-darkYellow transition-all shadow-md active:scale-90 flex-shrink-0"
                 >
-                    <IoAdd size={28} />
+                    In winkelmandje
                 </button>
             </div>
         </div>
@@ -100,7 +100,6 @@ function ProductAddToCart({ item, category, addItem, triggerToast, parsePrice }:
 
 export default function OrderPage() {
     const { addItem } = useCartStore();
-
     const [showToast, setShowToast] = useState(false);
 
     const parsePrice = (priceString: string) => {
@@ -113,6 +112,15 @@ export default function OrderPage() {
         setTimeout(() => setShowToast(false), 2500); // Verdwijnt na 2.5 sec
     };
 
+    // De Weekly Special als een vast object
+    const weeklySpecial = {
+        id: "weekly-special-reset",
+        name: "The Ginger-Berry Reset",
+        price: 125, // Vaste prijs
+        description: "Compleet pakket: 350ml Juice + Wellness Shot combo.",
+        img: specialImg
+    };
+
     return (
         <>
             <Helmet>
@@ -123,22 +131,96 @@ export default function OrderPage() {
 
                 {/* 1. WEEKLY SPECIAL BANNER */}
                 <section className="relative w-full h-[300px] md:h-[400px] bg-bioGreen overflow-hidden flex items-center">
-                    <div className="absolute inset-0 bg-black/20 z-10" />
-                    <img src={specialImg} alt="Special" className="absolute inset-0 w-full h-full object-cover" />
-                    <div className="relative z-20 px-6 md:px-20 text-white max-w-3xl">
-                        <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="bg-darkYellow text-xs font-black px-3 py-1 rounded-full uppercase">Weekly Special</motion.span>
-                        <h1 className="text-4xl md:text-6xl font-black italic mt-4 drop-shadow-lg">The Ginger-Berry Reset</h1>
-                        <p className="mt-4 text-lg font-medium drop-shadow-md">Alleen deze week: Een krachtige mix van bosvruchten en extra gember voor die ultieme immuunboost.</p>
-                        <button
-                            onClick={() => { addItem({ id: 'special-w1', name: 'Weekly Special', price: 125, quantity: 1, img: specialImg }); triggerToast() }}
-                            className="mt-6 bg-white text-bioGreen px-8 py-3 rounded-full font-bold shadow-xl hover:scale-105 transition-transform flex items-center gap-2"
-                        >
-                            <IoAdd className="text-xl" /> Voeg toe - SRD 125
-                        </button>
-                    </div>
+                    <img src={specialImg} alt="Special" className="absolute inset-0 w-full h-full object-cover object-bottom" />
                 </section>
 
                 <div className="max-w-screen-xl mx-auto px-6 py-12">
+                    {/* 1. KRASKAART ACTIE BANNER (Top Reclame) */}
+                    <div className="pt-6 max-w-screen-xl mx-auto">
+                        <motion.div
+                            initial={{ opacity: 0, y: -20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            className="relative w-full bg-gradient-to-r from-yellow-400 to-orange-500 p-8 overflow-hidden flex flex-col md:flex-row items-center justify-between"
+                        >
+                            {/* Decoratieve Sparkles op achtergrond */}
+                            <IoSparklesOutline className="absolute left-4 top-4 text-white/20 text-6xl rotate-12" />
+                            <IoSparklesOutline className="absolute right-10 bottom-2 text-white/10 text-9xl -rotate-12" />
+
+                            <div className="relative z-10 text-center md:text-left">
+                                <span className="bg-white/20 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest border border-white/30">
+                                    Tijdelijke Actie Alleen Op de Website
+                                </span>
+                                <h2 className="text-white text-3xl md:text-4xl font-black mt-3 drop-shadow-md normal">
+                                    Ontvang een Gratis Kraskaart! 🎁
+                                </h2>
+                                <p className="text-white/90 font-bold mt-2 text-sm md:text-base">
+                                    Bij elke bestelling boven de <span className="text-white underline underline-offset-4">SRD 500</span>. Wat ga jij winnen?
+                                </p>
+                            </div>
+
+                            {/* <div className="relative z-10 flex flex-col items-center">
+                                <div className="bg-white p-4 rounded-3xl shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-500 group">
+                                    <IoGiftOutline size={50} className="text-orange-500 animate-bounce" />
+                                </div>
+                            </div> */}
+                        </motion.div>
+                    </div>
+
+                    {/* 2. WEEKLY SPECIAL (Zonder Dropdown) */}
+                    <section className="mt-16 mb-20">
+                        <h2 className="text-3xl font-black italic mb-8 border-l-8 border-bioGreen pl-4">Weekly Special</h2>
+                        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.95 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                className="bg-white p-6 rounded-[2.5rem] shadow-md border-2 border-orange-200 flex flex-col min-h-[420px] relative"
+                            >
+                                <div className="absolute top-4 right-4 bg-orange-500 text-white text-[9px] font-black px-3 py-1 rounded-full uppercase z-10">Limited Package</div>
+
+                                {/* Afbeelding */}
+                                <div className="h-40 flex items-center justify-center mb-4">
+                                    <img src={weeklySpecial.img} alt={weeklySpecial.name} className="max-h-full w-auto object-contain drop-shadow-2xl" />
+                                </div>
+
+                                {/* Info */}
+                                <div className="flex-grow flex flex-col text-center">
+                                    <span className="text-[10px] font-black text-orange-400 mb-1 uppercase">Vers van de week</span>
+                                    <h4 className="font-bold text-gray-800 mb-2 leading-tight uppercase text-sm">{weeklySpecial.name}</h4>
+                                    <p className="text-[11px] text-gray-400 font-medium mb-4 line-clamp-2 italic">{weeklySpecial.description}</p>
+
+                                    {/* Prijs weergave */}
+                                    <div className="mb-4 mt-auto">
+                                        <p className="text-2xl font-black text-bioGreen">SRD {weeklySpecial.price}</p>
+                                    </div>
+
+                                    {/* Directe Add Button (Geen dropdown) */}
+                                    <button
+                                        onClick={() => {
+                                            addItem({
+                                                id: weeklySpecial.id,
+                                                name: weeklySpecial.name,
+                                                price: weeklySpecial.price,
+                                                quantity: 1,
+                                                img: weeklySpecial.img
+                                            });
+                                            triggerToast();
+                                        }}
+                                        className="w-full bg-bioGreen text-white h-12 rounded-2xl text-sm tracking-wide hover:bg-bioGreen transition-all active:scale-95 flex items-center justify-center gap-2"
+                                    >
+                                        In winkelmandje
+                                    </button>
+                                </div>
+                            </motion.div>
+
+                            {/* Informatie tekstje ernaast */}
+                            <div className="hidden md:flex bg-neutral-100 rounded-[2.5rem] p-8 flex-col justify-center border border-dashed border-gray-200">
+                                <p className="text-gray-400 text-sm italic font-medium">
+                                    "Onze Weekly Special is een zorgvuldig samengesteld pakket voor de ultieme boost. <br /><br />
+                                    Geen keuzestress, gewoon de beste smaken van dit moment in één deal."
+                                </p>
+                            </div>
+                        </div>
+                    </section>
 
                     {juicesAndSmoothies.map(category => (
                         <div key={category.id}>
