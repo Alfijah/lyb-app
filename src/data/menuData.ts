@@ -78,8 +78,8 @@ export const cleanseAndHeal = [
 ];
 
 export const sappenkuur = [
-    { d: "1-daagse", i: "8 flessen* + 1 shot gratis", p: "850" },
-    { d: "3-daagse", i: "24 flessen* + 1 shot gratis", p: "2500" },
-    { d: "5-daagse", i: "40 flessen* + 1L vitawater gratis", p: "4100" },
-    { d: "7-daagse", i: "56 flessen* + 2L vitawater gratis", p: "5700" }
+    { d: "1-daagse", i: "8 flessen (350 ML)  + 1 shot GRATIS", p: "850" },
+    { d: "3-daagse", i: "24 flessen (350 ML) + 3 shotS GRATIS", p: "2500" },
+    { d: "5-daagse", i: "40 flessen (350 ML) + 5 shots GRATIS", p: "4100" },
+    { d: "7-daagse", i: "56 flessen (350 ML) + 7 shots GRATIS", p: "5700" }
 ];

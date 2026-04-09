@@ -6,7 +6,9 @@ import { IoCartOutline, IoChevronDownOutline, IoSparklesOutline } from "react-ic
 import { juicesAndSmoothies, wellnessShots, vitamineWater, cleanseAndHeal, sappenkuur } from '../data/menuData';
 
 // Importeer hier al je assets (zelfde als in MenuPage)
-import specialImg from "../assets/bestelling/bestelling.webp"; // Voorbeeld voor de banner
+import specialImg from "../assets/bestelling/kurkumakersVita.webp"; // Voorbeeld voor de banner
+import banner from "../assets/bestelling/bestelling.webp"; // Voorbeeld voor de banner
+import { div } from "framer-motion/client";
 
 function ProductAddToCart({ item, category, addItem, triggerToast, parsePrice }: any) {
     const [selectedIdx, setSelectedIdx] = useState(0);
@@ -38,18 +40,18 @@ function ProductAddToCart({ item, category, addItem, triggerToast, parsePrice }:
     return (
         <div className="flex flex-col w-full h-full">
             {/* 1. DYNAMISCHE PRIJS (Onder de naam) */}
-            <div className="mb-4">
-                <p className="text-2xl font-black text-bioGreen tracking-tight">
+            <div className="mb-3">
+                <p className="text-sm font-black tracking-tight">
                     {currentData.priceDisplay}
                 </p>
             </div>
 
             {/* 2. DROPDOWN & PLUS BUTTON RIJ */}
-            <div className="flex flex-col items-center gap-2 mt-auto relative">
+            <div className="flex flex-col items-center gap-2 relative">
                 <div className="relative w-full flex-1">
                     <button
                         onClick={() => setIsOpen(!isOpen)}
-                        className="w-full bg-neutral-100 py-3 px-4 rounded-2xl text-[11px] font-black text-gray-700 flex justify-between items-center uppercase tracking-wider hover:bg-neutral-200 transition-colors border border-transparent focus:border-bioGreen/20"
+                        className="w-full bg-neutral-100 py-3 px-4 rounded-xl text-[11px] font-black text-gray-700 flex justify-between items-center uppercase tracking-wider hover:bg-neutral-200 transition-colors border border-transparent focus:border-bioGreen/20"
                     >
                         {currentData.label}
                         <motion.div animate={{ rotate: isOpen ? 180 : 0 }}>
@@ -89,7 +91,7 @@ function ProductAddToCart({ item, category, addItem, triggerToast, parsePrice }:
 
                 <button
                     onClick={handleAdd}
-                    className="bg-bioGreen w-full text-white text-sm h-12 rounded-2xl flex items-center justify-center hover:bg-darkYellow transition-all shadow-md active:scale-90 flex-shrink-0"
+                    className="bg-bioGreen w-full text-white text-sm h-12 rounded-full flex items-center justify-center hover:bg-darkYellow transition-all shadow-md active:scale-90 flex-shrink-0"
                 >
                     In winkelmandje
                 </button>
@@ -115,7 +117,7 @@ export default function OrderPage() {
     // De Weekly Special als een vast object
     const weeklySpecial = {
         id: "weekly-special-reset",
-        name: "The Ginger-Berry Reset",
+        name: "Kurkuma, Kers Vitaminewater",
         price: 125, // Vaste prijs
         description: "Compleet pakket: 350ml Juice + Wellness Shot combo.",
         img: specialImg
@@ -127,11 +129,11 @@ export default function OrderPage() {
                 <title>Bestel Direct | Verse Juices & Smoothies | LYB Suriname</title>
             </Helmet>
 
-            <main className="bg-neutral-50 min-h-screen pb-40">
+            <main className="bg-neutral-50 min-h-screen">
 
                 {/* 1. WEEKLY SPECIAL BANNER */}
                 <section className="relative w-full h-[300px] md:h-[400px] bg-bioGreen overflow-hidden flex items-center">
-                    <img src={specialImg} alt="Special" className="absolute inset-0 w-full h-full object-cover object-bottom" />
+                    <img src={banner} alt="Special" className="absolute inset-0 w-full h-full object-cover object-bottom" />
                 </section>
 
                 <div className="max-w-screen-xl mx-auto px-6 py-12">
@@ -173,24 +175,24 @@ export default function OrderPage() {
                             <motion.div
                                 initial={{ opacity: 0, scale: 0.95 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
-                                className="bg-white p-6 rounded-[2.5rem] shadow-md border-2 border-orange-200 flex flex-col min-h-[420px] relative"
+                                className="bg-white p-6 rounded-xl shadow-md border-2 border-orange-200 flex flex-col min-h-[420px] relative"
                             >
-                                <div className="absolute top-4 right-4 bg-orange-500 text-white text-[9px] font-black px-3 py-1 rounded-full uppercase z-10">Limited Package</div>
+                                <div className="absolute top-4 right-4 bg-orange-500 text-white text-[9px] font-black px-3 py-1 rounded-full uppercase z-10">As Seen On Social Media</div>
 
                                 {/* Afbeelding */}
-                                <div className="h-40 flex items-center justify-center mb-4">
-                                    <img src={weeklySpecial.img} alt={weeklySpecial.name} className="max-h-full w-auto object-contain drop-shadow-2xl" />
+                                <div className="h-full flex items-center justify-center mb-4">
+                                    <img src={weeklySpecial.img} alt={weeklySpecial.name} className="max-h-full w-auto object-contain" />
                                 </div>
 
                                 {/* Info */}
-                                <div className="flex-grow flex flex-col text-center">
-                                    <span className="text-[10px] font-black text-orange-400 mb-1 uppercase">Vers van de week</span>
-                                    <h4 className="font-bold text-gray-800 mb-2 leading-tight uppercase text-sm">{weeklySpecial.name}</h4>
-                                    <p className="text-[11px] text-gray-400 font-medium mb-4 line-clamp-2 italic">{weeklySpecial.description}</p>
+                                <div className="flex-grow flex flex-col">
+                                    <span className="text-[12px] font-black text-orange-400 mb-1 uppercase">Vers van de week</span>
+                                    <h4 className="font-bold text-gray-800 mb-2 leading-tight text-sm">{weeklySpecial.name}</h4>
+                                    <p className="text-[11px] text-gray-400 font-medium mb-1 line-clamp-2 italic">{weeklySpecial.description}</p>
 
                                     {/* Prijs weergave */}
                                     <div className="mb-4 mt-auto">
-                                        <p className="text-2xl font-black text-bioGreen">SRD {weeklySpecial.price}</p>
+                                        <p className="text-sm font-black">SRD {weeklySpecial.price}</p>
                                     </div>
 
                                     {/* Directe Add Button (Geen dropdown) */}
@@ -205,7 +207,7 @@ export default function OrderPage() {
                                             });
                                             triggerToast();
                                         }}
-                                        className="w-full bg-bioGreen text-white h-12 rounded-2xl text-sm tracking-wide hover:bg-bioGreen transition-all active:scale-95 flex items-center justify-center gap-2"
+                                        className="w-full bg-bioGreen text-white h-12 rounded-full text-sm tracking-wide hover:bg-bioGreen transition-all active:scale-95 flex items-center justify-center gap-2"
                                     >
                                         In winkelmandje
                                     </button>
@@ -225,21 +227,21 @@ export default function OrderPage() {
                     {juicesAndSmoothies.map(category => (
                         <div key={category.id}>
                             <h2 className="text-3xl font-black italic mb-8 border-l-8 border-bioGreen pl-4">{category.title}</h2>
-                            <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-16">
+                            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 mb-16">
                                 {category.items.map(item => (
                                     <div
                                         key={item.id}
-                                        className="bg-white p-6 rounded-[2.5rem] shadow-sm border border-gray-100 flex flex-col min-h-[420px]"
+                                        className="bg-white px-3 py-3 shadow-sm border border-gray-100 flex flex-col"
                                     >
                                         {/* Afbeelding */}
-                                        <div className="h-40 flex items-center justify-center mb-4">
+                                        <div className="h-40 flex items-center justify-center mb-1">
                                             <img src={item.img} alt={item.name} className="max-h-full w-auto object-contain drop-shadow-xl" />
                                         </div>
 
                                         {/* Info sectie */}
                                         <div className="flex-grow flex flex-col">
-                                            <span className="text-[10px] font-black text-bioGreen/40 mb-1 tracking-widest uppercase">#{item.id}</span>
-                                            <h4 className="font-bold text-gray-800 mb-1 leading-tight uppercase text-sm line-clamp-2">
+                                            {/* <span className="text-sm font-black italic mb-1 tracking-widest uppercase">#{item.id}</span> */}
+                                            <h4 className="font-bold text-gray-800 mb-1 leading-tight capitalize text-sm">
                                                 {item.name}
                                             </h4>
 
@@ -263,17 +265,19 @@ export default function OrderPage() {
                     {/* Wellness Shots */}
                     <div>
                         <h2 className="text-3xl font-black italic mb-8 border-l-8 border-bioGreen pl-4">Wellness Shots</h2>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 mb-16">
                             {wellnessShots.map((item, index) => (
-                                <div key={`shot-${index}`} className="bg-white p-4 rounded-3xl shadow-sm border border-gray-100 flex flex-col">
-                                    <img src={item.img} alt={item.name} className="w-32 h-auto mx-auto mb-4" />
-                                    <h4 className="font-bold text-center text-gray-800 mb-2 h-10 line-clamp-2 uppercase text-sm">{item.name}</h4>
-                                    <p className="text-center text-xs text-gray-500 mb-4">{item.qty}</p>
+                                <div key={`shot-${index}`} className="bg-white px-3 py-3 shadow-sm border border-gray-100 flex flex-col">
+                                    <img src={item.img} alt={item.name} className="w-32 h-auto mx-auto mb-1" />
+                                    <h4 className="font-bold text-gray-800 mb-2 h-10 line-clamp-2 capitalize text-sm">{item.name}</h4>
+                                    <p className="text-xs text-gray-500 mb-1">{item.qty}</p>
+                                    <p className="text-sm font-black mb-3">SRD 500</p>
+
                                     <button
                                         onClick={() => { addItem({ id: `shot-${index}`, name: item.name, price: 500, quantity: 1, img: item.img }); triggerToast() }}
-                                        className="mt-auto w-full bg-neutral-100 py-2 rounded-xl text-xs font-bold hover:bg-bioGreen hover:text-white transition-colors"
+                                        className="w-full bg-bioGreen h-12 rounded-full text-white text-sm hover:bg-bioGreen hover:text-white transition-colors"
                                     >
-                                        Voeg toe - SRD 500
+                                        In winkelmandje
                                     </button>
                                 </div>
                             ))}
@@ -283,16 +287,18 @@ export default function OrderPage() {
                     {/* Vitamine Water */}
                     <div>
                         <h2 className="text-3xl font-black italic mb-8 border-l-8 border-bioGreen pl-4">Vitamine Water</h2>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 mb-16">
                             {vitamineWater.map((item, index) => (
-                                <div key={`vitawater-${index}`} className="bg-white p-4 rounded-3xl shadow-sm border border-gray-100 flex flex-col">
+                                <div key={`vitawater-${index}`} className="bg-white px-3 py-3 shadow-sm border border-gray-100 flex flex-col">
                                     <img src={item.img} alt={item.name} className="w-32 h-auto mx-auto mb-4" />
-                                    <h4 className="font-bold text-center text-gray-800 mb-2 h-10 line-clamp-2 uppercase text-sm">{item.name}</h4>
+                                    <h4 className="font-bold text-gray-800 mb-1 line-clamp-2 capitalize text-sm">{item.name}</h4>
+                                    <p className="text-xs text-gray-500 mb-1">1000 ML</p>
+                                    <p className="text-sm font-black mb-3">{item.price}</p>
                                     <button
                                         onClick={() => { addItem({ id: `vitawater-${index}`, name: item.name, price: parsePrice(item.price), quantity: 1, img: item.img }); triggerToast() }}
-                                        className="mt-auto w-full bg-neutral-100 py-2 rounded-xl text-xs font-bold hover:bg-bioGreen hover:text-white transition-colors"
+                                        className="w-full bg-bioGreen h-12 rounded-full text-white text-sm hover:bg-bioGreen hover:text-white transition-colors"
                                     >
-                                        Voeg toe - {item.price}
+                                        In winkelmandje
                                     </button>
                                 </div>
                             ))}
@@ -305,20 +311,24 @@ export default function OrderPage() {
                         <div className="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 flex flex-col lg:flex-row items-center gap-6 mb-16">
                             <div className="flex-shrink-0 grid grid-cols-3 gap-4">
                                 {cleanseAndHeal.map((item, index) => (
-                                    <img key={index} src={item.img} alt={item.name} className="w-24 h-auto" />
+                                    <div key={`cleanse-${index}`}>
+                                    <img src={item.img} alt={item.name} className="w-24 h-auto" />
+                                    <p className="text-xs text-center text-gray-500 mb-1">{item.info}</p>
+
+                                    </div>
                                 ))}
                             </div>
-                            <div className="flex-grow text-center lg:text-left">
-                                <h4 className="font-bold text-xl text-gray-800 mb-2">Complete Cleanse & Heal Set</h4>
-                                <p className="text-gray-600 mb-4">Een complete set van Gember shots, Aloë vera juice en Kurkuma vitamine water voor een volledige reset.</p>
-                                <p className="font-bold text-lg text-bioGreen mb-4"><span className="line-through text-gray-400 text-sm">SRD 900</span> SRD 850</p>
+                            <div className="flex-grow">
+                                <h4 className="font-bold text-sm text-gray-800 mb-2">Complete Cleanse & Heal Set</h4>
+                                <p className="text-gray-600 text-sm mb-1">Een complete set van Gember shots, Aloë vera juice en Kurkuma vitamine water voor een volledige reset.</p>
+                                <p className="font-bold text-sm text-bioGreen"><span className="line-through text-gray-400 text-sm">SRD 900</span> SRD 850</p>
                             </div>
                             <div className="flex-shrink-0 w-full lg:w-auto">
                                 <button
                                     onClick={() => { addItem({ id: 'cleanse-set', name: 'Cleanse & Heal Set', price: 850, quantity: 1, img: cleanseAndHeal[0].img }); triggerToast() }}
-                                    className="w-full lg:w-auto bg-bioGreen text-white px-8 py-3 rounded-xl font-bold hover:bg-darkYellow transition-colors"
+                                    className="w-full bg-bioGreen h-12 rounded-full text-white text-sm hover:bg-bioGreen hover:text-white transition-colors"
                                 >
-                                    Voeg set toe
+                                    In winkelmandje
                                 </button>
                             </div>
                         </div>
@@ -327,16 +337,18 @@ export default function OrderPage() {
                     {/* Sappenkuur */}
                     <div>
                         <h2 className="text-3xl font-black italic mb-8 border-l-8 border-bioGreen pl-4">Sappenkuur</h2>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-2">
                             {sappenkuur.map((item, index) => (
-                                <div key={`kuur-${index}`} className="bg-white p-4 rounded-3xl shadow-sm border border-gray-100 flex flex-col text-center">
+                                <div key={`kuur-${index}`} className="bg-white p-4 rounded-3xl shadow-sm border border-gray-100 flex flex-col">
                                     <h3 className="font-black text-lg text-bioGreen mb-2">{item.d}</h3>
-                                    <p className="text-xs text-gray-600 mb-4 flex-grow">{item.i}</p>
+                                    <p className="text-xs text-gray-600 mb-1 flex-grow">{item.i}</p>
+                                    <p className="text-sm font-black mb-3">SRD {item.p}</p>
+
                                     <button
                                         onClick={() => { addItem({ id: `kuur-${index}`, name: `Sappenkuur ${item.d}`, price: parseInt(item.p, 10), quantity: 1, img: cleanseAndHeal[0].img }); triggerToast() }}
-                                        className="mt-auto w-full bg-neutral-100 py-2 rounded-xl text-xs font-bold hover:bg-bioGreen hover:text-white transition-colors"
+                                        className="w-full bg-bioGreen h-12 rounded-full text-white text-sm hover:bg-bioGreen hover:text-white transition-colors"
                                     >
-                                        Voeg toe - SRD {item.p}
+                                        In winkelmandje
                                     </button>
                                 </div>
                             ))}
