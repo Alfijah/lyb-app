@@ -34,8 +34,8 @@ export default function Benefits() {
       title: "Elektrolyten – Hydratatie & herstel",
       content: "Elektrolyten helpen je lichaam vocht vast te houden, spieren te laten werken en vermoeidheid te verminderen. Ze zijn essentieel bij warmte, beweging en lange dagen.",
       ingredients: [
-        "Ananas, limoen, komkommer → rijk aan water en mineralen",
-        "Zuurzak, banaan → natuurlijke kaliumbron",
+        "Ananas, lemmetje, komkommer → rijk aan water en mineralen",
+        "Zuurzak, bacove → natuurlijke kaliumbron",
         "Chia → houdt vocht vast en geeft langdurige hydratatie"
       ],
       effect: "Fruit + chia + citrus = snelle én langdurige hydratatie"
@@ -44,9 +44,9 @@ export default function Benefits() {
       title: "Antioxidanten – Bescherming & herstel",
       content: "Antioxidanten beschermen je cellen tegen stress (zoals vermoeidheid, drukte, slechte voeding) en ondersteunen herstel van binnenuit.",
       ingredients: [
-        "Açaí, kers, framboos, aardbei, mango",
+        "Podosiri, kers, framboos, aardbei, mango",
         "Hibiscus, kaneel, kruidnagel",
-        "Zuurzak, passievrucht"
+        "Zuurzak, markoesa"
       ],
       effect: "Donker fruit + kruiden = bredere bescherming (synergie)"
     },

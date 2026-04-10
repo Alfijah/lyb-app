@@ -1,4 +1,6 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useCartStore } from "../store/useCartStore";
+import { useState } from "react";
 import { fadeInUp } from "../animations/Varianten";
 import podosiri from "../assets/featuredSmoothies/acai.webp";
 import chiaZuurzak from "../assets/featuredSmoothies/soursop.webp";
@@ -6,8 +8,12 @@ import cleanseHeal from "../assets/featuredSmoothies/greenReset.webp";
 import fruitBg from "../assets/fluidButton.webp";
 import SectionWrapper from "../animations/SectionWrapper";
 import WipeButton from "./tools/Button";
+import { IoCartOutline } from "react-icons/io5";
 
 export default function FeaturedSmoothies() {
+  const { addItem } = useCartStore(); // Haal addItem uit de store
+  const [showToast, setShowToast] = useState(false); // State voor de melding
+
   const smoothies = [
     {
       id: 1,
@@ -18,6 +24,8 @@ export default function FeaturedSmoothies() {
         "Ondersteunt het lichaam bij spierwerking en het vasthouden van een stabiel energieniveau.",
       tags: ["Weerstand", "Energie", "Spijsvertering"],
       image: podosiri,
+      i: "350 ml",
+      price: "SRD 115",
     },
     {
       id: 2,
@@ -28,6 +36,8 @@ export default function FeaturedSmoothies() {
         "Ondersteunt hydratatie en een verzadigd gevoel dankzij vezels en natuurlijke mineralen.",
       tags: ["Weerstand", "Antioxidant", "Energie"],
       image: chiaZuurzak,
+      i: "350 ml",
+      price: "SRD 115",
     },
     {
       id: 3,
@@ -38,8 +48,32 @@ export default function FeaturedSmoothies() {
         "Rijk aan antioxidanten en perfect voor een natuurlijke energieboost.",
       tags: ["Reiniging", "Weerstand", "Energie"],
       image: cleanseHeal,
+      i: "350 ml",
+      price: "SRD 115",
     },
   ];
+
+  // Helper om prijs om te zetten naar getal
+  const parsePrice = (priceString: string) => {
+    const priceMatch = priceString.match(/SRD\s*(\d+)/);
+    return priceMatch ? parseInt(priceMatch[1], 10) : 0;
+  };
+
+  const handleAddToCart = (pkg: any) => {
+    addItem({
+      // Gebruik pkg.id om te zorgen dat detox-1 en detox-3 verschillend zijn
+      id: pkg.id,
+      // Geef de volledige naam mee zodat je het onderscheid ziet in de lijst
+      name: pkg.name,
+      price: parsePrice(pkg.price),
+      quantity: 1,
+      img: pkg.image
+    });
+
+    setShowToast(true);
+    setTimeout(() => setShowToast(false), 2500);
+  };
+
 
   return (
     <section id="menu" className="bg-bgColor max-w-screen-3xl mx-auto lg:px-8 xl:px-10 py-10 md:py-16 pb-8 sm:pb-10 md:pb-6 xl:pb-8 text-center">
@@ -77,7 +111,7 @@ export default function FeaturedSmoothies() {
               className="flex flex-col flex-1 w-full px-4 md:px-6 py-6 space-y-1 text-left shadow-sm border-x-2 border border-gray-100 rounded-b-xl bg-transparent"
             >
               <div className="flex-1 flex flex-col space-y-1">
-                <p className="body-text italic">
+                <p className="body-text italic capitalize">
                   <b>{smoothie.tag}</b>
                 </p>
                 <p className="body-text text-left leading-relaxed">
@@ -97,25 +131,46 @@ export default function FeaturedSmoothies() {
                 ))}
               </div>
 
-              <div className="w-full flex justify-between">
-                {/* <p className="body-text font-extrabold tracking-tighter">
-                  350 ml
-                </p> */}
-                <p className="flex items-center bestSellerPrice font-black">
-                  SRD 115
-                </p>
+              <div className="w-full flex justify-between gap-4">
+                <div className="flex flex-col">
+                  <p className="body-text text-gray-300 tracking-tighter">
+                    {smoothie.i}
+                  </p>
+                  <p className="flex items-center text-gray-700 text-nowrap font-black">
+                    {smoothie.price}
+                  </p>
+                </div>
                 <WipeButton
-                  href="https://wa.me/5978531071"
-                  external
+                  onClick={() => handleAddToCart(smoothie)}
                   style={{ backgroundImage: `url(${fruitBg})` }}
                   className="body w-full max-w-[240px] mx-auto bg-cover bg-center text-white"
                 >
-                  Bestel Nu
+                  In winkelmandje
                 </WipeButton>
               </div>
             </motion.div>
           </SectionWrapper>
         ))}
+
+         {/* DE TOAST NOTIFICATIE (Hetzelfde als op de OrderPage) */}
+                <AnimatePresence>
+                    {showToast && (
+                        <motion.div
+                            initial={{ x: 300, opacity: 0 }}
+                            animate={{ x: 0, opacity: 1 }}
+                            exit={{ x: 300, opacity: 0 }}
+                            className="fixed top-24 right-4 z-[200] bg-white border-l-4 border-bioGreen shadow-2xl rounded-2xl p-4 flex items-center gap-3 min-w-[220px]"
+                        >
+                            <div className="bg-bioGreen/10 p-2 rounded-full">
+                                <IoCartOutline className="text-bioGreen text-xl" />
+                            </div>
+                            <div>
+                                <p className="text-xs font-black text-gray-800 uppercase tracking-tight">Gelukt!</p>
+                                <p className="text-[10px] text-gray-500 font-medium">Toegevoegd aan mandje</p>
+                            </div>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
       </div>
     </section>
   );

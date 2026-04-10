@@ -12,26 +12,26 @@ export default function MenuPage() {
   const { hash } = useLocation();
 
   useEffect(() => {
-  if (hash) {
-    // We geven de browser 100ms de tijd om de DOM te 'settelen'
-    const timer = setTimeout(() => {
-      const id = hash.replace("#", "");
-      const element = document.getElementById(id);
+    if (hash) {
+      // We geven de browser 100ms de tijd om de DOM te 'settelen'
+      const timer = setTimeout(() => {
+        const id = hash.replace("#", "");
+        const element = document.getElementById(id);
 
-      if (element) {
-        const offset = 100; // Pas dit aan aan de hoogte van je navbar
-        const elementPosition = element.getBoundingClientRect().top + window.scrollY;
-        
-        window.scrollTo({
-          top: elementPosition - offset,
-          behavior: "smooth",
-        });
-      }
-    }, 100); // 100ms is meestal genoeg voor React om te renderen
+        if (element) {
+          const offset = 100; // Pas dit aan aan de hoogte van je navbar
+          const elementPosition = element.getBoundingClientRect().top + window.scrollY;
 
-    return () => clearTimeout(timer); // Netjes opruimen als de component unmount
-  }
-}, [hash]);
+          window.scrollTo({
+            top: elementPosition - offset,
+            behavior: "smooth",
+          });
+        }
+      }, 100); // 100ms is meestal genoeg voor React om te renderen
+
+      return () => clearTimeout(timer); // Netjes opruimen als de component unmount
+    }
+  }, [hash]);
 
   return (
     <>
@@ -50,7 +50,16 @@ export default function MenuPage() {
       <main className="bg-neutral-50 min-h-screen">
         <section id="menu" className="max-w-screen-md mx-auto text-white px-6 md:px-12 py-12 md:py-20 lg:pt-32">
           <SectionWrapper>
-            <h1 className="text-3xl md:text-5xl font-bold text-center mb-12">LYB Menu</h1>
+            <h1
+              className="text-center text-3xl md:text-4xl font-bold pb-4 border-b-2 border-gray-200"
+            >
+              LYB Menu
+            </h1>
+            <p
+              className="body-text text-center max-w-2xl mx-auto py-6"
+            >
+            Het actuele aanbod vind je ook terug op de Bestellen pagina. Daar 
+            </p>
           </SectionWrapper>
 
           <div className="flex flex-col gap-8">

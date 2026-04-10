@@ -80,15 +80,15 @@ export default function Process() {
                 ))}
             </div>
 
-            <div className="w-full pt-10">
+            <motion.div variants={fadeInUp} className="w-full pt-10">
                 <WipeButton
-                    to="/menu"
+                    to="/bestellen"
                     style={{ backgroundImage: `url(${fruitBg})` }}
                     className="body w-full max-w-[240px] mx-auto bg-cover bg-center text-white"
                 >
-                    Bekijk ons menu
+                    Kies je favoriet
                 </WipeButton>
-            </div>
+            </motion.div>
         </section>
     );
 }

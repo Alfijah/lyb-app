@@ -109,7 +109,7 @@ export default function DetoxPage() {
                     {/* 3. VOORDELEN GRID */}
                     <SectionWrapper className="mb-20 text-center">
                         <motion.h2 variants={fadeInUp} className="text-3xl font-bold mb-10">De voordelen na een detox</motion.h2>
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
                             {benefits.map((benefit, i) => (
                                 <motion.div
                                     key={i}
@@ -161,10 +161,10 @@ export default function DetoxPage() {
                                 <BiWater className="text-2xl text-bioGreen" /> Do's & Dont's
                             </h3>
                             <ul className="space-y-4 text-sm body-text">
-                                <li className="flex gap-2"><strong>7:00 AM:</strong> Begin met je Vitamine Water.</li>
-                                <li className="flex gap-2"><strong>Interval:</strong> Drink daarna elke 2 uur een fles.</li>
-                                <li className="flex gap-2"><strong>Water:</strong> Drink minimaal 2 liter water per dag naast je sappen.</li>
+                                <li className="flex gap-2"><strong>7:00 AM:</strong> Begin fris met je Vitamine Water.</li>
+                                <li className="flex gap-2"><strong>Interval:</strong> Drink daarna elke 2 uur een fles. De volgorde staat op de fles.</li>
                                 <li className="flex gap-2"><strong>Cravings:</strong> Honger? Neem wat komkommer of een klein stukje fruit.</li>
+                                <li className="flex gap-2"><strong>Dag&nbsp;3:</strong> Vanaf de derde dag mag het programma worden aangevuld met een gekookt eitje.</li>
                                 <li className="flex gap-2 items-center text-red-600 font-semibold italic">
                                     <BiCoffeeTogo className="text-xl" /> Zeg even bye-bye tegen koffie!
                                 </li>
@@ -207,15 +207,17 @@ export default function DetoxPage() {
                     <SectionWrapper className="mt-20 py-12 lg:text-center border-t border-gray-200">
                         <h3 className="text-xl font-bold mb-4 italic text-darkYellow">Houd je gezonde ritme vast</h3>
                         <p className="body-text mb-8 max-w-2xl mx-auto">
-                            Na een detox is het belangrijk om je lichaam te blijven voeden met natuurlijke bouwstoffen. Bekijk ons dagelijks menu voor jouw favoriete smoothies en juices.
+                            Na een detox is het belangrijk om je lichaam te blijven voeden met natuurlijke bouwstoffen. Bekijk het actuele aanbod voor jouw favoriete smoothies en juices.
                         </p>
-                        <WipeButton
-                            to="/menu"
-                            style={{ backgroundImage: `url(${fruitBg})` }}
-                            className="text-white"
-                        >
-                            Bekijk het Dagelijks Menu
-                        </WipeButton>
+                        <motion.div variants={fadeInUp} className="w-full">
+                            <WipeButton
+                                to="/bestellen"
+                                style={{ backgroundImage: `url(${fruitBg})` }}
+                                className="body w-full max-w-[240px] mx-auto bg-cover bg-center text-white"
+                            >
+                                Bekijk actuele aanbod
+                            </WipeButton>
+                        </motion.div>
                     </SectionWrapper>
                 </div>
 

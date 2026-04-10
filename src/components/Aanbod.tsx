@@ -73,7 +73,7 @@ export default function Aanbod() {
             </SectionWrapper>
 
             {/* Categorieën Grid */}
-            <div className="max-w-screen-2xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20 xl:px-10 2xl:px-16">
+            <div className="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20 xl:px-10 2xl:px-16">
                 {categories.map((c) => (
                     <SectionWrapper key={c.id}>
                         <div className="group">

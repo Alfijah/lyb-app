@@ -20,12 +20,12 @@ export const faqItems: FaqItemType[] = [
   {
     question: "Hoe kan ik een bestelling plaatsen?",
     answer:
-      "Je kunt eenvoudig een bestelling plaatsen door contact met ons op te nemen via WhatsApp of onze social media kanalen. Wij helpen je daarna direct verder met de beschikbare smaken en de bezorging in Paramaribo.",
+      "Bestellen is heel eenvoudig: kies je favoriete producten op onze bestelpagina en voeg ze toe aan je winkelmand. Klik bij het afrekenen op de 'Bestel via WhatsApp' button; je wordt dan direct naar WhatsApp geleid met je complete besteloverzicht. Daar spreken we de bezorging in Paramaribo verder met je af."
   },
   {
     question: "Levert LYB in heel Paramaribo?",
     answer:
-      "Ja, LYB levert door heel Paramaribo. De bezorgkosten en tijden kunnen variëren per locatie. Neem contact met ons op om de specifieke bezorgopties voor jouw adres te bespreken.",
+      "Ja, LYB levert door heel Paramaribo. De bezorgkosten bedragen SRD 100 en tijden kunnen variëren per locatie. Neem contact met ons op om de specifieke bezorgopties voor jouw adres te bespreken.",
   },
   {
     question: "Zijn de juices en smoothies vers bereid?",
@@ -40,12 +40,17 @@ export const faqItems: FaqItemType[] = [
   {
     question: "Hoe lang kan ik de sappen bewaren?",
     answer:
-      "Omdat onze producten vers en zonder toevoegingen zijn, adviseren we ze direct gekoeld te bewaren. De meeste juices blijven 2 tot 3 dagen goed, maar voor de beste smaakbeleving raden we aan ze zo snel mogelijk te consumeren.",
+      "Omdat onze producten vers en zonder toevoegingen zijn, adviseren we ze direct gekoeld te bewaren. De meeste juices blijven 4 tot 5 dagen goed, maar voor de beste smaakbeleving raden we aan ze zo snel mogelijk te consumeren.",
   },
   {
     question: "Bieden jullie ook detox- of sapvastenkuren aan?",
     answer:
-      "Ja, wij zijn gespecialiseerd in detoxopties en meerdaagse sappenkuren. Je kunt kiezen uit kuren van 1, 3, 5 of 7 dagen. Neem contact met ons op voor een advies op maat en de actuele prijzen.",
+      "Ja, wij zijn gespecialiseerd in detoxopties en meerdaagse sappenkuren. Je kunt kiezen uit kuren van 1, 3, 5 of 7 dagen. Bij je eerste detox kuur adviseren wij de 1-daagse kuur. Meer informatie over onze kuren en prijzen vind je op de Detoxen pagina.",
+  },
+  {
+    question: "Werkt de detoxkuur laxerend?",
+    answer:
+      "Absoluut niet. De kuur is mild en werkt niet laxerend. Het enige verschil dat de meeste mensen merken, is dat ze vaker moeten plassen doordat de vochtinname hoger is dan normaal. Je kunt je dagelijkse activiteiten dus gewoon blijven doen zonder onverwachte verrassingen.",
   },
   {
     question: "Kan ik hulp krijgen bij het kiezen van een kuur of smaak?",
@@ -67,9 +72,8 @@ function FaqItem({ question, answer, isOpen, onToggle }: FaqItemProps) {
           {question}
         </span>
         <span
-          className={`text-2xl font-light transition-transform duration-300 ${
-            isOpen ? "rotate-45 text-bioGreen" : "text-gray-400"
-          }`}
+          className={`text-2xl font-light transition-transform duration-300 ${isOpen ? "rotate-45 text-bioGreen" : "text-gray-400"
+            }`}
         >
           +
         </span>
@@ -103,7 +107,7 @@ export default function FaqPage() {
 
   return (
     <main className="relative w-full bg-neutral-50 overflow-x-hidden">
-      
+
       {/* 1. HERO IMAGE: Consistent met About & Benefits */}
       <div className="relative w-full h-[250px] sm:h-[350px] lg:h-[450px] overflow-hidden">
         <img
@@ -118,27 +122,27 @@ export default function FaqPage() {
       <div className="max-w-screen-xl mx-auto px-6 md:px-12 py-12 md:py-20">
         <SectionWrapper>
           <div className="mb-10">
-            <motion.p 
-              variants={fadeInUp} 
+            <motion.p
+              variants={fadeInUp}
               className="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-darkYellow"
             >
               FAQ
             </motion.p>
 
-            <motion.h1 
-              variants={fadeInUp} 
+            <motion.h1
+              variants={fadeInUp}
               className="text-3xl md:text-4xl font-bold pb-4 border-b-2 border-gray-200"
             >
               Veelgestelde vragen
             </motion.h1>
 
-            <motion.p 
-              variants={fadeInUp} 
+            <motion.p
+              variants={fadeInUp}
               className="mt-6 body-text max-w-2xl"
             >
               Hier vind je antwoorden op de meest gestelde vragen over onze juices,
-              smoothies en detoxopties in Suriname. Staat je vraag er niet tussen? 
-              Stuur ons gerust een bericht.
+              smoothies en detoxopties in Suriname. Staat je vraag er niet tussen?
+              Stuur ons gerust een WhatsApp berichtje naar 8531071.
             </motion.p>
           </div>
         </SectionWrapper>

@@ -6,7 +6,7 @@ import { IoCartOutline, IoChevronDownOutline, IoSparklesOutline } from "react-ic
 import { juicesAndSmoothies, wellnessShots, vitamineWater, cleanseAndHeal, sappenkuur } from '../data/menuData';
 
 // Importeer hier al je assets (zelfde als in MenuPage)
-import specialImg from "../assets/bestelling/kurkumakersVita.webp"; // Voorbeeld voor de banner
+import specialImg from "../assets/bestelling/comboSpecial.webp"; // Voorbeeld voor de banner
 import banner from "../assets/bestelling/bestelling.webp"; // Voorbeeld voor de banner
 
 function ProductAddToCart({ item, category, addItem, triggerToast, parsePrice }: any) {
@@ -117,8 +117,8 @@ export default function OrderPage() {
     const weeklySpecial = {
         id: "weekly-special-reset",
         name: "Kurkuma, Kers Vitaminewater",
-        price: 125, // Vaste prijs
-        description: "Compleet pakket: 350ml Juice + Wellness Shot combo.",
+        price: 550, // Vaste prijs
+        description: "Compleet pakket: 2 juices en 2 smoothies van 350 ml & 1 Kurkuma & Kers vitaminewater van 1L.",
         img: specialImg
     };
 
@@ -174,7 +174,7 @@ export default function OrderPage() {
                             <motion.div
                                 initial={{ opacity: 0, scale: 0.95 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
-                                className="bg-white p-6 rounded-xl shadow-md border-2 border-orange-200 flex flex-col min-h-[420px] relative"
+                                className="bg-white p-6 rounded-xl shadow-sm border-2 border-orange-200 flex flex-col min-h-[420px] relative"
                             >
                                 <div className="absolute top-4 right-4 bg-orange-500 text-white text-[9px] font-black px-3 py-1 rounded-full uppercase z-10">As Seen On Social Media</div>
 
@@ -187,7 +187,7 @@ export default function OrderPage() {
                                 <div className="flex-grow flex flex-col">
                                     <span className="text-[12px] font-black text-orange-400 mb-1 uppercase">Vers van de week</span>
                                     <h4 className="font-bold text-gray-800 mb-2 leading-tight text-sm">{weeklySpecial.name}</h4>
-                                    <p className="text-[11px] text-gray-400 font-medium mb-1 line-clamp-2 italic">{weeklySpecial.description}</p>
+                                    <p className="text-[11px] text-gray-400 font-medium mb-1 italic">{weeklySpecial.description}</p>
 
                                     {/* Prijs weergave */}
                                     <div className="mb-4 mt-auto">
@@ -230,7 +230,7 @@ export default function OrderPage() {
                                 {category.items.map(item => (
                                     <div
                                         key={item.id}
-                                        className="bg-white px-3 py-3 shadow-sm border border-gray-100 flex flex-col"
+                                        className="bg-white px-3 py-3 shadow-xs border border-gray-100 flex flex-col"
                                     >
                                         {/* Afbeelding */}
                                         <div className="h-40 flex items-center justify-center mb-1">
@@ -264,9 +264,9 @@ export default function OrderPage() {
                     {/* Wellness Shots */}
                     <div>
                         <h2 className="text-3xl font-black italic mb-8 border-l-8 border-bioGreen pl-4">Wellness Shots</h2>
-                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 mb-16">
+                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 mb-16">
                             {wellnessShots.map((item, index) => (
-                                <div key={`shot-${index}`} className="bg-white px-3 py-3 shadow-sm border border-gray-100 flex flex-col">
+                                <div key={`shot-${index}`} className="bg-white px-3 py-3 shadow-xs border border-gray-100 flex flex-col">
                                     <img src={item.img} alt={item.name} className="w-32 h-auto mx-auto mb-1" />
                                     <h4 className="font-bold text-gray-800 mb-2 h-10 line-clamp-2 capitalize text-sm">{item.name}</h4>
                                     <p className="text-xs text-gray-500 mb-1">{item.qty}</p>
@@ -286,9 +286,9 @@ export default function OrderPage() {
                     {/* Vitamine Water */}
                     <div>
                         <h2 className="text-3xl font-black italic mb-8 border-l-8 border-bioGreen pl-4">Vitamine Water</h2>
-                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 mb-16">
+                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 mb-16">
                             {vitamineWater.map((item, index) => (
-                                <div key={`vitawater-${index}`} className="bg-white px-3 py-3 shadow-sm border border-gray-100 flex flex-col">
+                                <div key={`vitawater-${index}`} className="bg-white px-3 py-3 shadow-xs border border-gray-100 flex flex-col">
                                     <img src={item.img} alt={item.name} className="w-32 h-auto mx-auto mb-4" />
                                     <h4 className="font-bold text-gray-800 mb-1 line-clamp-2 capitalize text-sm">{item.name}</h4>
                                     <p className="text-xs text-gray-500 mb-1">1000 ML</p>
@@ -307,12 +307,12 @@ export default function OrderPage() {
                     {/* Cleanse & Heal Set */}
                     <div>
                         <h2 className="text-3xl font-black italic mb-8 border-l-8 border-bioGreen pl-4">Cleanse & Heal Set</h2>
-                        <div className="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 flex flex-col lg:flex-row items-center gap-6 mb-16">
+                        <div className="bg-white p-6 shadow-xs border border-gray-100 flex flex-col lg:flex-row items-center gap-6 mb-16">
                             <div className="flex-shrink-0 grid grid-cols-3 gap-4">
                                 {cleanseAndHeal.map((item, index) => (
                                     <div key={`cleanse-${index}`}>
-                                    <img src={item.img} alt={item.name} className="w-24 h-auto" />
-                                    <p className="text-xs text-center text-gray-500 mb-1">{item.info}</p>
+                                        <img src={item.img} alt={item.name} className="w-24 h-auto" />
+                                        <p className="text-xs text-center text-gray-500 mb-1">{item.info}</p>
 
                                     </div>
                                 ))}
@@ -325,7 +325,7 @@ export default function OrderPage() {
                             <div className="flex-shrink-0 w-full lg:w-auto">
                                 <button
                                     onClick={() => { addItem({ id: 'cleanse-set', name: 'Cleanse & Heal Set', price: 850, quantity: 1, img: cleanseAndHeal[0].img }); triggerToast() }}
-                                    className="w-full bg-bioGreen h-12 rounded-full text-white text-sm hover:bg-bioGreen hover:text-white transition-colors"
+                                    className="w-full bg-bioGreen h-12 px-6 rounded-full text-white text-sm hover:bg-bioGreen hover:text-white transition-colors"
                                 >
                                     In winkelmandje
                                 </button>
@@ -336,11 +336,12 @@ export default function OrderPage() {
                     {/* Sappenkuur */}
                     <div>
                         <h2 className="text-3xl font-black italic mb-8 border-l-8 border-bioGreen pl-4">Sappenkuur</h2>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-2">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 mb-2">
                             {sappenkuur.map((item, index) => (
-                                <div key={`kuur-${index}`} className="bg-white p-4 rounded-3xl shadow-sm border border-gray-100 flex flex-col">
+                                <div key={`kuur-${index}`} className="bg-white p-4 shadow-xs border border-gray-100 flex flex-col">
                                     <h3 className="font-black text-lg text-bioGreen mb-2">{item.d}</h3>
-                                    <p className="text-xs text-gray-600 mb-1 flex-grow">{item.i}</p>
+                                    <h4 className="font-bold text-sm text-gray-800 mb-2">{item.i}</h4>
+                                    <p className="text-xs text-gray-600 mb-1 flex-grow">{item.qty}</p>
                                     <p className="text-sm font-black mb-3">SRD {item.p}</p>
 
                                     <button
