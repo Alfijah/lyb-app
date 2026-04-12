@@ -141,20 +141,20 @@ export default function OrderPage() {
                         <motion.div
                             initial={{ opacity: 0, y: -20 }}
                             animate={{ opacity: 1, y: 0 }}
-                            className="relative w-full bg-gradient-to-r from-yellow-400 to-orange-500 p-8 overflow-hidden flex flex-col md:flex-row items-center justify-between"
+                            className="relative w-full bg-gradient-to-r from-yellow-400 to-orange-500 py-8 overflow-hidden flex flex-col md:flex-row items-center justify-between"
                         >
                             {/* Decoratieve Sparkles op achtergrond */}
                             <IoSparklesOutline className="absolute left-4 top-4 text-white/20 text-6xl rotate-12" />
                             <IoSparklesOutline className="absolute right-10 bottom-2 text-white/10 text-9xl -rotate-12" />
 
                             <div className="relative z-10 text-center md:text-left">
-                                <span className="bg-white/20 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest border border-white/30">
+                                <span className="bg-white/20 text-white text-[10px] font-black px-2 py-1 rounded-full uppercase tracking-widest border border-white/30">
                                     Tijdelijke Actie Alleen Op de Website
                                 </span>
-                                <h2 className="text-white text-3xl md:text-4xl font-black mt-3 drop-shadow-md normal">
+                                <h2 className="text-white text-3xl md:text-4xl font-black px-4 mt-3 drop-shadow-md normal">
                                     Ontvang een Gratis Kraskaart! 🎁
                                 </h2>
-                                <p className="text-white/90 font-bold mt-2 text-sm md:text-base">
+                                <p className="text-white/90 font-bold px-4 mt-2 text-sm md:text-base">
                                     Bij elke bestelling boven de <span className="text-white underline underline-offset-4">SRD 500</span>. Wat ga jij winnen?
                                 </p>
                             </div>
